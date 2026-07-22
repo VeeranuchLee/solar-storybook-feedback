@@ -1,0 +1,1648 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ari &amp; Dot · Page 1 — The Question in the Night Sky</title>
+<style>
+/* ============================================================
+   Page 1 — promoted rebuild, owner-approved 2026-07-22.
+
+   Standalone by design: this production page owns its exact layer stack,
+   interaction state machines, character voices and optional sound cues;
+   it does not load the older shared overlay engine.
+
+   Every family below is ported from its owner-approved isolated
+   prototype in qc/. Ports are verbatim except for:
+     - ids made unique across families (poster vs toy rocket, etc.);
+     - the debug control bars replaced by the storybook toolbar;
+     - one shared reduceMotion flag instead of six matchMedia reads;
+     - px travel values converted to % of the stage so the approved
+       look at the 1152 px prototype width scales to any stage size.
+
+   Layer order follows PAGE-01-REBUILD-HANDOFF.md §Phase 10 and the
+   prototype composite chain:
+     clean room -> glass-clipped Jupiter/moons -> curtains ->
+     foreground occluder -> desk-globe sphere -> poster -> orrery -> wall drawings ->
+     toy rocket -> book -> Ari -> Dot -> lamp light -> UI.
+   ============================================================ */
+
+:root{
+  --stage-max-w:1400px;
+  --ink:#f4f1ea;
+  --panel:rgba(18,20,34,.62);
+  --accent:#ffd67a;
+  --focus:#8fd0ff;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#05060d;color:var(--ink);
+  font-family:"Baloo 2",ui-rounded,"Segoe UI",system-ui,-apple-system,sans-serif;
+  overscroll-behavior:none;-webkit-tap-highlight-color:transparent}
+.book{min-height:100%;display:flex;align-items:center;justify-content:center}
+
+/* ---- Stage: fixed 3:2 landscape, letterboxed. Every full-stage asset
+   is 1536x1024, so object-fit:fill maps 1:1 with no distortion. ---- */
+.stage{
+  position:relative;width:min(100vw,150vh,var(--stage-max-w));aspect-ratio:3/2;
+  max-height:100vh;overflow:hidden;border-radius:14px;isolation:isolate;
+  background:radial-gradient(120% 90% at 78% 18%,#2a2350 0%,#171636 42%,#0b0b1e 78%,#06060f 100%);
+  box-shadow:0 24px 80px rgba(0,0,0,.6);
+}
+.full-stage{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;
+  pointer-events:none;user-select:none}
+.room{z-index:0}
+
+/* ============================================================
+   1. Window portal — Jupiter + four Galilean moons  (qc/page-01-jupiter.html)
+   The clip lets the fabric overlap the wooden jamb while the sky
+   stays inside the glass.
+   ============================================================ */
+.window-portal{position:absolute;inset:0;z-index:1;overflow:hidden;container-type:size;
+  clip-path:polygon(63.802% 3.418%,85.026% .391%,96.615% .391%,96.615% 56.152%,63.802% 52.246%)}
+.celestial{position:absolute;pointer-events:none;opacity:0}
+.celestial img{display:block;width:100%;height:auto}
+.jupiter{
+  left:78.255%;top:22.168%;width:13.3%;z-index:3;
+  transform:translate(calc(-50% - .781cqw),calc(-50% - 2.637cqh)) scale(.635);
+  filter:brightness(.68) saturate(.7) contrast(.92);
+  transition:opacity 420ms ease,transform 1100ms cubic-bezier(.2,.8,.2,1),filter 1100ms ease;
+}
+.moon{z-index:2;filter:brightness(.68) saturate(.76);
+  transform:translate(calc(-50% + var(--sx)),calc(-50% + var(--sy))) scale(.62);
+  transition:transform 1000ms cubic-bezier(.2,.8,.2,1),opacity 560ms ease}
+.moon-io{left:84.505%;top:23.438%;width:2.36%;z-index:5;--sx:-6.25cqw;--sy:-1.27cqh}
+.moon-europa{left:70.703%;top:20.605%;width:1.98%;--sx:7.552cqw;--sy:1.563cqh}
+.moon-ganymede{left:86.849%;top:18.555%;width:2.87%;--sx:-8.594cqw;--sy:3.613cqh}
+.moon-callisto{left:68.359%;top:26.758%;width:2.51%;--sx:9.896cqw;--sy:-4.59cqh}
+
+.stage[data-curtain="open"][data-jupiter="distant"] .jupiter{
+  opacity:1;transform:translate(calc(-50% - .781cqw),calc(-50% - 2.637cqh)) scale(.635)}
+.stage[data-curtain="open"][data-jupiter="active"] .jupiter,
+.stage[data-curtain="open"][data-jupiter="settled"] .jupiter{
+  opacity:1;transform:translate(-50%,-50%) scale(1);
+  filter:brightness(.78) saturate(.8) contrast(.96)}
+.stage[data-curtain="open"][data-jupiter="active"] .moon,
+.stage[data-curtain="open"][data-jupiter="settled"] .moon{
+  opacity:1;transform:translate(-50%,-50%) scale(1)}
+.stage[data-curtain="open"][data-jupiter="active"] .moon-europa,
+.stage[data-curtain="open"][data-jupiter="settled"] .moon-europa{transition-delay:90ms}
+.stage[data-curtain="open"][data-jupiter="active"] .moon-ganymede,
+.stage[data-curtain="open"][data-jupiter="settled"] .moon-ganymede{transition-delay:180ms}
+.stage[data-curtain="open"][data-jupiter="active"] .moon-callisto,
+.stage[data-curtain="open"][data-jupiter="settled"] .moon-callisto{transition-delay:270ms}
+
+/* ============================================================
+   2. Curtains + foreground occluder + desk globe + night light
+   ============================================================ */
+.curtain{z-index:2;opacity:0;transition:opacity 260ms ease}
+.stage[data-curtain="closed"] .curtain[data-pose="closed"],
+.stage[data-curtain="mid"]    .curtain[data-pose="mid"],
+.stage[data-curtain="open"]   .curtain[data-pose="open"]{opacity:1}
+.foreground{z-index:3}
+.desk-globe-sphere{position:absolute;left:89.0625%;top:48.535156%;width:10.15625%;
+  aspect-ratio:156/154;z-index:3;pointer-events:none;user-select:none;
+  background-image:url("assets/page-01/desk-globe-axial-sprite-v3.png");background-repeat:no-repeat;
+  background-size:1200% 100%;background-position:18.181818% 0}
+.desk-globe-hardware{z-index:3;pointer-events:none;user-select:none}
+.night-light{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;
+  mix-blend-mode:screen;transition:opacity 420ms ease;
+  background:radial-gradient(43% 50% at 78% 24%,rgba(88,150,255,.13),rgba(58,108,226,.035) 44%,transparent 72%)}
+.stage[data-curtain="mid"]  .night-light{opacity:.45}
+.stage[data-curtain="open"] .night-light{opacity:1}
+
+/* ============================================================
+   3. Poster + poster rocket  (qc/page-01-poster.html)
+   ============================================================ */
+.poster-base{z-index:5}
+.poster-smoke{z-index:6;opacity:0}
+.flight-group{position:absolute;inset:0;z-index:7;transform-origin:36.5% 18.7%;pointer-events:none}
+.flight-group .trail{z-index:1;opacity:0}
+.flight-group .flame{z-index:2;opacity:0}
+.flight-group .rocket{z-index:3;opacity:1}
+.stage[data-poster-state="empty"] .flight-group{opacity:0}
+
+/* ============================================================
+   4. Shelf orrery  (qc/page-01-orrery.html)
+   ============================================================ */
+.arm{position:absolute;inset:0;transform-origin:23.177083% 19.238281%;pointer-events:none}
+.arm-orange{z-index:8}
+.arm-upper{z-index:9}
+.orrery-base-center{z-index:10}
+.arm-lower{z-index:11}
+.orrery-front-mask{z-index:12}
+.shelf-front{z-index:13}
+.planet-glow{position:absolute;border-radius:50%;transform:translate(-50%,-50%);
+  opacity:.08;mix-blend-mode:screen;filter:blur(2px);pointer-events:none}
+.arm-orange .planet-glow{left:27.245%;top:17.519%;width:3.15%;aspect-ratio:1;
+  background:radial-gradient(circle,#fff4bd 0 8%,#ffb43caa 28%,#ff8c1b35 56%,transparent 75%)}
+.arm-upper .planet-glow{left:26.485%;top:18.110%;width:2.75%;aspect-ratio:1;
+  background:radial-gradient(circle,#fff8d4 0 8%,#ffd879a6 30%,#ffc4522e 58%,transparent 75%)}
+.arm-lower .planet-glow{left:25.716%;top:18.415%;width:2.25%;aspect-ratio:1;
+  background:radial-gradient(circle,#ffffd6 0 8%,#dae276a0 30%,#b9c8502c 58%,transparent 75%)}
+
+/* ============================================================
+   5. Taped wall drawings  (qc/page-01-wall-drawings.html)
+   ============================================================ */
+.paper-group{position:absolute;inset:0;pointer-events:none;will-change:transform,filter}
+.paper-group.drawing-rocket{transform-origin:47.005208% 10.351563%}
+.paper-group.drawing-saturn{transform-origin:46.09375% 23.730469%}
+.paper-shadow{z-index:14}
+.paper-group{z-index:15}
+.tape{z-index:16}
+
+/* ============================================================
+   6. Floor toy rocket  (qc/page-01-toy-rocket.html)
+   ============================================================ */
+.toy-contact{z-index:17}
+.toy-flame{z-index:18;opacity:0;transform-origin:79.101563% 89.746094%}
+.toy-body{z-index:19}
+.toy-smoke{z-index:20;opacity:0;transform-origin:80.729167% 90.625%}
+.engine-glow{position:absolute;z-index:18;left:79.101563%;top:89.746094%;width:3.2%;
+  aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);opacity:0;
+  background:radial-gradient(circle,#fff4c8 0 7%,#ffc65ecb 20%,#ff8e2b58 48%,transparent 72%);
+  filter:blur(1px);mix-blend-mode:screen;pointer-events:none}
+
+/* ============================================================
+   7. Book (static scenery, by owner decision), Ari, Dot
+      (qc/page-01-ari-dot-book-lamp-v1.html)
+   ============================================================ */
+.layer{position:absolute;transform:translate(-50%,-50%);pointer-events:none;
+  will-change:transform,opacity}
+.layer img{display:block;width:100%;height:auto;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.35))}
+.layer.hidden{opacity:0}
+#book{z-index:21}
+#ari-shadow{z-index:22}
+#ari{position:absolute;inset:0;z-index:23;pointer-events:none}
+#ari .ari-pose{opacity:1}
+#ari .ari-pose.hidden{opacity:0}
+#dot{z-index:24}
+.layer.gleam img{animation:objGleam 11s ease-in-out infinite}
+#dot img{animation-delay:2.6s}
+
+/* Dot's greeting bubble (decorative; the wave + beep carry the meaning) */
+.speech{position:absolute;transform:translate(-50%,-100%);z-index:27;
+  background:#fff;color:#243;padding:8px 12px;border-radius:14px;font-weight:700;
+  font-size:14px;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.3);opacity:0;
+  pointer-events:none;transition:opacity .3s ease,transform .3s ease}
+.speech::after{content:"";position:absolute;left:24px;bottom:-8px;
+  border:8px solid transparent;border-top-color:#fff;border-bottom:0}
+.speech.show{opacity:1;transform:translate(-50%,-115%)}
+
+/* ---- Lamp lighting: local warm light + falloff, never a flat dark box ---- */
+.lamp-overlay{position:absolute;inset:0;pointer-events:none;opacity:0}
+#room-dark{z-index:25;
+  background:radial-gradient(42% 46% at 79% 30%,rgba(3,5,18,0) 0%,rgba(3,5,18,.12) 55%,rgba(3,5,18,.62) 100%)}
+#lamp-glow{z-index:25;mix-blend-mode:screen;
+  background:radial-gradient(24% 30% at 6% 47%,rgba(255,196,110,.75) 0%,rgba(255,170,80,.28) 45%,rgba(255,150,60,0) 72%)}
+#lamp-dark{z-index:26;
+  background:radial-gradient(20% 26% at 6% 50%,rgba(4,6,18,.85) 0%,rgba(4,6,18,.35) 55%,rgba(4,6,18,0) 75%)}
+
+/* ============================================================
+   8. Hotspots — invisible at rest, keyboard focusable, no rings.
+   ============================================================ */
+.hotspot{position:absolute;z-index:30;border:0;padding:0;background:transparent;
+  color:transparent;cursor:pointer;border-radius:14px;font:inherit}
+.hotspot.centred{transform:translate(-50%,-50%)}
+.hotspot[aria-disabled="true"]{cursor:default}
+.hotspot:focus-visible{outline:3px solid var(--focus);outline-offset:2px;
+  background:rgba(143,208,255,.08)}
+/* Curtain grabs track the fabric so they never cover Jupiter once open. */
+.curtain-hit{top:0;height:52%}
+.curtain-hit.left{left:56%;width:20%}
+.curtain-hit.right{right:0;width:20%}
+.stage[data-curtain="mid"]  .curtain-hit.left,
+.stage[data-curtain="mid"]  .curtain-hit.right{width:17%}
+.stage[data-curtain="open"] .curtain-hit.left{width:12.5%}
+.stage[data-curtain="open"] .curtain-hit.right{width:12%}
+/* Jupiter's grab lives inside the clipped portal, so it can never be
+   activated through the wall or the closed fabric. */
+.jupiter-hit{position:absolute;left:69.2%;top:7%;width:17.8%;height:31%;z-index:8;
+  opacity:0;cursor:pointer;border:0;background:transparent}
+.jupiter-hit:focus-visible{opacity:1;outline:3px solid var(--focus);outline-offset:-3px;
+  border-radius:18px;background:rgba(143,208,255,.08)}
+
+/* ============================================================
+   9. Story text and settings (real HTML: sharp and translatable).
+   ============================================================ */
+.storycard{position:absolute;left:4%;bottom:5%;max-width:42%;z-index:35;
+  pointer-events:none;background:var(--panel);backdrop-filter:blur(6px);color:var(--ink);
+  padding:16px 20px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.storycard h1{margin:0 0 6px;font-size:clamp(18px,2.4vw,30px);line-height:1.1}
+.storycard p{margin:0;font-size:clamp(13px,1.5vw,18px);color:#e7e3f5;opacity:.95}
+.story-overlay{position:absolute;inset:0;z-index:50;display:flex;align-items:center;
+  justify-content:flex-start;padding:4%;pointer-events:auto;
+  background:linear-gradient(90deg,rgba(4,8,22,.78),rgba(4,8,22,.50) 52%,rgba(4,8,22,.26));
+  backdrop-filter:blur(2px)}
+.story-overlay[hidden]{display:none}
+.story-panel{position:relative;width:min(46%,590px);max-height:88%;overflow:auto;
+  color:#f8f2df;background:linear-gradient(155deg,rgba(9,24,49,.97),rgba(13,18,43,.96));
+  border:1px solid rgba(255,215,122,.45);border-radius:22px;padding:clamp(18px,2.5vw,34px);
+  box-shadow:0 22px 70px rgba(0,0,0,.65),inset 0 1px rgba(255,255,255,.08)}
+.story-heading{display:flex;align-items:flex-start;gap:14px;padding-right:34px}
+.story-number{flex:0 0 auto;display:grid;place-items:center;width:clamp(34px,4vw,52px);
+  aspect-ratio:1;border-radius:50%;background:#ffd257;color:#17203a;font-weight:900;
+  font-size:clamp(20px,2.7vw,34px);box-shadow:0 3px 12px rgba(0,0,0,.32)}
+.story-panel h2{margin:0;color:#ffd66d;font-size:clamp(23px,3.1vw,42px);line-height:1.02}
+.story-copy{margin-top:clamp(12px,1.8vw,22px);font-size:clamp(13px,1.55vw,20px);line-height:1.38}
+.story-copy p{margin:.72em 0;padding:3px 8px;border-radius:9px;transition:background 160ms,color 160ms}
+.story-copy p.reading{background:rgba(143,208,255,.15);color:#fff}
+.story-copy .ari-line{font-style:italic}
+.story-copy .beeps{font-weight:800;letter-spacing:.03em}
+.story-copy .dot-line{color:#ffd66d;font-weight:900;font-size:1.15em}
+.story-actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.story-actions button,.story-close{border:1px solid rgba(255,255,255,.22);border-radius:12px;
+  background:rgba(255,255,255,.1);color:#fff;font:inherit;font-weight:800;cursor:pointer}
+.story-actions button{padding:10px 15px}
+.story-actions button.primary{background:#ffd66d;color:#17203a;border-color:#ffd66d}
+.story-close{position:absolute;right:12px;top:12px;width:38px;height:38px;font-size:25px;line-height:1}
+.story-actions button:focus-visible,.story-close:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.pagenum{position:absolute;top:3%;left:3%;z-index:35;pointer-events:none;font-weight:700;
+  opacity:.6;font-size:14px;background:var(--panel);padding:4px 12px;border-radius:20px}
+.settings{position:absolute;top:3%;right:3%;z-index:35;display:flex;gap:8px}
+.settings button{width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.18);
+  background:rgba(10,12,24,.6);color:#fff;cursor:pointer;display:grid;place-items:center;
+  backdrop-filter:blur(4px)}
+.settings button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.settings button[aria-pressed="true"]{background:var(--accent);color:#1a1330;border-color:var(--accent)}
+.settings svg{width:22px;height:22px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+@keyframes objGleam{
+  0%,88%,100%{filter:drop-shadow(0 8px 18px rgba(0,0,0,.35))}
+  94%{filter:drop-shadow(0 8px 18px rgba(0,0,0,.35)) drop-shadow(0 0 16px rgba(255,230,163,.6)) brightness(1.09)}}
+
+/* ---- Reduced motion: large travel is replaced by brief fades and
+   instantaneous pose swaps in the handlers; here we stop the ambient
+   loops and the CSS transitions that carry motion. ---- */
+body.reduce-motion .layer.gleam img{animation:none !important}
+body.reduce-motion .curtain,
+body.reduce-motion .celestial,
+body.reduce-motion .moon,
+body.reduce-motion .jupiter,
+body.reduce-motion .night-light{transition:none !important}
+@media (prefers-reduced-motion: reduce){
+  .layer.gleam img{animation:none}
+  .curtain,.celestial,.moon,.jupiter,.night-light{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="book">
+  <div class="stage" id="stage" role="group"
+       data-curtain="closed" data-jupiter="hidden" data-poster-state="ready"
+       data-orrery-state="idle" data-globe-state="idle" data-drawing-state="idle" data-rocket-state="idle"
+       aria-busy="false"
+       aria-label="Page 1. Ari's bedroom at night. Open the curtains, then tap what you like.">
+
+    <!-- 0 · clean master plate -->
+    <img class="full-stage room" src="assets/page-01/bedroom-base-clean.png"
+         alt="Ari's bedroom at night: bed, shelf, desk and a wide window">
+
+    <!-- 1 · glass-clipped night sky: Jupiter and the four Galilean moons -->
+    <div class="window-portal">
+      <div class="celestial moon moon-ganymede" aria-hidden="true"><img src="assets/page-01/moon-ganymede-v2.png" alt=""></div>
+      <div class="celestial moon moon-europa"   aria-hidden="true"><img src="assets/page-01/moon-europa-v2.png" alt=""></div>
+      <div class="celestial moon moon-callisto" aria-hidden="true"><img src="assets/page-01/moon-callisto-v2.png" alt=""></div>
+      <div class="celestial jupiter"            aria-hidden="true"><img src="assets/page-01/jupiter-window-v2.png" alt=""></div>
+      <div class="celestial moon moon-io"       aria-hidden="true"><img src="assets/page-01/moon-io-v2.png" alt=""></div>
+      <button id="jupiter-hit" class="jupiter-hit" type="button" disabled
+              aria-label="Bring Jupiter closer and reveal its four moons"></button>
+    </div>
+
+    <!-- 2 · curtains, overlapping the wooden jamb -->
+    <img class="full-stage curtain" data-pose="closed" src="assets/page-01/curtain-left-closed-v2.png" alt="">
+    <img class="full-stage curtain" data-pose="closed" src="assets/page-01/curtain-right-closed-v2.png" alt="">
+    <img class="full-stage curtain" data-pose="mid"    src="assets/page-01/curtain-left-mid-v2.png" alt="">
+    <img class="full-stage curtain" data-pose="mid"    src="assets/page-01/curtain-right-mid-v2.png" alt="">
+    <img class="full-stage curtain" data-pose="open"   src="assets/page-01/curtain-left-open-v2.png" alt="">
+    <img class="full-stage curtain" data-pose="open"   src="assets/page-01/curtain-right-open-v2.png" alt="">
+
+    <!-- 3 · permanent furniture occluder + exact moving desk-globe sphere + window night light -->
+    <img class="full-stage foreground" src="assets/page-01/bedroom-foreground-v2.png" alt="">
+    <div id="desk-globe-sphere" class="desk-globe-sphere" aria-hidden="true"></div>
+    <img class="full-stage desk-globe-hardware" src="assets/page-01/desk-globe-hardware-v3.png" alt="" aria-hidden="true">
+    <div class="night-light" aria-hidden="true"></div>
+
+    <!-- 4 · wall poster (fixed) and its rocket (launches) -->
+    <img class="full-stage poster-base" src="assets/page-01/poster-base-perspective-no-rocket.png"
+         alt="Dark navy poster reading Dream Big, Explore More">
+    <img id="poster-smoke" class="full-stage poster-smoke" src="assets/page-01/poster-smoke-small.png" alt="">
+    <div id="flight-group" class="flight-group" aria-hidden="true">
+      <img id="trail-01" class="full-stage trail" src="assets/page-01/poster-spark-trail-01.png" alt="">
+      <img id="trail-02" class="full-stage trail" src="assets/page-01/poster-spark-trail-02.png" alt="">
+      <img id="poster-flame" class="full-stage flame" src="assets/page-01/poster-rocket-flame.png" alt="">
+      <img id="poster-rocket" class="full-stage rocket" src="assets/page-01/poster-rocket-perspective.png" alt="">
+    </div>
+
+    <!-- 5 · shelf orrery: rear arms, fixed Saturn, front arm, occlusion masks -->
+    <div id="arm-orange" class="arm arm-orange" aria-hidden="true">
+      <span class="planet-glow"></span>
+      <img class="full-stage" src="assets/page-01/orrery-arm-orange.png" alt="">
+    </div>
+    <div id="arm-upper" class="arm arm-upper" aria-hidden="true">
+      <span class="planet-glow"></span>
+      <img class="full-stage" src="assets/page-01/orrery-arm-tan-upper.png" alt="">
+    </div>
+    <img class="full-stage orrery-base-center" src="assets/page-01/orrery-base-center.png"
+         alt="Blue and gold Saturn orrery on a dark pedestal">
+    <div id="arm-lower" class="arm arm-lower" aria-hidden="true">
+      <span class="planet-glow"></span>
+      <img class="full-stage" src="assets/page-01/orrery-arm-tan-lower.png" alt="">
+    </div>
+    <img class="full-stage orrery-front-mask" src="assets/page-01/orrery-front-mask.png" alt="">
+    <img class="full-stage shelf-front" src="assets/page-01/shelf-front-mask.png" alt="">
+
+    <!-- 6 · taped wall drawings: tape stays on the wall, paper slips free -->
+    <img id="drawing-rocket-shadow" class="full-stage paper-shadow" src="assets/page-01/drawing-rocket-shadow.png" alt="">
+    <div id="drawing-rocket-group" class="paper-group drawing-rocket" aria-hidden="true">
+      <img class="full-stage" src="assets/page-01/drawing-rocket-rest.png" alt="">
+    </div>
+    <img class="full-stage tape" src="assets/page-01/drawing-rocket-tape.png" alt="">
+
+    <img id="drawing-saturn-shadow" class="full-stage paper-shadow" src="assets/page-01/drawing-saturn-shadow.png" alt="">
+    <div id="drawing-saturn-group" class="paper-group drawing-saturn" aria-hidden="true">
+      <img class="full-stage" src="assets/page-01/drawing-saturn-rest.png" alt="">
+    </div>
+    <img class="full-stage tape" src="assets/page-01/drawing-saturn-tape.png" alt="">
+
+    <!-- 7 · floor toy rocket: stationary, light before flame, smoke after ignition -->
+    <img class="full-stage toy-contact" src="assets/page-01/toy-rocket-contact-shadow-v1.png" alt="">
+    <span id="engine-glow" class="engine-glow" aria-hidden="true"></span>
+    <img id="toy-flame" class="full-stage toy-flame" src="assets/page-01/toy-rocket-flame-v1.png" alt="">
+    <img class="full-stage toy-body" src="assets/page-01/toy-rocket-body-v1.png"
+         alt="Small red and cream toy rocket standing on the floor">
+    <img id="toy-smoke" class="full-stage toy-smoke" src="assets/page-01/toy-rocket-smoke-v1.png" alt="">
+
+    <!-- 8 · static astronomy book; its hotspot opens and reads the real story -->
+    <div class="layer" id="book" style="left:49.8%;top:73.7%;width:22.8%">
+      <img src="assets/page-01/book-open.png" alt="Open astronomy book resting quietly on the bed">
+    </div>
+
+    <!-- 9 · characters -->
+    <img class="full-stage" id="ari-shadow" src="assets/page-01/ari-room-contact-shadow-v1.png" alt="">
+    <div id="ari">
+      <img class="full-stage ari-pose" id="ari-rest" src="assets/page-01/ari-room-rest-v1.png"
+           alt="Ari seated on the bed in star pyjamas">
+      <img class="full-stage ari-pose hidden" id="ari-wave" src="assets/page-01/ari-room-wave-v1.png" alt="">
+    </div>
+    <div class="layer gleam" id="dot" style="left:56%;top:64%;width:12%">
+      <img src="assets/page-01/dot-off.png" alt="Dot, a small friendly robot">
+    </div>
+    <div class="speech" id="dot-speech" style="left:56%;top:50%" aria-hidden="true"></div>
+
+    <!-- 10 · lamp lighting -->
+    <div id="room-dark" class="lamp-overlay" aria-hidden="true"></div>
+    <div id="lamp-glow" class="lamp-overlay" aria-hidden="true"></div>
+    <div id="lamp-dark" class="lamp-overlay" aria-hidden="true"></div>
+
+    <!-- 11 · hotspots (invisible at rest, correctly labelled, keyboard focusable) -->
+    <button id="curtain-hit-left"  class="hotspot curtain-hit left"  type="button" aria-label="Open or close the left curtain"></button>
+    <button id="curtain-hit-right" class="hotspot curtain-hit right" type="button" aria-label="Open or close the right curtain"></button>
+    <button id="poster-hit" class="hotspot" type="button" aria-label="Launch the poster rocket"
+            style="left:29.728%;top:1.729%;width:13.137%;height:32.533%"></button>
+    <button id="orrery-hit" class="hotspot" type="button" aria-label="Spin the shelf orrery"
+            style="left:17.2%;top:9.9%;width:12.8%;height:13.5%"></button>
+    <button id="drawing-rocket-hit" class="hotspot" type="button" aria-label="Let the rocket drawing drop and come back"
+            style="left:44.3%;top:9.4%;width:5.6%;height:12.8%"></button>
+    <button id="drawing-saturn-hit" class="hotspot" type="button" aria-label="Let the ringed-planet drawing drop and come back"
+            style="left:43.6%;top:23%;width:6%;height:12%"></button>
+    <button id="toy-rocket-hit" class="hotspot" type="button" aria-label="Power up the toy rocket"
+            style="left:74.4%;top:69.5%;width:9.6%;height:23.5%"></button>
+    <button id="ari-hit"  class="hotspot centred" type="button" aria-label="Wave to Ari"
+            style="left:33.7%;top:58.5%;width:20%;height:39%"></button>
+    <button id="dot-hit"  class="hotspot centred" type="button" aria-label="Wake Dot the robot"
+            style="left:56%;top:63%;width:11%;height:15%"></button>
+    <button id="lamp-hit" class="hotspot centred" type="button" aria-label="Bedside lamp" aria-pressed="true"
+            style="left:5.9%;top:52.5%;width:11%;height:23%"></button>
+    <button id="desk-globe-hit" class="hotspot" type="button" aria-label="Spin the desk globe slowly"
+            style="left:88.4%;top:47.5%;width:11.2%;height:17%"></button>
+    <button id="book-hit" class="hotspot centred" type="button"
+            aria-label="Open the story and read it aloud" aria-haspopup="dialog"
+            aria-controls="story-overlay" aria-expanded="false"
+            style="left:49.8%;top:73.7%;width:22.8%;height:18%"></button>
+
+    <!-- 12 · page furniture -->
+    <div class="pagenum" aria-hidden="true">1</div>
+    <div class="storycard">
+      <h1>The Question in the Night Sky</h1>
+      <p>Tap the open astronomy book to reveal and hear tonight’s story.</p>
+    </div>
+
+    <div id="story-overlay" class="story-overlay" hidden role="dialog" aria-modal="true"
+         aria-labelledby="story-title" aria-describedby="story-copy">
+      <article class="story-panel">
+        <button id="story-close" class="story-close" type="button" aria-label="Close the story">×</button>
+        <header class="story-heading">
+          <span class="story-number" aria-hidden="true">1</span>
+          <h2 id="story-title">The Question<br>in the Night Sky</h2>
+        </header>
+        <div id="story-copy" class="story-copy">
+          <p data-story-part="0">Ari couldn’t sleep. Jupiter was shining so bright outside the window! Ari opened a book about the solar system.</p>
+          <p data-story-part="1" class="ari-line">“It tells me the names—but not what it would really be like to visit them.”</p>
+          <p data-story-part="2"><span class="beeps">Beep! Beep!</span><br>A tiny robot woke up inside Ari’s toy rocket.</p>
+          <p data-story-part="3" class="dot-line">“Specialist mission accepted!”</p>
+        </div>
+        <div class="story-actions">
+          <button id="story-read" class="primary" type="button">Read the story again</button>
+          <button id="story-back" type="button">Back to the room</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="settings" role="toolbar" aria-label="Settings">
+      <button id="btn-sound" type="button" aria-label="Sound on or off" aria-pressed="true" title="Sound">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      </button>
+      <button id="btn-motion" type="button" aria-label="Motion on or off" aria-pressed="true" title="Motion">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-7 4 14 2-7h6"/></svg>
+      </button>
+      <button id="btn-replay" type="button" aria-label="Replay page" title="Replay">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+      </button>
+      <button id="btn-fullscreen" type="button" aria-label="Full screen" title="Full screen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+      </button>
+    </div>
+
+    <output id="state" class="sr-only" aria-live="polite">Curtains mostly closed. Open them to see what is outside.</output>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   Page 1 v2 — integrated interaction layer.
+
+   Each family keeps its own explicit state machine, its own run
+   token (so rapid repeated taps never stack copies), and its own
+   reduced-motion path. Families are independent: none of them
+   resets, hides or blocks another. The only cross-family rule is
+   the approved one — Jupiter is only reachable once the curtains
+   are open.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  const A = "assets/page-01/";
+  const stage = document.getElementById("stage");
+  const state = document.getElementById("state");
+  const mediaRM = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const $ = id => document.getElementById(id);
+
+  let reduceMotion = mediaRM.matches;
+  let soundOn = true;
+
+  const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms));
+  const nextPaint = () => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  const say = text => { state.value = text; };
+
+  /* Busy is tracked per family so the stage only reports aria-busy
+     while something is genuinely mid-animation. */
+  const busyFamilies = new Set();
+  function setBusy(family, value) {
+    if (value) busyFamilies.add(family); else busyFamilies.delete(family);
+    stage.setAttribute("aria-busy", String(busyFamilies.size > 0));
+  }
+
+  /* ---------- small optional WebAudio palette + character voices ---------- */
+  let actx = null;
+  function ac() { if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)(); return actx; }
+  function resumeAudio() { try { if (actx && actx.state === "suspended") actx.resume(); } catch (e) {} }
+  function tone(freq, dur, type = "sine", gain = 0.15, when = 0) {
+    if (!soundOn) return;
+    try {
+      const c = ac(), o = c.createOscillator(), g = c.createGain();
+      o.type = type; o.frequency.value = freq;
+      const t = c.currentTime + when;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(gain, t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g).connect(c.destination); o.start(t); o.stop(t + dur + 0.02);
+    } catch (e) {}
+  }
+  function sweep(from, to, dur, type = "sine", gain = .04, when = 0) {
+    if (!soundOn) return;
+    try {
+      const c = ac(), o = c.createOscillator(), g = c.createGain();
+      const t = c.currentTime + when;
+      o.type = type;
+      o.frequency.setValueAtTime(from, t);
+      o.frequency.exponentialRampToValueAtTime(Math.max(1, to), t + dur);
+      g.gain.setValueAtTime(.0001, t);
+      g.gain.exponentialRampToValueAtTime(gain, t + .025);
+      g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+      o.connect(g).connect(c.destination); o.start(t); o.stop(t + dur + .03);
+    } catch (e) {}
+  }
+  function noiseBurst(dur = .22, gain = .025, cutoff = 1200, when = 0, type = "bandpass") {
+    if (!soundOn) return;
+    try {
+      const c = ac(), frames = Math.max(1, Math.floor(c.sampleRate * dur));
+      const buffer = c.createBuffer(1, frames, c.sampleRate), data = buffer.getChannelData(0);
+      for (let i = 0; i < frames; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / frames);
+      const source = c.createBufferSource(), filter = c.createBiquadFilter(), g = c.createGain();
+      const t = c.currentTime + when;
+      source.buffer = buffer; filter.type = type; filter.frequency.value = cutoff; filter.Q.value = .7;
+      g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + .018);
+      g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+      source.connect(filter).connect(g).connect(c.destination); source.start(t); source.stop(t + dur + .02);
+    } catch (e) {}
+  }
+  function chime() { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.4, "sine", 0.1, i * 0.09)); }
+  function beep() { tone(880, 0.12, "square", 0.12); tone(1320, 0.12, "square", 0.1, 0.13); }
+  function curtainSfx(opening) {
+    noiseBurst(.46, .025, opening ? 900 : 650, 0, "lowpass");
+    sweep(opening ? 150 : 230, opening ? 230 : 140, .48, "sine", .018);
+  }
+  function spaceRevealSfx() {
+    [330, 495, 660, 990].forEach((f, i) => tone(f, .5, "sine", .035, i * .11));
+  }
+  function rocketSfx(strength = 1) {
+    noiseBurst(.48, .032 * strength, 720, 0, "lowpass");
+    sweep(105, 620, .52, "sawtooth", .022 * strength);
+  }
+  function gearSfx() {
+    [0, .12, .25, .41, .62].forEach((t, i) => tone(150 + i * 18, .055, "square", .025, t));
+    sweep(92, 138, .82, "triangle", .018);
+  }
+  function paperSfx() { noiseBurst(.31, .035, 1900, 0, "highpass"); }
+  function globeSfx() {
+    tone(150, .65, "sine", .025); tone(225, .52, "sine", .018, .08);
+    noiseBurst(.22, .014, 520, 0, "lowpass");
+  }
+  function toyChargeSfx() {
+    sweep(95, 280, .88, "triangle", .035);
+    [0, .22, .44, .66].forEach((t, i) => tone(420 + i * 70, .07, "square", .022, t));
+  }
+  function lampClick(on) {
+    tone(on ? 1500 : 650, 0.05, "square", 0.09);
+    if (on) { tone(160, 0.5, "sine", 0.05, 0.06); tone(320, 0.5, "sine", 0.03, 0.06); }
+  }
+  let speechVoices = [];
+  function refreshSpeechVoices() {
+    try { speechVoices = speechSynthesis.getVoices() || []; } catch (e) { speechVoices = []; }
+  }
+  function preferredVoice(role) {
+    refreshSpeechVoices();
+    const english = speechVoices.filter(v => !v.lang || /^en[-_]/i.test(v.lang));
+    const pool = english.length ? english : speechVoices;
+    const choices = role === "dot"
+      ? ["Zarvox", "Trinoids", "Whisper", "Fred", "Albert", "Ralph"]
+      : role === "narrator"
+        ? ["Eddy", "Reed", "Rocko", "Alex", "Aaron", "Arthur", "Junior"]
+        : ["Junior", "Eddy", "Reed", "Rocko", "Alex", "Aaron", "Arthur", "Ryan"];
+    for (const choice of choices) {
+      const voice = pool.find(v => v.name === choice || v.name.startsWith(`${choice} (`));
+      if (voice) return voice;
+    }
+    return pool.find(v => v.default) || pool[0] || null;
+  }
+  refreshSpeechVoices();
+  try { speechSynthesis.addEventListener?.("voiceschanged", refreshSpeechVoices); } catch (e) {}
+
+  function makeUtterance(text, role = "narrator") {
+    const u = new SpeechSynthesisUtterance(text);
+    const voice = preferredVoice(role);
+    if (voice) u.voice = voice;
+    if (role === "dot") {
+      u.rate = .84; u.pitch = .68; u.volume = .9;
+    } else if (role === "ari") {
+      u.rate = 1.03; u.pitch = 1.16; u.volume = .95;
+    } else {
+      u.rate = .96; u.pitch = 1.08; u.volume = .96;
+    }
+    return u;
+  }
+  function speakAloud(text, role = "ari") {
+    if (!soundOn || !("speechSynthesis" in window)) return;
+    try {
+      const u = makeUtterance(text, role);
+      if (role === "dot") {
+        tone(720, .045, "square", .045); tone(1040, .045, "square", .035, .07);
+      }
+      speechSynthesis.cancel(); speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+
+  /* ---------- cancellable timers, shared by the character family ---------- */
+  let timers = [];
+  function later(fn, ms) {
+    const id = window.setTimeout(() => { timers = timers.filter(t => t !== id); fn(); }, ms);
+    timers.push(id); return id;
+  }
+  function clearTimers() { timers.forEach(window.clearTimeout); timers = []; }
+
+  /* ============================================================
+     STORY · The static astronomy book opens the real Page 1 text.
+     Narration changes role for storyteller, Ari and Dot; the book art
+     itself stays completely still by owner decision.
+     ============================================================ */
+  const bookHit = $("book-hit");
+  const storyOverlay = $("story-overlay");
+  const storyClose = $("story-close");
+  const storyBack = $("story-back");
+  const storyRead = $("story-read");
+  const STORY_PARTS = [
+    { role: "narrator", text: "Ari couldn't sleep. Jupiter was shining so bright outside the window! Ari opened a book about the solar system." },
+    { role: "ari", text: "It tells me the names, but not what it would really be like to visit them." },
+    { role: "narrator", text: "Beep! Beep! A tiny robot woke up inside Ari's toy rocket." },
+    { role: "dot", text: "Specialist mission accepted!" }
+  ];
+  let storyRun = 0, storyOpen = false, storyBackgroundControls = [];
+
+  function clearStoryHighlight() {
+    storyOverlay.querySelectorAll("[data-story-part]").forEach(p => p.classList.remove("reading"));
+  }
+
+  function stopStoryNarration(message) {
+    ++storyRun;
+    try { speechSynthesis.cancel(); } catch (e) {}
+    clearStoryHighlight();
+    setBusy("story", false);
+    storyRead.textContent = "Read the story again";
+    storyRead.removeAttribute("aria-busy");
+    if (message) say(message);
+  }
+
+  function readStory() {
+    stopStoryNarration();
+    if (!soundOn) {
+      storyRead.textContent = "Turn sound on to listen";
+      say("The story is open. Turn sound on to hear it read aloud.");
+      return false;
+    }
+    if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+      storyRead.textContent = "Narration is unavailable";
+      say("The story is open, but this browser does not provide narration.");
+      return false;
+    }
+
+    const token = ++storyRun;
+    let index = 0;
+    setBusy("story", true);
+    storyRead.textContent = "Restart narration";
+    storyRead.setAttribute("aria-busy", "true");
+    say("Reading The Question in the Night Sky aloud.");
+
+    const next = () => {
+      if (token !== storyRun || !storyOpen) return;
+      if (index >= STORY_PARTS.length) {
+        clearStoryHighlight();
+        setBusy("story", false);
+        storyRead.textContent = "Read the story again";
+        storyRead.removeAttribute("aria-busy");
+        say("The Page 1 story is finished.");
+        return;
+      }
+      const partIndex = index++;
+      const part = STORY_PARTS[partIndex];
+      clearStoryHighlight();
+      const paragraph = storyOverlay.querySelector(`[data-story-part="${partIndex}"]`);
+      if (paragraph) paragraph.classList.add("reading");
+      if (partIndex === 2) beep();
+      if (part.role === "dot") {
+        tone(720, .045, "square", .045); tone(1040, .045, "square", .035, .07);
+      }
+      try {
+        const utterance = makeUtterance(part.text, part.role);
+        utterance.onend = next;
+        utterance.onerror = next;
+        speechSynthesis.speak(utterance);
+      } catch (e) { next(); }
+    };
+    next();
+    return true;
+  }
+
+  function storyReadAction() {
+    if (!soundOn) setSound(true);
+    return readStory();
+  }
+
+  function openStory() {
+    if (storyOpen) return readStory();
+    storyOpen = true;
+    storyOverlay.hidden = false;
+    stage.dataset.story = "open";
+    bookHit.setAttribute("aria-expanded", "true");
+    storyBackgroundControls = [...stage.querySelectorAll("button")]
+      .filter(button => !storyOverlay.contains(button))
+      .map(button => ({ button, disabled: button.disabled }));
+    storyBackgroundControls.forEach(({ button }) => { button.disabled = true; });
+    chime();
+    storyClose.focus();
+    return readStory();
+  }
+
+  function closeStory(restoreFocus = true) {
+    if (!storyOpen) return false;
+    storyOpen = false;
+    stopStoryNarration("The story closes and the bedroom is ready to explore.");
+    storyOverlay.hidden = true;
+    delete stage.dataset.story;
+    storyBackgroundControls.forEach(({ button, disabled }) => { button.disabled = disabled; });
+    storyBackgroundControls = [];
+    bookHit.setAttribute("aria-expanded", "false");
+    if (restoreFocus) bookHit.focus();
+    return true;
+  }
+
+  storyOverlay.addEventListener("click", event => {
+    if (event.target === storyOverlay) closeStory();
+  });
+  storyOverlay.addEventListener("keydown", event => {
+    if (event.key === "Escape") { event.preventDefault(); closeStory(); return; }
+    if (event.key !== "Tab") return;
+    const focusable = [storyClose, storyRead, storyBack];
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault(); last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault(); first.focus();
+    }
+  });
+
+  /* ============================================================
+     FAMILY 1 · Curtains  (primary interaction)
+     ============================================================ */
+  const curtainHits = [$("curtain-hit-left"), $("curtain-hit-right")];
+  let curtainBusy = false, curtainRun = 0;
+
+  function setCurtainBusy(value) {
+    curtainBusy = value;
+    setBusy("curtain", value);
+    curtainHits.forEach(b => b.setAttribute("aria-disabled", String(value)));
+  }
+
+  function settleCurtains(target) {
+    stage.dataset.curtain = target;
+    if (target === "open") showDistantJupiter();
+    setCurtainBusy(false);
+    say(target === "open"
+      ? "The curtains are open. A small Jupiter is out in the night sky."
+      : "The curtains are mostly closed.");
+  }
+
+  async function moveCurtains(target) {
+    if (curtainBusy) return;
+    setCurtainBusy(true);
+    const token = ++curtainRun;
+    if (target === "closed") { hideJupiter(); say("Closing the curtains."); }
+    else { say("Opening the curtains."); }
+    curtainSfx(target === "open");
+
+    if (reduceMotion) { settleCurtains(target); return; }
+
+    stage.dataset.curtain = "mid";
+    await wait(420);
+    if (token !== curtainRun) return;
+    stage.dataset.curtain = target;
+    await wait(520);
+    if (token !== curtainRun) return;
+    settleCurtains(target);
+  }
+
+  const toggleCurtains = () => moveCurtains(stage.dataset.curtain === "open" ? "closed" : "open");
+
+  /* ============================================================
+     FAMILY 2 · Jupiter and the four Galilean moons
+     ============================================================ */
+  const jupiterHit = $("jupiter-hit");
+  let jupiterBusy = false, jupiterRun = 0;
+
+  function setJupiterBusy(value) {
+    jupiterBusy = value;
+    setBusy("jupiter", value);
+    jupiterHit.setAttribute("aria-disabled", String(value));
+  }
+
+  function hideJupiter() {
+    ++jupiterRun;
+    setJupiterBusy(false);
+    stage.dataset.jupiter = "hidden";
+    jupiterHit.disabled = true;
+  }
+
+  function showDistantJupiter() {
+    stage.dataset.jupiter = "distant";
+    jupiterHit.disabled = false;
+    setJupiterBusy(false);
+  }
+
+  async function revealMoons() {
+    const allowed = stage.dataset.jupiter === "distant" || stage.dataset.jupiter === "settled";
+    if (curtainBusy || jupiterBusy || stage.dataset.curtain !== "open" || !allowed) return;
+    const token = ++jupiterRun;
+    const replaying = stage.dataset.jupiter === "settled";
+    setJupiterBusy(true);
+
+    if (reduceMotion) {
+      stage.dataset.jupiter = "settled";
+      setJupiterBusy(false);
+      say("Jupiter and its four moons — Io, Europa, Ganymede and Callisto — are here.");
+      return;
+    }
+
+    if (replaying) {
+      stage.dataset.jupiter = "distant";
+      say("Jupiter drifts back for another moon dance.");
+      await wait(900);
+      if (token !== jupiterRun || stage.dataset.curtain !== "open") return;
+    }
+
+    stage.dataset.jupiter = "active";
+    spaceRevealSfx();
+    say("Jupiter comes closer. Io, Europa, Ganymede and Callisto appear.");
+    await wait(1400);
+    if (token !== jupiterRun || stage.dataset.curtain !== "open" || stage.dataset.jupiter !== "active") return;
+    stage.dataset.jupiter = "settled";
+    setJupiterBusy(false);
+    say("The four moons settle around Jupiter.");
+  }
+
+  /* ============================================================
+     FAMILY 3 · Poster rocket — launches north-east, poster stays put
+     ============================================================ */
+  const posterHit = $("poster-hit");
+  const flightGroup = $("flight-group");
+  const posterRocket = $("poster-rocket");
+  const posterFlame = $("poster-flame");
+  const posterSmoke = $("poster-smoke");
+  const trail01 = $("trail-01"), trail02 = $("trail-02");
+  let posterRun = 0, posterAnimations = [];
+
+  const posterIs = value => stage.dataset.posterState === value;
+
+  function posterRemember(animation) {
+    posterAnimations.push(animation);
+    animation.finished.catch(() => {});
+    return animation;
+  }
+
+  function posterClear() {
+    for (const el of [flightGroup, posterRocket, posterFlame, posterSmoke, trail01, trail02]) {
+      el.getAnimations().forEach(a => a.cancel());
+      el.removeAttribute("style");
+    }
+    posterAnimations = [];
+  }
+
+  function setPosterState(value, message) {
+    stage.dataset.posterState = value;
+    setBusy("poster", value === "launching");
+    posterHit.setAttribute("aria-disabled", String(value === "launching"));
+    posterHit.setAttribute("aria-label",
+      value === "empty" ? "Send the poster rocket up again" : "Launch the poster rocket");
+    if (message) say(message);
+  }
+
+  function resetPoster(message) {
+    ++posterRun;
+    for (const a of posterAnimations) a.cancel();
+    posterClear();
+    setPosterState("ready", message);
+  }
+
+  async function launchReduced(token) {
+    posterRemember(posterFlame.animate(
+      [{ opacity: 0 }, { opacity: 1, offset: .35 }, { opacity: 0 }],
+      { duration: 280, fill: "both", easing: "ease-out" }));
+    posterRemember(posterSmoke.animate(
+      [{ opacity: 0, transform: "scale(.8)" }, { opacity: .75, offset: .45 }, { opacity: 0, transform: "scale(1.05)" }],
+      { duration: 280, fill: "both", easing: "ease-out" }));
+    posterRemember(trail01.animate(
+      [{ opacity: 0 }, { opacity: .65, offset: .45 }, { opacity: 0 }],
+      { duration: 280, fill: "both" }));
+    posterRemember(posterRocket.animate(
+      [{ opacity: 1 }, { opacity: 1, offset: .55 }, { opacity: 0 }],
+      { duration: 320, fill: "both", easing: "ease-in" }));
+    await wait(340);
+    if (token !== posterRun) return false;
+    posterClear();
+    setPosterState("empty", "The poster rocket has flown. Tap the poster to send it up again.");
+    return true;
+  }
+
+  async function launchPoster() {
+    if (!posterIs("ready")) return false;
+    const token = ++posterRun;
+    setPosterState("launching", "The poster rocket lights its engine.");
+    rocketSfx(.82);
+
+    if (reduceMotion) return launchReduced(token);
+
+    posterRemember(posterFlame.animate(
+      [
+        { opacity: 0, filter: "brightness(.8)" },
+        { opacity: .72, filter: "brightness(1)", offset: .45 },
+        { opacity: 1, filter: "brightness(1.15)" }
+      ],
+      { duration: 180, fill: "forwards", easing: "ease-out" }));
+    posterRemember(flightGroup.animate(
+      [
+        { transform: "translate(0, 0) rotate(0deg)" },
+        { transform: "translate(-.09%, .13%) rotate(-.7deg)", offset: .45 },
+        { transform: "translate(.17%, -.13%) rotate(.8deg)", offset: .72 },
+        { transform: "translate(0, 0) rotate(0deg)" }
+      ],
+      { delay: 140, duration: 220, fill: "both", easing: "ease-in-out" }));
+    posterRemember(posterSmoke.animate(
+      [
+        { opacity: 0, transform: "translate(0,0) scale(.72)" },
+        { opacity: .72, transform: "translate(-.09%,.13%) scale(.9)", offset: .35 },
+        { opacity: 0, transform: "translate(-.35%,.52%) scale(1.12)" }
+      ],
+      { delay: 280, duration: 520, fill: "both", easing: "ease-out" }));
+
+    await wait(360);
+    if (token !== posterRun) return false;
+    say("Lift off. The little rocket crosses the poster.");
+
+    posterRemember(trail01.animate(
+      [{ opacity: 0 }, { opacity: .85, offset: .24 }, { opacity: .46, offset: .7 }, { opacity: 0 }],
+      { duration: 760, fill: "both", easing: "ease-out" }));
+    posterRemember(trail02.animate(
+      [{ opacity: 0 }, { opacity: .72, offset: .28 }, { opacity: .82, offset: .58 }, { opacity: 0 }],
+      { delay: 220, duration: 870, fill: "both", easing: "ease-out" }));
+    posterRemember(posterFlame.animate(
+      [
+        { opacity: 1, filter: "brightness(1.15)" },
+        { opacity: .8, filter: "brightness(1)", offset: .58 },
+        { opacity: 0, filter: "brightness(.9)" }
+      ],
+      { duration: 1180, fill: "both", easing: "ease-in" }));
+    posterRemember(flightGroup.animate(
+      [
+        { transform: "translate(0, 0)" },
+        { transform: "translate(4%, -3.5%)", offset: .32 },
+        { transform: "translate(11%, -10%)", offset: .58 },
+        { transform: "translate(24%, -30%)", opacity: 0 }
+      ],
+      { duration: 1180, fill: "both", easing: "cubic-bezier(.55, 0, .9, .45)" }));
+
+    await wait(1240);
+    if (token !== posterRun) return false;
+    posterClear();
+    setPosterState("empty", "The poster rocket has flown. Tap the poster to send it up again.");
+    return true;
+  }
+
+  /* The empty starfield is durable: the rocket only comes back on an
+     explicit replay of the poster (or the page), never by itself. */
+  async function posterActivate() {
+    if (posterIs("ready")) return launchPoster();
+    if (!posterIs("empty")) return false;
+    resetPoster("The poster rocket is back on its starfield.");
+    await nextPaint();
+    if (!posterIs("ready")) return false;
+    return launchPoster();
+  }
+
+  /* ============================================================
+     FAMILY 4 · Shelf orrery — linked mechanical arms, fixed Saturn
+     ============================================================ */
+  const orreryHit = $("orrery-hit");
+  const arms = { orange: $("arm-orange"), upper: $("arm-upper"), lower: $("arm-lower") };
+  const initialAngles = { orange: 0, upper: -135, lower: 175 };
+  const turnDeltas = { orange: 540, upper: -420, lower: 660 };
+  const glowPeaks = { orange: .70, upper: .62, lower: .56 };
+  let angles = { ...initialAngles };
+  let orreryRun = 0, orreryAnimations = [];
+
+  const orreryIs = value => stage.dataset.orreryState === value;
+
+  function orreryRemember(animation) {
+    orreryAnimations.push(animation);
+    animation.finished.catch(() => {});
+    return animation;
+  }
+
+  function orreryCancel() {
+    for (const a of orreryAnimations) a.cancel();
+    for (const arm of Object.values(arms)) {
+      arm.getAnimations().forEach(a => a.cancel());
+      arm.querySelector(".planet-glow").getAnimations().forEach(a => a.cancel());
+    }
+    orreryAnimations = [];
+  }
+
+  function setOrreryState(value, message) {
+    stage.dataset.orreryState = value;
+    setBusy("orrery", value === "spinning");
+    orreryHit.setAttribute("aria-disabled", String(value === "spinning"));
+    if (message) say(message);
+  }
+
+  function applyRestingStyles(glowOpacity = .08) {
+    for (const [key, arm] of Object.entries(arms)) {
+      arm.style.transform = `rotate(${angles[key]}deg)`;
+      arm.querySelector(".planet-glow").style.opacity = String(glowOpacity);
+    }
+  }
+
+  function resetOrrery(message) {
+    ++orreryRun;
+    orreryCancel();
+    angles = { ...initialAngles };
+    applyRestingStyles();
+    setOrreryState("idle", message);
+  }
+
+  async function spinReduced(token) {
+    for (const [key, arm] of Object.entries(arms)) {
+      orreryRemember(arm.querySelector(".planet-glow").animate(
+        [{ opacity: .08 }, { opacity: glowPeaks[key], offset: .45 }, { opacity: .18 }],
+        { duration: 420, fill: "both", easing: "ease-in-out" }));
+    }
+    await wait(440);
+    if (token !== orreryRun) return false;
+    orreryCancel();
+    applyRestingStyles(.18);
+    setOrreryState("settled", "The orrery lights up quietly.");
+    return true;
+  }
+
+  async function spinOrrery() {
+    if (orreryIs("spinning")) return false;
+    const token = ++orreryRun;
+    setOrreryState("spinning", "The orrery wakes up and its arms start to turn.");
+    gearSfx();
+
+    if (reduceMotion) return spinReduced(token);
+
+    const nextAngles = {};
+    for (const [key, arm] of Object.entries(arms)) {
+      const start = angles[key];
+      const finish = start + turnDeltas[key];
+      nextAngles[key] = finish;
+      const early = start + turnDeltas[key] * (key === "lower" ? .055 : .035);
+      const cruise = start + turnDeltas[key] * (key === "upper" ? .76 : .81);
+      orreryRemember(arm.animate(
+        [
+          { transform: `rotate(${start}deg)`, offset: 0 },
+          { transform: `rotate(${early}deg)`, offset: .16 },
+          { transform: `rotate(${cruise}deg)`, offset: .76 },
+          { transform: `rotate(${finish}deg)`, offset: 1 }
+        ],
+        { duration: 3200, fill: "both", easing: "cubic-bezier(.42, 0, .58, 1)" }));
+      orreryRemember(arm.querySelector(".planet-glow").animate(
+        [
+          { opacity: .08, filter: "blur(2px) brightness(.9)" },
+          { opacity: glowPeaks[key], filter: "blur(2px) brightness(1.15)", offset: .34 },
+          { opacity: glowPeaks[key] * .86, filter: "blur(2px) brightness(1.05)", offset: .74 },
+          { opacity: .18, filter: "blur(2px) brightness(.95)" }
+        ],
+        { duration: 3200, fill: "both", easing: "ease-in-out" }));
+    }
+
+    await wait(950);
+    if (token !== orreryRun) return false;
+    say("The three arms turn at their own speeds.");
+    await wait(2270);
+    if (token !== orreryRun) return false;
+    angles = nextAngles;
+    orreryCancel();
+    applyRestingStyles(.18);
+    setOrreryState("settled", "The gears settle. A faint planet glow stays.");
+    return true;
+  }
+
+  /* ============================================================
+     FAMILY 4b · Desk globe — longitude turns around the fixed pivot axis.
+     Twelve deterministic spherical-projection frames move the entire painted
+     surface beneath fixed brass pivots/ring while the room lighting stays put.
+     ============================================================ */
+  const deskGlobeSphere = $("desk-globe-sphere");
+  const deskGlobeHit = $("desk-globe-hit");
+  const DESK_GLOBE_FRAME_COUNT = 12, DESK_GLOBE_REST_FRAME = 2;
+  let deskGlobeRun = 0, deskGlobeBusy = false;
+  let deskGlobeRaf = 0, deskGlobeFeedback = null, deskGlobeFrame = DESK_GLOBE_REST_FRAME;
+
+  function renderDeskGlobeFrame(frame) {
+    deskGlobeFrame = Math.max(0, Math.min(DESK_GLOBE_FRAME_COUNT - 1, Math.round(frame)));
+    const position = deskGlobeFrame / (DESK_GLOBE_FRAME_COUNT - 1) * 100;
+    deskGlobeSphere.style.backgroundPosition = `${position}% 0`;
+  }
+
+  function setDeskGlobeState(value, message) {
+    stage.dataset.globeState = value;
+    deskGlobeBusy = value === "spinning";
+    setBusy("desk-globe", deskGlobeBusy);
+    deskGlobeHit.setAttribute("aria-disabled", String(deskGlobeBusy));
+    if (message) say(message);
+  }
+
+  function cancelDeskGlobeAnimation() {
+    if (deskGlobeRaf) cancelAnimationFrame(deskGlobeRaf);
+    if (deskGlobeFeedback) deskGlobeFeedback.cancel();
+    deskGlobeSphere.getAnimations().forEach(a => a.cancel());
+    deskGlobeRaf = 0;
+    deskGlobeFeedback = null;
+  }
+
+  function resetDeskGlobe(message) {
+    ++deskGlobeRun;
+    cancelDeskGlobeAnimation();
+    renderDeskGlobeFrame(DESK_GLOBE_REST_FRAME);
+    deskGlobeSphere.style.filter = "";
+    setDeskGlobeState("idle", message);
+  }
+
+  function animateDeskGlobeFrames(duration) {
+    const keys = [
+      { t: 0,    f: 2 },
+      { t: .08,  f: 0 },
+      { t: .25,  f: 7 },
+      { t: .60,  f: 11 },
+      { t: .79,  f: 8 },
+      { t: 1,    f: 2 }
+    ];
+    const start = performance.now();
+    const ease = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+    const tick = now => {
+      const p = Math.min(1, (now - start) / duration);
+      let i = 0;
+      while (i < keys.length - 2 && p > keys[i + 1].t) i++;
+      const a = keys[i], b = keys[i + 1];
+      const local = ease((p - a.t) / (b.t - a.t));
+      renderDeskGlobeFrame(a.f + (b.f - a.f) * local);
+      if (p < 1) deskGlobeRaf = requestAnimationFrame(tick);
+      else deskGlobeRaf = 0;
+    };
+    deskGlobeRaf = requestAnimationFrame(tick);
+  }
+
+  async function spinDeskGlobe() {
+    if (deskGlobeBusy) return false;
+    const token = ++deskGlobeRun;
+    setDeskGlobeState("spinning", "Ari gives the desk globe a gentle push.");
+
+    if (reduceMotion) {
+      deskGlobeFeedback = deskGlobeSphere.animate(
+        [{ filter: "brightness(1)" }, { filter: "brightness(1.12)", offset: .5 }, { filter: "brightness(1)" }],
+        { duration: 420, fill: "both", easing: "ease-in-out" });
+      deskGlobeFeedback.finished.catch(() => {});
+      await wait(440);
+      if (token !== deskGlobeRun) return false;
+      cancelDeskGlobeAnimation();
+      deskGlobeSphere.style.filter = "";
+      setDeskGlobeState("settled", "The globe is ready to explore.");
+      return true;
+    }
+
+    globeSfx();
+    animateDeskGlobeFrames(6800);
+
+    await wait(6850);
+    if (token !== deskGlobeRun) return false;
+    cancelDeskGlobeAnimation();
+    renderDeskGlobeFrame(DESK_GLOBE_REST_FRAME);
+    setDeskGlobeState("settled", "The desk globe turns slowly and settles back.");
+    return true;
+  }
+
+  /* ============================================================
+     FAMILY 5 · Taped wall drawings — the paper slips free, the tape stays.
+     Travel values are the approved prototype pixels expressed as a share
+     of the 1152x768 prototype stage, so the motion scales with the page.
+     ============================================================ */
+  const drawings = {
+    rocket: {
+      group: $("drawing-rocket-group"), shadow: $("drawing-rocket-shadow"),
+      hit: $("drawing-rocket-hit"), label: "rocket",
+      direction: 1, travel: 19.531, fallOrigin: "47.005208% 15.625%"
+    },
+    saturn: {
+      group: $("drawing-saturn-group"), shadow: $("drawing-saturn-shadow"),
+      hit: $("drawing-saturn-hit"), label: "ringed-planet",
+      direction: -1, travel: 5.729, fallOrigin: "46.744792% 28.808594%"
+    }
+  };
+  const DRIFT = { tip: .087, early: .434, late: .781, end: .955, settle: .391 };
+  let drawingRun = 0, drawingAnimations = [];
+
+  function drawingRemember(animation) {
+    drawingAnimations.push(animation);
+    animation.finished.catch(() => {});
+    return animation;
+  }
+
+  function drawingCancel() {
+    for (const a of drawingAnimations) a.cancel();
+    for (const d of Object.values(drawings)) {
+      d.group.getAnimations().forEach(a => a.cancel());
+      d.shadow.getAnimations().forEach(a => a.cancel());
+    }
+    drawingAnimations = [];
+  }
+
+  function setDrawingPhase(phase, message) {
+    const busy = phase !== "idle";
+    stage.dataset.drawingState = phase;
+    setBusy("drawings", busy);
+    for (const d of Object.values(drawings)) d.hit.setAttribute("aria-disabled", String(busy));
+    if (message) say(message);
+  }
+
+  function resetDrawings(message) {
+    ++drawingRun;
+    drawingCancel();
+    for (const d of Object.values(drawings)) {
+      d.group.style.transform = "rotate(0deg) translate(0, 0)";
+      d.group.style.filter = "none";
+      d.group.style.opacity = "1";
+      d.group.style.transformOrigin = "";
+      d.shadow.style.opacity = "1";
+    }
+    setDrawingPhase("idle", message);
+  }
+
+  async function dropReduced(key, token) {
+    const d = drawings[key];
+    drawingRemember(d.group.animate(
+      [{ opacity: 1 }, { opacity: 0, offset: .45 }, { opacity: 0, offset: .58 }, { opacity: 1 }],
+      { duration: 480, fill: "both", easing: "ease-in-out" }));
+    await wait(500);
+    if (token !== drawingRun) return false;
+    drawingCancel();
+    d.group.style.opacity = "1";
+    setDrawingPhase("idle", `The ${d.label} drawing hides and comes back.`);
+    return true;
+  }
+
+  async function dropDrawing(key) {
+    if (stage.dataset.drawingState !== "idle") return false;
+    const token = ++drawingRun;
+    const d = drawings[key];
+    setDrawingPhase("dropping", `The ${d.label} paper slips out from under its tape.`);
+    paperSfx();
+
+    if (reduceMotion) return dropReduced(key, token);
+
+    d.group.style.transformOrigin = d.fallOrigin;
+    drawingRemember(d.shadow.animate(
+      [{ opacity: 1 }, { opacity: .28, offset: .16 }, { opacity: 0 }],
+      { duration: 300, fill: "both", easing: "ease-out" }));
+    drawingRemember(d.group.animate(
+      [
+        { transform: "translate(0, 0) rotate(0deg)", opacity: 1, offset: 0 },
+        { transform: `translate(${d.direction * DRIFT.tip}%, ${DRIFT.settle}%) rotate(${d.direction * 1.4}deg)`, opacity: 1, offset: .16 },
+        { transform: `translate(${d.direction * DRIFT.early}%, ${d.travel * .38}%) rotate(${-d.direction * 3.2}deg)`, opacity: 1, offset: .56 },
+        { transform: `translate(${d.direction * DRIFT.late}%, ${d.travel * .84}%) rotate(${d.direction * 5.3}deg)`, opacity: 1, offset: .86 },
+        { transform: `translate(${d.direction * DRIFT.end}%, ${d.travel}%) rotate(${d.direction * 7}deg)`, opacity: 0, offset: 1 }
+      ],
+      { duration: 760, fill: "both", easing: "cubic-bezier(.35, .02, .82, .72)" }));
+    await wait(780);
+    if (token !== drawingRun) return false;
+    drawingCancel();
+    d.group.style.opacity = "0";
+    d.group.style.transform = "rotate(0deg) translate(0, 0)";
+    d.group.style.transformOrigin = "";
+    d.shadow.style.opacity = "1";
+    setDrawingPhase("restoring", `The ${d.label} drawing is out of sight, then goes back to its tape.`);
+
+    await wait(110);
+    if (token !== drawingRun) return false;
+    drawingRemember(d.group.animate(
+      [{ opacity: 0 }, { opacity: 1 }],
+      { duration: 260, fill: "both", easing: "ease-out" }));
+    await wait(280);
+    if (token !== drawingRun) return false;
+    drawingCancel();
+    d.group.style.opacity = "1";
+    setDrawingPhase("idle", `The ${d.label} drawing is back on the wall.`);
+    return true;
+  }
+
+  /* ============================================================
+     FAMILY 6 · Floor toy rocket — stationary: light, then flame, then smoke
+     ============================================================ */
+  const toyHit = $("toy-rocket-hit");
+  const engineGlow = $("engine-glow");
+  const toyFlame = $("toy-flame");
+  const toySmoke = $("toy-smoke");
+  let toyRun = 0, toyAnimations = [];
+
+  function toyRemember(animation) {
+    toyAnimations.push(animation);
+    animation.finished.catch(() => {});
+    return animation;
+  }
+
+  function toyCancel() {
+    for (const a of toyAnimations) a.cancel();
+    for (const el of [engineGlow, toyFlame, toySmoke]) el.getAnimations().forEach(a => a.cancel());
+    toyAnimations = [];
+  }
+
+  function setToyPhase(phase, message) {
+    const busy = phase === "powering";
+    stage.dataset.rocketState = phase;
+    setBusy("toy-rocket", busy);
+    toyHit.setAttribute("aria-disabled", String(busy));
+    if (message) say(message);
+  }
+
+  function applyToyRest() {
+    engineGlow.style.opacity = "0";
+    toyFlame.style.opacity = "0";
+    toyFlame.style.transform = "none";
+    toySmoke.style.opacity = "0";
+    toySmoke.style.transform = "none";
+  }
+
+  function resetToyRocket(message) {
+    ++toyRun;
+    toyCancel();
+    applyToyRest();
+    setToyPhase("idle", message);
+  }
+
+  async function powerReduced(token) {
+    say("The toy rocket's engine light comes on.");
+    engineGlow.style.opacity = ".35";
+    await wait(130);
+    if (token !== toyRun) return false;
+    engineGlow.style.opacity = ".82";
+    toyFlame.style.opacity = "1";
+    say("The flame appears after the light.");
+    await wait(150);
+    if (token !== toyRun) return false;
+    toySmoke.style.opacity = "1";
+    say("A small puff of smoke follows.");
+    await wait(180);
+    if (token !== toyRun) return false;
+    applyToyRest();
+    setToyPhase("settled", "The toy rocket is quiet again.");
+    return true;
+  }
+
+  async function powerUpToy() {
+    if (stage.dataset.rocketState === "powering") return false;
+    const token = ++toyRun;
+    toyCancel();
+    applyToyRest();
+    setToyPhase("powering", "A small engine light wakes under the toy rocket.");
+    toyChargeSfx();
+
+    if (reduceMotion) return powerReduced(token);
+
+    toyRemember(engineGlow.animate(
+      [
+        { opacity: 0, transform: "translate(-50%, -50%) scale(.35)" },
+        { opacity: .35, transform: "translate(-50%, -50%) scale(.62)", offset: .24 },
+        { opacity: .68, transform: "translate(-50%, -50%) scale(.84)", offset: .52 },
+        { opacity: .92, transform: "translate(-50%, -50%) scale(1)" }
+      ],
+      { duration: 920, fill: "both", easing: "ease-in" }));
+    await wait(940);
+    if (token !== toyRun) return false;
+
+    toyFlame.style.opacity = "1";
+    rocketSfx(.58);
+    say("Ignition. The flame appears after the engine light.");
+    toyRemember(toyFlame.animate(
+      [
+        { opacity: .82, transform: "scaleY(.72)" },
+        { opacity: 1, transform: "scaleY(1.04)", offset: .38 },
+        { opacity: .9, transform: "scaleY(.88)", offset: .68 },
+        { opacity: 1, transform: "scaleY(1)" }
+      ],
+      { duration: 680, iterations: 2, fill: "both", easing: "ease-in-out" }));
+    await wait(700);
+    if (token !== toyRun) return false;
+
+    toySmoke.style.opacity = "1";
+    say("A small puff of smoke follows the ignition.");
+    toyRemember(toySmoke.animate(
+      [
+        { opacity: 0, transform: "translate(0, 0) scale(.72)" },
+        { opacity: .78, transform: "translate(.347%, .26%) scale(.92)", offset: .30 },
+        { opacity: .62, transform: "translate(1.042%, .651%) scale(1.05)", offset: .66 },
+        { opacity: 0, transform: "translate(1.736%, 1.172%) scale(1.16)" }
+      ],
+      { duration: 920, fill: "both", easing: "ease-out" }));
+    await wait(940);
+    if (token !== toyRun) return false;
+
+    toyRemember(engineGlow.animate([{ opacity: .92 }, { opacity: 0 }], { duration: 300, fill: "both" }));
+    toyRemember(toyFlame.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, fill: "both" }));
+    await wait(320);
+    if (token !== toyRun) return false;
+    toyCancel();
+    applyToyRest();
+    setToyPhase("settled", "The toy rocket is quiet again, ready for another go.");
+    return true;
+  }
+
+  /* ============================================================
+     FAMILY 7 · Ari, Dot and the bedside lamp
+     (the astronomy book is static scenery by owner decision)
+     ============================================================ */
+  const dot = $("dot");
+  const lampHit = $("lamp-hit");
+  let lampOn = true;
+  let charBusy = {};
+  const fades = {};
+
+  function fadeNode(el, to, ms) {
+    if (!el) return;
+    const key = el.id;
+    if (fades[key]) fades[key].cancel();
+    const from = parseFloat(getComputedStyle(el).opacity) || 0;
+    fades[key] = el.animate([{ opacity: from }, { opacity: to }],
+      { duration: reduceMotion ? 60 : ms, fill: "forwards", easing: "ease" });
+  }
+  function showLayer(id, ms = 350) { const l = $(id); if (!l) return; l.classList.remove("hidden"); fadeNode(l, 1, ms); }
+  function hideLayer(id, ms = 350) { const l = $(id); if (!l) return; fadeNode(l, 0, ms); }
+  function setDotSrc(file) { const img = dot.querySelector("img"); if (img) img.src = A + file; }
+  function speechBubble(text) {
+    const s = $("dot-speech"); if (!s) return;
+    s.textContent = text; s.classList.add("show");
+    later(() => s.classList.remove("show"), 2400);
+  }
+
+  /* Ari: a stable-anchor crossfade between two room-matched poses —
+     same seat, same scale, no whole-body rock. */
+  function ariAct() {
+    if (charBusy.ari) return;
+    charBusy.ari = true;
+    setBusy("ari", true);
+    chime(); speakAloud("Hi!", "ari");
+    showLayer("ari-wave", reduceMotion ? 60 : 180);
+    hideLayer("ari-rest", reduceMotion ? 60 : 180);
+    say("Ari gives a small wave, then settles back.");
+    later(() => {
+      showLayer("ari-rest", reduceMotion ? 60 : 180);
+      hideLayer("ari-wave", reduceMotion ? 60 : 180);
+    }, reduceMotion ? 520 : 1250);
+    later(() => { charBusy.ari = false; setBusy("ari", false); }, reduceMotion ? 650 : 1500);
+  }
+
+  /* Dot: off -> awake -> half wave -> full wave, beeps a greeting, powers down. */
+  function dotAct() {
+    if (charBusy.dot) return;
+    charBusy.dot = true;
+    setBusy("dot", true);
+    const seq = ["dot-awake.png", "dot-half-wave.png", "dot-full-wave.png"];
+    const step = reduceMotion ? 120 : 420;
+    beep();
+    say("Dot powers up, waves and beeps a greeting.");
+    seq.forEach((f, i) => later(() => setDotSrc(f), step * (i + 1)));
+    later(() => { speechBubble("Specialist mission accepted!"); speakAloud("Specialist mission accepted!", "dot"); chime(); },
+      step * (seq.length + 1));
+    later(() => {
+      setDotSrc("dot-off.png");
+      charBusy.dot = false;
+      setBusy("dot", false);
+    }, step * (seq.length + 1) + 2600);
+  }
+
+  /* Lamp: changes the room light rather than covering the scene. */
+  function lampAct() {
+    lampOn = !lampOn;
+    lampClick(lampOn);
+    const glow = $("lamp-glow"), dark = $("lamp-dark"), room = $("room-dark");
+    if (lampOn) {
+      fadeNode(room, 0, 600); fadeNode(dark, 0, 450);
+      glow.getAnimations().forEach(a => a.cancel());
+      glow.animate([{ opacity: 0 }, { opacity: .95, offset: .3 }, { opacity: .5 }],
+        { duration: reduceMotion ? 80 : 800, fill: "forwards", easing: "ease-out" });
+      say("The lamp is on. A warm glow fills Ari's corner.");
+    } else {
+      fadeNode(glow, 0, 250); fadeNode(room, 1, 700); fadeNode(dark, 1, 550);
+      say("The lamp is off. The room dims to moonlight and the window keeps its glow.");
+    }
+    lampHit.setAttribute("aria-pressed", String(lampOn));
+  }
+
+  function resetCharacters() {
+    clearTimers();
+    try { speechSynthesis.cancel(); } catch (e) {}
+    [$("ari-rest"), $("ari-wave"), dot].forEach(el => { if (el) el.getAnimations().forEach(a => a.cancel()); });
+    $("ari-rest").classList.remove("hidden"); $("ari-rest").style.opacity = "";
+    $("ari-wave").classList.add("hidden"); $("ari-wave").style.opacity = "";
+    setDotSrc("dot-off.png");
+    $("dot-speech").classList.remove("show");
+    lampOn = true;
+    ["room-dark", "lamp-dark", "lamp-glow"].forEach(id => {
+      const el = $(id); el.getAnimations().forEach(a => a.cancel()); el.style.opacity = "0";
+    });
+    Object.keys(fades).forEach(k => { try { fades[k].cancel(); } catch (e) {} delete fades[k]; });
+    charBusy = {};
+    ["ari", "dot"].forEach(f => setBusy(f, false));
+    lampHit.setAttribute("aria-pressed", String(lampOn));
+  }
+
+  /* ============================================================
+     Page-wide replay
+     ============================================================ */
+  function replayPage() {
+    closeStory(false);
+    ++curtainRun;
+    hideJupiter();
+    settleCurtains("closed");
+    resetPoster();
+    resetOrrery();
+    resetDeskGlobe();
+    resetDrawings();
+    resetToyRocket();
+    resetCharacters();
+    say("The page is back at the start. The curtains are closed again.");
+  }
+
+  /* ============================================================
+     Toolbar
+     ============================================================ */
+  function setMotion(on) {
+    reduceMotion = !on;
+    document.body.classList.toggle("reduce-motion", reduceMotion);
+    $("btn-motion").setAttribute("aria-pressed", String(on));
+  }
+  function setSound(on) {
+    soundOn = on;
+    $("btn-sound").setAttribute("aria-pressed", String(on));
+    if (!on) {
+      if (storyOpen) {
+        stopStoryNarration("Sound is off. The story remains open for reading.");
+        storyRead.textContent = "Turn sound on to listen";
+      } else { try { speechSynthesis.cancel(); } catch (e) {} }
+    } else if (storyOpen) {
+      storyRead.textContent = "Read the story aloud";
+    }
+  }
+  function toggleFullscreen() {
+    const target = document.documentElement;
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (target.requestFullscreen) target.requestFullscreen().catch(() => {});
+  }
+
+  /* ============================================================
+     Wiring
+     ============================================================ */
+  function bind(el, fn) {
+    if (!el) return;
+    el.addEventListener("click", () => { resumeAudio(); fn(); });
+  }
+
+  curtainHits.forEach(b => bind(b, toggleCurtains));
+  bind(jupiterHit, revealMoons);
+  bind(posterHit, posterActivate);
+  bind(orreryHit, spinOrrery);
+  bind(deskGlobeHit, spinDeskGlobe);
+  bind(bookHit, openStory);
+  bind(storyClose, closeStory);
+  bind(storyBack, closeStory);
+  bind(storyRead, storyReadAction);
+  bind(drawings.rocket.hit, () => dropDrawing("rocket"));
+  bind(drawings.saturn.hit, () => dropDrawing("saturn"));
+  bind(toyHit, powerUpToy);
+  bind($("ari-hit"), ariAct);
+  bind($("dot-hit"), dotAct);
+  bind(lampHit, lampAct);
+
+  bind($("btn-replay"), replayPage);
+  $("btn-motion").addEventListener("click", () => setMotion(reduceMotion));
+  $("btn-sound").addEventListener("click", () => setSound(!soundOn));
+  $("btn-fullscreen").addEventListener("click", toggleFullscreen);
+
+  mediaRM.addEventListener?.("change", e => {
+    setMotion(!e.matches);
+    replayPage();
+    say("Motion setting changed. The page was reset safely.");
+  });
+
+  /* ---------- initial state ---------- */
+  setMotion(!mediaRM.matches);
+  setSound(true);
+  applyRestingStyles();
+  applyToyRest();
+  resetDrawings();
+  setPosterState("ready");
+  setOrreryState("idle");
+  resetDeskGlobe();
+  lampHit.setAttribute("aria-pressed", "true");
+  say("Curtains mostly closed. Open them to see what is outside.");
+
+  /* Exposed for QA only — the page never calls these itself. */
+  window.page01 = {
+    replay: replayPage,
+    curtains: moveCurtains,
+    jupiter: revealMoons,
+    poster: posterActivate,
+    orrery: spinOrrery,
+    deskGlobe: spinDeskGlobe,
+    story: { open: openStory, read: readStory, close: closeStory },
+    drawing: dropDrawing,
+    toyRocket: powerUpToy,
+    ari: ariAct,
+    dot: dotAct,
+    lamp: lampAct,
+    getState: () => ({ ...stage.dataset })
+  };
+})();
+</script>
+</body>
+</html>
