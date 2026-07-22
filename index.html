@@ -120,7 +120,6 @@ html,body{margin:0;height:100%;background:#05060d;color:var(--ink);
 .flight-group .trail{z-index:1;opacity:0}
 .flight-group .flame{z-index:2;opacity:0}
 .flight-group .rocket{z-index:3;opacity:1}
-.stage[data-poster-state="empty"] .flight-group{opacity:0}
 
 /* ============================================================
    4. Shelf orrery  (qc/page-01-orrery.html)
@@ -917,10 +916,11 @@ body.reduce-motion .night-light{transition:none !important}
 
   function setPosterState(value, message) {
     stage.dataset.posterState = value;
-    setBusy("poster", value === "launching");
-    posterHit.setAttribute("aria-disabled", String(value === "launching"));
-    posterHit.setAttribute("aria-label",
-      value === "empty" ? "Send the poster rocket up again" : "Launch the poster rocket");
+    const occupied = value === "launching" || value === "returning";
+    setBusy("poster", occupied);
+    posterHit.setAttribute("aria-disabled", String(occupied));
+    posterHit.setAttribute("aria-label", value === "returning"
+      ? "Poster rocket is returning" : "Launch the poster rocket");
     if (message) say(message);
   }
 
@@ -929,6 +929,28 @@ body.reduce-motion .night-light{transition:none !important}
     for (const a of posterAnimations) a.cancel();
     posterClear();
     setPosterState("ready", message);
+  }
+
+  async function returnPoster(token, short = false) {
+    posterClear();
+    setPosterState("returning", "The little rocket circles back to its poster.");
+    const duration = short ? 360 : 680;
+    posterRemember(flightGroup.animate(
+      [
+        { opacity: 0, transform: "translate(0,0) scale(.9)" },
+        { opacity: 0, transform: "translate(0,0) scale(.9)", offset: .24 },
+        { opacity: .48, transform: "translate(0,0) scale(.96)", offset: .62 },
+        { opacity: 1, transform: "translate(0,0) scale(1)" }
+      ],
+      { duration, fill: "both", easing: "ease-out" }));
+    posterRemember(trail01.animate(
+      [{ opacity: 0 }, { opacity: short ? .28 : .48, offset: .58 }, { opacity: 0 }],
+      { duration, fill: "both", easing: "ease-out" }));
+    await wait(duration + 20);
+    if (token !== posterRun) return false;
+    posterClear();
+    setPosterState("ready", "The poster rocket is back and ready for another launch.");
+    return true;
   }
 
   async function launchReduced(token) {
@@ -946,9 +968,7 @@ body.reduce-motion .night-light{transition:none !important}
       { duration: 320, fill: "both", easing: "ease-in" }));
     await wait(340);
     if (token !== posterRun) return false;
-    posterClear();
-    setPosterState("empty", "The poster rocket has flown. Tap the poster to send it up again.");
-    return true;
+    return returnPoster(token, true);
   }
 
   async function launchPoster() {
@@ -1010,18 +1030,12 @@ body.reduce-motion .night-light{transition:none !important}
 
     await wait(1240);
     if (token !== posterRun) return false;
-    posterClear();
-    setPosterState("empty", "The poster rocket has flown. Tap the poster to send it up again.");
-    return true;
+    return returnPoster(token);
   }
 
-  /* The empty starfield is durable: the rocket only comes back on an
-     explicit replay of the poster (or the page), never by itself. */
+  /* One tap owns one complete cycle. The hotspot stays guarded while the
+     rocket is away and unlocks only after the exact origin pose is restored. */
   async function posterActivate() {
-    if (posterIs("ready")) return launchPoster();
-    if (!posterIs("empty")) return false;
-    resetPoster("The poster rocket is back on its starfield.");
-    await nextPaint();
     if (!posterIs("ready")) return false;
     return launchPoster();
   }
