@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Ruler for the Sun's diameter</title>
+  <g transform="rotate(-46 64 64)" stroke="#102f58" stroke-linejoin="round">
+    <rect x="17" y="43" width="94" height="42" rx="7" fill="#69c9eb" stroke-width="5"/>
+    <path d="M29 43v14m12-14v9m12-9v14m12-14v9m12-9v14m12-14v9m12-9v14" fill="none" stroke-width="4" stroke-linecap="round"/>
+    <path d="M27 73h74" fill="none" stroke="#eefaff" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

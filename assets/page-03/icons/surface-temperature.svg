@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Thermometer for the Sun's surface temperature</title>
+  <path d="M48 24a16 16 0 0 1 32 0v48a28 28 0 1 1-32 0z" fill="#fffaf0" stroke="#102f58" stroke-width="5"/>
+  <path d="M64 34v52" stroke="#ff382e" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="64" cy="91" r="18" fill="#ff382e"/>
+  <path d="M73 30h10m-10 13h7m-7 13h10" stroke="#102f58" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="58" cy="84" r="5" fill="#ff8a53"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Amber circular surface-scanning rings">
+  <defs>
+    <radialGradient id="craterScan">
+      <stop offset="0" stop-color="#fff5b1" stop-opacity=".8"/>
+      <stop offset=".35" stop-color="#ffba43" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#ff7b20" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="craterGlow" x="-30%" y="-40%" width="160%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="300" cy="315" rx="245" ry="70" fill="url(#craterScan)" opacity=".28"/>
+  <g fill="none" stroke="#ffc55b" filter="url(#craterGlow)" opacity=".82">
+    <ellipse cx="300" cy="315" rx="82" ry="24" stroke-width="6"/>
+    <ellipse cx="300" cy="315" rx="155" ry="45" stroke-width="4" opacity=".7"/>
+    <ellipse cx="300" cy="315" rx="235" ry="68" stroke-width="3" opacity=".42"/>
+  </g>
+  <path d="M300 122V287" stroke="#fff0a0" stroke-width="4" stroke-dasharray="9 12" opacity=".68"/>
+</svg>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ari &amp; Dot · Page 3 — The Sun</title>
+<style>
+:root{color-scheme:dark;--navy:#07152f;--ink:#11315d;--gold:#ffc52b;--orange:#ff8318;--cyan:#8eeaff;--cream:#fff9ea}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#030711;color:#fff;font-family:ui-rounded,"Avenir Next","Segoe UI",system-ui,sans-serif;overscroll-behavior:none}
+button{font:inherit}.book{min-height:100vh;display:grid;place-items:center}.stage{position:relative;width:min(100vw,150vh,1400px);aspect-ratio:3/2;overflow:hidden;isolation:isolate;border-radius:15px;background:#071229;box-shadow:0 22px 80px #000b}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;user-select:none}.warm-wash{position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 74% 42%,rgba(255,124,15,.19),transparent 42%),linear-gradient(90deg,rgba(4,16,44,.15),transparent 60%);pointer-events:none}
+.story{position:absolute;z-index:20;left:2%;top:2%;width:31%;padding:14px 16px;border:1px solid #d7efff6b;border-radius:18px;background:linear-gradient(140deg,rgba(7,21,48,.91),rgba(18,36,69,.72));backdrop-filter:blur(9px);box-shadow:0 10px 32px #0008}.story-back{display:inline-flex;gap:4px;margin-bottom:5px;color:#bdeaff;text-decoration:none;font-size:clamp(8px,.85vw,12px);font-weight:900}.story h1{margin:0;color:var(--gold);font-size:clamp(22px,3.2vw,44px);line-height:1}.story h2{margin:3px 0 7px;color:#fff;font-size:clamp(11px,1.45vw,20px);line-height:1.08}.story p{margin:5px 0;font-size:clamp(9px,1.05vw,15px);line-height:1.35}.story-actions{display:flex;gap:7px;margin-top:9px}.story button,.toolbar button{border:1px solid #b9ddff66;background:#102c54e8;color:#fff;border-radius:999px;padding:6px 11px;font-weight:850;cursor:pointer}.story button.primary{background:#c7611f;border-color:#ffd38d}.story button:hover,.toolbar button:hover{background:#2c5d8a}
+.page-nav{position:absolute;z-index:34;top:1.5%;right:1.5%;display:flex;align-items:center;gap:4px;padding:4px;border:1px solid #b9ddff55;border-radius:13px;background:#07142de8;backdrop-filter:blur(7px)}.page-nav>a,.page-jump{display:grid;place-items:center;height:32px;min-width:32px;border:1px solid #b9ddff55;border-radius:9px;background:#16345c;color:#fff;text-decoration:none;font:inherit;font-weight:900;cursor:pointer}.page-jump{min-width:58px;padding:0 8px}.page-nav>a:hover,.page-jump:hover{background:#285b87}.page-nav [aria-disabled=true]{opacity:.35;pointer-events:none}.page-goto{position:absolute;right:calc(100% + 6px);top:0;display:flex;gap:4px;padding:7px;border:1px solid #b9ddff55;border-radius:10px;background:#0b1730;box-shadow:0 8px 24px #0008;white-space:nowrap}.page-goto[hidden]{display:none}.page-goto label{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:800}.page-goto input{width:45px;padding:4px;border:1px solid #8fe7ff88;border-radius:6px;background:#061126;color:#fff}.page-goto button{padding:4px 7px;border:0;border-radius:6px;background:var(--gold);color:#17203a;font-weight:900;cursor:pointer}
+.sun-area{position:absolute;z-index:4;left:35%;right:1.5%;top:4%;height:69%}.sun-button{position:absolute;left:55%;top:49%;width:66%;aspect-ratio:1;border:0;padding:0;background:none;transform:translate(-50%,-50%);cursor:pointer;border-radius:50%;filter:drop-shadow(0 0 12px #ffbf3f88)}.sun-button img{display:block;width:100%;height:100%;object-fit:contain}.sun-button::after{content:"";position:absolute;inset:8%;border:2px solid #fff1a875;border-radius:50%;opacity:0}.sun-button.active::after{animation:sunPulse 1.8s ease-out}@keyframes sunPulse{0%{opacity:.75;transform:scale(.8)}100%{opacity:0;transform:scale(1.35)}}
+.feature{position:absolute;z-index:11;border:1px solid #ffe58b9c;border-radius:999px;background:#0b1738d9;color:#fff;padding:5px 9px;font-size:clamp(8px,.88vw,12px);font-weight:900;cursor:pointer;box-shadow:0 3px 12px #0007}.feature::after{content:"";position:absolute;width:34px;height:1px;background:#ffe799aa;top:50%}.feature:hover,.feature[aria-pressed=true]{background:#9e4d1e;color:#fff5c6}.feature:focus-visible,.sun-button:focus-visible,.secret:focus-visible,.fact-card:focus-visible,.story button:focus-visible,.toolbar button:focus-visible,.page-nav *:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.feature.prominence{left:2%;top:8%}.feature.prominence::after{left:100%;transform:rotate(18deg);transform-origin:left}.feature.sunspot{left:5%;top:34%}.feature.sunspot::after{left:100%;transform:rotate(-3deg);transform-origin:left}.feature.granulation{right:1%;top:20%}.feature.granulation::after{right:100%;transform:rotate(-12deg);transform-origin:right}.feature.flare{left:7%;bottom:13%}.feature.flare::after{left:100%;transform:rotate(-16deg);transform-origin:left}
+.hint{position:absolute;z-index:10;left:50%;bottom:0;transform:translateX(-50%);padding:4px 11px;border-radius:999px;background:#07142dc7;color:#d8efff;font-size:clamp(8px,.8vw,11px);font-weight:800;white-space:nowrap}
+.bubble{position:absolute;z-index:15;left:2.3%;bottom:24%;width:27%;height:36%;pointer-events:none;transition:opacity .25s,transform .45s}.bubble img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 9px 13px #0009)}.bubble.react{opacity:0;transform:translateY(5%) scale(.94)}.stage.reacting .bubble.rest{opacity:0}.stage.reacting .bubble.react{opacity:1;transform:none}
+.detail{position:absolute;z-index:25;right:2%;top:11%;width:24%;padding:10px;border:1px solid #ffe89f88;border-radius:16px;background:#07142dea;box-shadow:0 12px 35px #000a;backdrop-filter:blur(8px);opacity:0;transform:translateY(-8px) scale(.96);pointer-events:none;transition:.25s}.detail.show{opacity:1;transform:none;pointer-events:auto}.detail-head{display:flex;align-items:center;justify-content:space-between;gap:6px}.detail h3{margin:0;color:var(--gold);font-size:clamp(12px,1.3vw,18px)}.detail-close{border:0;border-radius:50%;width:26px;height:26px;background:#183a65;color:#fff;cursor:pointer}.detail-view{display:block;width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;border:3px solid #ffe58b;margin-top:7px}.detail p{margin:7px 2px 1px;font-size:clamp(8px,.9vw,12px);line-height:1.3}
+.secret{position:absolute;z-index:17;width:28px;height:28px;border:0;border-radius:50%;background:transparent;color:#fff4a3;cursor:pointer}.secret::before{content:"✦";font-size:clamp(13px,1.55vw,21px);text-shadow:0 0 5px #fff,0 0 13px #ffb51d;animation:twinkle 2.8s ease-in-out infinite}.secret.helio{left:43%;top:7%}.secret.umbra{left:48%;top:36%}.secret.flicker{left:49%;top:54%}@keyframes twinkle{0%,100%{opacity:.28;transform:scale(.78)}50%{opacity:1;transform:scale(1.13)}}
+.visitor{position:absolute;z-index:19;opacity:0;pointer-events:none;transition:opacity .4s,transform .75s ease}.visitor img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 7px 12px #000a)}.visitor.found{opacity:1;transform:none}.visitor.departing{opacity:0!important;transform:translateY(-24%) scale(.75)!important}.visitor.helio{left:38%;top:6%;width:16%;height:25%;transform:translateX(-30%) scale(.8)}.visitor.umbra{left:39%;top:28%;width:15%;height:29%;transform:translateX(-26%) scale(.8)}.visitor.flicker{left:38%;top:48%;width:18%;height:25%;transform:translateX(-30%) scale(.8)}.visitor-effect{position:absolute;z-index:18;inset:-12%;width:124%!important;height:124%!important;opacity:.78}
+.discoveries{position:absolute;z-index:26;left:2%;top:53%;padding:5px 9px;border:1px solid #ffe59077;border-radius:999px;background:#10274de6;font-size:clamp(8px,.85vw,12px);font-weight:900;opacity:0}.discoveries.show{opacity:1}
+.status{position:absolute;z-index:30;left:50%;bottom:25%;max-width:55%;transform:translate(-50%,10px);padding:7px 13px;border:1px solid #ffe69a7a;border-radius:12px;background:#07142deb;text-align:center;font-size:clamp(9px,1vw,14px);font-weight:800;opacity:0;transition:.25s;pointer-events:none}.status.show{opacity:1;transform:translate(-50%,0)}
+.fact-box{position:absolute;z-index:29;left:2%;right:2%;bottom:1.5%;height:22%;display:grid;grid-template-columns:repeat(5,1fr);overflow:hidden;border:3px solid #244b79;border-radius:28px;background:linear-gradient(#fffdf5,#fff6e3);box-shadow:0 8px 28px #0009;color:var(--ink)}.fact-card{position:relative;border:0;border-right:1px dashed #8c9aa8;background:transparent;color:inherit;padding:7px 9px 6px;display:grid;grid-template-rows:42% auto;place-items:center;text-align:center;cursor:pointer}.fact-card:last-child{border-right:0}.fact-card img{height:100%;max-width:58px;transform-origin:50% 55%;will-change:transform,filter}.fact-card span{font-size:clamp(8px,.95vw,14px);line-height:1.2}.fact-card strong{color:#0a4a96;font-size:1.08em}.fact-card:hover,.fact-card[aria-pressed=true]{background:#ffe9ae}.fact-card[aria-pressed=true]::after{content:"🔊";position:absolute;right:7px;top:5px;font-size:11px}
+.fact-card[data-fact=diameter] img.animate-icon{animation:rulerMeasure .95s ease-in-out}.fact-card[data-fact=surface] img.animate-icon{animation:thermometerRise 1.05s ease-in-out}.fact-card[data-fact=core] img.animate-icon{animation:corePulse .9s ease-in-out}.fact-card[data-fact=light] img.animate-icon{animation:clockTick 1s ease-in-out}.fact-card[data-fact=gravity] img.animate-icon{animation:gravityStar 1.05s ease-in-out}
+@keyframes rulerMeasure{0%,100%{transform:translateX(0) rotate(0)}25%{transform:translateX(-11px) rotate(-8deg)}55%{transform:translateX(11px) rotate(8deg)}75%{transform:translateX(0) scaleX(1.22)}}
+@keyframes thermometerRise{0%,100%{transform:translateY(0);filter:none}35%{transform:translateY(7px) scale(.92);filter:drop-shadow(0 0 0 #ff3b21)}70%{transform:translateY(-4px) scale(1.12);filter:drop-shadow(0 0 8px #ff3b21)}}
+@keyframes corePulse{0%,100%{transform:scale(1);filter:none}35%{transform:scale(.82);filter:drop-shadow(0 0 2px #ff8a00)}65%{transform:scale(1.25);filter:drop-shadow(0 0 10px #ffbd21)}}
+@keyframes clockTick{0%,100%{transform:rotate(0) scale(1)}25%{transform:rotate(12deg) scale(1.08)}50%{transform:rotate(-8deg) scale(.96)}75%{transform:rotate(8deg) scale(1.08)}}
+@keyframes gravityStar{0%,100%{transform:translateY(0) rotate(0) scale(1)}30%{transform:translateY(-9px) rotate(-12deg) scale(1.12)}60%{transform:translateY(4px) rotate(10deg) scale(.9)}80%{transform:translateY(-2px) rotate(-4deg) scale(1.05)}}
+.toolbar{position:absolute;z-index:35;right:2%;bottom:24.5%;display:flex;gap:5px}.toolbar button{padding:5px 9px;font-size:clamp(8px,.9vw,12px)}
+@media(max-width:700px),(max-aspect-ratio:1/1){.stage{border-radius:0}.story{width:38%;padding:8px 9px}.story h1{font-size:18px}.story p{font-size:8px}.story p:nth-of-type(2){display:none}.story button{padding:4px 7px;font-size:8px}.sun-area{left:34%;right:0;top:7%;height:59%}.sun-button{width:76%}.feature{padding:3px 5px}.feature::after{width:18px}.bubble{width:31%;height:27%;bottom:29%}.detail{width:30%;right:1%;top:12%;padding:6px}.fact-box{height:27%;grid-template-columns:repeat(5,1fr);border-radius:16px}.fact-card{padding:3px;grid-template-rows:37% auto}.fact-card span{font-size:6.8px}.fact-card img{max-width:34px}.toolbar{bottom:29%;right:1%}.hint{bottom:1%;font-size:7px}.status{bottom:30%;max-width:65%}.discoveries{top:47%;font-size:7px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+.stage.reduce-motion .secret::before{animation:none}.stage.reduce-motion .visitor{transition:opacity .18s}.stage.reduce-motion .sun-button::after,.stage.reduce-motion .fact-card img{animation:none}
+</style>
+</head>
+<body>
+<main class="book">
+<section class="stage" id="stage" aria-label="Interactive storybook page about the Sun">
+  <img class="bg" src="assets/page-03/space-background.png" alt="">
+  <div class="warm-wash"></div>
+
+  <article class="story">
+    <a class="story-back" id="back-page-2" href="page-02.html"><span aria-hidden="true">←</span> The moving family</a>
+    <h1>The Sun</h1><h2>Our busy, glowing star</h2>
+    <p>Ari and Dot floated close inside a super-strong shielded bubble. The Sun was not a quiet ball of fire—it was a giant sphere of hot, moving plasma.</p>
+    <p>Dark sunspots, bubbling granules and enormous loops showed that their star was always changing.</p>
+    <div class="story-actions"><button class="primary" id="start-sun">About the Sun</button><button id="listen">Listen</button></div>
+  </article>
+
+  <nav class="page-nav" data-current-page="3" aria-label="Page navigation">
+    <a href="page-02.html" aria-label="Previous page" title="Previous page">‹</a>
+    <button class="page-jump" type="button" aria-label="Page 3 of 4. Press and hold to go to a page" title="Press and hold to go to a page">3 / 4</button>
+    <a href="page-04.html" aria-label="Next page" title="Next page">›</a>
+    <form class="page-goto" hidden><label>Go to <input type="number" min="1" max="4" value="3" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form>
+  </nav>
+
+  <div class="sun-area">
+    <button class="sun-button" id="sun" aria-label="Hear about the living surface of the Sun"><img id="sun-image" src="assets/page-03/sun-main-frame-01.png" alt=""></button>
+    <button class="feature prominence" data-feature="prominence" aria-pressed="false">Prominence</button>
+    <button class="feature sunspot" data-feature="sunspot" aria-pressed="false">Sunspots</button>
+    <button class="feature granulation" data-feature="granulation" aria-pressed="false">Granulation</button>
+    <button class="feature flare" data-feature="flare" aria-pressed="false">Solar flare</button>
+    <div class="hint">Tap the glowing clues on the Sun.</div>
+  </div>
+
+  <div class="bubble rest"><img src="assets/page-03/ari-dot-bubble-rest.png" alt="Ari and Dot watching the Sun from a shielded bubble"></div>
+  <div class="bubble react"><img src="assets/page-03/ari-dot-bubble-reaction.png" alt=""></div>
+
+  <button class="secret helio" data-visitor="helio" aria-label="A glowing clue hiding Helio"></button>
+  <button class="secret umbra" data-visitor="umbra" aria-label="A glowing clue hiding Umbra"></button>
+  <button class="secret flicker" data-visitor="flicker" aria-label="A glowing clue hiding Flicker"></button>
+  <div class="visitor helio" id="helio"><img class="visitor-effect" src="assets/page-03/effects/helio-shield-shimmer.svg" alt=""><img class="visitor-pose" src="assets/page-03/helio-rest.png" alt="Helio, a friendly heat-shield probe"></div>
+  <div class="visitor umbra" id="umbra"><img class="visitor-effect" src="assets/page-03/effects/umbra-scan-rings.svg" alt=""><img class="visitor-pose" src="assets/page-03/umbra-hidden.png" alt="Umbra, a friendly sunspot observer"></div>
+  <div class="visitor flicker" id="flicker"><img class="visitor-effect" src="assets/page-03/effects/flicker-arrival-sparks.svg" alt=""><img class="visitor-pose" src="assets/page-03/flicker-arrival.png" alt="Flicker, a friendly solar scout"></div>
+  <div class="discoveries" id="discoveries">Sun visitors: 0 of 3</div>
+
+  <aside class="detail" id="detail" aria-live="polite">
+    <div class="detail-head"><h3 id="detail-title">Sun feature</h3><button class="detail-close" id="detail-close" aria-label="Close detail">×</button></div>
+    <img class="detail-view" id="detail-image" src="assets/page-03/granulation-closeup-frame-01.png" alt="">
+    <p id="detail-copy"></p>
+  </aside>
+
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+
+  <section class="fact-box" aria-label="Five facts about the Sun">
+    <button class="fact-card" data-fact="diameter" aria-pressed="false"><img src="assets/page-03/icons/diameter-ruler.svg" alt=""><span>Diameter:<br>about<br><strong>1.39 million km</strong><br>(about 109 Earths wide)</span></button>
+    <button class="fact-card" data-fact="surface" aria-pressed="false"><img src="assets/page-03/icons/surface-temperature.svg" alt=""><span>Surface temperature:<br>about<br><strong>5,500°C</strong></span></button>
+    <button class="fact-card" data-fact="core" aria-pressed="false"><img src="assets/page-03/icons/core-temperature.svg" alt=""><span>Core temperature:<br>about<br><strong>15 million°C</strong></span></button>
+    <button class="fact-card" data-fact="light" aria-pressed="false"><img src="assets/page-03/icons/sunlight-clock.svg" alt=""><span>Sunlight takes<br>about <strong>8 minutes</strong><br>to reach Earth.</span></button>
+    <button class="fact-card" data-fact="gravity" aria-pressed="false"><img src="assets/page-03/icons/gravity-star.svg" alt=""><span>The Sun’s gravity<br>helps keep the<br>solar system together.</span></button>
+  </section>
+
+  <div class="toolbar"><button id="sound" aria-pressed="true">Sound on</button><button id="motion" aria-pressed="false">Reduce motion</button><button id="reset">Replay</button></div>
+</section>
+</main>
+<script>
+(()=>{"use strict";
+const A="assets/page-03/",stage=document.getElementById("stage"),sun=document.getElementById("sun"),sunImage=document.getElementById("sun-image"),status=document.getElementById("status");
+const idleFrames=["sun-main-frame-01.png","sun-main-frame-02.png","sun-main-frame-03.png","sun-main-frame-04.png"].map(x=>A+x);
+const eventFrames={prominence:[1,2,3,4,5].map(n=>A+`prominence-frame-0${n}.png`),flare:[1,2,3,4,5].map(n=>A+`solar-flare-frame-0${n}.png`)};
+const features={
+  prominence:{title:"Prominence",speech:"A prominence is a huge loop of glowing plasma guided by the Sun's magnetic fields.",copy:"A prominence is a huge loop of glowing plasma guided by magnetic fields."},
+  sunspot:{title:"Sunspots",speech:"Sunspots look dark because they are cooler than the area around them.",copy:"Sunspots are cooler, darker regions shaped by powerful magnetic fields.",close:"sunspot-closeup-frame"},
+  granulation:{title:"Granulation",speech:"Hot plasma rises, cools, and sinks, making the surface look bubbly.",copy:"Hot plasma rises, cools and sinks, creating a constantly changing pattern.",close:"granulation-closeup-frame"},
+  flare:{title:"Solar flare",speech:"A solar flare is a sudden burst of energy from the Sun.",copy:"A solar flare is a sudden bright burst of energy and radiation."}
+};
+const facts={
+  diameter:"The Sun is about 1.39 million kilometres wide. About 109 Earths could fit across it.",
+  surface:"The Sun's visible surface is about 5,500 degrees Celsius.",
+  core:"The Sun's core is about 15 million degrees Celsius.",
+  light:"Sunlight takes about 8 minutes to reach Earth.",
+  gravity:"The Sun's gravity helps hold the solar system together."
+};
+const visitorData={
+  helio:{rest:"helio-rest.png",active:"helio-wave.png",speech:"My shield helps protect me from the Sun's powerful heat.",notes:[523.25,659.25,783.99],shape:"sine"},
+  umbra:{rest:"umbra-hidden.png",active:"umbra-revealed.png",speech:"I found a cooler, darker sunspot!",notes:[330,440,330],shape:"triangle"},
+  flicker:{rest:"flicker-arrival.png",active:"flicker-wave.png",speech:"That bright flash was a solar flare!",notes:[392,523.25,659.25],shape:"sine"}
+};
+let soundOn=true,reduced=false,sunActive=true,eventActive=false,idleIndex=0,idleTimer=0,eventTimers=[],detailTimer=0,statusTimer=0,reactTimer=0,activeVisitor="",found=new Set(),speechVoices=[];
+function showStatus(text,ms=4200){clearTimeout(statusTimer);status.textContent=text;status.classList.add("show");statusTimer=setTimeout(()=>status.classList.remove("show"),ms)}
+function refreshSpeechVoices(){if(!("speechSynthesis" in window))return;try{speechVoices=speechSynthesis.getVoices()||[]}catch(e){speechVoices=[]}}
+function preferredVoice(role){refreshSpeechVoices();const english=speechVoices.filter(v=>!v.lang||/^en[-_]/i.test(v.lang)),pool=english.length?english:speechVoices,choices=role==="visitor"?["Junior","Eddy","Reed","Rocko","Alex","Aaron","Arthur"]:["Daniel","Reed (English (US))","Reed","Eddy (English (US))","Eddy","Rocko (English (US))","Rocko","Alex","Aaron","Arthur","Junior"];for(const choice of choices){const voice=pool.find(v=>v.name===choice||v.name.startsWith(`${choice} (`));if(voice)return voice}return pool.find(v=>v.default)||pool[0]||null}
+function speak(text,role="narrator"){if(!soundOn||!("speechSynthesis" in window)||!("SpeechSynthesisUtterance" in window))return;try{const u=new SpeechSynthesisUtterance(text),voice=preferredVoice(role);if(voice)u.voice=voice;u.rate=role==="visitor"?1.02:.96;u.pitch=role==="visitor"?1.15:1.08;u.volume=.96;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+refreshSpeechVoices();try{speechSynthesis.addEventListener?.("voiceschanged",refreshSpeechVoices)}catch(e){}
+function cue(notes=[440],shape="sine"){if(!soundOn)return;const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;const ctx=cue.ctx||(cue.ctx=new Audio);ctx.resume?.();notes.forEach((freq,i)=>{const start=ctx.currentTime+i*.12,o=ctx.createOscillator(),g=ctx.createGain();o.type=shape;o.frequency.value=freq;g.gain.setValueAtTime(.001,start);g.gain.exponentialRampToValueAtTime(.055,start+.025);g.gain.exponentialRampToValueAtTime(.001,start+.2);o.connect(g).connect(ctx.destination);o.start(start);o.stop(start+.23)})}
+function idleStep(){clearTimeout(idleTimer);if(!sunActive||eventActive||reduced)return;idleIndex=(idleIndex+1)%idleFrames.length;sunImage.src=idleFrames[idleIndex];idleTimer=setTimeout(idleStep,460)}
+function describeSun(){sun.classList.remove("active");void sun.offsetWidth;sun.classList.add("active");cue([330,440,550]);speak("The Sun is a giant sphere of hot, moving plasma.");showStatus("The Sun is a giant sphere of hot, moving plasma.")}
+sun.onclick=describeSun;document.getElementById("start-sun").onclick=describeSun;
+function react(){clearTimeout(reactTimer);stage.classList.add("reacting");reactTimer=setTimeout(()=>stage.classList.remove("reacting"),2400)}
+function playEvent(kind){if(eventActive)return;eventActive=true;clearTimeout(idleTimer);const frames=eventFrames[kind];let i=0;sunImage.src=frames[0];if(reduced){sunImage.src=frames[Math.floor(frames.length/2)];eventTimers.push(setTimeout(()=>{eventActive=false;sunImage.src=idleFrames[idleIndex]},650));return}const next=()=>{i++;if(i<frames.length){sunImage.src=frames[i];eventTimers.push(setTimeout(next,340))}else{eventTimers.push(setTimeout(()=>{eventActive=false;sunImage.src=idleFrames[idleIndex];idleStep()},390))}};eventTimers.push(setTimeout(next,340))}
+const detail=document.getElementById("detail"),detailImage=document.getElementById("detail-image"),detailTitle=document.getElementById("detail-title"),detailCopy=document.getElementById("detail-copy");
+function closeDetail(){clearTimeout(detailTimer);detail.classList.remove("show")}
+function openDetail(kind){const f=features[kind];detailTitle.textContent=f.title;detailCopy.textContent=f.copy;detailImage.alt=`Magnified ${f.title.toLowerCase()}`;let n=1;detailImage.src=A+`${f.close}-01.png`;detail.classList.add("show");const step=()=>{if(!detail.classList.contains("show")||reduced)return;n=n%3+1;detailImage.src=A+`${f.close}-0${n}.png`;detailTimer=setTimeout(step,520)};clearTimeout(detailTimer);detailTimer=setTimeout(step,520)}
+document.getElementById("detail-close").onclick=closeDetail;
+document.querySelectorAll(".feature").forEach(b=>b.onclick=()=>{const kind=b.dataset.feature,f=features[kind];document.querySelectorAll(".feature").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");react();cue(kind==="flare"?[392,523,659]:kind==="prominence"?[330,392,494]:[440,520]);speak(f.speech);showStatus(f.speech);if(kind==="flare"||kind==="prominence")playEvent(kind);else openDetail(kind);eventTimers.push(setTimeout(()=>b.setAttribute("aria-pressed","false"),1900))});
+document.querySelectorAll(".fact-card").forEach(b=>b.onclick=()=>{document.querySelectorAll(".fact-card").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");const icon=b.querySelector("img");icon.classList.remove("animate-icon");void icon.offsetWidth;icon.classList.add("animate-icon");cue([520,660]);speak(facts[b.dataset.fact]);showStatus(facts[b.dataset.fact]);eventTimers.push(setTimeout(()=>icon.classList.remove("animate-icon"),1100));eventTimers.push(setTimeout(()=>b.setAttribute("aria-pressed","false"),2200))});
+function revealVisitor(id){if(activeVisitor)return;activeVisitor=id;const d=visitorData[id],el=document.getElementById(id),pose=el.querySelector(".visitor-pose");if(!found.has(id))found.add(id);pose.src=A+d.active;el.classList.remove("departing");el.classList.add("found");cue(d.notes,d.shape);speak(d.speech,"visitor");showStatus(`✦ ${d.speech}`);const count=document.getElementById("discoveries");count.textContent=`Sun visitors: ${found.size} of 3`;count.classList.add("show");eventTimers.push(setTimeout(()=>el.classList.add("departing"),3600));eventTimers.push(setTimeout(()=>{el.classList.remove("found","departing");pose.src=A+d.rest;activeVisitor=""},4600))}
+document.querySelectorAll(".secret").forEach(b=>b.onclick=()=>revealVisitor(b.dataset.visitor));
+document.getElementById("listen").onclick=()=>{if(!soundOn){soundOn=true;syncSound()}speak("The Sun is our star. Its hot moving plasma makes sunspots, bubbling granules, prominences, and powerful solar flares.");showStatus("The Sun is our star—hot, active, and always changing.")};
+function syncSound(){const b=document.getElementById("sound");b.textContent=soundOn?"Sound on":"Sound off";b.setAttribute("aria-pressed",String(soundOn))}
+document.getElementById("sound").onclick=()=>{soundOn=!soundOn;if(!soundOn)try{speechSynthesis.cancel()}catch(e){}syncSound()};
+document.getElementById("motion").onclick=e=>{reduced=!reduced;stage.classList.toggle("reduce-motion",reduced);e.currentTarget.textContent=reduced?"Full motion":"Reduce motion";e.currentTarget.setAttribute("aria-pressed",String(reduced));clearTimeout(idleTimer);clearTimeout(detailTimer);if(!reduced){idleStep();if(detail.classList.contains("show")){const kind=detailTitle.textContent==="Sunspots"?"sunspot":"granulation";openDetail(kind)}}};
+document.getElementById("reset").onclick=()=>{clearTimeout(idleTimer);clearTimeout(detailTimer);clearTimeout(statusTimer);clearTimeout(reactTimer);eventTimers.forEach(clearTimeout);eventTimers=[];try{speechSynthesis.cancel()}catch(e){}sunActive=true;eventActive=false;idleIndex=0;activeVisitor="";found.clear();sunImage.src=idleFrames[0];sun.classList.remove("active");stage.classList.remove("reacting");closeDetail();document.querySelectorAll(".feature,.fact-card").forEach(x=>x.setAttribute("aria-pressed","false"));document.querySelectorAll(".fact-card img").forEach(x=>x.classList.remove("animate-icon"));document.querySelectorAll(".visitor").forEach(el=>{el.classList.remove("found","departing");const id=el.id;el.querySelector(".visitor-pose").src=A+visitorData[id].rest});const count=document.getElementById("discoveries");count.textContent="Sun visitors: 0 of 3";count.classList.remove("show");showStatus("Ready to explore the Sun again.");idleStep()};
+document.getElementById("back-page-2").onclick=()=>{try{speechSynthesis.cancel()}catch(e){}};
+idleStep();
+})();
+</script>
+<script>
+(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(type=>jump.addEventListener(type,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>4)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
+</script>
+</body>
+</html>

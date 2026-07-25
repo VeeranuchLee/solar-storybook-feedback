@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Mercury rotating slowly beside a clock">
+  <defs><radialGradient id="merR" cx=".7" cy=".28"><stop stop-color="#dec092"/><stop offset=".58" stop-color="#88705b"/><stop offset="1" stop-color="#302b2d"/></radialGradient></defs>
+  <g id="rotation-planet"><circle cx="59" cy="78" r="40" fill="url(#merR)" stroke="#17365c" stroke-width="4"/><g fill="none" stroke="#55473f" stroke-width="3"><circle cx="48" cy="65" r="8"/><circle cx="72" cy="86" r="10"/></g></g>
+  <g id="rotation-arrow" fill="none" stroke="#396ca0" stroke-width="6" stroke-linecap="round"><path d="M25 35c18-18 54-17 70 3"/><path d="m86 28 13 13-18 5"/></g>
+  <g id="rotation-clock"><circle cx="117" cy="112" r="28" fill="#eff8ff" stroke="#17365c" stroke-width="4"/><g stroke="#17365c" stroke-width="3"><path d="M117 88v6M117 130v6M93 112h6M135 112h6"/></g><path d="M117 112V96M117 112l12 7" stroke="#17365c" stroke-width="5" stroke-linecap="round"/><circle cx="117" cy="112" r="4" fill="#ff9a2e"/></g>
+</svg>

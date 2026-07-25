@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Layered Sun showing its hot core</title>
+  <circle cx="64" cy="64" r="49" fill="#f47a16" stroke="#102f58" stroke-width="5"/>
+  <circle cx="64" cy="64" r="38" fill="#ff9f16" stroke="#d84c12" stroke-width="4"/>
+  <circle cx="64" cy="64" r="27" fill="#ffc51c" stroke="#ed7810" stroke-width="4"/>
+  <circle cx="64" cy="64" r="15" fill="#fff36b" stroke="#f2a30d" stroke-width="4"/>
+  <circle cx="59" cy="58" r="5" fill="#fffbd2"/>
+  <path d="M64 15v8m49 41h-8M64 113v-8M15 64h8" stroke="#ffc342" stroke-width="4" stroke-linecap="round"/>
+</svg>

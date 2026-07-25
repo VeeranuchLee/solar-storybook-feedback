@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 190" role="img" aria-label="Short speed streak behind Mercury">
+  <defs><linearGradient id="speedLine" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#61dfff" stop-opacity="0"/><stop offset=".65" stop-color="#61dfff" stop-opacity=".66"/><stop offset="1" stop-color="#fff1a6"/></linearGradient><filter id="streakGlow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="5" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+  <g id="speed-streaks" fill="none" stroke-linecap="round" filter="url(#streakGlow)"><path d="M20 121C140 32 298 38 474 88" stroke="url(#speedLine)" stroke-width="9"/><path d="M39 151C169 78 313 75 479 111" stroke="url(#speedLine)" stroke-width="5" opacity=".72"/><path d="M19 86C150 11 307 14 456 61" stroke="#ffb13c" stroke-width="3" opacity=".48"/></g>
+</svg>

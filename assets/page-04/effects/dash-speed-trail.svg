@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" role="img" aria-label="Curved cyan and amber speed trails">
+  <defs>
+    <linearGradient id="dashTrail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#61eaff" stop-opacity="0"/>
+      <stop offset=".65" stop-color="#61eaff" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#fff4bd"/>
+    </linearGradient>
+    <filter id="dashGlow" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g fill="none" stroke-linecap="round" filter="url(#dashGlow)">
+    <path d="M24 197C161 62 335 44 571 101" stroke="url(#dashTrail)" stroke-width="8"/>
+    <path d="M51 224C209 101 365 94 583 137" stroke="url(#dashTrail)" stroke-width="4" opacity=".7"/>
+    <path d="M18 163C155 37 331 16 545 67" stroke="#ffb640" stroke-width="3" opacity=".52"/>
+  </g>
+</svg>

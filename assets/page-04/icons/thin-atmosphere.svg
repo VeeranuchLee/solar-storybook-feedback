@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Sparse particles escaping Mercury">
+  <defs><radialGradient id="merA" cx=".68" cy=".3"><stop stop-color="#d7b98b"/><stop offset=".58" stop-color="#806b58"/><stop offset="1" stop-color="#302b2d"/></radialGradient></defs>
+  <g id="atmosphere-planet"><circle cx="61" cy="91" r="42" fill="url(#merA)" stroke="#17365c" stroke-width="4"/><g fill="none" stroke="#5b4c43" stroke-width="3"><circle cx="48" cy="78" r="8"/><circle cx="73" cy="101" r="10"/></g></g>
+  <g id="atmosphere-particles" fill="#77dbf4" stroke="#17365c" stroke-width="2"><circle cx="91" cy="54" r="5"/><circle cx="110" cy="43" r="4"/><circle cx="129" cy="29" r="3"/><circle cx="106" cy="75" r="3"/><circle cx="133" cy="66" r="4"/></g>
+  <g id="atmosphere-arrows" fill="none" stroke="#61b8df" stroke-width="4" stroke-linecap="round"><path d="M84 69c15-10 29-21 43-35"/><path d="m120 34 10-3-2 10"/><path d="M89 88c17-4 31-10 45-19"/><path d="m127 67 10-1-5 9"/></g>
+</svg>

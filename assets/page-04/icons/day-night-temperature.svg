@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Mercury day and night temperatures">
+  <defs><linearGradient id="tempTube" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#3db6ff"/><stop offset=".48" stop-color="#fff"/><stop offset=".52" stop-color="#ffd66a"/><stop offset="1" stop-color="#f04425"/></linearGradient></defs>
+  <g id="temperature-mercury"><circle cx="52" cy="70" r="31" fill="#504641" stroke="#16365d" stroke-width="4"/><path d="M52 39a31 31 0 0 1 0 62Z" fill="#e4b879"/><path d="M52 39v62" stroke="#fff" stroke-width="3" opacity=".55"/></g>
+  <g id="temperature-thermometer"><rect x="102" y="28" width="22" height="76" rx="11" fill="#fff" stroke="#17375e" stroke-width="4"/><rect x="109" y="36" width="8" height="66" rx="4" fill="url(#tempTube)"/><circle cx="113" cy="116" r="20" fill="#f04425" stroke="#17375e" stroke-width="4"/><path d="M113 116V49" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".75"/></g>
+  <g id="temperature-arrows" fill="none" stroke-linecap="round" stroke-width="4"><path d="M23 118v20m0-20-8 9m8-9 8 9" stroke="#42b8ff"/><path d="M73 138v-20m0 20-8-9m8 9 8-9" stroke="#ff6b31"/></g>
+</svg>

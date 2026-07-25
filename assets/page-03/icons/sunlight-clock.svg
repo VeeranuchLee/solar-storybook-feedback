@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Clock showing sunlight travel time</title>
+  <circle cx="64" cy="64" r="49" fill="#67c9ef" stroke="#102f58" stroke-width="5"/>
+  <circle cx="64" cy="64" r="39" fill="#f8fbf2" stroke="#102f58" stroke-width="4"/>
+  <g stroke="#5b7894" stroke-width="3" stroke-linecap="round">
+    <path d="M64 31v7m33 26h-7M64 97v-7M31 64h7"/>
+    <path d="m40 40 5 5m43-5-5 5m5 43-5-5m-43 5 5-5"/>
+  </g>
+  <path d="M64 64V42m0 22 18-12" fill="none" stroke="#102f58" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="64" cy="64" r="5" fill="#1d6ea8"/>
+</svg>

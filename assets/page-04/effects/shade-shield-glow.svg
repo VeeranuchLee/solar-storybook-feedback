@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 700" role="img" aria-label="Golden heat-shield shimmer">
+  <defs>
+    <linearGradient id="shadeEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff9f28" stop-opacity="0"/>
+      <stop offset=".58" stop-color="#ffc84a" stop-opacity=".52"/>
+      <stop offset="1" stop-color="#fff2a3" stop-opacity=".92"/>
+    </linearGradient>
+    <filter id="shadeGlow" x="-40%" y="-20%" width="180%" height="140%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g fill="none" stroke-linecap="round" filter="url(#shadeGlow)">
+    <path d="M332 52C472 162 495 530 340 650" stroke="url(#shadeEdge)" stroke-width="13"/>
+    <path d="M374 77C502 205 506 495 380 627" stroke="#ffba3d" stroke-width="5" opacity=".58"/>
+    <path d="M414 118C511 242 510 449 417 580" stroke="#fff0a0" stroke-width="3" opacity=".46"/>
+  </g>
+</svg>

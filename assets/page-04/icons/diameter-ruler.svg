@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Ruler measuring Mercury">
+  <defs><radialGradient id="mercuryD" cx=".68" cy=".3"><stop stop-color="#d7b98e"/><stop offset=".55" stop-color="#826a55"/><stop offset="1" stop-color="#302b2b"/></radialGradient></defs>
+  <g id="diameter-planet"><circle cx="80" cy="70" r="38" fill="url(#mercuryD)" stroke="#182f51" stroke-width="4"/><g fill="none" stroke="#4b4039" stroke-width="3" opacity=".7"><circle cx="65" cy="56" r="7"/><circle cx="93" cy="78" r="10"/><circle cx="70" cy="88" r="5"/></g></g>
+  <g id="diameter-ruler" transform="rotate(-8 80 116)"><rect x="26" y="104" width="108" height="24" rx="6" fill="#7bd8ef" stroke="#17385e" stroke-width="4"/><g stroke="#17385e" stroke-width="3"><path d="M38 104v10M50 104v7M62 104v10M74 104v7M86 104v10M98 104v7M110 104v10M122 104v7"/></g><path d="M33 116h94" stroke="#fff" stroke-width="2" opacity=".8"/></g>
+</svg>

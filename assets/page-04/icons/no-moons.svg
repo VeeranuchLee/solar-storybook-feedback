@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Mercury has no moons">
+  <defs><radialGradient id="merN" cx=".68" cy=".3"><stop stop-color="#d7b98b"/><stop offset="1" stop-color="#4a403b"/></radialGradient></defs>
+  <g id="no-moons-planet"><circle cx="66" cy="82" r="39" fill="url(#merN)" stroke="#17365c" stroke-width="4"/><g fill="none" stroke="#635248" stroke-width="3"><circle cx="52" cy="69" r="8"/><circle cx="78" cy="90" r="10"/></g></g>
+  <ellipse id="no-moons-orbit" cx="70" cy="82" rx="61" ry="30" fill="none" stroke="#78b9df" stroke-width="4" stroke-dasharray="6 7" transform="rotate(-20 70 82)"/>
+  <g id="no-moons-zero"><circle cx="124" cy="45" r="23" fill="#fff7d4" stroke="#17365c" stroke-width="4"/><ellipse cx="124" cy="45" rx="8" ry="13" fill="none" stroke="#e46f2e" stroke-width="6"/></g>
+</svg>
