@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Venus surface temperature gauge</title>
+  <desc id="desc">A strong thermometer rises toward a glowing hottest-zone marker.</desc>
+  <defs>
+    <linearGradient id="mercury" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#e73d24"/><stop offset=".68" stop-color="#ff722c"/><stop offset="1" stop-color="#ffd04a"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g id="thermometer-body">
+    <rect x="129" y="30" width="62" height="211" rx="31" fill="#f9f0db" stroke="#5a4239" stroke-width="8"/>
+    <circle cx="160" cy="252" r="51" fill="#f9f0db" stroke="#5a4239" stroke-width="8"/>
+    <circle cx="160" cy="252" r="34" fill="#ef4d27"/>
+  </g>
+  <g id="temperature-column">
+    <rect x="148" y="52" width="24" height="192" rx="12" fill="#68352c"/>
+    <rect id="temperature-fill" x="151" y="69" width="18" height="178" rx="9" fill="url(#mercury)" filter="url(#glow)"/>
+  </g>
+  <g id="gauge-ticks" fill="none" stroke="#7b5140" stroke-width="5" stroke-linecap="round">
+    <path d="M198 199h29M198 158h20M198 117h29M198 76h20"/>
+  </g>
+  <g id="hot-spark" fill="#ffd861" filter="url(#glow)">
+    <circle cx="160" cy="55" r="9"/><path d="M160 25v13M132 35l10 10M188 35l-10 10" stroke="#ffd861" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Heat rising from Venus's surface</title>
+  <desc id="desc">Warm infrared energy rises in wavy arrows from a hot curved surface.</desc>
+  <defs>
+    <linearGradient id="heat" x1="0" y1="1" x2="0" y2="0">
+      <stop stop-color="#ff6b28"/><stop offset=".55" stop-color="#ffb52e"/><stop offset="1" stop-color="#ffe779"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M1 1l10 5-10 5z" fill="#ffe779"/>
+    </marker>
+  </defs>
+  <g id="hot-surface">
+    <path d="M28 285Q160 208 292 285V320H28Z" fill="#9d3f24"/>
+    <path d="M28 285Q160 208 292 285" fill="none" stroke="#ff8f28" stroke-width="12" opacity=".85"/>
+    <path d="M55 286Q160 229 265 286" fill="none" stroke="#ffc447" stroke-width="3" opacity=".7"/>
+  </g>
+  <g id="rising-heat" fill="none" stroke="url(#heat)" stroke-width="9" stroke-linecap="round" marker-end="url(#arrow)" filter="url(#glow)">
+    <path d="M86 250C53 210 115 185 83 143C57 109 105 89 94 48"/>
+    <path d="M160 231c-34-34 30-64-2-101-27-32 23-57 6-96"/>
+    <path d="M232 250c30-39-30-68 1-107 25-32-19-57-7-95"/>
+  </g>
+  <g id="heat-pulses" fill="#ffcc4f">
+    <circle cx="87" cy="207" r="5"/><circle cx="161" cy="178" r="5"/><circle cx="231" cy="208" r="5"/>
+  </g>
+</svg>

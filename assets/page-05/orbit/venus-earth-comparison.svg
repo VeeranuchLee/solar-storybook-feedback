@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-labelledby="title desc">
+  <title id="title">Venus and Earth are nearly the same size</title>
+  <desc id="desc">Venus and Earth stand on the same baseline; Venus is slightly smaller.</desc>
+  <defs>
+    <radialGradient id="venus" cx=".68" cy=".24"><stop stop-color="#fff2a5"/><stop offset=".38" stop-color="#e4a13c"/><stop offset="1" stop-color="#6f3f29"/></radialGradient>
+    <radialGradient id="earth" cx=".68" cy=".24"><stop stop-color="#b7f4ff"/><stop offset=".34" stop-color="#318bd1"/><stop offset="1" stop-color="#143a69"/></radialGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="7" stdDeviation="5" flood-opacity=".45"/></filter>
+    <clipPath id="vc"><circle cx="118" cy="155" r="91"/></clipPath>
+    <clipPath id="ec"><circle cx="307" cy="151" r="95"/></clipPath>
+  </defs>
+  <g id="comparison-baseline">
+    <path d="M25 258H395" stroke="#f1c86d" stroke-width="5" stroke-linecap="round"/>
+    <path d="M118 250v17M307 246v21" stroke="#f1c86d" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g id="venus-body" filter="url(#shadow)">
+    <circle cx="118" cy="155" r="91" fill="url(#venus)"/>
+    <g clip-path="url(#vc)" fill="none" stroke-linecap="round" opacity=".75">
+      <path d="M27 117c58-28 116-18 181 4" stroke="#ffe583" stroke-width="16"/>
+      <path d="M23 162c68-25 128-13 192 10" stroke="#c77a31" stroke-width="19"/>
+      <path d="M39 205c57-17 106-7 163 10" stroke="#ffd56d" stroke-width="13"/>
+    </g>
+  </g>
+  <g id="earth-body" filter="url(#shadow)">
+    <circle cx="307" cy="151" r="95" fill="url(#earth)"/>
+    <g id="earth-land" clip-path="url(#ec)" fill="#68b36b">
+      <path d="M255 77c27-15 54-13 69 3l-9 20-29 7-17 24-23-7-8-23z"/>
+      <path d="M328 137l34 9 18 27-16 31-23 8-10-23-22-15 7-23z"/>
+      <path d="M268 164l24 9 4 28-17 34-21-19-7-29z"/>
+    </g>
+    <g id="earth-clouds" clip-path="url(#ec)" fill="none" stroke="#eafaff" stroke-width="8" stroke-linecap="round" opacity=".72">
+      <path d="M229 124c35-12 72-10 109 1M275 207c32 9 65 6 92-5"/>
+    </g>
+  </g>
+  <g id="size-brackets" fill="none" stroke="#fff0a3" stroke-width="5" stroke-linecap="round" opacity=".8">
+    <path d="M25 64v182M17 64h16M17 246h16"/>
+    <path d="M395 56v190M387 56h16M387 246h16"/>
+  </g>
+</svg>

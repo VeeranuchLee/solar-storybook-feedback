@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Heat retained by Venus's dense atmosphere</title>
+  <desc id="desc">Rising heat arrows meet a thick atmospheric band; some energy escapes while much returns toward the surface.</desc>
+  <defs>
+    <linearGradient id="heat" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#ff6328"/><stop offset="1" stop-color="#ffe86e"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="up" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1l10 5-10 5z" fill="#ffe86e"/></marker>
+    <marker id="down" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1l10 5-10 5z" fill="#ff8f30"/></marker>
+  </defs>
+  <g id="dense-atmosphere" fill="none" stroke-linecap="round">
+    <path d="M30 112Q160 28 290 112" stroke="#ffb432" stroke-width="34" opacity=".18"/>
+    <path d="M34 111Q160 35 286 111" stroke="#ffd16a" stroke-width="8" opacity=".9"/>
+    <path d="M42 119Q160 49 278 119" stroke="#ff8c28" stroke-width="5" opacity=".65"/>
+  </g>
+  <g id="rising-energy" fill="none" stroke="url(#heat)" stroke-width="8" stroke-linecap="round" marker-end="url(#up)" filter="url(#glow)">
+    <path d="M92 286c-20-41 26-64 4-103-17-30 14-47 5-73"/>
+    <path d="M160 285c-25-44 27-65 2-105-18-29 12-45 3-69"/>
+    <path d="M228 286c19-42-27-63-5-102 17-30-15-46-5-72"/>
+  </g>
+  <g id="returning-energy" fill="none" stroke="#ff8f30" stroke-width="8" stroke-linecap="round" marker-end="url(#down)" filter="url(#glow)">
+    <path d="M75 117c-31 35 27 56 2 94"/>
+    <path d="M145 91c-30 42 25 61-1 101"/>
+    <path d="M215 100c31 38-23 58 3 99"/>
+  </g>
+  <g id="escaping-energy" fill="none" stroke="#fff2a0" stroke-width="5" stroke-linecap="round" marker-end="url(#up)" opacity=".72">
+    <path d="M257 83c11-24-10-39 2-62"/>
+  </g>
+</svg>

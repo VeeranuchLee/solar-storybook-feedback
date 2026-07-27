@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Venus's thick atmosphere and surface pressure</title>
+  <desc id="desc">Concentric golden atmosphere layers surround a small surface probe as inward arrows show strong pressure.</desc>
+  <defs>
+    <radialGradient id="air">
+      <stop offset=".5" stop-color="#ffbe36" stop-opacity="0"/>
+      <stop offset=".72" stop-color="#ffbe36" stop-opacity=".18"/>
+      <stop offset=".9" stop-color="#ff8428" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#ffe478" stop-opacity=".12"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="in" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1l10 5-10 5z" fill="#ffbf3b"/></marker>
+  </defs>
+  <g id="atmosphere-shells">
+    <circle cx="160" cy="160" r="142" fill="url(#air)"/>
+    <circle cx="160" cy="160" r="126" fill="none" stroke="#ffe184" stroke-width="4" opacity=".45"/>
+    <circle cx="160" cy="160" r="108" fill="none" stroke="#ff9b2d" stroke-width="8" opacity=".36"/>
+    <circle cx="160" cy="160" r="89" fill="#a94726" stroke="#ffbd45" stroke-width="5"/>
+  </g>
+  <g id="pressure-arrows" fill="none" stroke="#ffbf3b" stroke-width="8" stroke-linecap="round" marker-end="url(#in)" filter="url(#glow)">
+    <path d="M160 17v66"/><path d="M160 303v-66"/><path d="M17 160h66"/><path d="M303 160h-66"/>
+    <path d="M59 59l48 48"/><path d="M261 59l-48 48"/><path d="M59 261l48-48"/><path d="M261 261l-48-48"/>
+  </g>
+  <g id="surface-probe" transform="translate(160 177)">
+    <path d="M-27 25h54l-7-32h-40z" fill="#e7dfc8" stroke="#3d4854" stroke-width="5"/>
+    <circle cy="-12" r="15" fill="#f6f0d7" stroke="#3d4854" stroke-width="5"/>
+    <circle cy="-12" r="6" fill="#46dff0"/>
+    <path d="M-19 25l-12 18M19 25l12 18M-9-27V-43" fill="none" stroke="#3d4854" stroke-width="5" stroke-linecap="round"/>
+    <circle cy="-47" r="5" fill="#ffcc42"/>
+  </g>
+</svg>

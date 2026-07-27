@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Venus surface pressure gauge</title>
+  <desc id="desc">A sturdy pressure dial climbs from a small blue Earth zone toward Venus's strong orange pressure zone.</desc>
+  <defs>
+    <linearGradient id="dial" x1="0" x2="1"><stop stop-color="#51cbe8"/><stop offset=".22" stop-color="#f5d65b"/><stop offset="1" stop-color="#ef6131"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g id="meter-body">
+    <circle cx="160" cy="158" r="121" fill="#f7edda" stroke="#55433e" stroke-width="10"/>
+    <circle cx="160" cy="158" r="92" fill="#302d33" stroke="url(#dial)" stroke-width="18" stroke-dasharray="225 355" stroke-linecap="round" transform="rotate(135 160 158)"/>
+  </g>
+  <g id="pressure-ticks" stroke="#f7d875" stroke-width="5" stroke-linecap="round">
+    <path d="M93 220l-12 12M70 161H52M94 98L81 85M160 71V52M226 98l13-13M249 161h19M226 220l13 12"/>
+  </g>
+  <g id="pressure-needle" filter="url(#glow)">
+    <path d="M160 158L226 89" stroke="#ff7b36" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="160" cy="158" r="17" fill="#ffb83d" stroke="#55433e" stroke-width="7"/>
+  </g>
+  <g id="comparison-dots">
+    <circle cx="83" cy="224" r="12" fill="#55cfe8"/><circle cx="239" cy="92" r="15" fill="#f06532"/>
+  </g>
+  <g id="base">
+    <path d="M100 274h120l22 28H78z" fill="#6f574b" stroke="#453935" stroke-width="7" stroke-linejoin="round"/>
+  </g>
+</svg>

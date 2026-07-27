@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Small cloud-covered Venus</title>
+  <desc id="desc">A compact golden Venus with layered cloud bands for movement along the orbit path.</desc>
+  <defs>
+    <radialGradient id="planet" cx=".7" cy=".25">
+      <stop stop-color="#fff0a0"/><stop offset=".32" stop-color="#eab54b"/><stop offset=".72" stop-color="#b36c2e"/><stop offset="1" stop-color="#58352b"/>
+    </radialGradient>
+    <clipPath id="clip"><circle cx="160" cy="160" r="112"/></clipPath>
+    <filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g id="mini-venus" filter="url(#glow)">
+    <circle cx="160" cy="160" r="119" fill="#f5ba4d" opacity=".25"/>
+    <circle cx="160" cy="160" r="112" fill="url(#planet)"/>
+    <g id="mini-clouds" clip-path="url(#clip)" fill="none" stroke-linecap="round">
+      <path d="M41 112c66-41 130-26 228 7" stroke="#ffe68a" stroke-width="17" opacity=".8"/>
+      <path d="M35 165c74-34 143-18 250 11" stroke="#d58d39" stroke-width="23" opacity=".8"/>
+      <path d="M49 213c69-30 145-13 224 5" stroke="#ffd671" stroke-width="15" opacity=".72"/>
+      <path d="M78 75c58-19 112-7 169 10" stroke="#fff2b1" stroke-width="9" opacity=".6"/>
+    </g>
+    <circle cx="160" cy="160" r="112" fill="none" stroke="#ffd875" stroke-width="4" opacity=".72"/>
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-labelledby="title desc">
+  <title id="title">On Venus the Sun rises in the west</title>
+  <desc id="desc">A sunrise begins at the gold west marker and follows a curved path toward the cyan east marker.</desc>
+  <defs>
+    <radialGradient id="sky"><stop stop-color="#a6572b"/><stop offset=".7" stop-color="#3a2423"/><stop offset="1" stop-color="#171519"/></radialGradient>
+    <radialGradient id="sun"><stop stop-color="#fffbd0"/><stop offset=".5" stop-color="#ffd24a"/><stop offset="1" stop-color="#f17625"/></radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1l10 5-10 5z" fill="#ffe07a"/></marker>
+  </defs>
+  <path id="sky-dome" d="M35 257A175 175 0 01385 257Z" fill="url(#sky)" stroke="#ad7244" stroke-width="5"/>
+  <path id="surface" d="M25 257Q210 207 395 257V320H25Z" fill="#8b4329" stroke="#d27a39" stroke-width="6"/>
+  <g id="direction-markers">
+    <path d="M52 271l22-38 22 38z" fill="#ffd05a" filter="url(#glow)"/>
+    <circle cx="347" cy="252" r="17" fill="#66d8e6"/>
+    <path d="M347 222v-18M326 231l-13-13M368 231l13-13" stroke="#66d8e6" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g id="sunrise-path" fill="none" stroke="#ffe07a" stroke-width="8" stroke-linecap="round" stroke-dasharray="11 10" marker-end="url(#arrow)">
+    <path d="M75 245Q202 50 343 229"/>
+  </g>
+  <g id="rising-sun" filter="url(#glow)">
+    <circle cx="82" cy="236" r="27" fill="url(#sun)"/>
+    <g stroke="#ffd95e" stroke-width="5" stroke-linecap="round">
+      <path d="M82 196v-13M48 208l-10-10M116 208l10-10M42 236H29M122 236h13"/>
+    </g>
+  </g>
+</svg>

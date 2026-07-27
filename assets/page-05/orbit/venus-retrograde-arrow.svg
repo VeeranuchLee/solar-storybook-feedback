@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-24 -24 368 368" role="img" aria-labelledby="title desc">
+  <title id="title">Venus spins backward compared with most planets</title>
+  <desc id="desc">A golden Venus is wrapped by a prominent clockwise retrograde rotation arrow while a faint comparison arrow points the other way.</desc>
+  <defs>
+    <radialGradient id="planet" cx=".72" cy=".24"><stop stop-color="#fff0a1"/><stop offset=".35" stop-color="#e8a83f"/><stop offset="1" stop-color="#704027"/></radialGradient>
+    <marker id="goldArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1l10 5-10 5z" fill="#ffd65b"/></marker>
+    <marker id="blueArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1l10 5-10 5z" fill="#70d9e8"/></marker>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <clipPath id="clip"><circle cx="160" cy="163" r="86"/></clipPath>
+  </defs>
+  <g id="planet">
+    <circle cx="160" cy="163" r="86" fill="url(#planet)"/>
+    <g clip-path="url(#clip)" fill="none" stroke-linecap="round" opacity=".68">
+      <path d="M74 128c55-24 110-16 177 4" stroke="#ffe684" stroke-width="14"/>
+      <path d="M70 172c61-23 118-10 181 10" stroke="#c97b32" stroke-width="17"/>
+      <path d="M88 210c48-14 92-5 143 8" stroke="#ffd469" stroke-width="11"/>
+    </g>
+  </g>
+  <g id="retrograde-direction" fill="none" stroke="#ffd65b" stroke-width="11" stroke-linecap="round" marker-end="url(#goldArrow)" filter="url(#glow)">
+    <path d="M61 228C4 119 91 31 196 49C278 63 309 146 278 213"/>
+  </g>
+  <g id="usual-direction" fill="none" stroke="#70d9e8" stroke-width="6" stroke-linecap="round" marker-end="url(#blueArrow)" opacity=".48">
+    <path d="M249 260c-51 45-120 45-171 6"/>
+  </g>
+</svg>

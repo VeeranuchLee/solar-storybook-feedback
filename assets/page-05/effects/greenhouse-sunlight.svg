@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Sunlight entering Venus's atmosphere</title>
+  <desc id="desc">Five warm sunlight rays travel toward a curved golden atmosphere.</desc>
+  <defs>
+    <linearGradient id="ray" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff8b8"/>
+      <stop offset=".55" stop-color="#ffd34d"/>
+      <stop offset="1" stop-color="#ff9f20"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M1 1l10 5-10 5z" fill="#ffd34d"/>
+    </marker>
+  </defs>
+  <g id="atmosphere-arc" fill="none" stroke="#ffbb35" stroke-linecap="round">
+    <path d="M50 279Q160 177 270 279" stroke-width="16" opacity=".18"/>
+    <path d="M54 279Q160 185 266 279" stroke-width="5" opacity=".9"/>
+  </g>
+  <g id="incoming-rays" fill="none" stroke="url(#ray)" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)" filter="url(#glow)">
+    <path d="M40 35L108 149"/>
+    <path d="M92 18l45 116"/>
+    <path d="M148 14l18 110"/>
+    <path d="M204 20l-11 111"/>
+    <path d="M258 42l-39 108"/>
+  </g>
+  <g id="ray-sparkles" fill="#fff5a4">
+    <circle cx="70" cy="66" r="4"/><circle cx="125" cy="55" r="3"/><circle cx="187" cy="58" r="4"/><circle cx="240" cy="75" r="3"/>
+  </g>
+</svg>

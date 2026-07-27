@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-labelledby="title desc">
+  <title id="title">Venus orbit path around the Sun</title>
+  <desc id="desc">A bright golden Sun sits inside Venus's nearly circular orbital path with a forward orbital arrow.</desc>
+  <defs>
+    <radialGradient id="sun"><stop stop-color="#fffbd0"/><stop offset=".42" stop-color="#ffd34c"/><stop offset="1" stop-color="#f18424"/></radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1l10 5-10 5z" fill="#ffe082"/></marker>
+  </defs>
+  <g id="sun">
+    <circle cx="210" cy="160" r="49" fill="url(#sun)" filter="url(#glow)"/>
+    <g stroke="#ffd85a" stroke-width="7" stroke-linecap="round" opacity=".8">
+      <path d="M210 91V68M210 252v-23M141 160h-23M302 160h-23M161 111l-17-17M276 226l-17-17M259 111l17-17M144 226l17-17"/>
+    </g>
+  </g>
+  <g id="orbit-track" fill="none">
+    <ellipse cx="210" cy="160" rx="181" ry="112" stroke="#9d7449" stroke-width="12" opacity=".22"/>
+    <ellipse cx="210" cy="160" rx="181" ry="112" stroke="#f5cc72" stroke-width="5" stroke-dasharray="12 10"/>
+  </g>
+  <g id="orbit-direction" fill="none" stroke="#ffe082" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)" filter="url(#glow)">
+    <path d="M64 94C106 43 175 42 218 49"/>
+  </g>
+  <g id="orbit-sparkles" fill="#fff2a0">
+    <circle cx="49" cy="178" r="4"/><circle cx="335" cy="229" r="4"/><circle cx="365" cy="120" r="3"/>
+  </g>
+</svg>
