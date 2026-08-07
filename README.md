@@ -1,6 +1,6 @@
-# Interactive Solar Storybook — Pages 1–5
+# Interactive Solar Storybook — Pages 1–6
 
-Public feedback preview of the first five pages from an interactive children's solar-system storybook.
+Public feedback preview of the first six pages from an interactive children's solar-system storybook.
 
 Page 1 is Ari's bedroom: try the curtains, Jupiter, wall poster, shelf orrery, drawings, toy rocket, Ari, Dot, lamp, desk globe, and astronomy book.
 
@@ -12,6 +12,8 @@ Page 4 visits Mercury: compare hot day and cold night, inspect ancient craters, 
 
 Page 5 visits Venus: watch its golden clouds move, scan beneath them with radar, explore its heat trap and backward rotation, open fact cards, and discover three secret visiting machines.
 
-Use the top-right Previous / page number / Next controls to move between all five pages; press and hold the page number to open Go to page.
+Page 6 visits Earth, the Ocean Planet: watch independent cloud and atmosphere motion, explore the connected ocean, open animated fact cards, and discover three Sky Parades with living fliers, people in the sky, and sky explorers.
+
+Use the top-right Previous / page number / Next controls to move between all six pages; press and hold the page number to open Go to page.
 
 This repository is a showcase export. The working project remains outside GitHub.

@@ -57,7 +57,7 @@ body{display:grid;place-items:center;overflow-x:hidden}.stage{position:relative;
     <span style="--x:12%;--y:71%;--s:3px;--d:2.8s;--delay:-1.5s"></span><span style="--x:27%;--y:73%;--s:5px;--d:3.3s;--delay:-.2s"></span><span style="--x:34%;--y:29%;--s:3px;--d:2.6s;--delay:-2s"></span>
     <span style="--x:3%;--y:48%;--s:3px;--d:3.5s;--delay:-1.3s"></span><span style="--x:19%;--y:29%;--s:4px;--d:2.4s;--delay:-.6s"></span><span style="--x:35%;--y:66%;--s:4px;--d:3s;--delay:-2.4s"></span>
   </div>
-  <nav class="nav" aria-label="Book pages"><a href="page-04.html" aria-label="Previous page">‹</a><button class="page-jump" id="pageJump" type="button" aria-label="Page 5 of 5. Press and hold to go to a page">5 / 5</button><a aria-label="Next page" aria-disabled="true">›</a></nav>
+  <nav class="nav" aria-label="Book pages"><a href="page-04.html" aria-label="Previous page">‹</a><button class="page-jump" id="pageJump" type="button" aria-label="Page 5 of 6. Press and hold to go to a page">5 / 6</button><a href="page-06.html" aria-label="Next page">›</a></nav>
   <div class="tools"><button class="tool" id="sound" type="button">🔊 Sound</button><button class="tool" id="replay" type="button">↻ Replay</button></div>
   <section class="story">
     <a class="story-back" href="page-04.html">← The speedy little planet</a>
@@ -181,7 +181,7 @@ $("#aboutVenus").addEventListener("click",()=>say("Venus is wrapped in thick gol
 $("#listen").addEventListener("click",()=>say("Venus is almost as wide as Earth, but its thick atmosphere traps heat. Radar helps us explore the surface beneath its golden clouds."));
 $("#sound").addEventListener("click",e=>{soundOn=!soundOn;e.currentTarget.textContent=soundOn?"🔊 Sound":"🔇 Muted";if(!soundOn&&speechSynthesis)speechSynthesis.cancel()});
 $("#replay").addEventListener("click",()=>{clearDemo();clearVisitor();speechSynthesis?.cancel();planet.classList.remove("radar-on");planet.setAttribute("aria-pressed","false");panel.classList.remove("open");$$(".active,.on").forEach(x=>x.classList.remove("active","on"));$("#poseObserve").classList.add("active");$$(".feature,.fact").forEach(x=>x.classList.remove("active","on"));$("#hint").textContent="Tap Venus to scan beneath the clouds";$("#speech").textContent="Almost Earth’s twin… but much too hot!";say("Venus hides behind golden clouds.")});
-let hold;$("#pageJump").addEventListener("pointerdown",()=>{hold=setTimeout(()=>{const p=prompt("Go to page 1–5");if(p&&+p>=1&&+p<=5)location.href=`page-${String(+p).padStart(2,"0")}.html`},650)});["pointerup","pointercancel","pointerleave"].forEach(x=>$("#pageJump").addEventListener(x,()=>clearTimeout(hold)));
+let hold;$("#pageJump").addEventListener("pointerdown",()=>{hold=setTimeout(()=>{const p=prompt("Go to page 1–6");if(p&&+p>=1&&+p<=6)location.href=`page-${String(+p).padStart(2,"0")}.html`},650)});["pointerup","pointercancel","pointerleave"].forEach(x=>$("#pageJump").addEventListener(x,()=>clearTimeout(hold)));
 })();
 </script>
 </body>

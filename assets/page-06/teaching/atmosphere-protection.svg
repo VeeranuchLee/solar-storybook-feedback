@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">Earth's thin protective atmosphere</title>
+  <desc id="desc">A thin glowing layer of air surrounds Earth while small incoming particles fade or turn away.</desc>
+  <defs>
+    <radialGradient id="earth" cx="35%" cy="28%"><stop stop-color="#42d5f3"/><stop offset=".68" stop-color="#0875bc"/><stop offset="1" stop-color="#052c68"/></radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0l9 4.5L0 9z" fill="#ffd86b"/></marker>
+  </defs>
+  <style>
+    .incoming{stroke-dasharray:20 12;animation:incoming 1.65s linear infinite}
+    .incoming:nth-child(2){animation-delay:-.55s}.incoming:nth-child(3){animation-delay:-1.1s}
+    .stop{animation:stop 1.65s ease-out infinite;transform-box:fill-box;transform-origin:center}
+    .stop:nth-child(2){animation-delay:-.55s}.stop:nth-child(3){animation-delay:-1.1s}
+    .air{animation:breathe 2.8s ease-in-out infinite alternate;transform-origin:400px 260px}
+    @keyframes incoming{to{stroke-dashoffset:-64}}
+    @keyframes stop{0%,48%{opacity:0;transform:scale(.3)}65%{opacity:1;transform:scale(1.25)}100%{opacity:0;transform:scale(.8)}}
+    @keyframes breathe{to{opacity:.72;transform:scale(1.018)}}
+    @media(prefers-reduced-motion:reduce){.incoming,.stop,.air{animation:none}}
+  </style>
+  <rect width="800" height="480" rx="32" fill="#0a2253"/>
+  <circle cx="400" cy="260" r="158" fill="url(#earth)"/>
+  <g fill="#5fa45f"><path d="M314 142q56-38 97 3l-20 60-69 10-34-35z"/><path d="M434 274q64-37 111 15l-29 75-69 15-38-50z"/></g>
+  <g class="air"><circle cx="400" cy="260" r="168" fill="none" stroke="#82ebff" stroke-width="8" filter="url(#glow)"/><circle cx="400" cy="260" r="181" fill="none" stroke="#bff7ff" stroke-width="2" opacity=".55"/></g>
+  <g fill="none" stroke="#ffd86b" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)">
+    <path class="incoming" d="M94 85l102 78"/><path class="incoming" d="M679 65l-99 91"/><path class="incoming" d="M732 236l-126 17"/>
+  </g>
+  <g fill="#ffecaa"><circle cx="87" cy="80" r="8"/><circle cx="687" cy="59" r="7"/><circle cx="740" cy="235" r="8"/></g>
+  <g stroke="#f8fdff" stroke-width="5" stroke-linecap="round" opacity=".9"><path class="stop" d="M191 155l18 4"/><path class="stop" d="M592 148l-18 5"/><path class="stop" d="M616 251l-17 1"/></g>
+</svg>

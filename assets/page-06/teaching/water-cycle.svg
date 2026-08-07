@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">Water cycle demonstration</title>
+  <desc id="desc">Sunlight warms the ocean, water rises, clouds form, rain falls, and water returns to the ocean.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#183e7a"/><stop offset="1" stop-color="#78d8ef"/></linearGradient>
+    <linearGradient id="sea" x2="0" y2="1"><stop stop-color="#31bfe6"/><stop offset="1" stop-color="#07539a"/></linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M0 0l10 5-10 5z" fill="#fff5b8"/></marker>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <style>
+    .flow{stroke-dasharray:18 12;animation:flow 1.8s linear infinite}
+    .flow:nth-child(2){animation-delay:-.6s}.flow:nth-child(3){animation-delay:-1.2s}
+    .rain{animation:rain 1.45s ease-in infinite;transform-box:fill-box;transform-origin:center}
+    .rain:nth-child(2){animation-delay:-.45s}.rain:nth-child(3){animation-delay:-.9s}
+    @keyframes flow{to{stroke-dashoffset:-60}}
+    @keyframes rain{0%{transform:translateY(-8px);opacity:0}30%{opacity:1}100%{transform:translateY(14px);opacity:0}}
+    @media(prefers-reduced-motion:reduce){.flow,.rain{animation:none}}
+  </style>
+  <rect width="800" height="480" rx="32" fill="url(#sky)"/>
+  <circle cx="110" cy="92" r="45" fill="#ffd85c" filter="url(#glow)"/>
+  <path d="M0 325q100-32 200 0t200 0 200 0 200 0v155H0z" fill="url(#sea)"/>
+  <path d="M505 328q72-104 142-34 31 31 85 38v148H598q-28-59-93-152z" fill="#548951"/>
+  <g fill="#f8fdff" stroke="#d9f4ff" stroke-width="5">
+    <path d="M315 150c17-48 87-47 105-5 55-17 91 20 82 58H278c-8-28 9-49 37-53z"/>
+  </g>
+  <g fill="none" stroke="#fff5b8" stroke-width="9" stroke-linecap="round" marker-end="url(#arrow)">
+    <path class="flow" d="M210 326C190 260 215 214 262 184"/>
+    <path class="flow" d="M500 181c65 13 102 51 113 105"/>
+    <path class="flow" d="M615 345c-48 42-112 55-178 47"/>
+  </g>
+  <g fill="#d9f7ff">
+    <path class="rain" d="M548 230q12 18 0 34-12-16 0-34z"/><path class="rain" d="M584 245q12 18 0 34-12-16 0-34z"/><path class="rain" d="M620 235q12 18 0 34-12-16 0-34z"/>
+  </g>
+  <g fill="#bdefff" opacity=".85">
+    <circle cx="206" cy="281" r="6"/><circle cx="229" cy="254" r="5"/><circle cx="249" cy="226" r="4"/>
+  </g>
+</svg>
