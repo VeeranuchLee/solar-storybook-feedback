@@ -102,7 +102,7 @@ html,body{margin:0;height:100%;background:#05060d;color:var(--ink);
 .foreground{z-index:3}
 .desk-globe-sphere{position:absolute;left:89.0625%;top:48.535156%;width:10.15625%;
   aspect-ratio:156/154;z-index:3;pointer-events:none;user-select:none;
-  background-image:url("assets/page-01/desk-globe-axial-sprite-v3.png");background-repeat:no-repeat;
+  background-image:url("assets-runtime/standard/page-01/desk-globe-axial-sprite-v3.webp");background-repeat:no-repeat;
   background-size:1200% 100%;background-position:18.181818% 0}
 .desk-globe-hardware{z-index:3;pointer-events:none;user-select:none}
 .night-light{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;
@@ -267,11 +267,13 @@ html,body{margin:0;height:100%;background:#05060d;color:var(--ink);
 .story-actions button:focus-visible,.story-next:focus-visible,.story-close:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .pagenum{display:none;position:absolute;top:3%;left:3%;z-index:35;pointer-events:none;font-weight:700;
   opacity:.6;font-size:14px;background:var(--panel);padding:4px 12px;border-radius:20px}
-.page-nav{position:absolute;z-index:36;top:2.5%;right:3%;display:flex;align-items:center;gap:5px;padding:5px;
-  border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(8,14,31,.78);backdrop-filter:blur(7px)}
-.page-nav>a,.page-jump{display:grid;place-items:center;height:36px;min-width:36px;border:1px solid rgba(255,255,255,.2);
-  border-radius:10px;background:#16345c;color:#fff;text-decoration:none;font:inherit;font-weight:900;cursor:pointer}
-.page-jump{min-width:62px;padding:0 9px}.page-nav>a:hover,.page-jump:hover{background:#285b87}
+/* Shared book navigator geometry — matched to pages 2-6 (32px / gap 4 /
+     padding 4 / top 1.5% right 1.5%). This page previously ran ~15% larger. */
+.page-nav{position:absolute;z-index:40;top:1.5%;right:1.5%;display:flex;align-items:center;gap:4px;padding:4px;
+  border:1px solid rgba(255,255,255,.2);border-radius:13px;background:rgba(8,14,31,.78);backdrop-filter:blur(7px)}
+.page-nav>a,.page-jump{display:grid;place-items:center;height:32px;min-width:32px;border:1px solid rgba(255,255,255,.2);
+  border-radius:9px;background:#16345c;color:#fff;text-decoration:none;font:inherit;font-weight:900;cursor:pointer}
+.page-jump{min-width:58px;padding:0 8px}.page-nav>a:hover,.page-jump:hover{background:#285b87}
 .page-nav [aria-disabled="true"]{opacity:.35;pointer-events:none}
 .page-nav a:focus-visible,.page-jump:focus-visible,.page-goto input:focus-visible,.page-goto button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .page-goto{position:absolute;right:calc(100% + 7px);top:0;display:flex;gap:5px;padding:8px;border:1px solid rgba(255,255,255,.22);
@@ -338,98 +340,98 @@ body.reduce-motion .night-light{transition:none !important}
        aria-label="Page 1. Ari's bedroom at night. Open the curtains, then tap what you like.">
 
     <!-- 0 · clean master plate -->
-    <img class="full-stage room" src="assets/page-01/bedroom-base-clean.png"
+    <img class="full-stage room" src="assets-runtime/standard/page-01/bedroom-base-clean.webp"
          alt="Ari's bedroom at night: bed, shelf, desk and a wide window">
 
     <!-- 1 · glass-clipped night sky: Jupiter and the four Galilean moons -->
     <div class="window-portal">
-      <div class="celestial moon moon-ganymede" aria-hidden="true"><img src="assets/page-01/moon-ganymede-v2.png" alt=""></div>
-      <div class="celestial moon moon-europa"   aria-hidden="true"><img src="assets/page-01/moon-europa-v2.png" alt=""></div>
-      <div class="celestial moon moon-callisto" aria-hidden="true"><img src="assets/page-01/moon-callisto-v2.png" alt=""></div>
-      <div class="celestial jupiter"            aria-hidden="true"><img src="assets/page-01/jupiter-window-v2.png" alt=""></div>
-      <div class="celestial moon moon-io"       aria-hidden="true"><img src="assets/page-01/moon-io-v2.png" alt=""></div>
+      <div class="celestial moon moon-ganymede" aria-hidden="true"><img src="assets-runtime/standard/page-01/moon-ganymede-v2.webp" alt=""></div>
+      <div class="celestial moon moon-europa"   aria-hidden="true"><img src="assets-runtime/standard/page-01/moon-europa-v2.webp" alt=""></div>
+      <div class="celestial moon moon-callisto" aria-hidden="true"><img src="assets-runtime/standard/page-01/moon-callisto-v2.webp" alt=""></div>
+      <div class="celestial jupiter"            aria-hidden="true"><img src="assets-runtime/standard/page-01/jupiter-window-v2.webp" alt=""></div>
+      <div class="celestial moon moon-io"       aria-hidden="true"><img src="assets-runtime/standard/page-01/moon-io-v2.webp" alt=""></div>
       <button id="jupiter-hit" class="jupiter-hit" type="button" disabled
               aria-label="Bring Jupiter closer and reveal its four moons"></button>
     </div>
 
     <!-- 2 · curtains, overlapping the wooden jamb -->
-    <img class="full-stage curtain" data-pose="closed" src="assets/page-01/curtain-left-closed-v2.png" alt="">
-    <img class="full-stage curtain" data-pose="closed" src="assets/page-01/curtain-right-closed-v2.png" alt="">
-    <img class="full-stage curtain" data-pose="mid"    src="assets/page-01/curtain-left-mid-v2.png" alt="">
-    <img class="full-stage curtain" data-pose="mid"    src="assets/page-01/curtain-right-mid-v2.png" alt="">
-    <img class="full-stage curtain" data-pose="open"   src="assets/page-01/curtain-left-open-v2.png" alt="">
-    <img class="full-stage curtain" data-pose="open"   src="assets/page-01/curtain-right-open-v2.png" alt="">
+    <img class="full-stage curtain" data-pose="closed" src="assets-runtime/standard/page-01/curtain-left-closed-v2.webp" alt="">
+    <img class="full-stage curtain" data-pose="closed" src="assets-runtime/standard/page-01/curtain-right-closed-v2.webp" alt="">
+    <img class="full-stage curtain" data-pose="mid"    src="assets-runtime/standard/page-01/curtain-left-mid-v2.webp" alt="">
+    <img class="full-stage curtain" data-pose="mid"    src="assets-runtime/standard/page-01/curtain-right-mid-v2.webp" alt="">
+    <img class="full-stage curtain" data-pose="open"   src="assets-runtime/standard/page-01/curtain-left-open-v2.webp" alt="">
+    <img class="full-stage curtain" data-pose="open"   src="assets-runtime/standard/page-01/curtain-right-open-v2.webp" alt="">
 
     <!-- 3 · permanent furniture occluder + exact moving desk-globe sphere + window night light -->
-    <img class="full-stage foreground" src="assets/page-01/bedroom-foreground-v2.png" alt="">
+    <img class="full-stage foreground" src="assets-runtime/standard/page-01/bedroom-foreground-v2.webp" alt="">
     <div id="desk-globe-sphere" class="desk-globe-sphere" aria-hidden="true"></div>
-    <img class="full-stage desk-globe-hardware" src="assets/page-01/desk-globe-hardware-v3.png" alt="" aria-hidden="true">
+    <img class="full-stage desk-globe-hardware" src="assets-runtime/standard/page-01/desk-globe-hardware-v3.webp" alt="" aria-hidden="true">
     <div class="night-light" aria-hidden="true"></div>
 
     <!-- 4 · wall poster (fixed) and its rocket (launches) -->
-    <img class="full-stage poster-base" src="assets/page-01/poster-base-perspective-no-rocket.png"
+    <img class="full-stage poster-base" src="assets-runtime/standard/page-01/poster-base-perspective-no-rocket.webp"
          alt="Dark navy poster reading Dream Big, Explore More">
-    <img id="poster-smoke" class="full-stage poster-smoke" src="assets/page-01/poster-smoke-small.png" alt="">
+    <img id="poster-smoke" class="full-stage poster-smoke" src="assets-runtime/standard/page-01/poster-smoke-small.webp" alt="">
     <div id="flight-group" class="flight-group" aria-hidden="true">
-      <img id="trail-01" class="full-stage trail" src="assets/page-01/poster-spark-trail-01.png" alt="">
-      <img id="trail-02" class="full-stage trail" src="assets/page-01/poster-spark-trail-02.png" alt="">
-      <img id="poster-flame" class="full-stage flame" src="assets/page-01/poster-rocket-flame.png" alt="">
-      <img id="poster-rocket" class="full-stage rocket" src="assets/page-01/poster-rocket-perspective.png" alt="">
+      <img id="trail-01" class="full-stage trail" src="assets-runtime/standard/page-01/poster-spark-trail-01.webp" alt="">
+      <img id="trail-02" class="full-stage trail" src="assets-runtime/standard/page-01/poster-spark-trail-02.webp" alt="">
+      <img id="poster-flame" class="full-stage flame" src="assets-runtime/standard/page-01/poster-rocket-flame.webp" alt="">
+      <img id="poster-rocket" class="full-stage rocket" src="assets-runtime/standard/page-01/poster-rocket-perspective.webp" alt="">
     </div>
 
     <!-- 5 · shelf orrery: rear arms, fixed Saturn, front arm, occlusion masks -->
     <div id="arm-orange" class="arm arm-orange" aria-hidden="true">
       <span class="planet-glow"></span>
-      <img class="full-stage" src="assets/page-01/orrery-arm-orange.png" alt="">
+      <img class="full-stage" src="assets-runtime/standard/page-01/orrery-arm-orange.webp" alt="">
     </div>
     <div id="arm-upper" class="arm arm-upper" aria-hidden="true">
       <span class="planet-glow"></span>
-      <img class="full-stage" src="assets/page-01/orrery-arm-tan-upper.png" alt="">
+      <img class="full-stage" src="assets-runtime/standard/page-01/orrery-arm-tan-upper.webp" alt="">
     </div>
-    <img class="full-stage orrery-base-center" src="assets/page-01/orrery-base-center.png"
+    <img class="full-stage orrery-base-center" src="assets-runtime/standard/page-01/orrery-base-center.webp"
          alt="Blue and gold Saturn orrery on a dark pedestal">
     <div id="arm-lower" class="arm arm-lower" aria-hidden="true">
       <span class="planet-glow"></span>
-      <img class="full-stage" src="assets/page-01/orrery-arm-tan-lower.png" alt="">
+      <img class="full-stage" src="assets-runtime/standard/page-01/orrery-arm-tan-lower.webp" alt="">
     </div>
-    <img class="full-stage orrery-front-mask" src="assets/page-01/orrery-front-mask.png" alt="">
-    <img class="full-stage shelf-front" src="assets/page-01/shelf-front-mask.png" alt="">
+    <img class="full-stage orrery-front-mask" src="assets-runtime/standard/page-01/orrery-front-mask.webp" alt="">
+    <img class="full-stage shelf-front" src="assets-runtime/standard/page-01/shelf-front-mask.webp" alt="">
 
     <!-- 6 · taped wall drawings: tape stays on the wall, paper slips free -->
-    <img id="drawing-rocket-shadow" class="full-stage paper-shadow" src="assets/page-01/drawing-rocket-shadow.png" alt="">
+    <img id="drawing-rocket-shadow" class="full-stage paper-shadow" src="assets-runtime/standard/page-01/drawing-rocket-shadow.webp" alt="">
     <div id="drawing-rocket-group" class="paper-group drawing-rocket" aria-hidden="true">
-      <img class="full-stage" src="assets/page-01/drawing-rocket-rest.png" alt="">
+      <img class="full-stage" src="assets-runtime/standard/page-01/drawing-rocket-rest.webp" alt="">
     </div>
-    <img class="full-stage tape" src="assets/page-01/drawing-rocket-tape.png" alt="">
+    <img class="full-stage tape" src="assets-runtime/standard/page-01/drawing-rocket-tape.webp" alt="">
 
-    <img id="drawing-saturn-shadow" class="full-stage paper-shadow" src="assets/page-01/drawing-saturn-shadow.png" alt="">
+    <img id="drawing-saturn-shadow" class="full-stage paper-shadow" src="assets-runtime/standard/page-01/drawing-saturn-shadow.webp" alt="">
     <div id="drawing-saturn-group" class="paper-group drawing-saturn" aria-hidden="true">
-      <img class="full-stage" src="assets/page-01/drawing-saturn-rest.png" alt="">
+      <img class="full-stage" src="assets-runtime/standard/page-01/drawing-saturn-rest.webp" alt="">
     </div>
-    <img class="full-stage tape" src="assets/page-01/drawing-saturn-tape.png" alt="">
+    <img class="full-stage tape" src="assets-runtime/standard/page-01/drawing-saturn-tape.webp" alt="">
 
     <!-- 7 · floor toy rocket: stationary, light before flame, smoke after ignition -->
-    <img class="full-stage toy-contact" src="assets/page-01/toy-rocket-contact-shadow-v1.png" alt="">
+    <img class="full-stage toy-contact" src="assets-runtime/standard/page-01/toy-rocket-contact-shadow-v1.webp" alt="">
     <span id="engine-glow" class="engine-glow" aria-hidden="true"></span>
-    <img id="toy-flame" class="full-stage toy-flame" src="assets/page-01/toy-rocket-flame-v1.png" alt="">
-    <img class="full-stage toy-body" src="assets/page-01/toy-rocket-body-v1.png"
+    <img id="toy-flame" class="full-stage toy-flame" src="assets-runtime/standard/page-01/toy-rocket-flame-v1.webp" alt="">
+    <img class="full-stage toy-body" src="assets-runtime/standard/page-01/toy-rocket-body-v1.webp"
          alt="Small red and cream toy rocket standing on the floor">
-    <img id="toy-smoke" class="full-stage toy-smoke" src="assets/page-01/toy-rocket-smoke-v1.png" alt="">
+    <img id="toy-smoke" class="full-stage toy-smoke" src="assets-runtime/standard/page-01/toy-rocket-smoke-v1.webp" alt="">
 
     <!-- 8 · static astronomy book; its hotspot opens and reads the real story -->
     <div class="layer" id="book" style="left:49.8%;top:73.7%;width:22.8%">
-      <img src="assets/page-01/book-open.png" alt="Open astronomy book resting quietly on the bed">
+      <img src="assets-runtime/standard/page-01/book-open.webp" alt="Open astronomy book resting quietly on the bed">
     </div>
 
     <!-- 9 · characters -->
-    <img class="full-stage" id="ari-shadow" src="assets/page-01/ari-room-contact-shadow-v1.png" alt="">
+    <img class="full-stage" id="ari-shadow" src="assets-runtime/standard/page-01/ari-room-contact-shadow-v1.webp" alt="">
     <div id="ari">
-      <img class="full-stage ari-pose" id="ari-rest" src="assets/page-01/ari-room-rest-v1.png"
+      <img class="full-stage ari-pose" id="ari-rest" src="assets-runtime/standard/page-01/ari-room-rest-v1.webp"
            alt="Ari seated on the bed in star pyjamas">
-      <img class="full-stage ari-pose hidden" id="ari-wave" src="assets/page-01/ari-room-wave-v1.png" alt="">
+      <img class="full-stage ari-pose hidden" id="ari-wave" src="assets-runtime/standard/page-01/ari-room-wave-v1.webp" alt="">
     </div>
     <div class="layer gleam" id="dot" style="left:56%;top:64%;width:12%">
-      <img src="assets/page-01/dot-off.png" alt="Dot, a small friendly robot">
+      <img src="assets-runtime/standard/page-01/dot-off.webp" alt="Dot, a small friendly robot">
     </div>
     <div class="speech" id="dot-speech" style="left:56%;top:50%" aria-hidden="true"></div>
 
@@ -507,6 +509,9 @@ body.reduce-motion .night-light{transition:none !important}
       <button id="btn-fullscreen" type="button" aria-label="Full screen" title="Full screen">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
       </button>
+      <button id="btn-quality" type="button" aria-label="Standard art. Press for sharper art" aria-pressed="false" title="Standard art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.1L20 9.3l-4 3.7.9 5.5L12 16l-4.9 2.5.9-5.5-4-3.7 5.8-1.2z"/></svg>
+      </button>
     </div>
     <nav class="page-nav" data-current-page="1" aria-label="Page navigation">
       <a aria-label="Previous page" aria-disabled="true" title="Previous page">‹</a>
@@ -535,6 +540,82 @@ body.reduce-motion .night-light{transition:none !important}
    ============================================================ */
 (function () {
   "use strict";
+
+  /* Runtime asset tiers. assets/ holds the masters and is never loaded by a
+     page; assets-runtime/{standard,high}/ hold the derivatives -- identical
+     trees apart from one path segment, so changing tier is a path swap. The
+     markup ships standard/, so the default costs no JS at all. rt() maps a
+     master path onto the ACTIVE tier for the paths this page builds at
+     runtime, and retier() re-points what is already in the DOM on a change. */
+  let rtTier = "standard";
+  try { if (localStorage.getItem("sb-quality") === "high") rtTier = "high"; } catch (e) {}
+  const rt = p => {
+    p = String(p);
+    return p.startsWith("assets-runtime/")
+      ? p.replace(/^assets-runtime\/(standard|high)\//, "assets-runtime/" + rtTier + "/")
+      : "assets-runtime/" + rtTier + "/" + p.replace(/^assets\//, "").replace(/\.png$/i, ".webp");
+  };
+  const retier = () => {
+    const s = x => x.replace(/assets-runtime\/(standard|high)\//g, "assets-runtime/" + rtTier + "/");
+    document.querySelectorAll("img[src]").forEach(i => {
+      const o = i.getAttribute("src"), n = s(o); if (n !== o) i.setAttribute("src", n);
+    });
+    document.querySelectorAll("[style*='assets-runtime/']").forEach(e => {
+      const o = e.getAttribute("style"), n = s(o); if (n !== o) e.setAttribute("style", n);
+    });
+    document.querySelectorAll("style").forEach(e => {
+      const o = e.textContent; if (o.indexOf("assets-runtime/") < 0) return;
+      const n = s(o); if (n !== o) e.textContent = n;
+    });
+  };
+  if (rtTier === "high") retier();
+  /* Narration. One MP3 per line under assets/audio/page-01/, keyed by the exact
+     line text -- which is why no call site changed. narrate() returns false on a
+     miss and the caller falls through to speechSynthesis, so a line without a
+     clip behaves exactly as before. The map is inlined, not fetched, because
+     these pages are opened over file:// where fetch is blocked.
+     NOTE: rendered via the unofficial edge backend -- re-render through
+     --backend azure before publishing (see assets-manifest.json provenance). */
+  const NARRATION = {};
+  const NARRATION_BASE = "assets/audio/page-01/";
+  let narrationAudio = null, narrationToken = 0;
+  function stopNarration() {
+    try {
+      if (narrationAudio) {
+        narrationToken++;                       // invalidate any in-flight handler
+        narrationAudio.onended = null;
+        narrationAudio.onerror = null;
+        narrationAudio.pause();
+      }
+    } catch (e) {}
+  }
+  /* `fallback` runs when the clip cannot play -- a missing file, a decode
+     failure, or a rejected play(). Without it a page shipped without its MP3s
+     goes silent, because narrate() has to claim the line before the browser has
+     tried to load it. The token stops a superseded clip's late error from
+     firing a fallback over whatever is playing now. */
+  function narrate(text, onend, fallback) {
+    const f = NARRATION[String(text).trim()];
+    if (!f) return false;
+    try {
+      stopNarration();
+      if (!narrationAudio) narrationAudio = new Audio();
+      const my = ++narrationToken;
+      const fail = () => {
+        if (my !== narrationToken) return;
+        narrationToken++;
+        narrationAudio.onended = null;
+        narrationAudio.onerror = null;
+        (fallback || onend || (() => {}))();
+      };
+      narrationAudio.onended = () => { if (my === narrationToken && onend) onend(); };
+      narrationAudio.onerror = fail;
+      narrationAudio.src = NARRATION_BASE + f;
+      const p = narrationAudio.play();
+      if (p && p.catch) p.catch(fail);
+      return true;
+    } catch (e) { return false; }
+  }
 
   const A = "assets/page-01/";
   const stage = document.getElementById("stage");
@@ -667,14 +748,17 @@ body.reduce-motion .night-light{transition:none !important}
     return u;
   }
   function speakAloud(text, role = "ari") {
-    if (!soundOn || !("speechSynthesis" in window)) return;
-    try {
-      const u = makeUtterance(text, role);
-      if (role === "dot") {
-        tone(720, .045, "square", .045); tone(1040, .045, "square", .035, .07);
-      }
-      speechSynthesis.cancel(); speechSynthesis.speak(u);
-    } catch (e) {}
+    if (!soundOn) return;
+    if (role === "dot") { tone(720, .045, "square", .045); tone(1040, .045, "square", .035, .07); }
+    const synth = () => {
+      if (!("speechSynthesis" in window)) return;
+      try {
+        const u = makeUtterance(text, role);
+        speechSynthesis.cancel(); speechSynthesis.speak(u);
+      } catch (e) {}
+    };
+    if (narrate(text, null, synth)) return;
+    synth();
   }
 
   /* ---------- cancellable timers, shared by the character family ---------- */
@@ -711,7 +795,7 @@ body.reduce-motion .night-light{transition:none !important}
 
   function stopStoryNarration(message) {
     ++storyRun;
-    try { speechSynthesis.cancel(); } catch (e) {}
+    try { stopNarration(); speechSynthesis.cancel(); } catch (e) {}
     clearStoryHighlight();
     setBusy("story", false);
     storyRead.textContent = "Read the story again";
@@ -758,12 +842,16 @@ body.reduce-motion .night-light{transition:none !important}
       if (part.role === "dot") {
         tone(720, .045, "square", .045); tone(1040, .045, "square", .035, .07);
       }
-      try {
-        const utterance = makeUtterance(part.text, part.role);
-        utterance.onend = next;
-        utterance.onerror = next;
-        speechSynthesis.speak(utterance);
-      } catch (e) { next(); }
+      const synth = () => {
+        try {
+          const utterance = makeUtterance(part.text, part.role);
+          utterance.onend = next;
+          utterance.onerror = next;
+          speechSynthesis.speak(utterance);
+        } catch (e) { next(); }
+      };
+      if (narrate(part.text, next, synth)) return;
+      synth();
     };
     next();
     return true;
@@ -1526,7 +1614,7 @@ body.reduce-motion .night-light{transition:none !important}
   }
   function showLayer(id, ms = 350) { const l = $(id); if (!l) return; l.classList.remove("hidden"); fadeNode(l, 1, ms); }
   function hideLayer(id, ms = 350) { const l = $(id); if (!l) return; fadeNode(l, 0, ms); }
-  function setDotSrc(file) { const img = dot.querySelector("img"); if (img) img.src = A + file; }
+  function setDotSrc(file) { const img = dot.querySelector("img"); if (img) img.src = rt(A + file); }
   function speechBubble(text) {
     const s = $("dot-speech"); if (!s) return;
     s.textContent = text; s.classList.add("show");
@@ -1589,7 +1677,7 @@ body.reduce-motion .night-light{transition:none !important}
 
   function resetCharacters() {
     clearTimers();
-    try { speechSynthesis.cancel(); } catch (e) {}
+    try { stopNarration(); speechSynthesis.cancel(); } catch (e) {}
     [$("ari-rest"), $("ari-wave"), dot].forEach(el => { if (el) el.getAnimations().forEach(a => a.cancel()); });
     $("ari-rest").classList.remove("hidden"); $("ari-rest").style.opacity = "";
     $("ari-wave").classList.add("hidden"); $("ari-wave").style.opacity = "";
@@ -1637,7 +1725,7 @@ body.reduce-motion .night-light{transition:none !important}
       if (storyOpen) {
         stopStoryNarration("Sound is off. The story remains open for reading.");
         storyRead.textContent = "Turn sound on to listen";
-      } else { try { speechSynthesis.cancel(); } catch (e) {} }
+      } else { try { stopNarration(); speechSynthesis.cancel(); } catch (e) {} }
     } else if (storyOpen) {
       storyRead.textContent = "Read the story aloud";
     }
@@ -1678,6 +1766,22 @@ body.reduce-motion .night-light{transition:none !important}
   $("btn-motion").addEventListener("click", () => setMotion(reduceMotion));
   $("btn-sound").addEventListener("click", () => setSound(!soundOn));
   $("btn-fullscreen").addEventListener("click", toggleFullscreen);
+
+  function syncQuality() {
+    const b = $("btn-quality"); if (!b) return;
+    const high = rtTier === "high";
+    b.setAttribute("aria-pressed", String(high));
+    b.title = high ? "Sharper art" : "Standard art";
+    b.setAttribute("aria-label", high ? "Sharper art. Press for standard art" : "Standard art. Press for sharper art");
+  }
+  $("btn-quality").addEventListener("click", () => {
+    rtTier = rtTier === "high" ? "standard" : "high";
+    try { localStorage.setItem("sb-quality", rtTier); } catch (e) {}
+    retier();
+    syncQuality();
+    say(rtTier === "high" ? "Sharper pictures on." : "Standard pictures on.");
+  });
+  syncQuality();
 
   mediaRM.addEventListener?.("change", e => {
     setMotion(!e.matches);

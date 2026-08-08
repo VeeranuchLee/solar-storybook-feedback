@@ -14,7 +14,7 @@ button{font:inherit}.book{min-height:100vh;display:grid;place-items:center}.stag
 .sun-area{position:absolute;z-index:4;left:35%;right:1.5%;top:4%;height:69%}.sun-button{position:absolute;left:55%;top:49%;width:66%;aspect-ratio:1;border:0;padding:0;background:none;transform:translate(-50%,-50%);cursor:pointer;border-radius:50%;filter:drop-shadow(0 0 12px #ffbf3f88)}.sun-button img{display:block;width:100%;height:100%;object-fit:contain}.sun-button::after{content:"";position:absolute;inset:8%;border:2px solid #fff1a875;border-radius:50%;opacity:0}.sun-button.active::after{animation:sunPulse 1.8s ease-out}@keyframes sunPulse{0%{opacity:.75;transform:scale(.8)}100%{opacity:0;transform:scale(1.35)}}
 .feature{position:absolute;z-index:11;border:1px solid #ffe58b9c;border-radius:999px;background:#0b1738d9;color:#fff;padding:5px 9px;font-size:clamp(8px,.88vw,12px);font-weight:900;cursor:pointer;box-shadow:0 3px 12px #0007}.feature::after{content:"";position:absolute;width:34px;height:1px;background:#ffe799aa;top:50%}.feature:hover,.feature[aria-pressed=true]{background:#9e4d1e;color:#fff5c6}.feature:focus-visible,.sun-button:focus-visible,.secret:focus-visible,.fact-card:focus-visible,.story button:focus-visible,.toolbar button:focus-visible,.page-nav *:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
 .feature.prominence{left:2%;top:8%}.feature.prominence::after{left:100%;transform:rotate(18deg);transform-origin:left}.feature.sunspot{left:5%;top:34%}.feature.sunspot::after{left:100%;transform:rotate(-3deg);transform-origin:left}.feature.granulation{right:1%;top:20%}.feature.granulation::after{right:100%;transform:rotate(-12deg);transform-origin:right}.feature.flare{left:7%;bottom:13%}.feature.flare::after{left:100%;transform:rotate(-16deg);transform-origin:left}
-.hint{position:absolute;z-index:10;left:50%;bottom:0;transform:translateX(-50%);padding:4px 11px;border-radius:999px;background:#07142dc7;color:#d8efff;font-size:clamp(8px,.8vw,11px);font-weight:800;white-space:nowrap}
+.hint{position:absolute;z-index:10;left:50%;bottom:4%;transform:translateX(-50%);padding:4px 11px;border-radius:999px;background:#07142dc7;color:#d8efff;font-size:clamp(8px,.8vw,11px);font-weight:800;white-space:nowrap}
 .bubble{position:absolute;z-index:15;left:2.3%;bottom:24%;width:27%;height:36%;pointer-events:none;transition:opacity .25s,transform .45s}.bubble img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 9px 13px #0009)}.bubble.react{opacity:0;transform:translateY(5%) scale(.94)}.stage.reacting .bubble.rest{opacity:0}.stage.reacting .bubble.react{opacity:1;transform:none}
 .detail{position:absolute;z-index:25;right:2%;top:11%;width:24%;padding:10px;border:1px solid #ffe89f88;border-radius:16px;background:#07142dea;box-shadow:0 12px 35px #000a;backdrop-filter:blur(8px);opacity:0;transform:translateY(-8px) scale(.96);pointer-events:none;transition:.25s}.detail.show{opacity:1;transform:none;pointer-events:auto}.detail-head{display:flex;align-items:center;justify-content:space-between;gap:6px}.detail h3{margin:0;color:var(--gold);font-size:clamp(12px,1.3vw,18px)}.detail-close{border:0;border-radius:50%;width:26px;height:26px;background:#183a65;color:#fff;cursor:pointer}.detail-view{display:block;width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;border:3px solid #ffe58b;margin-top:7px}.detail p{margin:7px 2px 1px;font-size:clamp(8px,.9vw,12px);line-height:1.3}
 .secret{position:absolute;z-index:17;width:28px;height:28px;border:0;border-radius:50%;background:transparent;color:#fff4a3;cursor:pointer}.secret::before{content:"✦";font-size:clamp(13px,1.55vw,21px);text-shadow:0 0 5px #fff,0 0 13px #ffb51d;animation:twinkle 2.8s ease-in-out infinite}.secret.helio{left:43%;top:7%}.secret.umbra{left:48%;top:36%}.secret.flicker{left:49%;top:54%}@keyframes twinkle{0%,100%{opacity:.28;transform:scale(.78)}50%{opacity:1;transform:scale(1.13)}}
@@ -37,7 +37,7 @@ button{font:inherit}.book{min-height:100vh;display:grid;place-items:center}.stag
 <body>
 <main class="book">
 <section class="stage" id="stage" aria-label="Interactive storybook page about the Sun">
-  <img class="bg" src="assets/page-03/space-background.png" alt="">
+  <img class="bg" src="assets-runtime/standard/page-03/space-background.webp" alt="">
   <div class="warm-wash"></div>
 
   <article class="story">
@@ -56,7 +56,7 @@ button{font:inherit}.book{min-height:100vh;display:grid;place-items:center}.stag
   </nav>
 
   <div class="sun-area">
-    <button class="sun-button" id="sun" aria-label="Hear about the living surface of the Sun"><img id="sun-image" src="assets/page-03/sun-main-frame-01.png" alt=""></button>
+    <button class="sun-button" id="sun" aria-label="Hear about the living surface of the Sun"><img id="sun-image" src="assets-runtime/standard/page-03/sun-main-frame-01.webp" alt=""></button>
     <button class="feature prominence" data-feature="prominence" aria-pressed="false">Prominence</button>
     <button class="feature sunspot" data-feature="sunspot" aria-pressed="false">Sunspots</button>
     <button class="feature granulation" data-feature="granulation" aria-pressed="false">Granulation</button>
@@ -64,41 +64,66 @@ button{font:inherit}.book{min-height:100vh;display:grid;place-items:center}.stag
     <div class="hint">Tap the glowing clues on the Sun.</div>
   </div>
 
-  <div class="bubble rest"><img src="assets/page-03/ari-dot-bubble-rest.png" alt="Ari and Dot watching the Sun from a shielded bubble"></div>
-  <div class="bubble react"><img src="assets/page-03/ari-dot-bubble-reaction.png" alt=""></div>
+  <div class="bubble rest"><img src="assets-runtime/standard/page-03/ari-dot-bubble-rest.webp" alt="Ari and Dot watching the Sun from a shielded bubble"></div>
+  <div class="bubble react"><img src="assets-runtime/standard/page-03/ari-dot-bubble-reaction.webp" alt=""></div>
 
   <button class="secret helio" data-visitor="helio" aria-label="A glowing clue hiding Helio"></button>
   <button class="secret umbra" data-visitor="umbra" aria-label="A glowing clue hiding Umbra"></button>
   <button class="secret flicker" data-visitor="flicker" aria-label="A glowing clue hiding Flicker"></button>
-  <div class="visitor helio" id="helio"><img class="visitor-effect" src="assets/page-03/effects/helio-shield-shimmer.svg" alt=""><img class="visitor-pose" src="assets/page-03/helio-rest.png" alt="Helio, a friendly heat-shield probe"></div>
-  <div class="visitor umbra" id="umbra"><img class="visitor-effect" src="assets/page-03/effects/umbra-scan-rings.svg" alt=""><img class="visitor-pose" src="assets/page-03/umbra-hidden.png" alt="Umbra, a friendly sunspot observer"></div>
-  <div class="visitor flicker" id="flicker"><img class="visitor-effect" src="assets/page-03/effects/flicker-arrival-sparks.svg" alt=""><img class="visitor-pose" src="assets/page-03/flicker-arrival.png" alt="Flicker, a friendly solar scout"></div>
+  <div class="visitor helio" id="helio"><img class="visitor-effect" src="assets-runtime/standard/page-03/effects/helio-shield-shimmer.svg" alt=""><img class="visitor-pose" src="assets-runtime/standard/page-03/helio-rest.webp" alt="Helio, a friendly heat-shield probe"></div>
+  <div class="visitor umbra" id="umbra"><img class="visitor-effect" src="assets-runtime/standard/page-03/effects/umbra-scan-rings.svg" alt=""><img class="visitor-pose" src="assets-runtime/standard/page-03/umbra-hidden.webp" alt="Umbra, a friendly sunspot observer"></div>
+  <div class="visitor flicker" id="flicker"><img class="visitor-effect" src="assets-runtime/standard/page-03/effects/flicker-arrival-sparks.svg" alt=""><img class="visitor-pose" src="assets-runtime/standard/page-03/flicker-arrival.webp" alt="Flicker, a friendly solar scout"></div>
   <div class="discoveries" id="discoveries">Sun visitors: 0 of 3</div>
 
   <aside class="detail" id="detail" aria-live="polite">
     <div class="detail-head"><h3 id="detail-title">Sun feature</h3><button class="detail-close" id="detail-close" aria-label="Close detail">×</button></div>
-    <img class="detail-view" id="detail-image" src="assets/page-03/granulation-closeup-frame-01.png" alt="">
+    <img class="detail-view" id="detail-image" src="assets-runtime/standard/page-03/granulation-closeup-frame-01.webp" alt="">
     <p id="detail-copy"></p>
   </aside>
 
   <div class="status" id="status" role="status" aria-live="polite"></div>
 
   <section class="fact-box" aria-label="Five facts about the Sun">
-    <button class="fact-card" data-fact="diameter" aria-pressed="false"><img src="assets/page-03/icons/diameter-ruler.svg" alt=""><span>Diameter:<br>about<br><strong>1.39 million km</strong><br>(about 109 Earths wide)</span></button>
-    <button class="fact-card" data-fact="surface" aria-pressed="false"><img src="assets/page-03/icons/surface-temperature.svg" alt=""><span>Surface temperature:<br>about<br><strong>5,500°C</strong></span></button>
-    <button class="fact-card" data-fact="core" aria-pressed="false"><img src="assets/page-03/icons/core-temperature.svg" alt=""><span>Core temperature:<br>about<br><strong>15 million°C</strong></span></button>
-    <button class="fact-card" data-fact="light" aria-pressed="false"><img src="assets/page-03/icons/sunlight-clock.svg" alt=""><span>Sunlight takes<br>about <strong>8 minutes</strong><br>to reach Earth.</span></button>
-    <button class="fact-card" data-fact="gravity" aria-pressed="false"><img src="assets/page-03/icons/gravity-star.svg" alt=""><span>The Sun’s gravity<br>helps keep the<br>solar system together.</span></button>
+    <button class="fact-card" data-fact="diameter" aria-pressed="false"><img src="assets-runtime/standard/page-03/icons/diameter-ruler.svg" alt=""><span>Diameter:<br>about<br><strong>1.39 million km</strong><br>(about 109 Earths wide)</span></button>
+    <button class="fact-card" data-fact="surface" aria-pressed="false"><img src="assets-runtime/standard/page-03/icons/surface-temperature.svg" alt=""><span>Surface temperature:<br>about<br><strong>5,500°C</strong></span></button>
+    <button class="fact-card" data-fact="core" aria-pressed="false"><img src="assets-runtime/standard/page-03/icons/core-temperature.svg" alt=""><span>Core temperature:<br>about<br><strong>15 million°C</strong></span></button>
+    <button class="fact-card" data-fact="light" aria-pressed="false"><img src="assets-runtime/standard/page-03/icons/sunlight-clock.svg" alt=""><span>Sunlight takes<br>about <strong>8 minutes</strong><br>to reach Earth.</span></button>
+    <button class="fact-card" data-fact="gravity" aria-pressed="false"><img src="assets-runtime/standard/page-03/icons/gravity-star.svg" alt=""><span>The Sun’s gravity<br>helps keep the<br>solar system together.</span></button>
   </section>
 
-  <div class="toolbar"><button id="sound" aria-pressed="true">Sound on</button><button id="motion" aria-pressed="false">Reduce motion</button><button id="reset">Replay</button></div>
+  <div class="toolbar"><button id="sound" aria-pressed="true">Sound on</button><button id="motion" aria-pressed="false">Reduce motion</button><button id="reset">Replay</button><button id="fullscreen" type="button" aria-label="Full screen">Full screen</button><button id="quality" type="button" aria-pressed="false">Standard art</button></div>
 </section>
 </main>
 <script>
 (()=>{"use strict";
+/* Runtime asset tiers. assets/ holds the masters and is never loaded by a page;
+   assets-runtime/{standard,high}/ hold the derivatives -- identical trees apart
+   from one path segment, so changing tier is a path swap. The markup ships
+   standard/, so the default costs no JS at all. rt() maps a master path onto
+   the ACTIVE tier for the handful of paths this page builds at runtime, and
+   retier() re-points what is already in the DOM when the tier changes. */
+let rtTier="standard";try{if(localStorage.getItem("sb-quality")==="high")rtTier="high"}catch(e){}
+const rt=p=>(p=String(p),p.startsWith("assets-runtime/")?p.replace(/^assets-runtime\/(standard|high)\//,"assets-runtime/"+rtTier+"/"):"assets-runtime/"+rtTier+"/"+p.replace(/^assets\//,"").replace(/\.png$/i,".webp"));
+const retier=()=>{const s=x=>x.replace(/assets-runtime\/(standard|high)\//g,"assets-runtime/"+rtTier+"/");document.querySelectorAll("img[src]").forEach(i=>{const o=i.getAttribute("src"),n=s(o);if(n!==o)i.setAttribute("src",n)});document.querySelectorAll("[style*='assets-runtime/']").forEach(e=>{const o=e.getAttribute("style"),n=s(o);if(n!==o)e.setAttribute("style",n)});document.querySelectorAll("style").forEach(e=>{const o=e.textContent;if(o.indexOf("assets-runtime/")<0)return;const n=s(o);if(n!==o)e.textContent=n})};
+if(rtTier==="high")retier();
+/* Narration. One MP3 per line under assets/audio/page-03/, keyed by the exact
+   line text -- which is why no call site changed. narrate() returns false on
+   a miss and the caller falls through to speechSynthesis, so a line without a
+   clip behaves exactly as before. The map is inlined, not fetched, because
+   these pages are opened over file:// where fetch is blocked.
+   NOTE: rendered via the unofficial edge backend -- re-render through
+   --backend azure before publishing (see assets-manifest.json provenance). */
+const NARRATION={};
+const NARRATION_BASE="assets/audio/page-03/";
+let narrationAudio=null,narrationToken=0;
+const stopNarration=()=>{try{if(narrationAudio){narrationToken++;narrationAudio.onended=null;narrationAudio.onerror=null;narrationAudio.pause()}}catch(e){}};
+const narrate=(text,onend,fallback)=>{const f=NARRATION[String(text).trim()];if(!f)return false;try{stopNarration();if(!narrationAudio)narrationAudio=new Audio();const my=++narrationToken;const fail=()=>{if(my!==narrationToken)return;narrationToken++;narrationAudio.onended=null;narrationAudio.onerror=null;(fallback||onend||(()=>{}))()};narrationAudio.onended=()=>{if(my===narrationToken&&onend)onend()};narrationAudio.onerror=fail;narrationAudio.src=NARRATION_BASE+f;const p=narrationAudio.play();if(p&&p.catch)p.catch(fail);return true}catch(e){return false}};
+const syncQuality=()=>{const b=document.getElementById("quality");if(!b)return;b.textContent=rtTier==="high"?"Sharper art":"Standard art";b.setAttribute("aria-pressed",String(rtTier==="high"))};
+const qb=document.getElementById("quality");if(qb)qb.onclick=()=>{rtTier=rtTier==="high"?"standard":"high";try{localStorage.setItem("sb-quality",rtTier)}catch(e){}retier();syncQuality()};
+syncQuality();
 const A="assets/page-03/",stage=document.getElementById("stage"),sun=document.getElementById("sun"),sunImage=document.getElementById("sun-image"),status=document.getElementById("status");
-const idleFrames=["sun-main-frame-01.png","sun-main-frame-02.png","sun-main-frame-03.png","sun-main-frame-04.png"].map(x=>A+x);
-const eventFrames={prominence:[1,2,3,4,5].map(n=>A+`prominence-frame-0${n}.png`),flare:[1,2,3,4,5].map(n=>A+`solar-flare-frame-0${n}.png`)};
+const idleFrames=["sun-main-frame-01.png","sun-main-frame-02.png","sun-main-frame-03.png","sun-main-frame-04.png"].map(x=>rt(A+x));
+const eventFrames={prominence:[1,2,3,4,5].map(n=>rt(A+`prominence-frame-0${n}.png`)),flare:[1,2,3,4,5].map(n=>rt(A+`solar-flare-frame-0${n}.png`))};
 const features={
   prominence:{title:"Prominence",speech:"A prominence is a huge loop of glowing plasma guided by the Sun's magnetic fields.",copy:"A prominence is a huge loop of glowing plasma guided by magnetic fields."},
   sunspot:{title:"Sunspots",speech:"Sunspots look dark because they are cooler than the area around them.",copy:"Sunspots are cooler, darker regions shaped by powerful magnetic fields.",close:"sunspot-closeup-frame"},
@@ -121,7 +146,7 @@ let soundOn=true,reduced=false,sunActive=true,eventActive=false,idleIndex=0,idle
 function showStatus(text,ms=4200){clearTimeout(statusTimer);status.textContent=text;status.classList.add("show");statusTimer=setTimeout(()=>status.classList.remove("show"),ms)}
 function refreshSpeechVoices(){if(!("speechSynthesis" in window))return;try{speechVoices=speechSynthesis.getVoices()||[]}catch(e){speechVoices=[]}}
 function preferredVoice(role){refreshSpeechVoices();const english=speechVoices.filter(v=>!v.lang||/^en[-_]/i.test(v.lang)),pool=english.length?english:speechVoices,choices=role==="visitor"?["Junior","Eddy","Reed","Rocko","Alex","Aaron","Arthur"]:["Daniel","Reed (English (US))","Reed","Eddy (English (US))","Eddy","Rocko (English (US))","Rocko","Alex","Aaron","Arthur","Junior"];for(const choice of choices){const voice=pool.find(v=>v.name===choice||v.name.startsWith(`${choice} (`));if(voice)return voice}return pool.find(v=>v.default)||pool[0]||null}
-function speak(text,role="narrator"){if(!soundOn||!("speechSynthesis" in window)||!("SpeechSynthesisUtterance" in window))return;try{const u=new SpeechSynthesisUtterance(text),voice=preferredVoice(role);if(voice)u.voice=voice;u.rate=role==="visitor"?1.02:.96;u.pitch=role==="visitor"?1.15:1.08;u.volume=.96;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function speak(text,role="narrator"){if(!soundOn)return;const synth=()=>{if(!("speechSynthesis" in window)||!("SpeechSynthesisUtterance" in window))return;try{const u=new SpeechSynthesisUtterance(text),voice=preferredVoice(role);if(voice)u.voice=voice;u.rate=role==="visitor"?1.02:.96;u.pitch=role==="visitor"?1.15:1.08;u.volume=.96;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}};if(narrate(text,null,synth))return;synth()}
 refreshSpeechVoices();try{speechSynthesis.addEventListener?.("voiceschanged",refreshSpeechVoices)}catch(e){}
 function cue(notes=[440],shape="sine"){if(!soundOn)return;const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;const ctx=cue.ctx||(cue.ctx=new Audio);ctx.resume?.();notes.forEach((freq,i)=>{const start=ctx.currentTime+i*.12,o=ctx.createOscillator(),g=ctx.createGain();o.type=shape;o.frequency.value=freq;g.gain.setValueAtTime(.001,start);g.gain.exponentialRampToValueAtTime(.055,start+.025);g.gain.exponentialRampToValueAtTime(.001,start+.2);o.connect(g).connect(ctx.destination);o.start(start);o.stop(start+.23)})}
 function idleStep(){clearTimeout(idleTimer);if(!sunActive||eventActive||reduced)return;idleIndex=(idleIndex+1)%idleFrames.length;sunImage.src=idleFrames[idleIndex];idleTimer=setTimeout(idleStep,460)}
@@ -131,23 +156,28 @@ function react(){clearTimeout(reactTimer);stage.classList.add("reacting");reactT
 function playEvent(kind){if(eventActive)return;eventActive=true;clearTimeout(idleTimer);const frames=eventFrames[kind];let i=0;sunImage.src=frames[0];if(reduced){sunImage.src=frames[Math.floor(frames.length/2)];eventTimers.push(setTimeout(()=>{eventActive=false;sunImage.src=idleFrames[idleIndex]},650));return}const next=()=>{i++;if(i<frames.length){sunImage.src=frames[i];eventTimers.push(setTimeout(next,340))}else{eventTimers.push(setTimeout(()=>{eventActive=false;sunImage.src=idleFrames[idleIndex];idleStep()},390))}};eventTimers.push(setTimeout(next,340))}
 const detail=document.getElementById("detail"),detailImage=document.getElementById("detail-image"),detailTitle=document.getElementById("detail-title"),detailCopy=document.getElementById("detail-copy");
 function closeDetail(){clearTimeout(detailTimer);clearTimeout(detailCloseTimer);detail.classList.remove("show")}
-function openDetail(kind){const f=features[kind];clearTimeout(detailTimer);clearTimeout(detailCloseTimer);detailTitle.textContent=f.title;detailCopy.textContent=f.copy;detailImage.alt=`Magnified ${f.title.toLowerCase()}`;let n=1;detailImage.src=A+`${f.close}-01.png`;detail.classList.add("show");const step=()=>{if(!detail.classList.contains("show")||reduced)return;n=n%3+1;detailImage.src=A+`${f.close}-0${n}.png`;detailTimer=setTimeout(step,520)};detailTimer=setTimeout(step,520);detailCloseTimer=setTimeout(closeDetail,7000)}
+function openDetail(kind){const f=features[kind];clearTimeout(detailTimer);clearTimeout(detailCloseTimer);detailTitle.textContent=f.title;detailCopy.textContent=f.copy;detailImage.alt=`Magnified ${f.title.toLowerCase()}`;let n=1;detailImage.src=rt(A+`${f.close}-01.png`);detail.classList.add("show");const step=()=>{if(!detail.classList.contains("show")||reduced)return;n=n%3+1;detailImage.src=rt(A+`${f.close}-0${n}.png`);detailTimer=setTimeout(step,520)};detailTimer=setTimeout(step,520);detailCloseTimer=setTimeout(closeDetail,7000)}
 document.getElementById("detail-close").onclick=closeDetail;
 document.querySelectorAll(".feature").forEach(b=>b.onclick=()=>{const kind=b.dataset.feature,f=features[kind];document.querySelectorAll(".feature").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");react();cue(kind==="flare"?[392,523,659]:kind==="prominence"?[330,392,494]:[440,520]);speak(f.speech);showStatus(f.speech);if(kind==="flare"||kind==="prominence")playEvent(kind);else openDetail(kind);eventTimers.push(setTimeout(()=>b.setAttribute("aria-pressed","false"),1900))});
 document.querySelectorAll(".fact-card").forEach(b=>b.onclick=()=>{document.querySelectorAll(".fact-card").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");const icon=b.querySelector("img");icon.classList.remove("animate-icon");void icon.offsetWidth;icon.classList.add("animate-icon");cue([520,660]);speak(facts[b.dataset.fact]);showStatus(facts[b.dataset.fact]);eventTimers.push(setTimeout(()=>icon.classList.remove("animate-icon"),1100));eventTimers.push(setTimeout(()=>b.setAttribute("aria-pressed","false"),2200))});
-function revealVisitor(id){if(activeVisitor)return;activeVisitor=id;const d=visitorData[id],el=document.getElementById(id),pose=el.querySelector(".visitor-pose");if(!found.has(id))found.add(id);pose.src=A+d.active;el.classList.remove("departing");el.classList.add("found");cue(d.notes,d.shape);speak(d.speech,"visitor");showStatus(`✦ ${d.speech}`);const count=document.getElementById("discoveries");count.textContent=`Sun visitors: ${found.size} of 3`;count.classList.add("show");eventTimers.push(setTimeout(()=>el.classList.add("departing"),3600));eventTimers.push(setTimeout(()=>{el.classList.remove("found","departing");pose.src=A+d.rest;activeVisitor=""},4600))}
+function revealVisitor(id){if(activeVisitor)return;activeVisitor=id;const d=visitorData[id],el=document.getElementById(id),pose=el.querySelector(".visitor-pose");if(!found.has(id))found.add(id);pose.src=rt(A+d.active);el.classList.remove("departing");el.classList.add("found");cue(d.notes,d.shape);speak(d.speech,"visitor");showStatus(`✦ ${d.speech}`);const count=document.getElementById("discoveries");count.textContent=`Sun visitors: ${found.size} of 3`;count.classList.add("show");eventTimers.push(setTimeout(()=>el.classList.add("departing"),3600));eventTimers.push(setTimeout(()=>{el.classList.remove("found","departing");pose.src=rt(A+d.rest);activeVisitor=""},4600))}
 document.querySelectorAll(".secret").forEach(b=>b.onclick=()=>revealVisitor(b.dataset.visitor));
 document.getElementById("listen").onclick=()=>{if(!soundOn){soundOn=true;syncSound()}speak("The Sun is our star. Its hot moving plasma makes sunspots, bubbling granules, prominences, and powerful solar flares.");showStatus("The Sun is our star—hot, active, and always changing.")};
 function syncSound(){const b=document.getElementById("sound");b.textContent=soundOn?"Sound on":"Sound off";b.setAttribute("aria-pressed",String(soundOn))}
-document.getElementById("sound").onclick=()=>{soundOn=!soundOn;if(!soundOn)try{speechSynthesis.cancel()}catch(e){}syncSound()};
+document.getElementById("sound").onclick=()=>{soundOn=!soundOn;if(!soundOn){stopNarration();try{speechSynthesis.cancel()}catch(e){}}syncSound()};
 document.getElementById("motion").onclick=e=>{reduced=!reduced;stage.classList.toggle("reduce-motion",reduced);e.currentTarget.textContent=reduced?"Full motion":"Reduce motion";e.currentTarget.setAttribute("aria-pressed",String(reduced));clearTimeout(idleTimer);clearTimeout(detailTimer);if(!reduced){idleStep();if(detail.classList.contains("show")){const kind=detailTitle.textContent==="Sunspots"?"sunspot":"granulation";openDetail(kind)}}};
-document.getElementById("reset").onclick=()=>{clearTimeout(idleTimer);clearTimeout(detailTimer);clearTimeout(detailCloseTimer);clearTimeout(statusTimer);clearTimeout(reactTimer);eventTimers.forEach(clearTimeout);eventTimers=[];try{speechSynthesis.cancel()}catch(e){}sunActive=true;eventActive=false;idleIndex=0;activeVisitor="";found.clear();sunImage.src=idleFrames[0];sun.classList.remove("active");stage.classList.remove("reacting");closeDetail();document.querySelectorAll(".feature,.fact-card").forEach(x=>x.setAttribute("aria-pressed","false"));document.querySelectorAll(".fact-card img").forEach(x=>x.classList.remove("animate-icon"));document.querySelectorAll(".visitor").forEach(el=>{el.classList.remove("found","departing");const id=el.id;el.querySelector(".visitor-pose").src=A+visitorData[id].rest});const count=document.getElementById("discoveries");count.textContent="Sun visitors: 0 of 3";count.classList.remove("show");showStatus("Ready to explore the Sun again.");idleStep()};
-document.getElementById("back-page-2").onclick=()=>{try{speechSynthesis.cancel()}catch(e){}};
+document.getElementById("reset").onclick=()=>{clearTimeout(idleTimer);clearTimeout(detailTimer);clearTimeout(detailCloseTimer);clearTimeout(statusTimer);clearTimeout(reactTimer);eventTimers.forEach(clearTimeout);eventTimers=[];stopNarration();try{speechSynthesis.cancel()}catch(e){}sunActive=true;eventActive=false;idleIndex=0;activeVisitor="";found.clear();sunImage.src=idleFrames[0];sun.classList.remove("active");stage.classList.remove("reacting");closeDetail();document.querySelectorAll(".feature,.fact-card").forEach(x=>x.setAttribute("aria-pressed","false"));document.querySelectorAll(".fact-card img").forEach(x=>x.classList.remove("animate-icon"));document.querySelectorAll(".visitor").forEach(el=>{el.classList.remove("found","departing");const id=el.id;el.querySelector(".visitor-pose").src=rt(A+visitorData[id].rest)});const count=document.getElementById("discoveries");count.textContent="Sun visitors: 0 of 3";count.classList.remove("show");showStatus("Ready to explore the Sun again.");idleStep()};
+document.getElementById("back-page-2").onclick=()=>{stopNarration();try{speechSynthesis.cancel()}catch(e){}};
 idleStep();
 })();
 </script>
 <script>
 (()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(type=>jump.addEventListener(type,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>6)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
+
+/* Shared fullscreen toggle, ported from page 1 so every page has it. Fails
+   safe: the control hides itself where the API is unavailable or blocked
+   (older iOS Safari, some embedded webviews) rather than dead-clicking. */
+(()=>{const b=document.getElementById("fullscreen");if(!b)return;const t=document.documentElement;if(!t.requestFullscreen){b.hidden=true;return}b.addEventListener("click",()=>{if(document.fullscreenElement)document.exitFullscreen();else t.requestFullscreen().catch(()=>{})});})();
 </script>
 </body>
 </html>

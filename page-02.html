@@ -35,7 +35,7 @@ button{font:inherit}.book{min-height:100vh;display:grid;place-items:center}.stag
 <body>
 <main class="book">
 <section class="stage" id="stage" aria-label="Interactive moving Solar System map">
-  <img class="bg" src="assets/page-02/page-02-space-bedroom-background.png" alt="">
+  <img class="bg" src="assets-runtime/standard/page-02/page-02-space-bedroom-background.webp" alt="">
   <div class="space-wash"></div>
   <svg class="orbits" viewBox="0 0 1536 1024" aria-hidden="true">
     <g transform="rotate(-8 975 470)">
@@ -46,31 +46,31 @@ button{font:inherit}.book{min-height:100vh;display:grid;place-items:center}.stag
       <ellipse class="orbit-line" cx="975" cy="470" rx="525" ry="330"/><ellipse class="orbit-line" cx="975" cy="470" rx="600" ry="377"/>
     </g>
   </svg>
-  <button class="sun" id="sun" aria-label="Animate the Sun" aria-pressed="false"><img id="sun-img" src="assets/page-02/sun-owner-frame-01.png" alt=""></button>
-  <button class="planet mercury" data-name="Mercury" data-family="rocky"><img src="assets/page-02/mercury.png" alt=""><span class="label">Mercury</span></button>
-  <button class="planet venus" data-name="Venus" data-family="rocky"><img src="assets/page-02/venus.png" alt=""><span class="label">Venus</span></button>
-  <button class="planet earth" data-name="Earth" data-family="rocky"><img src="assets/page-02/earth.png" alt=""><span class="moon"><img src="assets/page-02/moon.png" alt="Moon"></span><span class="label">Earth</span></button>
-  <button class="planet mars" data-name="Mars" data-family="rocky"><img src="assets/page-02/mars.png" alt=""><span class="label">Mars</span></button>
-  <button class="planet jupiter" data-name="Jupiter" data-family="gas"><img src="assets/page-02/jupiter.png" alt=""><span class="label">Jupiter</span></button>
-  <button class="planet saturn" data-name="Saturn" data-family="gas"><img class="ring-back" src="assets/page-02/saturn-rings-back.png" alt=""><img class="body" src="assets/page-02/saturn-body.png" alt=""><img class="ring-front" src="assets/page-02/saturn-rings-front.png" alt=""><span class="label">Saturn</span></button>
-  <button class="planet uranus" data-name="Uranus" data-family="ice"><img src="assets/page-02/uranus.png" alt=""><span class="label">Uranus</span></button>
-  <button class="planet neptune" data-name="Neptune" data-family="ice"><img src="assets/page-02/neptune.png" alt=""><span class="label">Neptune</span></button>
+  <button class="sun" id="sun" aria-label="Animate the Sun" aria-pressed="false"><img id="sun-img" src="assets-runtime/standard/page-02/sun-owner-frame-01.webp" alt=""></button>
+  <button class="planet mercury" data-name="Mercury" data-family="rocky"><img src="assets-runtime/standard/page-02/mercury.webp" alt=""><span class="label">Mercury</span></button>
+  <button class="planet venus" data-name="Venus" data-family="rocky"><img src="assets-runtime/standard/page-02/venus.webp" alt=""><span class="label">Venus</span></button>
+  <button class="planet earth" data-name="Earth" data-family="rocky"><img src="assets-runtime/standard/page-02/earth.webp" alt=""><span class="moon"><img src="assets-runtime/standard/page-02/moon.webp" alt="Moon"></span><span class="label">Earth</span></button>
+  <button class="planet mars" data-name="Mars" data-family="rocky"><img src="assets-runtime/standard/page-02/mars.webp" alt=""><span class="label">Mars</span></button>
+  <button class="planet jupiter" data-name="Jupiter" data-family="gas"><img src="assets-runtime/standard/page-02/jupiter.webp" alt=""><span class="label">Jupiter</span></button>
+  <button class="planet saturn" data-name="Saturn" data-family="gas"><img class="ring-back" src="assets-runtime/standard/page-02/saturn-rings-back.webp" alt=""><img class="body" src="assets-runtime/standard/page-02/saturn-body.webp" alt=""><img class="ring-front" src="assets-runtime/standard/page-02/saturn-rings-front.webp" alt=""><span class="label">Saturn</span></button>
+  <button class="planet uranus" data-name="Uranus" data-family="ice"><img src="assets-runtime/standard/page-02/uranus.webp" alt=""><span class="label">Uranus</span></button>
+  <button class="planet neptune" data-name="Neptune" data-family="ice"><img src="assets-runtime/standard/page-02/neptune.webp" alt=""><span class="label">Neptune</span></button>
   <button class="belt-hit" id="belt" aria-label="Explore the asteroid belt"></button>
   <div id="asteroids"></div>
-  <button class="named-object ceres" data-object="Ceres" aria-label="Ceres, a dwarf planet in the asteroid belt"><img src="assets/page-02/ceres-v1.png" alt=""><span class="label">Ceres</span></button>
-  <button class="named-object vesta" data-object="Vesta" aria-label="Vesta, a large asteroid in the asteroid belt"><img src="assets/page-02/vesta-v1.png" alt=""><span class="label">Vesta</span></button>
-  <button class="named-object eros" data-object="Eros" aria-label="Eros, a near-Earth asteroid"><img src="assets/page-02/eros-v1.png" alt=""><span class="label">Eros · near Earth</span></button>
-  <div class="comet grand" id="comet-grand"><img class="comet-sprite" src="assets/page-02/comet-unified-single-v1.png" alt=""></div>
-  <div class="comet twin" id="comet-twin"><img class="comet-sprite" src="assets/page-02/comet-unified-twin-v1.png" alt=""></div>
-  <div class="character ari watch"><img src="assets/page-02/ari-watch.png" alt=""></div><div class="character ari react"><img src="assets/page-02/ari-react.png" alt=""></div>
-  <div class="character dot neutral"><img src="assets/page-02/dot-neutral.png" alt=""></div><div class="character dot point"><img src="assets/page-02/dot-point.png" alt=""></div><div class="character dot radio"><img src="assets/page-02/dot-radio.png" alt=""></div>
+  <button class="named-object ceres" data-object="Ceres" aria-label="Ceres, a dwarf planet in the asteroid belt"><img src="assets-runtime/standard/page-02/ceres-v1.webp" alt=""><span class="label">Ceres</span></button>
+  <button class="named-object vesta" data-object="Vesta" aria-label="Vesta, a large asteroid in the asteroid belt"><img src="assets-runtime/standard/page-02/vesta-v1.webp" alt=""><span class="label">Vesta</span></button>
+  <button class="named-object eros" data-object="Eros" aria-label="Eros, a near-Earth asteroid"><img src="assets-runtime/standard/page-02/eros-v1.webp" alt=""><span class="label">Eros · near Earth</span></button>
+  <div class="comet grand" id="comet-grand"><img class="comet-sprite" src="assets-runtime/standard/page-02/comet-unified-single-v1.webp" alt=""></div>
+  <div class="comet twin" id="comet-twin"><img class="comet-sprite" src="assets-runtime/standard/page-02/comet-unified-twin-v1.webp" alt=""></div>
+  <div class="character ari watch"><img src="assets-runtime/standard/page-02/ari-watch.webp" alt=""></div><div class="character ari react"><img src="assets-runtime/standard/page-02/ari-react.webp" alt=""></div>
+  <div class="character dot neutral"><img src="assets-runtime/standard/page-02/dot-neutral.webp" alt=""></div><div class="character dot point"><img src="assets-runtime/standard/page-02/dot-point.webp" alt=""></div><div class="character dot radio"><img src="assets-runtime/standard/page-02/dot-radio.webp" alt=""></div>
   <button class="character-hit ari-hit" id="ari-talk" aria-label="Hear Ari"></button><button class="character-hit dot-hit" id="dot-talk" aria-label="Hear Dot"></button>
   <button class="secret s1" data-kind="visitor" data-target="explorer" aria-label="A star hiding a curious visitor"></button><button class="secret s2" data-kind="visitor" data-target="cargo" aria-label="A star hiding a cargo pilot"></button>
   <button class="secret s3" data-kind="visitor" data-target="scanner" aria-label="A star hiding a scanner probe"></button><button class="secret s4" data-kind="comet" data-target="comet-grand" aria-label="A star hiding a grand comet"></button>
   <button class="secret s5" data-kind="comet" data-target="comet-twin" aria-label="A star hiding a twin-tailed comet"></button>
-  <div class="visitor explorer" id="explorer"><img src="assets/page-02/visitor-explorer-01.png" alt="Curious explorer"></div>
-  <div class="visitor cargo" id="cargo"><img src="assets/page-02/visitor-cargo-pilot-03.png" alt="Cargo pilot"></div>
-  <div class="visitor scanner" id="scanner"><img src="assets/page-02/visitor-probe-scanner-02.png" alt="Round scanner probe"></div>
+  <div class="visitor explorer" id="explorer"><img src="assets-runtime/standard/page-02/visitor-explorer-01.webp" alt="Curious explorer"></div>
+  <div class="visitor cargo" id="cargo"><img src="assets-runtime/standard/page-02/visitor-cargo-pilot-03.webp" alt="Cargo pilot"></div>
+  <div class="visitor scanner" id="scanner"><img src="assets-runtime/standard/page-02/visitor-probe-scanner-02.webp" alt="Round scanner probe"></div>
   <article class="story"><a class="story-back" id="back-page-1" href="page-01.html"><span aria-hidden="true">←</span> Ari’s bedroom</a><h1>The Solar System Is a Moving Family</h1><p>The bedroom opened into a giant map of space.</p><p>“Everything is moving!” Dot said. Planets travel around the Sun, moons travel around planets, and asteroids and comets follow paths of their own.</p><div class="story-actions"><button class="primary" id="start">Start the Solar System</button><button id="listen">Listen</button></div></article>
   <nav class="families" aria-label="Highlight planet families"><button data-family-filter="rocky">Rocky</button><button data-family-filter="gas">Gas giants</button><button data-family-filter="ice">Ice giants</button></nav>
   <nav class="page-nav" data-current-page="2" aria-label="Page navigation">
@@ -81,34 +81,59 @@ button{font:inherit}.book{min-height:100vh;display:grid;place-items:center}.stag
   </nav>
   <div class="discoveries" id="discoveries">Star surprises: 0 of 5</div><div class="fact" id="fact" role="status" aria-live="polite"></div>
   <div class="scale-note">A playful space map — everything is brought closer so we can explore it together.</div>
-  <div class="toolbar"><button id="sound" aria-pressed="true">Sound on</button><button id="motion" aria-pressed="false">Reduce motion</button><button id="reset">Replay</button></div>
+  <div class="toolbar"><button id="sound" aria-pressed="true">Sound on</button><button id="motion" aria-pressed="false">Reduce motion</button><button id="reset">Replay</button><button id="fullscreen" type="button" aria-label="Full screen">Full screen</button><button id="quality" type="button" aria-pressed="false">Standard art</button></div>
 </section>
 </main>
 <script>
 (()=>{"use strict";
+/* Runtime asset tiers. assets/ holds the masters and is never loaded by a page;
+   assets-runtime/{standard,high}/ hold the derivatives -- identical trees apart
+   from one path segment, so changing tier is a path swap. The markup ships
+   standard/, so the default costs no JS at all. rt() maps a master path onto
+   the ACTIVE tier for the handful of paths this page builds at runtime, and
+   retier() re-points what is already in the DOM when the tier changes. */
+let rtTier="standard";try{if(localStorage.getItem("sb-quality")==="high")rtTier="high"}catch(e){}
+const rt=p=>(p=String(p),p.startsWith("assets-runtime/")?p.replace(/^assets-runtime\/(standard|high)\//,"assets-runtime/"+rtTier+"/"):"assets-runtime/"+rtTier+"/"+p.replace(/^assets\//,"").replace(/\.png$/i,".webp"));
+const retier=()=>{const s=x=>x.replace(/assets-runtime\/(standard|high)\//g,"assets-runtime/"+rtTier+"/");document.querySelectorAll("img[src]").forEach(i=>{const o=i.getAttribute("src"),n=s(o);if(n!==o)i.setAttribute("src",n)});document.querySelectorAll("[style*='assets-runtime/']").forEach(e=>{const o=e.getAttribute("style"),n=s(o);if(n!==o)e.setAttribute("style",n)});document.querySelectorAll("style").forEach(e=>{const o=e.textContent;if(o.indexOf("assets-runtime/")<0)return;const n=s(o);if(n!==o)e.textContent=n})};
+if(rtTier==="high")retier();
+/* Narration. One MP3 per line under assets/audio/page-02/, keyed by the exact
+   line text -- which is why no call site changed. narrate() returns false on
+   a miss and the caller falls through to speechSynthesis, so a line without a
+   clip behaves exactly as before. The map is inlined, not fetched, because
+   these pages are opened over file:// where fetch is blocked.
+   NOTE: rendered via the unofficial edge backend -- re-render through
+   --backend azure before publishing (see assets-manifest.json provenance). */
+const NARRATION={};
+const NARRATION_BASE="assets/audio/page-02/";
+let narrationAudio=null,narrationToken=0;
+const stopNarration=()=>{try{if(narrationAudio){narrationToken++;narrationAudio.onended=null;narrationAudio.onerror=null;narrationAudio.pause()}}catch(e){}};
+const narrate=(text,onend,fallback)=>{const f=NARRATION[String(text).trim()];if(!f)return false;try{stopNarration();if(!narrationAudio)narrationAudio=new Audio();const my=++narrationToken;const fail=()=>{if(my!==narrationToken)return;narrationToken++;narrationAudio.onended=null;narrationAudio.onerror=null;(fallback||onend||(()=>{}))()};narrationAudio.onended=()=>{if(my===narrationToken&&onend)onend()};narrationAudio.onerror=fail;narrationAudio.src=NARRATION_BASE+f;const p=narrationAudio.play();if(p&&p.catch)p.catch(fail);return true}catch(e){return false}};
+const syncQuality=()=>{const b=document.getElementById("quality");if(!b)return;b.textContent=rtTier==="high"?"Sharper art":"Standard art";b.setAttribute("aria-pressed",String(rtTier==="high"))};
+const qb=document.getElementById("quality");if(qb)qb.onclick=()=>{rtTier=rtTier==="high"?"standard":"high";try{localStorage.setItem("sb-quality",rtTier)}catch(e){}retier();syncQuality()};
+syncQuality();
 const stage=document.getElementById("stage"),planets=[...document.querySelectorAll(".planet")],fact=document.getElementById("fact");
 const spec=[["Mercury",105,66,1.1,0],["Venus",155,97,.78,65],["Earth",210,132,.62,135],["Mars",270,170,.48,205],["Jupiter",385,242,.22,280],["Saturn",455,286,.17,335],["Uranus",525,330,.11,30],["Neptune",600,377,.085,95]];
 const namedObjects=[...document.querySelectorAll(".named-object")],namedSpec=[["Ceres",325,204,.31,38],["Vesta",325,204,.37,158],["Eros",235,148,.68,105]];
 const moonSpec={Earth:[["moon.png",60,1.1,45,"large","Moon"]],Mars:[["moon-phobos.png",38,1.7,0,"large","Phobos"],["moon-deimos.png",53,.9,180,"tiny","Deimos"]],Jupiter:[["moon-io.png",45,1.8,0,"tiny","Io"],["moon-europa.png",59,1.35,90,"tiny","Europa"],["moon-ganymede.png",74,1.05,180,"large","Ganymede"],["moon-callisto.png",91,.72,270,"large","Callisto"]],Saturn:[["moon-titan.png",67,.8,30,"large","Titan"]],Uranus:[["moon-titania.png",55,.85,160,"large","Titania"]],Neptune:[["moon-triton.png",55,-1.05,230,"large","Triton"]]};
-const moonEls=[];planets.forEach(p=>(moonSpec[p.dataset.name]||[]).forEach(m=>{let s=p.dataset.name==="Earth"?p.querySelector(".moon"):null;if(s)s.className="satellite "+m[4];else{s=document.createElement("span");s.className="satellite "+m[4];s.innerHTML=`<img src="assets/page-02/${m[0]}" alt="">`;p.appendChild(s)}s.dataset.name=m[5];s.setAttribute("aria-label",m[5]);s.title=m[5];moonEls.push([s,m,p.dataset.name])}));
+const moonEls=[];planets.forEach(p=>(moonSpec[p.dataset.name]||[]).forEach(m=>{let s=p.dataset.name==="Earth"?p.querySelector(".moon"):null;if(s)s.className="satellite "+m[4];else{s=document.createElement("span");s.className="satellite "+m[4];s.innerHTML=`<img src="${rt("assets/page-02/"+m[0])}" alt="">`;p.appendChild(s)}s.dataset.name=m[5];s.setAttribute("aria-label",m[5]);s.title=m[5];moonEls.push([s,m,p.dataset.name])}));
 const spinNames=["mercury","venus","earth","mars","jupiter","saturn-body","uranus","neptune"],spinImgs=planets.map((p,i)=>i===5?p.querySelector(".body"):p.querySelector(":scope>img")),spinLast=Array(8).fill(-1);
-const sunButton=document.getElementById("sun"),sunImg=document.getElementById("sun-img"),sunFrames=[1,2,3,4].map(n=>`assets/page-02/sun-owner-frame-0${n}.png`);sunFrames.forEach(src=>{const img=new Image;img.src=src});let sunLast=-1,sunStart=0,sunActive=false;
+const sunButton=document.getElementById("sun"),sunImg=document.getElementById("sun-img"),sunFrames=[1,2,3,4].map(n=>rt(`assets/page-02/sun-owner-frame-0${n}.png`));sunFrames.forEach(src=>{const img=new Image;img.src=src});let sunLast=-1,sunStart=0,sunActive=false;
 let running=false,reduced=false,soundOn=true,startTime=0,raf=0,found=new Set(),activeSecrets=new Set(),activeComet="",factTimer=0,eventTimers=[];
 const cx=975/1536*100,cy=470/1024*100,tilt=-8*Math.PI/180;
 function place(p,rx,ry,deg){const a=deg*Math.PI/180,x=rx*Math.cos(a),y=ry*Math.sin(a),xx=x*Math.cos(tilt)-y*Math.sin(tilt),yy=x*Math.sin(tilt)+y*Math.cos(tilt);p.style.left=(cx+xx/1536*100)+"%";p.style.top=(cy+yy/1024*100)+"%"}
-function frame(t){if(!startTime)startTime=t;const sec=(t-startTime)/1000;spec.forEach((s,i)=>place(planets[i],s[1],s[2],s[4]+sec*s[3]*36));namedSpec.forEach((s,i)=>place(namedObjects[i],s[1],s[2],s[4]+sec*s[3]*36));moonEls.forEach(([el,m])=>{const a=(m[3]+sec*m[2]*90)*Math.PI/180,s=Math.sin(a);el.style.left=(50+Math.cos(a)*m[1])+"%";el.style.top=(50+s*m[1]*.6)+"%";el.style.zIndex=s>=0?"3":"1"});spinImgs.forEach((img,i)=>{const n=Math.floor(sec/(.78+i*.08))%4;if(n!==spinLast[i]){spinLast[i]=n;img.src="assets/page-02/"+spinNames[i]+(n?"-spin-0"+n:"")+".png"}});if(running&&!reduced)raf=requestAnimationFrame(frame)}
+function frame(t){if(!startTime)startTime=t;const sec=(t-startTime)/1000;spec.forEach((s,i)=>place(planets[i],s[1],s[2],s[4]+sec*s[3]*36));namedSpec.forEach((s,i)=>place(namedObjects[i],s[1],s[2],s[4]+sec*s[3]*36));moonEls.forEach(([el,m])=>{const a=(m[3]+sec*m[2]*90)*Math.PI/180,s=Math.sin(a);el.style.left=(50+Math.cos(a)*m[1])+"%";el.style.top=(50+s*m[1]*.6)+"%";el.style.zIndex=s>=0?"3":"1"});spinImgs.forEach((img,i)=>{const n=Math.floor(sec/(.78+i*.08))%4;if(n!==spinLast[i]){spinLast[i]=n;img.src=rt("assets/page-02/"+spinNames[i]+(n?"-spin-0"+n:"")+".png")}});if(running&&!reduced)raf=requestAnimationFrame(frame)}
 function animateSun(t){if(sunActive&&!sunStart)sunStart=t;const n=sunActive&&!reduced?Math.floor((t-sunStart)/260)%4:0;if(n!==sunLast){sunLast=n;sunImg.src=sunFrames[n]}requestAnimationFrame(animateSun)}
 spec.forEach((s,i)=>place(planets[i],s[1],s[2],s[4]));
 namedSpec.forEach((s,i)=>place(namedObjects[i],s[1],s[2],s[4]));
 const ast=document.getElementById("asteroids"),rocks=["asteroid-01.png","asteroid-02.png","asteroid-03.png","asteroid-04.png","asteroid-05.png","asteroid-06.png","asteroid-cluster-far-01.png","asteroid-cluster-far-02.png"];
-rocks.forEach((src,i)=>{const d=document.createElement("div");d.className="asteroid"+(i===4?" hero":"");d.style.width=(i>5?13:2.2+i%3*.45)+"%";const a=(i*43+18)*Math.PI/180,rx=325,ry=204,x=rx*Math.cos(a),y=ry*Math.sin(a),xx=x*Math.cos(tilt)-y*Math.sin(tilt),yy=x*Math.sin(tilt)+y*Math.cos(tilt);d.style.left=(cx+xx/1536*100)+"%";d.style.top=(cy+yy/1024*100)+"%";d.innerHTML=`<img src="assets/page-02/${src}" alt="">`;ast.appendChild(d)});
+rocks.forEach((src,i)=>{const d=document.createElement("div");d.className="asteroid"+(i===4?" hero":"");d.style.width=(i>5?13:2.2+i%3*.45)+"%";const a=(i*43+18)*Math.PI/180,rx=325,ry=204,x=rx*Math.cos(a),y=ry*Math.sin(a),xx=x*Math.cos(tilt)-y*Math.sin(tilt),yy=x*Math.sin(tilt)+y*Math.cos(tilt);d.style.left=(cx+xx/1536*100)+"%";d.style.top=(cy+yy/1024*100)+"%";d.innerHTML=`<img src="${rt("assets/page-02/"+src)}" alt="">`;ast.appendChild(d)});
 function showFact(text){clearTimeout(factTimer);fact.textContent=text;fact.classList.add("show");factTimer=setTimeout(()=>fact.classList.remove("show"),4200)}
 function tone(freq=520,d=.12){if(!soundOn)return;const A=window.AudioContext||window.webkitAudioContext;if(!A)return;const c=tone.c||(tone.c=new A),o=c.createOscillator(),g=c.createGain();o.frequency.value=freq;o.type="sine";g.gain.setValueAtTime(.04,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+d);o.connect(g).connect(c.destination);o.start();o.stop(c.currentTime+d)}
 function starSound(kind){if(!soundOn)return;const A=window.AudioContext||window.webkitAudioContext;if(!A)return;const c=tone.c||(tone.c=new A);c.resume?.();const note=(from,to,delay,duration,type,volume)=>{const o=c.createOscillator(),g=c.createGain(),start=c.currentTime+delay;o.type=type;o.frequency.setValueAtTime(from,start);if(to)o.frequency.exponentialRampToValueAtTime(to,start+duration);g.gain.setValueAtTime(.001,start);g.gain.exponentialRampToValueAtTime(volume,start+.025);g.gain.exponentialRampToValueAtTime(.001,start+duration);o.connect(g).connect(c.destination);o.start(start);o.stop(start+duration+.02)};if(kind==="explorer"){note(660,880,0,.24,"sine",.075);note(880,1175,.11,.3,"sine",.065);note(1320,1760,.23,.42,"sine",.055)}else if(kind==="cargo"){note(180,430,0,.5,"triangle",.06);note(430,680,.28,.3,"square",.035)}else if(kind==="scanner"){note(980,980,0,.13,"square",.045);note(1320,1320,.18,.13,"square",.04);note(1680,1680,.36,.18,"sine",.045)}else{note(980,220,0,.72,"triangle",.065);note(620,170,.08,.82,"sine",.045)}}
 let speechVoices=[];
 function refreshSpeechVoices(){if(!("speechSynthesis" in window))return;try{speechVoices=speechSynthesis.getVoices()||[]}catch(e){speechVoices=[]}}
 function preferredVoice(role){refreshSpeechVoices();const english=speechVoices.filter(v=>!v.lang||/^en[-_]/i.test(v.lang)),pool=english.length?english:speechVoices,choices=role==="dot"?["Zarvox","Trinoids","Whisper","Fred","Albert","Ralph"]:role==="ari"?["Junior","Eddy","Reed","Rocko","Alex","Aaron","Arthur","Ryan"]:["Daniel","Reed (English (US))","Reed","Eddy (English (US))","Eddy","Rocko (English (US))","Rocko","Alex","Aaron","Arthur","Junior"];for(const choice of choices){const voice=pool.find(v=>v.name===choice||v.name.startsWith(`${choice} (`));if(voice)return voice}return pool.find(v=>v.default)||pool[0]||null}
-function speakRole(text,role="narrator"){if(!soundOn||!("speechSynthesis" in window)||!("SpeechSynthesisUtterance" in window))return;try{const u=new SpeechSynthesisUtterance(text),voice=preferredVoice(role);if(voice)u.voice=voice;if(role==="dot"){u.rate=.84;u.pitch=.68;u.volume=.9}else if(role==="ari"){u.rate=1.03;u.pitch=1.16;u.volume=.95}else{u.rate=.96;u.pitch=1.08;u.volume=.96}speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function speakRole(text,role="narrator"){if(!soundOn)return;const synth=()=>{if(!("speechSynthesis" in window)||!("SpeechSynthesisUtterance" in window))return;try{const u=new SpeechSynthesisUtterance(text),voice=preferredVoice(role);if(voice)u.voice=voice;if(role==="dot"){u.rate=.84;u.pitch=.68;u.volume=.9}else if(role==="ari"){u.rate=1.03;u.pitch=1.16;u.volume=.95}else{u.rate=.96;u.pitch=1.08;u.volume=.96}speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}};if(narrate(text,null,synth))return;synth()}
 function speakDaniel(text){speakRole(text,"narrator")}
 refreshSpeechVoices();try{speechSynthesis.addEventListener?.("voiceschanged",refreshSpeechVoices)}catch(e){}
 moonEls.forEach(([moon,,parentName])=>moon.onclick=e=>{e.stopPropagation();speakDaniel(moon.dataset.name);showFact(`${moon.dataset.name} is a moon of ${parentName}.`)});
@@ -123,19 +148,24 @@ const familyText={rocky:"Mercury, Venus, Earth, and Mars are rocky planets with 
 document.querySelectorAll("[data-family-filter]").forEach(b=>b.onclick=()=>{const f=b.dataset.familyFilter,on=b.getAttribute("aria-pressed")!=="true";document.querySelectorAll("[data-family-filter]").forEach(x=>x.setAttribute("aria-pressed","false"));planets.forEach(p=>p.classList.remove("dim","focused"));if(on){b.setAttribute("aria-pressed","true");planets.forEach(p=>p.classList.add(p.dataset.family===f?"focused":"dim"));speakDaniel(familyText[f]);showFact(familyText[f])}});
 document.querySelectorAll(".secret").forEach(b=>b.onclick=()=>{const id=b.dataset.target,visitor=b.dataset.kind==="visitor";if(activeSecrets.has(id)||(!visitor&&activeComet))return;activeSecrets.add(id);if(!visitor)activeComet=id;if(!found.has(id))found.add(id);starSound(visitor?id:"comet");const target=document.getElementById(id);if(visitor){target.classList.remove("departing");target.classList.add("found");stage.classList.add("radio");if(id==="explorer")speakRole("Hi, space explorers!","ari");eventTimers.push(setTimeout(()=>stage.classList.remove("radio"),1700));eventTimers.push(setTimeout(()=>target.classList.add("departing"),3600));eventTimers.push(setTimeout(()=>{target.classList.remove("found","departing");activeSecrets.delete(id)},4700));showFact(id==="explorer"?"✦ The curious explorer says hello, then continues the journey!":id==="cargo"?"✦ A cargo craft zooms past!":"✦ A scanner probe sends a friendly signal!")}else{target.classList.remove("revealed");void target.offsetWidth;target.classList.add("revealed");eventTimers.push(setTimeout(()=>{target.classList.remove("revealed");activeSecrets.delete(id);if(activeComet===id)activeComet=""},5400));showFact("✦ A hidden comet races across the Solar System!")}const d=document.getElementById("discoveries");d.textContent=`Star surprises: ${found.size} of 5`;d.classList.add("show")});
 document.getElementById("listen").onclick=()=>{if(!soundOn){soundOn=true;syncSound()}speakDaniel("The Solar System is a moving family, held together by the Sun’s gravity.")};
-document.getElementById("back-page-1").onclick=()=>{try{speechSynthesis.cancel()}catch(e){}};
+document.getElementById("back-page-1").onclick=()=>{stopNarration();try{speechSynthesis.cancel()}catch(e){}};
 document.getElementById("ari-talk").onclick=()=>{speakRole("Wow! Everything in space is moving!","ari");showFact("Wow! Everything in space is moving!")};
 document.getElementById("dot-talk").onclick=()=>{speakRole("Planets travel around the Sun, and moons travel around planets.","dot");showFact("Planets travel around the Sun, and moons travel around planets.")};
 function syncSound(){const b=document.getElementById("sound");b.textContent=soundOn?"Sound on":"Sound off";b.setAttribute("aria-pressed",String(soundOn))}
-document.getElementById("sound").onclick=()=>{soundOn=!soundOn;if(!soundOn)speechSynthesis.cancel();syncSound()};
+document.getElementById("sound").onclick=()=>{soundOn=!soundOn;if(!soundOn){stopNarration();speechSynthesis.cancel()}syncSound()};
 document.getElementById("motion").onclick=e=>{reduced=!reduced;stage.classList.toggle("reduce-motion",reduced);e.currentTarget.textContent=reduced?"Full motion":"Reduce motion";e.currentTarget.setAttribute("aria-pressed",String(reduced));cancelAnimationFrame(raf);if(running&&!reduced){startTime=0;raf=requestAnimationFrame(frame)}};
-document.getElementById("reset").onclick=()=>{cancelAnimationFrame(raf);eventTimers.forEach(clearTimeout);eventTimers=[];running=false;sunActive=false;sunStart=0;sunLast=-1;sunButton.setAttribute("aria-pressed","false");sunImg.src=sunFrames[0];startTime=0;stage.className="stage"+(reduced?" reduce-motion":"");found.clear();activeSecrets.clear();activeComet="";document.querySelectorAll(".visitor").forEach(v=>v.classList.remove("found","departing"));document.querySelectorAll(".comet").forEach(c=>c.classList.remove("revealed"));document.querySelectorAll(".secret").forEach(s=>s.hidden=false);const d=document.getElementById("discoveries");d.textContent="Star surprises: 0 of 5";d.classList.remove("show");document.getElementById("start").textContent="Start the Solar System";planets.forEach((p,i)=>{p.classList.remove("dim","focused","show-moon");place(p,spec[i][1],spec[i][2],spec[i][4])});namedObjects.forEach((o,i)=>place(o,namedSpec[i][1],namedSpec[i][2],namedSpec[i][4]));speechSynthesis.cancel();showFact("Ready for another journey.")};
+document.getElementById("reset").onclick=()=>{cancelAnimationFrame(raf);eventTimers.forEach(clearTimeout);eventTimers=[];running=false;sunActive=false;sunStart=0;sunLast=-1;sunButton.setAttribute("aria-pressed","false");sunImg.src=sunFrames[0];startTime=0;stage.className="stage"+(reduced?" reduce-motion":"");found.clear();activeSecrets.clear();activeComet="";document.querySelectorAll(".visitor").forEach(v=>v.classList.remove("found","departing"));document.querySelectorAll(".comet").forEach(c=>c.classList.remove("revealed"));document.querySelectorAll(".secret").forEach(s=>s.hidden=false);const d=document.getElementById("discoveries");d.textContent="Star surprises: 0 of 5";d.classList.remove("show");document.getElementById("start").textContent="Start the Solar System";planets.forEach((p,i)=>{p.classList.remove("dim","focused","show-moon");place(p,spec[i][1],spec[i][2],spec[i][4])});namedObjects.forEach((o,i)=>place(o,namedSpec[i][1],namedSpec[i][2],namedSpec[i][4]));stopNarration();speechSynthesis.cancel();showFact("Ready for another journey.")};
 frame(performance.now());
 requestAnimationFrame(animateSun);
 })();
 </script>
 <script>
 (()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(type=>jump.addEventListener(type,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>6)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
+
+/* Shared fullscreen toggle, ported from page 1 so every page has it. Fails
+   safe: the control hides itself where the API is unavailable or blocked
+   (older iOS Safari, some embedded webviews) rather than dead-clicking. */
+(()=>{const b=document.getElementById("fullscreen");if(!b)return;const t=document.documentElement;if(!t.requestFullscreen){b.hidden=true;return}b.addEventListener("click",()=>{if(document.fullscreenElement)document.exitFullscreen();else t.requestFullscreen().catch(()=>{})});})();
 </script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">Moving clouds and winds</title>
+  <desc id="desc">Curving wind paths carry three cloud groups around a simplified blue Earth.</desc>
+  <defs>
+    <radialGradient id="earth"><stop stop-color="#39bde8"/><stop offset=".72" stop-color="#0873bd"/><stop offset="1" stop-color="#073d83"/></radialGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-opacity=".25"/></filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0l9 4.5L0 9z" fill="#ffe68d"/></marker>
+  </defs>
+  <style>
+    .wind{stroke-dasharray:24 14;animation:wind 2.1s linear infinite}
+    .wind:nth-child(2){animation-delay:-.7s}.wind:nth-child(3){animation-delay:-1.4s}
+    .cloud{animation:cloud 3.8s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+    .cloud:nth-child(2){animation-delay:-1.2s}.cloud:nth-child(3){animation-delay:-2.4s}
+    @keyframes wind{to{stroke-dashoffset:-76}}
+    @keyframes cloud{to{transform:translateX(12px)}}
+    @media(prefers-reduced-motion:reduce){.wind,.cloud{animation:none}}
+  </style>
+  <rect width="800" height="480" rx="32" fill="#102d66"/>
+  <circle cx="400" cy="240" r="180" fill="url(#earth)" stroke="#8be8ff" stroke-width="6"/>
+  <g fill="#61a65c" opacity=".92">
+    <path d="M300 118q54-38 97-4l-18 54-65 8-31-29z"/><path d="M447 245q61-38 111 11l-25 72-70 22-42-51z"/><path d="M282 283q45-27 79 1l12 72-42 25-48-36z"/>
+  </g>
+  <g fill="none" stroke="#ffe68d" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)">
+    <path class="wind" d="M118 158c126-93 275-97 424-42"/><path class="wind" d="M155 276c142 68 311 66 470-12"/><path class="wind" d="M218 397c139 45 266 21 367-71"/>
+  </g>
+  <g fill="#f8fdff" stroke="#d7f4ff" stroke-width="3" filter="url(#shadow)">
+    <path class="cloud" d="M235 111c12-33 59-32 72-4 40-10 66 16 59 43H208c-6-20 7-36 27-39z"/>
+    <path class="cloud" d="M451 190c13-35 63-34 77-4 43-11 71 17 63 46H422c-7-22 7-38 29-42z"/>
+    <path class="cloud" d="M335 307c11-31 56-30 68-4 38-10 63 15 56 41H310c-6-20 6-34 25-37z"/>
+  </g>
+</svg>

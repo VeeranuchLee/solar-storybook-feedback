@@ -1,19 +1,28 @@
-# Interactive Solar Storybook — Pages 1–6
+# Ari & Dot — Solar Storybook (feedback build)
 
-Public feedback preview of the first six pages from an interactive children's solar-system storybook.
+An interactive picture book about the solar system, for ages 4–6.
+Pages 1–6 are complete: the bedroom, the solar system, the Sun, Mercury, Venus
+and Earth. Use the arrows at the top right to move between pages, or press and
+hold the page counter to jump.
 
-Page 1 is Ari's bedroom: try the curtains, Jupiter, wall poster, shelf orrery, drawings, toy rocket, Ari, Dot, lamp, desk globe, and astronomy book.
+**This is a feedback build, not a finished product.** Please tell us anything
+that felt slow, confusing, broken or boring.
 
-Page 2 is the moving Solar System: start the planets, animate the Sun, tap planets and moons, explore planet families, and discover the five reusable star surprises. Use the top-right Previous / page number / Next controls to move between pages; press and hold the page number to open Go to page.
+## What to try
 
-Page 3 visits the Sun: watch its living surface, trigger prominences and flares, inspect granulation and sunspots, open fact cards, and discover three visiting machines.
+* Tap things. Almost everything on each page reacts.
+* Look for the glowing stars — each hides a visitor to discover.
+* The controls at the bottom right of each page toggle sound, motion,
+  full screen, and picture quality.
 
-Page 4 visits Mercury: compare hot day and cold night, inspect ancient craters, race around an 88-day orbit, animate facts, and discover three more machines.
+## Notes for this build
 
-Page 5 visits Venus: watch its golden clouds move, scan beneath them with radar, explore its heat trap and backward rotation, open fact cards, and discover three secret visiting machines.
+* **Voices come from your own device.** Recorded narration is not in this build
+  yet, so the read-aloud uses your phone's or computer's built-in voice, which
+  varies a lot between devices. That part is not finished — please don't judge
+  the voices.
+* **Pictures are the standard quality tier.** The `✦ Standard` button switches
+  to sharper art if your connection is fast.
 
-Page 6 visits Earth, the Ocean Planet: watch independent cloud and atmosphere motion, explore the connected ocean, open animated fact cards, and discover three Sky Parades with living fliers, people in the sky, and sky explorers.
-
-Use the top-right Previous / page number / Next controls to move between all six pages; press and hold the page number to open Go to page.
-
-This repository is a showcase export. The working project remains outside GitHub.
+Built from the OneDrive working copy. Not a source of truth — report issues
+rather than editing here.
