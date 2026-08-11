@@ -41,8 +41,8 @@
     <div class="story-actions"><button class="primary" id="about-mercury">About Mercury</button><button id="listen">Listen</button></div>
   </article>
   <nav class="page-nav" data-current-page="4" aria-label="Page navigation">
-    <a href="page-03.html" aria-label="Previous page" title="Previous page">‹</a><button class="page-jump" type="button" aria-label="Page 4 of 6. Press and hold to go to a page">4 / 6</button><a href="page-05.html" aria-label="Next page" title="Next page">›</a>
-    <form class="page-goto" hidden><label>Go to <input type="number" min="1" max="6" value="4" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form>
+    <a href="page-03.html" aria-label="Previous page" title="Previous page">‹</a><button class="page-jump" type="button" aria-label="Page 4 of 7. Press and hold to go to a page">4 / 7</button><a href="page-05.html" aria-label="Next page" title="Next page">›</a>
+    <form class="page-goto" hidden><label>Go to <input type="number" min="1" max="7" value="4" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form>
   </nav>
   <div class="sun-edge"><img id="sun-edge-image" src="assets-runtime/standard/page-03/sun-main-frame-01.webp" alt=""></div>
   <div class="mercury-area">
@@ -137,7 +137,7 @@ document.getElementById("back-page-3").onclick=()=>{stopNarration();try{speechSy
 })();
 </script>
 <script>
-(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(t=>jump.addEventListener(t,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>6)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
+(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(t=>jump.addEventListener(t,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>7)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
 
 /* Shared fullscreen toggle, ported from page 1 so every page has it. Fails
    safe: the control hides itself where the API is unavailable or blocked
