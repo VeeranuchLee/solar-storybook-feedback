@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024">
+  <g fill="none" stroke-linecap="round">
+    <path d="M120 235q210-98 410 3t408-2q226-111 478 9" stroke="#ffd0a6" stroke-width="8" stroke-dasharray="42 38" opacity=".18">
+      <animate attributeName="stroke-dashoffset" begin="indefinite" dur="2.2s" values="0;-160"/>
+      <animate attributeName="opacity" begin="indefinite" dur="2.2s" values=".12;.28;.12"/>
+    </path>
+    <path d="M238 334q178-64 343 4t340-7q160-72 356 5" stroke="#fff1d2" stroke-width="5" stroke-dasharray="26 34" opacity=".14">
+      <animate attributeName="stroke-dashoffset" begin="indefinite" dur="2.7s" values="0;140"/>
+      <animate attributeName="opacity" begin="indefinite" dur="2.7s" values=".08;.22;.08"/>
+    </path>
+  </g>
+  <g fill="#ffe0bd" opacity=".2">
+    <circle cx="308" cy="260" r="4"/><circle cx="584" cy="304" r="3"/><circle cx="842" cy="245" r="4"/><circle cx="1118" cy="300" r="3"/>
+    <animateTransform attributeName="transform" type="translate" begin="indefinite" dur="2.2s" values="-24 0;30 0;-24 0"/>
+  </g>
+</svg>

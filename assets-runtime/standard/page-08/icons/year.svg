@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <ellipse cx="80" cy="80" rx="64" ry="39" fill="none" stroke="#71d6e9" stroke-width="5" stroke-dasharray="8 7"/>
+  <circle cx="80" cy="80" r="22" fill="#ffb51d" stroke="#123e6d" stroke-width="6"/>
+  <g>
+    <circle cx="144" cy="80" r="11" fill="#cf5b36" stroke="#123e6d" stroke-width="4"/>
+    <path d="M139 76q7-5 12 1" fill="none" stroke="#f29a55" stroke-width="3" stroke-linecap="round"/>
+    <animateTransform attributeName="transform" type="rotate" begin="indefinite" dur="1.4s" values="0 80 80;360 80 80"/>
+  </g>
+  <path d="M27 49l-2-13 13 2" fill="none" stroke="#1596c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

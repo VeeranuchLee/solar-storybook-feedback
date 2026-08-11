@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220">
+  <g fill="none" stroke-linecap="round">
+    <path d="M52 163q126-75 258-18q105 45 210-10q123-64 326 3" stroke="#e78347" stroke-width="24" opacity=".38"/>
+    <path d="M73 181q118-42 221-6q111 40 224-7q151-64 308 8" stroke="#f0a260" stroke-width="13" opacity=".5"/>
+    <path d="M105 132q76-58 144-4q34 27 76 0M514 123q74-53 135-2q35 29 76 1" stroke="#c65a32" stroke-width="10" opacity=".48"/>
+    <animateTransform attributeName="transform" type="translate" begin="indefinite" dur="1.25s" values="-70 0;55 0;-70 0"/>
+    <animate attributeName="opacity" begin="indefinite" dur="1.25s" values=".35;.9;.35"/>
+  </g>
+  <g fill="#d5683a" opacity=".5">
+    <circle cx="129" cy="116" r="5"/><circle cx="227" cy="92" r="3"/><circle cx="362" cy="137" r="4"/><circle cx="487" cy="104" r="3"/><circle cx="622" cy="89" r="5"/><circle cx="763" cy="126" r="4"/>
+    <animateTransform attributeName="transform" type="translate" begin="indefinite" dur="1.25s" values="-45 20;75 -15;-45 20"/>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 500">
+  <defs>
+    <linearGradient id="dust" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b64f2d" stop-opacity="0"/>
+      <stop offset=".46" stop-color="#e78347" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#f0b06e" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#dust)" stroke-linecap="round">
+    <path d="M65 444q96 44 190 0" stroke-width="28" opacity=".55"/>
+    <path d="M84 402q134-18 157-73q18-43-55-55q-93-16-89-74q4-49 103-71" stroke-width="20"/>
+    <path d="M219 424q-123-28-104-83q17-45 103-48q65-3 42-60q-19-45-112-67" stroke-width="13" opacity=".72"/>
+    <path d="M112 446q66-35 59-91q-5-43-47-73q-33-24 8-70q28-31 72-48" stroke-width="8" opacity=".62"/>
+    <animateTransform attributeName="transform" type="rotate" begin="indefinite" dur="1.4s" values="-4 160 320;5 160 320;-4 160 320"/>
+  </g>
+  <g fill="#d96d3c" opacity=".55">
+    <circle cx="74" cy="428" r="5"/><circle cx="258" cy="419" r="4"/><circle cx="97" cy="369" r="4"/><circle cx="236" cy="333" r="3"/><circle cx="129" cy="244" r="3"/><circle cx="212" cy="191" r="2.5"/>
+    <animateTransform attributeName="transform" type="translate" begin="indefinite" dur="1.4s" values="0 18;0 -18;0 18"/>
+    <animate attributeName="opacity" begin="indefinite" dur="1.4s" values=".25;.7;.25"/>
+  </g>
+</svg>

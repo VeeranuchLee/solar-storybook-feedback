@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <circle cx="80" cy="80" r="54" fill="#fff8df" stroke="#123e6d" stroke-width="7"/>
+  <circle cx="80" cy="80" r="8" fill="#ffb51d"/>
+  <path d="M80 39v41l27 16" fill="none" stroke="#1596c8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <animateTransform attributeName="transform" type="rotate" begin="indefinite" dur="1.2s" values="0 80 80;360 80 80"/>
+  </path>
+  <path d="M80 22v11M80 127v11M22 80h11M127 80h11" stroke="#ef8b42" stroke-width="5" stroke-linecap="round"/>
+  <path d="M42 43l8 8M110 110l8 8M118 43l-8 8M50 110l-8 8" stroke="#71d6e9" stroke-width="4" stroke-linecap="round"/>
+</svg>

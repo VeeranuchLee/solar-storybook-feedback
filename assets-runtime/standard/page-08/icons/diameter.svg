@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <circle cx="80" cy="72" r="39" fill="#cf5b36" stroke="#123e6d" stroke-width="7"/>
+  <path d="M54 59q20-18 46-2M50 81q24 18 56 3" fill="none" stroke="#f29a55" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+  <path d="M31 128h98M31 128l12-9M31 128l12 9M129 128l-12-9M129 128l-12 9" fill="none" stroke="#1596c8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <animate attributeName="d" begin="indefinite" dur="1.15s" values="M45 128h70M45 128l12-9M45 128l12 9M115 128l-12-9M115 128l-12 9;M21 128h118M21 128l12-9M21 128l12 9M139 128l-12-9M139 128l-12 9;M31 128h98M31 128l12-9M31 128l12 9M129 128l-12-9M129 128l-12 9"/>
+  </path>
+</svg>
