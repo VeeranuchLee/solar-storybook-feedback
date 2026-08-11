@@ -86,7 +86,19 @@
 let rtTier="standard";try{if(localStorage.getItem("sb-quality")==="high")rtTier="high"}catch(e){}
 const rt=p=>(p=String(p),p.startsWith("assets-runtime/")?p.replace(/^assets-runtime\/(standard|high)\//,"assets-runtime/"+rtTier+"/"):"assets-runtime/"+rtTier+"/"+p.replace(/^assets\//,"").replace(/\.png$/i,".webp"));
 const retier=()=>{const s=x=>x.replace(/assets-runtime\/(standard|high)\//g,"assets-runtime/"+rtTier+"/");document.querySelectorAll("img[src]").forEach(i=>{const o=i.getAttribute("src"),n=s(o);if(n!==o)i.setAttribute("src",n)});document.querySelectorAll("[style*='assets-runtime/']").forEach(e=>{const o=e.getAttribute("style"),n=s(o);if(n!==o)e.setAttribute("style",n)});document.querySelectorAll("style").forEach(e=>{const o=e.textContent;if(o.indexOf("assets-runtime/")<0)return;const n=s(o);if(n!==o)e.textContent=n})};
-if(rtTier==="high")retier();
+/* The high tier is not always there. `assets-runtime/high/` is sidecar-only and
+   the public export ships standard alone, so "Sharper" used to repoint every
+   path at a tier with no files behind it and break every image on the page --
+   and localStorage kept the reader there across pages and sessions, so one tap
+   left a child with a broken book until they happened to tap back. Probe one
+   real asset before committing to the tier, and treat a STORED "high" the same
+   way, which is what rescues anyone already stranded by an older build.
+   Deliberately not a preload of the whole tier: one image answers the only
+   question that matters, and a miss costs one 404. */
+const probeHigh=()=>new Promise(res=>{const el=document.querySelector('img[src*="assets-runtime/"]');if(!el)return res(false);const im=new Image();im.onload=()=>res(true);im.onerror=()=>res(false);im.src=el.getAttribute("src").replace(/assets-runtime\/(standard|high)\//,"assets-runtime/high/")});
+let highTier=null;const highReady=async()=>{if(highTier===null)highTier=await probeHigh();return highTier};
+const forgetTier=()=>{try{localStorage.removeItem("sb-quality")}catch(e){}};
+if(rtTier==="high"){rtTier="standard";highReady().then(ok=>{if(ok){rtTier="high";retier()}else forgetTier();syncQuality()})}
 /* Narration. One MP3 per line under assets/audio/page-04/, keyed by the exact
    line text -- which is why no call site changed. narrate() returns false on
    a miss and the caller falls through to speechSynthesis, so a line without a
@@ -100,7 +112,7 @@ let narrationAudio=null,narrationToken=0;
 const stopNarration=()=>{try{if(narrationAudio){narrationToken++;narrationAudio.onended=null;narrationAudio.onerror=null;narrationAudio.pause()}}catch(e){}};
 const narrate=(text,onend,fallback)=>{const f=NARRATION[String(text).trim()];if(!f)return false;try{stopNarration();if(!narrationAudio)narrationAudio=new Audio();const my=++narrationToken;const fail=()=>{if(my!==narrationToken)return;narrationToken++;narrationAudio.onended=null;narrationAudio.onerror=null;(fallback||onend||(()=>{}))()};narrationAudio.onended=()=>{if(my===narrationToken&&onend)onend()};narrationAudio.onerror=fail;narrationAudio.src=NARRATION_BASE+f;const p=narrationAudio.play();if(p&&p.catch)p.catch(fail);return true}catch(e){return false}};
 const syncQuality=()=>{const b=document.getElementById("quality");if(!b)return;b.textContent=rtTier==="high"?"Sharper art":"Standard art";b.setAttribute("aria-pressed",String(rtTier==="high"))};
-const qb=document.getElementById("quality");if(qb)qb.onclick=()=>{rtTier=rtTier==="high"?"standard":"high";try{localStorage.setItem("sb-quality",rtTier)}catch(e){}retier();syncQuality()};
+const qb=document.getElementById("quality");if(qb)qb.onclick=async()=>{if(rtTier==="high"){rtTier="standard";try{localStorage.setItem("sb-quality",rtTier)}catch(e){}retier();syncQuality();return}qb.disabled=true;const ok=await highReady();qb.disabled=false;if(!ok){forgetTier();qb.textContent="✦ Standard only";qb.title="Sharper pictures are not included in this build";setTimeout(()=>{qb.removeAttribute("title");syncQuality()},2600);return}rtTier="high";try{localStorage.setItem("sb-quality",rtTier)}catch(e){}retier();syncQuality()};
 syncQuality();
 const A="assets/page-04/",stage=document.getElementById("stage"),mercuryImage=document.getElementById("mercury-image"),sunImage=document.getElementById("sun-edge-image"),status=document.getElementById("status");
 const mercuryFrames=[1,2,3,4].map(n=>rt(A+`mercury-main-frame-0${n}.png`)),sunFrames=[1,2,3,4].map(n=>rt(`assets/page-03/sun-main-frame-0${n}.png`));
