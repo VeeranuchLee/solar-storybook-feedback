@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430">
+  <path d="M255 95q124-50 203 39q65 96-14 176q-100 72-207 4q-84-65-40-155q18-42 58-64" fill="#72675b" stroke="#123e6d" stroke-width="14"/>
+  <circle cx="359" cy="163" r="39" fill="#403b37" stroke="#9b8c7d" stroke-width="8"/>
+  <g fill="none" stroke="#71d6e9" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M354 35v69M354 104l-16-19M354 104l16-19"><animate attributeName="d" begin="0s;indefinite" dur="1.15s" values="M354 35v69M354 104l-16-19M354 104l16-19;M354 55v49M354 104l-16-19M354 104l16-19;M354 35v69M354 104l-16-19M354 104l16-19"/></path>
+    <path d="M112 224h82M194 224l-20-16M194 224l-20 16"><animate attributeName="d" begin="0s;indefinite" dur="1.15s" values="M112 224h82M194 224l-20-16M194 224l-20 16;M139 224h55M194 224l-20-16M194 224l-20 16;M112 224h82M194 224l-20-16M194 224l-20 16"/></path>
+    <path d="M592 224h-84M508 224l20-16M508 224l20 16"><animate attributeName="d" begin="0s;indefinite" dur="1.15s" values="M592 224h-84M508 224l20-16M508 224l20 16;M566 224h-58M508 224l20-16M508 224l20 16;M592 224h-84M508 224l20-16M508 224l20 16"/></path>
+    <path d="M354 397v-70M354 327l-16 19M354 327l16 19"><animate attributeName="d" begin="0s;indefinite" dur="1.15s" values="M354 397v-70M354 327l-16 19M354 327l16 19;M354 375v-48M354 327l-16 19M354 327l16 19;M354 397v-70M354 327l-16 19M354 327l16 19"/></path>
+  </g>
+</svg>

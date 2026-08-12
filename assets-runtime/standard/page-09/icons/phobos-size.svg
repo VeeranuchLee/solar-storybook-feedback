@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <path d="M49 35q40-25 67 7q21 35-7 64q-35 25-72 1q-29-24-13-56q7-12 25-16" fill="#72675b" stroke="#123e6d" stroke-width="7"/>
+  <circle cx="83" cy="57" r="15" fill="#403b37" stroke="#9b8c7d" stroke-width="4"/>
+  <path d="M22 132h116M22 132l13-10M22 132l13 10M138 132l-13-10M138 132l-13 10" fill="none" stroke="#f0c36e" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <animate attributeName="d" begin="indefinite" dur="1.05s" values="M39 132h82M39 132l13-10M39 132l13 10M121 132l-13-10M121 132l-13 10;M14 132h132M14 132l13-10M14 132l13 10M146 132l-13-10M146 132l-13 10;M22 132h116M22 132l13-10M22 132l13 10M138 132l-13-10M138 132l-13 10"/>
+  </path>
+</svg>

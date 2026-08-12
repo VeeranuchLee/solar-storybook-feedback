@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <g><path d="M37 39q39-22 62 9q18 35-10 59q-35 20-65-5q-22-25-7-48q7-10 20-15" fill="#72675b" stroke="#123e6d" stroke-width="6"/><circle cx="69" cy="57" r="13" fill="#403b37"/><animateTransform attributeName="transform" type="rotate" begin="indefinite" dur="1.1s" values="0 62 74;22 62 74;-10 62 74;0 62 74"/></g>
+  <g><path d="M105 79q26-14 43 8q11 23-8 39q-26 12-44-6q-12-19 9-41" fill="#baa47d" stroke="#123e6d" stroke-width="5"/><animateTransform attributeName="transform" type="rotate" begin="indefinite" dur="1.1s" values="0 124 104;-25 124 104;12 124 104;0 124 104"/></g>
+  <path d="M16 137q33 11 64 0t64 0" fill="none" stroke="#71d6e9" stroke-width="5" stroke-linecap="round" stroke-dasharray="7 7"/>
+</svg>

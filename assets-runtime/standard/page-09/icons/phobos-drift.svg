@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <circle cx="64" cy="83" r="32" fill="#cf5b36" stroke="#123e6d" stroke-width="7"/>
+  <ellipse cx="64" cy="83" rx="76" ry="49" fill="none" stroke="#71d6e9" stroke-width="5" stroke-dasharray="8 8"/>
+  <g><path d="M125 37q14-8 23 4q6 13-6 20q-14 5-23-6q-5-11 6-18" fill="#72675b" stroke="#123e6d" stroke-width="4"/><circle cx="134" cy="45" r="4" fill="#403b37"/><animateTransform attributeName="transform" type="translate" begin="indefinite" dur="1.4s" values="0 0;-24 16;-15 10"/></g>
+  <path d="M127 76q-21 9-39 25M88 101l5-16M88 101l17 1" fill="none" stroke="#f0c36e" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dashoffset" begin="indefinite" dur="1.4s" values="0;-35"/></path>
+</svg>

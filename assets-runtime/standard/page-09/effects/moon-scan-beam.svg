@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430">
+  <defs><linearGradient id="beam" x1="1" y1="1" x2="0" y2="0"><stop stop-color="#71d6e9" stop-opacity=".12"/><stop offset="1" stop-color="#71d6e9" stop-opacity=".72"/></linearGradient></defs>
+  <path d="M650 380L160 58 72 164z" fill="url(#beam)" opacity="0"><animate attributeName="opacity" begin="indefinite" dur="1.25s" values="0;.75;.22;0"/></path>
+  <path d="M620 371L139 91" fill="none" stroke="#fff8df" stroke-width="7" stroke-linecap="round" stroke-dasharray="22 18" opacity="0"><animate attributeName="opacity" begin="indefinite" dur="1.25s" values="0;1;.35;0"/><animate attributeName="stroke-dashoffset" begin="indefinite" dur="1.25s" values="0;-80"/></path>
+  <ellipse cx="116" cy="112" rx="69" ry="44" fill="none" stroke="#71d6e9" stroke-width="8" opacity="0"><animate attributeName="opacity" begin="indefinite" dur="1.25s" values="0;1;.65;0"/><animate attributeName="rx" begin="indefinite" dur="1.25s" values="40;73;69;48"/></ellipse>
+</svg>

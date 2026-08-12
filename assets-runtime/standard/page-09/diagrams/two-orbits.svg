@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430">
+  <ellipse cx="360" cy="220" rx="292" ry="142" fill="none" stroke="#71d6e9" stroke-width="8" stroke-dasharray="14 13" opacity=".8"/>
+  <ellipse cx="360" cy="220" rx="184" ry="88" fill="none" stroke="#f0c36e" stroke-width="9" stroke-dasharray="12 11"/>
+  <circle cx="360" cy="220" r="74" fill="#cf5b36" stroke="#123e6d" stroke-width="12"/>
+  <path d="M313 203q47-35 97-3M306 238q55 34 110 1" fill="none" stroke="#f29a55" stroke-width="10" stroke-linecap="round" opacity=".75"/>
+  <g id="phobos-orbit">
+    <path d="M-20-16q22-13 37 5q10 21-8 34q-24 10-38-7q-9-19 9-32" fill="#72675b" stroke="#fff8df" stroke-width="6"/>
+    <circle cx="-4" cy="-5" r="6" fill="#403b37"/>
+    <animateMotion begin="0s;indefinite" dur="1.25s" repeatCount="2" fill="freeze" path="M544 220a184 88 0 1 1-368 0a184 88 0 1 1 368 0"/>
+  </g>
+  <g id="deimos-orbit">
+    <path d="M-14-12q16-9 27 4q7 15-6 24q-17 7-27-5q-6-13 6-23" fill="#baa47d" stroke="#fff8df" stroke-width="5"/>
+    <animateMotion begin="0s;indefinite" dur="2.5s" fill="freeze" path="M652 220a292 142 0 1 1-584 0a292 142 0 1 1 584 0"/>
+  </g>
+</svg>
