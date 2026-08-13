@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430">
+  <circle cx="230" cy="190" r="92" fill="#74685a" stroke="#123e6d" stroke-width="13"/><circle cx="205" cy="165" r="17" fill="#4b443d"/><circle cx="264" cy="225" r="12" fill="#938574"/>
+  <circle cx="515" cy="215" r="55" fill="#b9aa91" stroke="#123e6d" stroke-width="11"/><circle cx="496" cy="199" r="9" fill="#756d62"/><circle cx="535" cy="235" r="7" fill="#8d8373"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M112 332h236M112 332l20-14M112 332l20 14M348 332l-20-14M348 332l-20 14" stroke="#f0c36e" stroke-width="10"><animate attributeName="d" begin="0s" dur="1.15s" values="M145 332h170M145 332l20-14M145 332l20 14M315 332l-20-14M315 332l-20 14;M96 332h268M96 332l20-14M96 332l20 14M364 332l-20-14M364 332l-20 14;M112 332h236M112 332l20-14M112 332l20 14M348 332l-20-14M348 332l-20 14"/></path>
+    <path d="M438 332h154M438 332l18-13M438 332l18 13M592 332l-18-13M592 332l-18 13" stroke="#71d6e9" stroke-width="9"><animate attributeName="d" begin="0s" dur="1.15s" values="M459 332h112M459 332l18-13M459 332l18 13M571 332l-18-13M571 332l-18 13;M425 332h180M425 332l18-13M425 332l18 13M605 332l-18-13M605 332l-18 13;M438 332h154M438 332l18-13M438 332l18 13M592 332l-18-13M592 332l-18 13"/></path>
+  </g>
+</svg>

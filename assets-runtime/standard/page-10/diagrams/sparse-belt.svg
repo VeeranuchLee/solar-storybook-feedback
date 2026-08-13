@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430">
+  <ellipse cx="360" cy="215" rx="300" ry="130" fill="none" stroke="#71d6e9" stroke-width="8" stroke-dasharray="15 15" opacity=".7"/>
+  <circle cx="360" cy="215" r="64" fill="#f0a64b" stroke="#123e6d" stroke-width="12"/>
+  <g fill="#74685a" stroke="#fff8df" stroke-width="5">
+    <path d="M102 154q22-16 42 3q12 24-9 39q-27 8-40-14q-8-17 7-28"/><path d="M212 310q18-13 34 2q10 19-7 31q-21 7-31-10q-7-14 4-23"/>
+    <path d="M505 116q20-14 37 3q11 21-8 34q-23 8-34-11q-7-15 5-26"/><path d="M600 278q17-12 31 2q9 17-6 28q-20 6-29-9q-6-13 4-21"/>
+  </g>
+  <g fill="#baa47d" stroke="#123e6d" stroke-width="4">
+    <circle cx="174" cy="93" r="12"/><circle cx="277" cy="115" r="9"/><circle cx="450" cy="326" r="11"/><circle cx="548" cy="225" r="8"/>
+  </g>
+  <g fill="none" stroke="#f0c36e" stroke-width="8" stroke-linecap="round">
+    <path d="M152 231h105M152 231l17-12M152 231l17 12M257 231l-17-12M257 231l-17 12"><animate attributeName="d" begin="0s" dur="1.2s" values="M177 231h55M177 231l17-12M177 231l17 12M232 231l-17-12M232 231l-17 12;M137 231h135M137 231l17-12M137 231l17 12M272 231l-17-12M272 231l-17 12;M152 231h105M152 231l17-12M152 231l17 12M257 231l-17-12M257 231l-17 12"/></path>
+    <path d="M469 205h99M469 205l17-12M469 205l17 12M568 205l-17-12M568 205l-17 12"><animate attributeName="d" begin="0s" dur="1.2s" values="M491 205h55M491 205l17-12M491 205l17 12M546 205l-17-12M546 205l-17 12;M454 205h129M454 205l17-12M454 205l17 12M583 205l-17-12M583 205l-17 12;M469 205h99M469 205l17-12M469 205l17 12M568 205l-17-12M568 205l-17 12"/></path>
+  </g>
+</svg>

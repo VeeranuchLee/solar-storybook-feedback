@@ -1,8 +1,8 @@
 # Ari & Dot — Solar Storybook (feedback build)
 
 An interactive picture book about the solar system, for ages 4–6.
-Pages 1–9 are complete: the bedroom, the solar system, the Sun, Mercury, Venus,
-Earth, the Moon, Mars and its moons. Use the arrows at the top right to move between pages,
+Pages 1–10 are complete: the bedroom, the solar system, the Sun, Mercury, Venus,
+Earth, the Moon, Mars, its moons, and the asteroid belt with Ceres. Use the arrows at the top right to move between pages,
 or press and hold the page counter to jump.
 
 **This is a feedback build, not a finished product.** Please tell us anything

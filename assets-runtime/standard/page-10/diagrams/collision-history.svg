@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430">
+  <g fill="#74685a" stroke="#123e6d" stroke-width="7">
+    <path d="M85 132q40-28 75 7q24 42-14 70q-49 17-78-23q-18-31 17-54"/><path d="M92 278q31-21 57 5q18 33-11 54q-38 13-60-18q-13-24 14-41"/>
+    <path d="M249 93q34-24 63 6q20 36-13 59q-41 15-66-17q-15-28 16-48"/><path d="M261 293q29-20 54 5q17 31-11 51q-36 12-57-17q-13-22 14-39"/>
+  </g>
+  <g fill="none" stroke="#f0c36e" stroke-width="9" stroke-linecap="round">
+    <path d="M171 166l89 42M171 166l22-1M171 166l9 20"/><path d="M164 301l91-48M164 301l10-20M164 301l22 1"/><path d="M315 134l-30 62M315 134l-18 12M315 134l1 21"/><path d="M313 310l-28-47M313 310l-1-20M313 310l-18-10"/>
+  </g>
+  <g transform="translate(488 215)"><circle r="91" fill="#74685a" stroke="#123e6d" stroke-width="13"/><circle cx="-27" cy="-25" r="17" fill="#403b37"/><circle cx="31" cy="22" r="12" fill="#988a78"/><animateTransform attributeName="transform" type="scale" begin="0s" dur="1.5s" additive="sum" values=".78;.96;1"/></g>
+  <g fill="#baa47d"><circle cx="394" cy="116" r="7"/><circle cx="414" cy="331" r="9"/><circle cx="572" cy="90" r="6"/></g>
+</svg>
