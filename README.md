@@ -1,9 +1,10 @@
 # Ari & Dot — Solar Storybook (feedback build)
 
 An interactive picture book about the solar system, for ages 4–6.
-Pages 1–15 are complete: the bedroom, the solar system, the Sun, Mercury, Venus,
+Pages 1–16 are complete: the bedroom, the solar system, the Sun, Mercury, Venus,
 Earth, the Moon, Mars, its moons, the asteroid belt with Ceres, Jupiter, and
-Jupiter's four great moons, Saturn, Titan, Enceladus, and Uranus. Use the arrows at the top right to move between pages,
+Jupiter's four great moons, Saturn, Titan, Enceladus, Uranus, and the five moons
+of Uranus named out of Shakespeare and Pope. Use the arrows at the top right to move between pages,
 or press and hold the page counter to jump.
 
 **This is a feedback build, not a finished product.** Please tell us anything
