@@ -75,9 +75,9 @@ button{font:inherit}.book{min-height:100vh;display:grid;place-items:center}.stag
   <nav class="families" aria-label="Highlight planet families"><button data-family-filter="rocky">Rocky</button><button data-family-filter="gas">Gas giants</button><button data-family-filter="ice">Ice giants</button></nav>
   <nav class="page-nav" data-current-page="2" aria-label="Page navigation">
     <a href="page-01.html" aria-label="Previous page" title="Previous page">‹</a>
-    <button class="page-jump" type="button" aria-label="Page 2 of 14. Press and hold to go to a page" title="Press and hold to go to a page">2 / 14</button>
+    <button class="page-jump" type="button" aria-label="Page 2 of 15. Press and hold to go to a page" title="Press and hold to go to a page">2 / 15</button>
     <a href="page-03.html" aria-label="Next page" title="Next page">›</a>
-    <form class="page-goto" hidden><label>Go to <input type="number" min="1" max="14" value="2" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form>
+    <form class="page-goto" hidden><label>Go to <input type="number" min="1" max="15" value="2" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form>
   </nav>
   <div class="discoveries" id="discoveries">Star surprises: 0 of 5</div><div class="fact" id="fact" role="status" aria-live="polite"></div>
   <div class="scale-note">A playful space map — everything is brought closer so we can explore it together.</div>
@@ -177,7 +177,7 @@ requestAnimationFrame(animateSun);
 })();
 </script>
 <script>
-(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(type=>jump.addEventListener(type,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>12)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
+(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(type=>jump.addEventListener(type,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>15)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
 
 /* Shared fullscreen toggle, ported from page 1 so every page has it. Fails
    safe: the control hides itself where the API is unavailable or blocked
