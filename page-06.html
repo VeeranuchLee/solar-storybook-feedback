@@ -40,7 +40,55 @@
    the -18%..105% crossing, so the geometry is unchanged. */
 @keyframes omSwim{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(61.5cqw,-4px,0)}100%{transform:translate3d(123cqw,2px,0)}}@keyframes omSwimBig{0%{transform:translate3d(0,4px,0)}50%{transform:translate3d(66.5cqw,-7px,0)}100%{transform:translate3d(133cqw,2px,0)}}@keyframes omSwimRay{0%{transform:translate3d(0,5px,0)}50%{transform:translate3d(68cqw,-8px,0)}100%{transform:translate3d(136cqw,2px,0)}}
 .parade.living{background:#66bde8 url("assets-runtime/standard/page-06/sky-parade/living-fliers-bg-v1.webp") center/cover no-repeat}.parade.people{background:#66bde8 url("assets-runtime/standard/page-06/sky-parade/people-sky-bg-v1.webp") center/cover no-repeat}.parade.explorers{background:#66bde8 url("assets-runtime/standard/page-06/sky-parade/sky-explorers-bg-v1.webp") center/cover no-repeat}
+
+/* NAMEPLATES:CSS */
+.np{position:absolute;z-index:23;display:inline-flex;align-items:center;gap:.42em;
+padding:.26em .62em .26em .3em;border:2.5px solid #244b79;border-radius:999px;
+background:linear-gradient(#fffdf5,#fff3dc);color:#15365f;font-weight:900;
+font-size:var(--np-size,clamp(9px,1.08vw,16px));line-height:1;white-space:nowrap;
+cursor:pointer;box-shadow:0 4px 14px #0007;transition:transform .16s,box-shadow .16s,background .16s}
+.np:hover{background:linear-gradient(#fffdf5,#ffe9b8);transform:translateY(-1px)}
+.np:active{transform:translateY(1px) scale(.97)}
+.np:focus-visible{outline:3px solid #8eeaff;outline-offset:3px}
+.np .np-av{width:2.05em;height:2.05em;flex:none;border-radius:50%;
+background:#0d1c34;box-shadow:inset 0 0 0 1.5px #244b79;overflow:visible}
+.np .np-blush{fill:#ff8fa3;opacity:.5}
+.np-name{padding-right:.12em}
+.np-ear{flex:none;width:.9em;height:.9em;opacity:.5;transition:opacity .16s}
+.np:hover .np-ear,.np.np-on .np-ear{opacity:1}
+.np.np-on{background:linear-gradient(#fff6d8,#ffe08e);box-shadow:0 0 0 3px #ffc52b,0 4px 14px #0007}
+.np.np-on .np-av{animation:npPop .62s cubic-bezier(.34,1.56,.64,1)}
+@keyframes npPop{0%{transform:scale(1) rotate(0)}35%{transform:scale(1.28) rotate(-9deg)}
+65%{transform:scale(1.05) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
+/* Leader line, so a plate can sit clear of the art and still point at it. */
+.np-lead::after{content:"";position:absolute;height:2px;background:#ffe9a8cc;
+box-shadow:0 0 4px #0009;top:50%;pointer-events:none}
+.np-lead-r::after{left:100%;width:var(--np-lead,34px);transform-origin:left;
+transform:rotate(var(--np-angle,0deg))}
+.np-lead-l::after{right:100%;width:var(--np-lead,34px);transform-origin:right;
+transform:rotate(var(--np-angle,0deg))}
+/* "You are here" -- the plate for the ground the reader is standing on. */
+.np-here{flex-direction:column;align-items:flex-start;gap:.16em;
+padding:.34em .7em .38em .38em;border-radius:1.1em;border-color:#ffc52b}
+.np-here .np-row{display:flex;align-items:center;gap:.42em}
+.np-here-tag{display:block;padding-left:.2em;color:#a4501c;font-size:.62em;
+font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.stage.reduce-motion .np.np-on .np-av,.reduced .np.np-on .np-av,
+.stage.reduced .np.np-on .np-av{animation:none}
+@media(prefers-reduced-motion:reduce){.np.np-on .np-av{animation:none}}
+@media(max-width:700px),(max-aspect-ratio:1/1){
+.np{--np-size:8px;border-width:2px;padding:.22em .5em .22em .24em}
+.np-lead::after{display:none}
+}
+
+[data-np="p6-earth"]{left:60%;top:62%}[data-np="p6-moon"]{left:32.5%;top:5.5%;--np-lead:26px;--np-angle:10deg}
+@media(max-aspect-ratio:4/5){[data-np="p6-earth"]{inset:auto;left:30%;top:29%}[data-np="p6-moon"]{inset:auto;left:23%;top:23%}}/* /NAMEPLATES:CSS */
 </style></head><body><main class="book"><section class="stage" id="stage">
+<!-- NAMEPLATES:HTML -->
+<button type="button" class="np" data-np="p6-earth" data-say="Earth. Our home. The blue planet with air, water and life." aria-label="Hear the name Earth"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p6-earth"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#3f92da"/><g clip-path="url(#npc-p6-earth)"><path d="M16 24q14-8 24 2t-4 16-20 2-4-14z" fill="#5eb257"/><path d="M58 18q16-4 22 6t-6 16-20-4-2-14z" fill="#5eb257"/><path d="M14 62q12-6 20 2t10 18-16 8-18-12z" fill="#5eb257"/><path d="M60 64q16-8 26 2t-8 20-24-6z" fill="#5eb257"/><path d="M42 78q10-4 14 4t-8 8-10-6z" fill="#6ec065"/><path d="M10 34q14-6 26 0t22-2v6q-12 6-24 0t-24 2z" fill="#fff" opacity=".6"/><path d="M18 70q16-6 28 0t26-2v6q-14 6-28 0t-26 2z" fill="#fff" opacity=".5"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg><span class="np-name">Earth</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button>
+<button type="button" class="np np-lead np-lead-r" data-np="p6-moon" data-say="The Moon. Earth's nearest neighbour in space." aria-label="Hear the name Moon"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p6-moon"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#dedad2"/><g clip-path="url(#npc-p6-moon)"><circle cx="34" cy="26" r="11" fill="#b3aea4"/><circle cx="66" cy="24" r="7" fill="#b3aea4"/><circle cx="76" cy="42" r="6" fill="#bdb8ae"/><circle cx="20" cy="48" r="6" fill="#bdb8ae"/><circle cx="46" cy="76" r="12" fill="#b3aea4"/><circle cx="72" cy="72" r="8" fill="#bdb8ae"/><circle cx="22" cy="72" r="6" fill="#c6c1b7"/><circle cx="34" cy="26" r="6" fill="#c6c1b7"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg><span class="np-name">Moon</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button>
+<!-- /NAMEPLATES:HTML -->
+
 <div class="sparkles" aria-hidden="true"><i style="--x:5%;--y:42%;--s:4px;--d:3s"></i><i style="--x:17%;--y:52%;--s:3px;--d:2.5s"></i><i style="--x:28%;--y:35%;--s:5px;--d:3.6s"></i><i style="--x:38%;--y:6%;--s:3px;--d:2.8s"></i><i style="--x:50%;--y:59%;--s:4px;--d:3.2s"></i></div>
 <section class="story"><a href="page-05.html" style="color:#bdeaff;text-decoration:none;font-size:11px;font-weight:900">← Venus</a><h1>Earth<small>The Ocean Planet</small></h1><p>From space, Earth is a beautiful <strong>blue world</strong>.</p><p>Clouds, oceans, land and ice are wrapped in a thin layer of air that helps keep us safe. Earth is the only world where life has been confirmed.</p><div class="story-actions"><button id="about">About Earth</button><button class="primary" id="listen">▶ Listen</button></div></section>
 <nav class="page-nav" data-current-page="6" aria-label="Page navigation"><a href="page-05.html" aria-label="Previous page" title="Previous page">‹</a><button class="page-jump" id="pageJump" type="button" aria-label="Page 6 of 14. Press and hold to go to a page" title="Press and hold to go to a page">6 / 14</button><a href="page-07.html" aria-label="Next page" title="Next page">›</a><form class="page-goto" hidden><label>Go to <input type="number" min="1" max="14" value="6" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form></nav>
@@ -57,7 +105,7 @@
 <button class="fact" data-fact="year" data-say="Earth travels around the Sun in about three hundred sixty-five and one quarter days."><svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="23" fill="#f7a638"/><ellipse cx="80" cy="80" rx="67" ry="44" fill="none" stroke="#82dff0" stroke-width="5" stroke-dasharray="8 7"/><g id="miniEarth"><circle cx="28" cy="108" r="13" fill="#178fc7" stroke="#82ecff" stroke-width="3"/><animateTransform attributeName="transform" type="rotate" from="0 80 80" to="360 80 80" dur="1.25s" begin="indefinite"/></g></svg><span>One year<strong>about 365.25 days</strong></span></button>
 <button class="fact" data-fact="moon" data-say="Earth has one natural moon."><svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="67" cy="87" r="43" fill="#159bd0" stroke="#82ecff" stroke-width="4"/><ellipse cx="77" cy="80" rx="66" ry="54" fill="none" stroke="#ffe287" stroke-width="4" stroke-dasharray="7 7"/><g id="factMoon"><circle cx="124" cy="39" r="22" fill="#e9e4d3"/><animateTransform attributeName="transform" type="rotate" from="0 77 80" to="360 77 80" dur="1.25s" begin="indefinite"/></g></svg><span>Moons<strong>1</strong></span></button>
 <button class="fact" data-fact="ocean" data-say="Ocean covers about seventy-one percent of Earth's surface."><svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="67" r="48" fill="#128fc5" stroke="#82ecff" stroke-width="4"/><g fill="none" stroke="#92eaf6" stroke-width="7" stroke-linecap="round"><path d="M18 116q20-17 40 0t40 0 40 0"><animate attributeName="d" values="M18 116q20-17 40 0t40 0 40 0;M18 116q20 17 40 0t40 0 40 0;M18 116q20-17 40 0t40 0 40 0" dur="1.15s" begin="indefinite"/></path><path d="M27 136q17-14 34 0t34 0 34 0"><animate attributeName="d" values="M27 136q17-14 34 0t34 0 34 0;M27 136q17 14 34 0t34 0 34 0;M27 136q17-14 34 0t34 0 34 0" dur="1.15s" begin="indefinite"/></path></g></svg><span>Ocean<strong>about 71%</strong></span></button>
-</section><div class="tools"><button class="tool" id="motion">⏸ Motion</button><button class="tool" id="sound">🔊 Sound</button><button class="tool" id="replay">↻ Replay</button><button class="tool" id="fullscreen" type="button" aria-label="Full screen">⛶ Full</button><button class="tool" id="quality" type="button" aria-pressed="false">✦ Standard</button></div><div class="status" id="status" aria-live="polite"></div></section></main>
+</section><div class="tools"><button class="tool" id="motion" title="Stop everything on the page from moving (reduced motion)">Calm mode</button><button class="tool" id="sound">🔊 Sound</button><button class="tool" id="replay">↻ Replay</button><button class="tool" id="fullscreen" type="button" aria-label="Full screen">⛶ Full</button><button class="tool" id="quality" type="button" aria-pressed="false">✦ Standard</button></div><div class="status" id="status" aria-live="polite"></div></section></main>
 <script>
 (()=>{
 /* Runtime asset tiers. assets/ holds the masters and is never loaded by a page;
@@ -104,10 +152,31 @@ $$('.lesson').forEach(b=>b.onclick=()=>{stop();const d=lessons[b.dataset.lesson]
 const groups={living:{title:'Living fliers',files:['birds-v1.png','butterfly-v1.png','bee-v1.png'],wingFrames:['birds-wingbeat-v2.png','butterfly-wingbeat-v2.png','bee-wingbeat-v2.png'],alts:['Birds','Butterfly','Bee'],voice:"Birds, butterflies, and bees use Earth's air to fly."},people:{title:'People in the sky',files:['passenger-airplane-v1.png','helicopter-v1.png','hot-air-balloon-v1.png'],alts:['Passenger airplane','Helicopter','Hot-air balloon'],voice:'Airplanes, helicopters, and hot-air balloons carry people through the sky.'},explorers:{title:'Sky explorers',files:['weather-balloon-v1.png','research-drone-v1.png','hang-glider-v1.png'],alts:['Weather balloon','Research drone','Hang glider'],voice:"Weather balloons, research drones, and hang gliders help us explore Earth's air."}};
 $$('.secret').forEach(b=>b.onclick=()=>{stop();const d=groups[b.dataset.parade],slots=$$('.flyer');parade.className=`parade open ${b.dataset.parade}`;parade.querySelector('h2').textContent=d.title;slots.forEach((slot,i)=>{const base=slot.querySelector('.base'),alt=slot.querySelector('.alt');base.src=rt("assets/page-06/sky-parade/"+d.files[i]);base.alt=d.alts[i];alt.alt='';if(d.wingFrames){alt.src=rt("assets/page-06/sky-parade/"+d.wingFrames[i]);alt.hidden=false}else{alt.removeAttribute('src');alt.hidden=true}});say(d.voice);timer=setTimeout(stop,7000)});parade.querySelector('.close').onclick=stop;
 $$('.fact').forEach(b=>b.onclick=()=>{$$('.fact').forEach(x=>x.classList.toggle('on',x===b));if(!reduced)b.querySelectorAll('animate,animateTransform').forEach(a=>a.beginElement());say(b.dataset.say)});
-$('#about').onclick=()=>say('Earth is a blue ocean world wrapped in a thin atmosphere. It is the only world where life has been confirmed.');$('#listen').onclick=()=>say('Earth is a blue ocean world with moving clouds, land, ice, and a thin atmosphere. It is the only world where life has been confirmed.');$('#sound').onclick=e=>{soundOn=!soundOn;e.currentTarget.textContent=soundOn?'🔊 Sound':'🔇 Muted';if(!soundOn){stopNarration();speechSynthesis?.cancel()}};$('#motion').onclick=e=>{reduced=!reduced;stage.classList.toggle('reduced',reduced);e.currentTarget.textContent=reduced?'▶ Motion':'⏸ Motion'};$('#replay').onclick=()=>{stop();pose('poseObserve');$$('.fact').forEach(x=>x.classList.remove('on'));clearTimeout(statusTimer);status.textContent='';stopNarration();speechSynthesis?.cancel()};/* Shared hold-to-jump, identical to pages 1-5. Replaces a browser prompt(),
+$('#about').onclick=()=>say('Earth is a blue ocean world wrapped in a thin atmosphere. It is the only world where life has been confirmed.');$('#listen').onclick=()=>say('Earth is a blue ocean world with moving clouds, land, ice, and a thin atmosphere. It is the only world where life has been confirmed.');$('#sound').onclick=e=>{soundOn=!soundOn;e.currentTarget.textContent=soundOn?'🔊 Sound':'🔇 Muted';if(!soundOn){stopNarration();speechSynthesis?.cancel()}};$('#motion').onclick=e=>{reduced=!reduced;stage.classList.toggle('reduced',reduced);e.currentTarget.textContent=reduced?'Full motion':'Calm mode'};$('#replay').onclick=()=>{stop();pose('poseObserve');$$('.fact').forEach(x=>x.classList.remove('on'));clearTimeout(statusTimer);status.textContent='';stopNarration();speechSynthesis?.cancel()};/* Shared hold-to-jump, identical to pages 1-5. Replaces a browser prompt(),
    which was unstyled, unusable on some kiosk/embedded browsers and diverged
    from the inline field every other page already used. */
-(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(t=>jump.addEventListener(t,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>12)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();if(reduced)stage.classList.add('reduced');})();
+(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(t=>jump.addEventListener(t,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>12)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();if(reduced)stage.classList.add('reduced');
+
+
+/* NAMEPLATES:JS */
+/* Name boxes: tap a name, hear the name. Routed through this page's own
+   narration helper so the sound toggle and status line keep working.
+   The leading semicolon is load-bearing: pages 7-10 end their last statement
+   without one, and a following line that opens with `(` is parsed as a call on
+   that statement's value -- `classList.add('reduced')(...)` -- which throws and
+   silently takes this whole block with it. The boxes still looked right and
+   simply never spoke. */
+;(()=>{const plates=[...document.querySelectorAll('.np')];if(!plates.length)return;
+const tell=(typeof say==='function')?say
+:(typeof showStatus==='function'&&typeof speak==='function')?(t=>{showStatus(t);speak(t)})
+:(t=>{if(!window.speechSynthesis)return;speechSynthesis.cancel();
+const u=new SpeechSynthesisUtterance(t);u.rate=.92;u.pitch=1.06;speechSynthesis.speak(u)});
+let offTimer;plates.forEach(p=>p.addEventListener('click',()=>{
+plates.forEach(x=>x.classList.toggle('np-on',x===p));clearTimeout(offTimer);
+offTimer=setTimeout(()=>p.classList.remove('np-on'),2600);
+tell(p.dataset.say||p.querySelector('.np-name').textContent)}))})();
+/* /NAMEPLATES:JS */
+})();
 
 /* Shared fullscreen toggle, ported from page 1 so every page has it. Fails
    safe: the control hides itself where the API is unavailable or blocked

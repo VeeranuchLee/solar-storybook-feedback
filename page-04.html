@@ -28,10 +28,58 @@
 @media(max-width:700px),(max-aspect-ratio:1/1){.stage{border-radius:0}.story{width:37%;padding:8px}.story h1{font-size:18px}.story p{font-size:7.5px}.story p:nth-of-type(2){display:none}.story button{padding:4px 6px;font-size:7.5px}.mercury-area{left:31%;right:0;top:7%;height:59%}.mercury-button{width:68%}.sun-edge{right:-23%;top:-1%;width:47%}.feature{padding:3px 5px}.feature::after{width:18px}.orbit-action{right:2%;top:60%;bottom:auto;padding:4px 6px}.orbit-popup{padding:4%}.orbit-card{width:92%;aspect-ratio:4/3}.orbit-copy{max-width:52%;padding:6px 8px}.orbit-system{left:5%;right:5%;top:24%;bottom:4%}.orbit-sun{width:32%}.orbit-runner{width:12%}.orbit-close{width:32px;height:32px}.bubble{width:30%;height:26%;bottom:29%}.detail{width:31%;right:1%;top:11%;padding:6px}.fact-box{height:27%;border-radius:16px}.fact-card{padding:2px;grid-template-rows:37% auto}.fact-card span{font-size:5.8px}.fact-card img{max-width:31px}.toolbar{bottom:29%;right:1%}.status{position:fixed;z-index:60;top:auto;bottom:10px;max-width:92%;font-size:11px}.discoveries{top:47%;font-size:7px}.secret.shade{left:73%;top:48%}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
 .stage.reduce-motion .secret::before,.stage.reduce-motion .fact-card img,.stage.reduce-motion .orbit-popup.run .orbit-runner{animation:none}.stage.reduce-motion .orbit-runner{offset-distance:12%}.stage.reduce-motion .visitor{transition:opacity .18s}
+
+/* NAMEPLATES:CSS */
+.np{position:absolute;z-index:23;display:inline-flex;align-items:center;gap:.42em;
+padding:.26em .62em .26em .3em;border:2.5px solid #244b79;border-radius:999px;
+background:linear-gradient(#fffdf5,#fff3dc);color:#15365f;font-weight:900;
+font-size:var(--np-size,clamp(9px,1.08vw,16px));line-height:1;white-space:nowrap;
+cursor:pointer;box-shadow:0 4px 14px #0007;transition:transform .16s,box-shadow .16s,background .16s}
+.np:hover{background:linear-gradient(#fffdf5,#ffe9b8);transform:translateY(-1px)}
+.np:active{transform:translateY(1px) scale(.97)}
+.np:focus-visible{outline:3px solid #8eeaff;outline-offset:3px}
+.np .np-av{width:2.05em;height:2.05em;flex:none;border-radius:50%;
+background:#0d1c34;box-shadow:inset 0 0 0 1.5px #244b79;overflow:visible}
+.np .np-blush{fill:#ff8fa3;opacity:.5}
+.np-name{padding-right:.12em}
+.np-ear{flex:none;width:.9em;height:.9em;opacity:.5;transition:opacity .16s}
+.np:hover .np-ear,.np.np-on .np-ear{opacity:1}
+.np.np-on{background:linear-gradient(#fff6d8,#ffe08e);box-shadow:0 0 0 3px #ffc52b,0 4px 14px #0007}
+.np.np-on .np-av{animation:npPop .62s cubic-bezier(.34,1.56,.64,1)}
+@keyframes npPop{0%{transform:scale(1) rotate(0)}35%{transform:scale(1.28) rotate(-9deg)}
+65%{transform:scale(1.05) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
+/* Leader line, so a plate can sit clear of the art and still point at it. */
+.np-lead::after{content:"";position:absolute;height:2px;background:#ffe9a8cc;
+box-shadow:0 0 4px #0009;top:50%;pointer-events:none}
+.np-lead-r::after{left:100%;width:var(--np-lead,34px);transform-origin:left;
+transform:rotate(var(--np-angle,0deg))}
+.np-lead-l::after{right:100%;width:var(--np-lead,34px);transform-origin:right;
+transform:rotate(var(--np-angle,0deg))}
+/* "You are here" -- the plate for the ground the reader is standing on. */
+.np-here{flex-direction:column;align-items:flex-start;gap:.16em;
+padding:.34em .7em .38em .38em;border-radius:1.1em;border-color:#ffc52b}
+.np-here .np-row{display:flex;align-items:center;gap:.42em}
+.np-here-tag{display:block;padding-left:.2em;color:#a4501c;font-size:.62em;
+font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.stage.reduce-motion .np.np-on .np-av,.reduced .np.np-on .np-av,
+.stage.reduced .np.np-on .np-av{animation:none}
+@media(prefers-reduced-motion:reduce){.np.np-on .np-av{animation:none}}
+@media(max-width:700px),(max-aspect-ratio:1/1){
+.np{--np-size:8px;border-width:2px;padding:.22em .5em .22em .24em}
+.np-lead::after{display:none}
+}
+
+[data-np="p4-mercury"]{left:47%;top:58%}[data-np="p4-sun"]{right:1.5%;top:50%}
+@media(max-width:700px),(max-aspect-ratio:1/1){[data-np="p4-mercury"]{inset:auto;left:60%;top:35%}[data-np="p4-sun"]{inset:auto;left:82%;top:31.5%}}/* /NAMEPLATES:CSS */
 </style>
 </head>
 <body>
 <main class="book"><section class="stage" id="stage" aria-label="Interactive storybook page about Mercury">
+<!-- NAMEPLATES:HTML -->
+<button type="button" class="np" data-np="p4-mercury" data-say="Mercury. The smallest planet, and the closest one to the Sun." aria-label="Hear the name Mercury"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p4-mercury"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#8e8983"/><g clip-path="url(#npc-p4-mercury)"><circle cx="34" cy="28" r="9" fill="#6d6863"/><circle cx="34" cy="28" r="5" fill="#7d7873"/><circle cx="68" cy="26" r="6" fill="#6d6863"/><circle cx="24" cy="46" r="5" fill="#6d6863"/><circle cx="76" cy="46" r="4" fill="#6d6863"/><circle cx="50" cy="76" r="10" fill="#6d6863"/><circle cx="50" cy="76" r="5.5" fill="#7d7873"/><circle cx="26" cy="70" r="6" fill="#6d6863"/><circle cx="74" cy="72" r="7" fill="#6d6863"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg><span class="np-name">Mercury</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button>
+<button type="button" class="np" data-np="p4-sun" data-say="Sun. Our own star, a giant ball of hot glowing gas." aria-label="Hear the name Sun"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p4-sun"><circle cx="50" cy="50" r="32"/></clipPath></defs><path d="M50.0 3.0L56.6 16.7L68.0 6.6L68.9 21.7L83.2 16.8L78.3 31.1L93.4 32.0L83.3 43.4L97.0 50.0L83.3 56.6L93.4 68.0L78.3 68.9L83.2 83.2L68.9 78.3L68.0 93.4L56.6 83.3L50.0 97.0L43.4 83.3L32.0 93.4L31.1 78.3L16.8 83.2L21.7 68.9L6.6 68.0L16.7 56.6L3.0 50.0L16.7 43.4L6.6 32.0L21.7 31.1L16.8 16.8L31.1 21.7L32.0 6.6L43.4 16.7Z" fill="#ffab16"/><circle cx="50" cy="50" r="32" fill="#ffce3c"/><g clip-path="url(#npc-p4-sun)"><circle cx="50" cy="50" r="32" fill="#ffb01f" opacity=".35"/><circle cx="50" cy="50" r="26" fill="#ffdc63"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg><span class="np-name">Sun</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button>
+<!-- /NAMEPLATES:HTML -->
+
   <img class="bg" src="assets-runtime/standard/page-04/mercury-space-background.webp" alt=""><div class="warm-wash"></div>
   <article class="story">
     <a class="story-back" id="back-page-3" href="page-03.html">← The busy Sun</a>
@@ -73,7 +121,7 @@
     <button class="fact-card" data-fact="moons" aria-pressed="false"><img src="assets-runtime/standard/page-04/icons/no-moons.svg" alt=""><span>Moons:<br><strong>None</strong></span></button>
     <button class="fact-card" data-fact="atmosphere" aria-pressed="false"><img src="assets-runtime/standard/page-04/icons/thin-atmosphere.svg" alt=""><span>Atmosphere:<br><strong>almost none</strong></span></button>
   </section>
-  <div class="toolbar"><button id="sound" aria-pressed="true">Sound on</button><button id="motion" aria-pressed="false">Reduce motion</button><button id="reset">Replay</button><button id="fullscreen" type="button" aria-label="Full screen">Full screen</button><button id="quality" type="button" aria-pressed="false">Standard art</button></div>
+  <div class="toolbar"><button id="sound" aria-pressed="true">Sound on</button><button id="motion" aria-pressed="false" title="Stop everything on the page from moving (reduced motion)">Calm mode</button><button id="reset">Replay</button><button id="fullscreen" type="button" aria-label="Full screen">Full screen</button><button id="quality" type="button" aria-pressed="false">Standard art</button></div>
 </section></main>
 <script>
 (()=>{"use strict";
@@ -143,9 +191,30 @@ document.querySelectorAll(".fact-card").forEach(b=>b.onclick=()=>{document.query
 function reveal(id){if(activeVisitor)return;activeVisitor=id;const d=visitors[id],el=document.getElementById(id),pose=el.querySelector(".visitor-pose");found.add(id);pose.src=rt(A+d.active);el.classList.remove("departing");el.classList.add("found");cue(d.notes,d.shape);speak(d.speech,"visitor");showStatus(`✦ ${d.speech}`);const count=document.getElementById("discoveries");count.textContent=`Mercury visitors: ${found.size} of 3`;count.classList.add("show");eventTimers.push(setTimeout(()=>el.classList.add("departing"),3700));eventTimers.push(setTimeout(()=>{el.classList.remove("found","departing");pose.src=rt(A+d.rest);activeVisitor=""},4700))}
 document.querySelectorAll(".secret").forEach(b=>b.onclick=()=>reveal(b.dataset.visitor));
 function syncSound(){const b=document.getElementById("sound");b.textContent=soundOn?"Sound on":"Sound off";b.setAttribute("aria-pressed",String(soundOn))}document.getElementById("sound").onclick=()=>{soundOn=!soundOn;if(!soundOn){stopNarration();try{speechSynthesis.cancel()}catch(e){}}syncSound()};
-document.getElementById("motion").onclick=e=>{reduced=!reduced;stage.classList.toggle("reduce-motion",reduced);e.currentTarget.textContent=reduced?"Full motion":"Reduce motion";e.currentTarget.setAttribute("aria-pressed",String(reduced));clearTimeout(mercuryTimer);clearTimeout(sunTimer);clearTimeout(detailTimer);if(!reduced){mercuryStep();sunStep();if(detail.classList.contains("show"))openCraters()}};
+document.getElementById("motion").onclick=e=>{reduced=!reduced;stage.classList.toggle("reduce-motion",reduced);e.currentTarget.textContent=reduced?"Full motion":"Calm mode";e.currentTarget.setAttribute("aria-pressed",String(reduced));clearTimeout(mercuryTimer);clearTimeout(sunTimer);clearTimeout(detailTimer);if(!reduced){mercuryStep();sunStep();if(detail.classList.contains("show"))openCraters()}};
 document.getElementById("reset").onclick=()=>{[mercuryTimer,sunTimer,detailTimer,detailCloseTimer,statusTimer,poseTimer,orbitTimer].forEach(clearTimeout);eventTimers.forEach(clearTimeout);eventTimers=[];stopNarration();try{speechSynthesis.cancel()}catch(e){}mercuryIndex=0;sunIndex=0;activeVisitor="";found.clear();mercuryImage.src=mercuryFrames[0];sunImage.src=sunFrames[0];clearOverlays();closeCraters();setPose("rest",0);orbit.classList.remove("show","run");orbit.setAttribute("aria-hidden","true");document.querySelectorAll(".feature,.fact-card").forEach(x=>x.setAttribute("aria-pressed","false"));document.querySelectorAll(".fact-card img").forEach(x=>x.classList.remove("animate-icon"));document.querySelectorAll(".visitor").forEach(el=>{el.classList.remove("found","departing");el.querySelector(".visitor-pose").src=rt(A+visitors[el.id].rest)});const count=document.getElementById("discoveries");count.textContent="Mercury visitors: 0 of 3";count.classList.remove("show");showStatus("Ready to explore Mercury again.");mercuryStep();sunStep()};
 document.getElementById("back-page-3").onclick=()=>{stopNarration();try{speechSynthesis.cancel()}catch(e){}};mercuryStep();sunStep();
+
+
+
+/* NAMEPLATES:JS */
+/* Name boxes: tap a name, hear the name. Routed through this page's own
+   narration helper so the sound toggle and status line keep working.
+   The leading semicolon is load-bearing: pages 7-10 end their last statement
+   without one, and a following line that opens with `(` is parsed as a call on
+   that statement's value -- `classList.add('reduced')(...)` -- which throws and
+   silently takes this whole block with it. The boxes still looked right and
+   simply never spoke. */
+;(()=>{const plates=[...document.querySelectorAll('.np')];if(!plates.length)return;
+const tell=(typeof say==='function')?say
+:(typeof showStatus==='function'&&typeof speak==='function')?(t=>{showStatus(t);speak(t)})
+:(t=>{if(!window.speechSynthesis)return;speechSynthesis.cancel();
+const u=new SpeechSynthesisUtterance(t);u.rate=.92;u.pitch=1.06;speechSynthesis.speak(u)});
+let offTimer;plates.forEach(p=>p.addEventListener('click',()=>{
+plates.forEach(x=>x.classList.toggle('np-on',x===p));clearTimeout(offTimer);
+offTimer=setTimeout(()=>p.classList.remove('np-on'),2600);
+tell(p.dataset.say||p.querySelector('.np-name').textContent)}))})();
+/* /NAMEPLATES:JS */
 })();
 </script>
 <script>
