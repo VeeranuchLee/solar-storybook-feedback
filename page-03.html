@@ -252,6 +252,16 @@ tell(p.dataset.say||p.querySelector('.np-name').textContent)}))})();
    safe: the control hides itself where the API is unavailable or blocked
    (older iOS Safari, some embedded webviews) rather than dead-clicking. */
 (()=>{const b=document.getElementById("fullscreen");if(!b)return;const t=document.documentElement;if(!t.requestFullscreen){b.hidden=true;return}b.addEventListener("click",()=>{if(document.fullscreenElement)document.exitFullscreen();else t.requestFullscreen().catch(()=>{})});})();
+
+/* Hide the picture-quality control unless the sharper tier is really there.
+   It is sidecar-only and unpublished, so on the live site it would otherwise be
+   a button that can only ever say "Standard only". Same rule the fullscreen
+   button already follows. The probe costs one 404 and re-shows the control the
+   moment the tier exists. */
+;(()=>{const q=document.getElementById('quality');if(!q)return;
+const el=document.querySelector('img[src*="assets-runtime/"]');if(!el){q.hidden=true;return}
+const im=new Image();im.onerror=()=>{q.hidden=true};
+im.src=el.getAttribute('src').replace(/assets-runtime\/(standard|high)\//,'assets-runtime/high/')})();
 </script>
 </body>
 </html>
