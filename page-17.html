@@ -2,6 +2,20 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Neptune · Page 17</title>
 <style>
 :root{--cream:#fff7df;--ink:#153c62;--gold:#f0c36e;--blue:#71d6e9;--orange:#d9853f;--violet:#403569}*{box-sizing:border-box}body{margin:0;background:#030817;color:var(--ink);font-family:Nunito,"Trebuchet MS",sans-serif;overflow:hidden}.stage{position:relative;width:min(100vw,1536px);height:min(100vh,1024px);aspect-ratio:3/2;margin:auto;overflow:hidden;background:#07152d}.art{position:absolute;pointer-events:none;object-fit:contain}.bg{inset:0;width:100%;height:100%;object-fit:cover}
+/* A baked rotation: 36 square frames side by side in one image. jump-none is
+   what makes it exact -- it lands on all 36 frames inclusive, where a plain
+   steps(36) would skip the last one and stutter once per turn. */
+.globe{position:absolute;left:50%;top:50%;translate:-50% -50%;
+  aspect-ratio:1;max-width:100%;max-height:100%;height:100%;
+  background-repeat:no-repeat;
+  background-size:calc(var(--frames) * 100%) 100%;
+  animation:globeSpin var(--turn,26s) steps(var(--frames),jump-none) infinite}
+@keyframes globeSpin{from{background-position-x:0%}to{background-position-x:100%}}
+.neptune-globe{translate:none;max-width:none;max-height:none;z-index:5;
+  --frames:36;--turn:22s;background-image:url(assets-runtime/standard/page-17/neptune-spin.webp)}
+.neptune-ring-back,.neptune-ring-front{inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(circle,#000 70%,transparent 78%);mask-image:radial-gradient(circle,#000 70%,transparent 78%);-webkit-mask-size:var(--nep-size) var(--nep-size);mask-size:var(--nep-size) var(--nep-size);-webkit-mask-position:left var(--nep-left) top var(--nep-top);mask-position:left var(--nep-left) top var(--nep-top);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.neptune-ring-back{z-index:4;opacity:.38}
+.neptune-ring-front{z-index:6;opacity:.5}
 .neptune-scene{position:absolute;z-index:4;right:0;top:8%;width:64%;height:70%;pointer-events:none;transition:filter .8s ease,transform .8s ease}
 .rings{inset:0;width:100%;height:100%;opacity:.32;filter:drop-shadow(0 8px 18px #0008)}.rings-back{z-index:1}
 .planet,.bands,.storm,.high{left:18%;top:7%;width:64%;height:86%}
@@ -189,6 +203,9 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 <script>const SF_ROSTER=[{"id":"rock-fire-comet","art":"rock-fire-comet","name":"Flick"},{"id":"friend-orange-waver","art":"friend-orange-waver","name":"Tango"},{"id":"rock-gold-crystal-rock","art":"rock-gold-crystal-rock","name":"Nugget"},{"id":"friend-jelly-blue","art":"friend-jelly-blue","name":"Bloop"},{"id":"friend-blue-octo","art":"friend-blue-octo","name":"Squish"},{"id":"rock-frost-comet","art":"rock-frost-comet","name":"Frosty"},{"id":"friend-moon-hugger","art":"friend-moon-hugger","name":"Cuddle"},{"id":"friend-little-robot","art":"friend-little-robot","name":"Beep"},{"id":"rock-grey-rock","art":"rock-grey-rock","name":"Pebble"},{"id":"rock-lava-rock","art":"rock-lava-rock","name":"Ember"},{"id":"friend-rock-peeker","art":"friend-rock-peeker","name":"Peek"},{"id":"ship-moon-buggy","art":"ship-moon-buggy","name":"Trundle"},{"id":"rock-dark-rock","art":"rock-dark-rock","name":"Cinder"},{"id":"friend-suited-teal","art":"friend-suited-teal","name":"Zed"},{"id":"ship-saucer-classic","art":"ship-saucer-classic","name":"Whizz"},{"id":"rock-plain-purple-rock","art":"rock-plain-purple-rock","name":"Plum"},{"id":"ship-crystal-hauler","art":"ship-crystal-hauler","name":"Hauler"},{"id":"ship-little-digger","art":"ship-little-digger","name":"Scoop"},{"id":"friend-big-violet","art":"friend-big-violet","name":"Grape"},{"id":"ship-rocket-red","art":"ship-rocket-red","name":"Zoom"},{"id":"rock-ice-crystal-rock","art":"rock-ice-crystal-rock","name":"Sparkle"},{"id":"ship-sub-explorer","art":"ship-sub-explorer","name":"Dipper"},{"id":"friend-hoodie-teal","art":"friend-hoodie-teal","name":"Hoodie"},{"id":"rock-plain-ice-comet","art":"rock-plain-ice-comet","name":"Glide"},{"id":"friend-star-friend","art":"friend-star-friend","name":"Twinkle"},{"id":"ship-halo-saucer","art":"ship-halo-saucer","name":"Ringo"},{"id":"ship-jelly-saucer","art":"ship-jelly-saucer","name":"Wobble"},{"id":"friend-calm-blue","art":"friend-calm-blue","name":"Zen"},{"id":"rock-plain-ice-rock","art":"rock-plain-ice-rock","name":"Chip"},{"id":"friend-floaty-mint","art":"friend-floaty-mint","name":"Drift"},{"id":"ship-crystal-glider","art":"ship-crystal-glider","name":"Glider"},{"id":"friend-book-reader","art":"friend-book-reader","name":"Pip"},{"id":"rock-blue-gem-rock","art":"rock-blue-gem-rock","name":"Gem"},{"id":"ship-ringed-pod","art":"ship-ringed-pod","name":"Halo"}],SF_ART="assets-runtime/standard/shared/space-friends";</script>
 <!-- /SECRETS:HTML -->
 <img class="art bg neptune-backdrop" id="neptuneScene" data-fixed-tier src="assets-runtime/standard/page-17/neptune-full-scene-v1.jpg" alt="Deep-blue Neptune and its faint rings in a distant star field">
+<img class="art neptune-ring-back" src="assets-runtime/standard/page-17/neptune-rings-back-v1.webp" alt="" aria-hidden="true">
+<div class="globe neptune-globe" role="img" aria-label="Neptune"></div>
+<img class="art neptune-ring-front" src="assets-runtime/standard/page-17/neptune-rings-front-v1.webp" alt="" aria-hidden="true">
 <section class="story"><div class="eyebrow">Page 17 · The windy blue world</div><h1>Neptune</h1><p>Deep-blue Neptune is the farthest major planet from the Sun. Fierce winds race through its atmosphere, and its dark storms can appear and then fade away.</p><div class="story-actions"><button class="pill" id="listen">▶ Listen</button><button class="pill" id="about">◎ Explore Neptune</button></div></section>
 <nav class="page-nav" aria-label="Page navigation"><a href="page-16.html" aria-label="Previous page">‹</a><button class="page-jump" aria-label="Page 17 of 17. Press and hold to go to a page">17 / 17</button><a aria-disabled="true" aria-label="Next page">›</a><form class="page-goto" hidden><label>Go to <input type="number" min="1" max="17" value="17"></label><button>Go</button></form></nav>
 <img class="art craft" id="craft" src="assets-runtime/standard/page-17/voyager-2-neptune-v1.webp" alt="Voyager 2 flying past Neptune">
@@ -205,6 +222,32 @@ function poses(a,d){$$('.ari.pose').forEach(x=>x.classList.toggle('active',x.dat
 function resetScene(){scene.className='art bg neptune-backdrop';$('#craft').classList.remove('fly')}
 function playSvg(root){if(reduced)return;root.querySelectorAll('animate,animateTransform,animateMotion').forEach(a=>{try{a.beginElement()}catch{}})}
 function autoReset(){clearTimeout(actionTimer);actionTimer=setTimeout(()=>{resetScene();poses('present','weather')},6200)}
+/* Neptune is painted into the backdrop, and that backdrop is drawn
+   object-fit:cover -- so how much of it survives the crop depends on the
+   stage's aspect ratio, which itself changes (the stage drops to a free
+   aspect ratio on narrow screens). Percentages against the stage cannot
+   track that; a globe pinned with them drifts off the painted planet, which
+   is how the previous Neptune animation ended up out of register and had to
+   be pulled. Run the same cover maths the browser runs, and re-run it
+   whenever the box changes. Disc measured from the JPEG itself. */
+const NEP={w:1672,h:941,cx:830,cy:462,r:359},neptuneGlobe=$('.neptune-globe');
+function placeNeptuneGlobe(){
+  const b=stage.getBoundingClientRect();
+  if(!b.width||!b.height)return;
+  const s=Math.max(b.width/NEP.w,b.height/NEP.h),
+        ox=(b.width-NEP.w*s)/2, oy=(b.height-NEP.h*s)/2, d=2*NEP.r*s;
+  const left=(ox+(NEP.cx-NEP.r)*s)+'px', top=(oy+(NEP.cy-NEP.r)*s)+'px', size=d+'px';
+  neptuneGlobe.style.width=neptuneGlobe.style.height=size;
+  neptuneGlobe.style.left=left;
+  neptuneGlobe.style.top=top;
+  stage.style.setProperty('--nep-left',left);
+  stage.style.setProperty('--nep-top',top);
+  stage.style.setProperty('--nep-size',size);
+}
+placeNeptuneGlobe();
+addEventListener('resize',placeNeptuneGlobe);
+addEventListener('orientationchange',placeNeptuneGlobe);
+document.addEventListener('fullscreenchange',placeNeptuneGlobe);
 $('#listen').onclick=()=>say('Deep-blue Neptune is the farthest major planet, with fierce winds and storms that can appear and fade.');
 $('#winds').onclick=()=>{resetScene();poses('wind','wind');scene.classList.add('weather');say('Fierce winds race through Neptune\'s atmosphere, and dark storms can appear and then fade.');autoReset()};
 $('#distant').onclick=()=>{resetScene();poses('distance','weather');scene.classList.add('distant');say('From this far out, the Sun is only a bright point and sunlight is much dimmer than on Earth.');autoReset()};

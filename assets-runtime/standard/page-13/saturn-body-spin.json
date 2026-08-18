@@ -1,0 +1,10 @@
+{
+  "delight": 1.0,
+  "frames": 36,
+  "roll": -5.4,
+  "sheet": "saturn-body-spin.webp",
+  "size": 256,
+  "source": "saturn-body-main-v1.webp",
+  "tilt": 16.0,
+  "trust": 62.0
+}
