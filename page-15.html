@@ -98,7 +98,7 @@ cursor:pointer;display:grid;place-items:center;line-height:0;color:#fff6c8}
    it. The twinkle is what makes that fair: the glint nearly fades out and comes
    back, so a page scanned patiently gives it away and a page glanced at does not. */
 .sf-star::before{content:"✦";line-height:1;
-font-size:var(--sf-art,clamp(10px,.9vw,13px));
+font-size:var(--sf-art,clamp(13px,1.05vw,15px));
 text-shadow:0 0 3px #ffffffaa,0 0 7px #ffc65eaa;
 animation:sfTwinkle 4.6s ease-in-out infinite}
 .sf-star:hover::before{text-shadow:0 0 4px #fff,0 0 12px #ffd27a}
@@ -159,7 +159,7 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 .reduced .sf-pop,.reduce-motion .sf-pop,
 .stage.reduced .sf-pop,.stage.reduce-motion .sf-pop{transition:opacity .18s}
 @media(prefers-reduced-motion:reduce){.sf-star::before{animation:none;opacity:.85}}
-@media(max-aspect-ratio:4/5){.sf-star{width:40px;height:40px;--sf-art:clamp(10px,2.8vw,13px)}
+@media(max-aspect-ratio:4/5){.sf-star{width:40px;height:40px;--sf-art:clamp(13px,3.4vw,15px)}
 .page-controls{max-width:56%}
 /* Page 5 and 6 lay their portrait control row out 105% of the stage wide, so it
    already ran off both edges before the sticker button existed. Constraining it
