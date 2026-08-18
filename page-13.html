@@ -12,11 +12,11 @@
 <button type="button" class="np" data-np="p13-rings" data-say="Saturn's rings. Countless pieces of ice and rock, going round and round." aria-label="Hear the name The rings"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p13-rings"><circle cx="50" cy="50" r="19"/></clipPath></defs><circle cx="50" cy="50" r="19" fill="#ecd8a8"/><g clip-path="url(#npc-p13-rings)"><path d="M28 40h44v5H28z" fill="#d0b276"/><path d="M28 58h44v5H28z" fill="#d0b276"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="rotate(-16 50 52)"><ellipse cx="50" cy="52" rx="48" ry="13" fill="none" stroke="#b8975c" stroke-width="6"/><ellipse cx="50" cy="52" rx="40" ry="10.5" fill="none" stroke="#f2e0b6" stroke-width="4"/><ellipse cx="50" cy="52" rx="33" ry="8.5" fill="none" stroke="#d6b87e" stroke-width="3"/></g><g transform="translate(22.00,25.00) scale(0.56)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg><span class="np-name">The rings</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button>
 <!-- /NAMEPLATES:HTML -->
 <!-- SECRETS:HTML -->
-<button type="button" class="sf-star" data-friend="sf13-rock-plain-ice-comet" data-sticker="rock-plain-ice-comet" data-say="Hi! I'm Glide." aria-label="A sparkling star hiding a space friend"><img src="assets-runtime/standard/shared/space-friends/star-cream-glow.webp" alt=""></button>
+<button type="button" class="sf-star" data-friend="sf13-rock-plain-ice-comet" data-sticker="rock-plain-ice-comet" data-say="Hi! I'm Glide." aria-label="A tiny sparkling star hiding a space friend"></button>
 <div class="sf-friend" id="sf13-rock-plain-ice-comet"><div class="sf-pop"><img src="assets-runtime/standard/shared/space-friends/rock-plain-ice-comet.webp" alt="Glide, a space friend"></div></div>
-<button type="button" class="sf-star" data-friend="sf13-friend-star-friend" data-sticker="friend-star-friend" data-say="Twinkle! I'm Twinkle." aria-label="A sparkling star hiding a space friend"><img src="assets-runtime/standard/shared/space-friends/star-sleepy-gold.webp" alt=""></button>
+<button type="button" class="sf-star" data-friend="sf13-friend-star-friend" data-sticker="friend-star-friend" data-say="Twinkle! I'm Twinkle." aria-label="A tiny sparkling star hiding a space friend"></button>
 <div class="sf-friend" id="sf13-friend-star-friend"><div class="sf-pop"><img src="assets-runtime/standard/shared/space-friends/friend-star-friend.webp" alt="Twinkle, a space friend"></div></div>
-<button type="button" class="sf-star" data-friend="sf13-ship-halo-saucer" data-sticker="ship-halo-saucer" data-say="Hello! I'm Ringo." aria-label="A sparkling star hiding a space friend"><img src="assets-runtime/standard/shared/space-friends/star-galaxy-pink.webp" alt=""></button>
+<button type="button" class="sf-star" data-friend="sf13-ship-halo-saucer" data-sticker="ship-halo-saucer" data-say="Hello! I'm Ringo." aria-label="A tiny sparkling star hiding a space friend"></button>
 <div class="sf-friend" id="sf13-ship-halo-saucer"><div class="sf-pop"><img src="assets-runtime/standard/shared/space-friends/ship-halo-saucer.webp" alt="Ringo, a space friend"></div></div>
 <button type="button" class="sf-book" aria-label="Open the sticker book"><img src="assets-runtime/standard/shared/space-friends/star-happy-gold.webp" alt=""><span>Stickers</span><span class="sf-tally">0 / 0</span></button>
 <section class="sf-panel" role="dialog" aria-modal="true" aria-label="Sticker book"><button type="button" class="sf-close" aria-label="Close the sticker book">&times;</button><h2>My sticker book</h2><p>Tap a sparkling star on any page to meet a space friend and keep their sticker.</p><div class="sf-grid"></div></section>
@@ -85,26 +85,37 @@ font-weight:900;letter-spacing:.09em;text-transform:uppercase}
 /* Sparkling stars that hide a space friend, and the sticker book that
    remembers who has been found.
 
-   The trigger is one of the owner's star sprites, small and quiet: a child
-   should notice it while looking at the picture, not before. The star and the
-   friend share one position and are each centred on it, so a secret is a single
-   point on the page rather than two boxes to keep in agreement. */
+   The trigger is a small glint of light: a child should have to look for it
+   rather than be told where it is. The glint and the friend share one position
+   and are each centred on it, so a secret is a single point on the page rather
+   than two boxes to keep in agreement. */
 .sf-star,.sf-friend{position:absolute;transform:translate(-50%,-50%)}
-/* Sized to match the sparkles this book already had. Those are a big invisible
-   button around a small glyph -- page 6's is 70px wide holding 25px of star --
-   so the thing a child sees is a hint, while the thing they have to hit is a
-   comfortable target. Copying that split is why the button and the picture
-   inside it have separate sizes here. */
+/* A glint, not a picture of a star. This used to show one of the owner's sticker
+   sprites at 18px, and at that size the pastel ones -- which have no face -- read
+   as a white lump on a photograph of space; several of them also carry
+   see-through patches left by the sheet cut, which show as grey smudges on a
+   dark sky. The book already had a better answer on Pages 2-4: a small drawn
+   sparkle. The sticker art is not lost, it is moved to where it is seen big --
+   the friend who pops out, and the sticker book -- and the thing hiding on the
+   painting is now a point of light.
+
+   Big invisible button, small mark. Page 6's original sparkle is 70px wide
+   holding 25px of star, and that split is the point: a mark small enough to hunt
+   for must not mean a target too small for a four-year-old's finger. */
 .sf-star{z-index:24;width:44px;height:44px;padding:0;border:0;background:none;
-cursor:pointer;display:grid;place-items:center;line-height:0}
-.sf-star img{width:var(--sf-art,1.35vw);min-width:15px;max-width:21px;height:auto;
-object-fit:contain;filter:drop-shadow(0 0 4px #ffe9a8bb) drop-shadow(0 1px 3px #0008);
-animation:sfTwinkle 3.2s ease-in-out infinite}
-.sf-star:hover img{filter:drop-shadow(0 0 8px #fff2c4) drop-shadow(0 1px 3px #0008)}
+cursor:pointer;display:grid;place-items:center;line-height:0;color:#fff6c8}
+/* Deliberately quiet -- the owner's rule is that a child should have to look for
+   it. The twinkle is what makes that fair: the glint nearly fades out and comes
+   back, so a page scanned patiently gives it away and a page glanced at does not. */
+.sf-star::before{content:"✦";line-height:1;
+font-size:var(--sf-art,clamp(10px,.9vw,13px));
+text-shadow:0 0 3px #ffffffaa,0 0 7px #ffc65eaa;
+animation:sfTwinkle 4.6s ease-in-out infinite}
+.sf-star:hover::before{text-shadow:0 0 4px #fff,0 0 12px #ffd27a}
 .sf-star:focus-visible{outline:3px solid #8eeaff;outline-offset:4px;border-radius:50%}
 .sf-star[hidden]{display:none}
-@keyframes sfTwinkle{0%,100%{opacity:.72;transform:scale(.9) rotate(-4deg)}
-50%{opacity:1;transform:scale(1.06) rotate(4deg)}}
+@keyframes sfTwinkle{0%,100%{opacity:.2;transform:scale(.72)}
+45%{opacity:.92;transform:scale(1.08)}70%{opacity:.34;transform:scale(.85)}}
 .sf-friend{z-index:25;pointer-events:none;width:15%;height:21%}
 .sf-pop{width:100%;height:100%;opacity:0;transform:translateY(14%) scale(.5);
 transition:opacity .38s,transform .52s cubic-bezier(.34,1.56,.64,1)}
@@ -153,12 +164,12 @@ display:grid;place-items:center;padding:5px}
 .sf-slot.sf-got{background:#16345c;box-shadow:inset 0 0 0 2px #ffd76a}
 .sf-close{position:absolute;right:10px;top:10px;width:32px;height:32px;border:0;
 border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16px;cursor:pointer}
-.reduced .sf-star img,.reduce-motion .sf-star img,
-.stage.reduced .sf-star img,.stage.reduce-motion .sf-star img{animation:none;opacity:.95}
+.reduced .sf-star::before,.reduce-motion .sf-star::before,
+.stage.reduced .sf-star::before,.stage.reduce-motion .sf-star::before{animation:none;opacity:.85}
 .reduced .sf-pop,.reduce-motion .sf-pop,
 .stage.reduced .sf-pop,.stage.reduce-motion .sf-pop{transition:opacity .18s}
-@media(prefers-reduced-motion:reduce){.sf-star img{animation:none;opacity:.95}}
-@media(max-aspect-ratio:4/5){.sf-star{width:36px;height:36px;--sf-art:3.6vw}
+@media(prefers-reduced-motion:reduce){.sf-star::before{animation:none;opacity:.85}}
+@media(max-aspect-ratio:4/5){.sf-star{width:40px;height:40px;--sf-art:clamp(10px,2.8vw,13px)}
 .page-controls{max-width:56%}
 /* Page 5 and 6 lay their portrait control row out 105% of the stage wide, so it
    already ran off both edges before the sticker button existed. Constraining it
