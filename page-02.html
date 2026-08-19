@@ -30,6 +30,15 @@ button{font:inherit}.book{min-height:100vh;display:grid;place-items:center}.stag
 @media(max-aspect-ratio:1/1){.stage{border-radius:0}.story{width:39%;padding:7px 8px}.story p:nth-of-type(2){display:none}.families{top:auto;right:auto;left:38%;bottom:1.5%}.families button{padding:4px 6px;font-size:9px}.scale-note{display:none}.fact{bottom:14%;max-width:70%}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
 .stage.reduce-motion .comet.revealed{display:flex;opacity:1;animation:none!important}.stage.reduce-motion .asteroid{animation:none!important}
+
+/* Ari and Dot are 20% smaller (owner, 2026-08-19), to leave the pages more room
+   for everything else. Done with the standalone `scale` property about
+   bottom-centre, not by rewriting every width/height, for three reasons: the
+   feet stay on the same ground line, the figure keeps its horizontal centre so
+   shrinking cannot slide it left into the pill column, and the narrow-screen
+   layouts inherit the same factor without being edited. `scale` composes with
+   `transform`, so the pose animations still work on top of it. */
+.ari{scale:.8;transform-origin:50% 100%}.dot{scale:.8}
 </style>
 </head>
 <body>
@@ -75,9 +84,9 @@ button{font:inherit}.book{min-height:100vh;display:grid;place-items:center}.stag
   <nav class="families" aria-label="Highlight planet families"><button data-family-filter="rocky">Rocky</button><button data-family-filter="gas">Gas giants</button><button data-family-filter="ice">Ice giants</button></nav>
   <nav class="page-nav" data-current-page="2" aria-label="Page navigation">
     <a href="page-01.html" aria-label="Previous page" title="Previous page">‹</a>
-    <button class="page-jump" type="button" aria-label="Page 2 of 17. Press and hold to go to a page" title="Press and hold to go to a page">2 / 17</button>
+    <button class="page-jump" type="button" aria-label="Page 2 of 18. Press and hold to go to a page" title="Press and hold to go to a page">2 / 18</button>
     <a href="page-03.html" aria-label="Next page" title="Next page">›</a>
-    <form class="page-goto" hidden><label>Go to <input type="number" min="1" max="17" value="2" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form>
+    <form class="page-goto" hidden><label>Go to <input type="number" min="1" max="18" value="2" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form>
   </nav>
   <div class="discoveries" id="discoveries">Star surprises: 0 of 5</div><div class="fact" id="fact" role="status" aria-live="polite"></div>
   <div class="scale-note">A playful space map — everything is brought closer so we can explore it together.</div>
@@ -177,7 +186,7 @@ requestAnimationFrame(animateSun);
 })();
 </script>
 <script>
-(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(type=>jump.addEventListener(type,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>17)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
+(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(type=>jump.addEventListener(type,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>18)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
 
 /* Shared fullscreen toggle, ported from page 1 so every page has it. Fails
    safe: the control hides itself where the API is unavailable or blocked

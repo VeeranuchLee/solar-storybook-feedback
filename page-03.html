@@ -95,9 +95,9 @@ font-weight:900;letter-spacing:.09em;text-transform:uppercase}
 
   <nav class="page-nav" data-current-page="3" aria-label="Page navigation">
     <a href="page-02.html" aria-label="Previous page" title="Previous page">‹</a>
-    <button class="page-jump" type="button" aria-label="Page 3 of 17. Press and hold to go to a page" title="Press and hold to go to a page">3 / 17</button>
+    <button class="page-jump" type="button" aria-label="Page 3 of 18. Press and hold to go to a page" title="Press and hold to go to a page">3 / 18</button>
     <a href="page-04.html" aria-label="Next page" title="Next page">›</a>
-    <form class="page-goto" hidden><label>Go to <input type="number" min="1" max="17" value="3" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form>
+    <form class="page-goto" hidden><label>Go to <input type="number" min="1" max="18" value="3" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form>
   </nav>
 
   <div class="sun-area">
@@ -252,7 +252,7 @@ tell(p.dataset.say||p.querySelector('.np-name').textContent)}))})();
 })();
 </script>
 <script>
-(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(type=>jump.addEventListener(type,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>17)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
+(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(type=>jump.addEventListener(type,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>18)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
 
 /* Shared fullscreen toggle, ported from page 1 so every page has it. Fails
    safe: the control hides itself where the API is unavailable or blocked

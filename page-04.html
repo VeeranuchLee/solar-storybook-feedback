@@ -73,6 +73,15 @@ font-weight:900;letter-spacing:.09em;text-transform:uppercase}
 
 [data-np="p4-mercury"]{left:47%;top:58%}[data-np="p4-sun"]{right:1.5%;top:50%}
 @media(max-width:700px),(max-aspect-ratio:1/1){[data-np="p4-mercury"]{inset:auto;left:60%;top:35%}[data-np="p4-sun"]{inset:auto;left:82%;top:31.5%}}/* /NAMEPLATES:CSS */
+
+/* Ari and Dot are 20% smaller (owner, 2026-08-19), to leave the pages more room
+   for everything else. Done with the standalone `scale` property about
+   bottom-centre, not by rewriting every width/height, for three reasons: the
+   feet stay on the same ground line, the figure keeps its horizontal centre so
+   shrinking cannot slide it left into the pill column, and the narrow-screen
+   layouts inherit the same factor without being edited. `scale` composes with
+   `transform`, so the pose animations still work on top of it. */
+.bubble{scale:.8;transform-origin:50% 100%}
 </style>
 </head>
 <body>
@@ -93,8 +102,8 @@ font-weight:900;letter-spacing:.09em;text-transform:uppercase}
     <div class="story-actions"><button class="primary" id="about-mercury">About Mercury</button><button id="listen">Listen</button></div>
   </article>
   <nav class="page-nav" data-current-page="4" aria-label="Page navigation">
-    <a href="page-03.html" aria-label="Previous page" title="Previous page">‹</a><button class="page-jump" type="button" aria-label="Page 4 of 17. Press and hold to go to a page">4 / 17</button><a href="page-05.html" aria-label="Next page" title="Next page">›</a>
-    <form class="page-goto" hidden><label>Go to <input type="number" min="1" max="17" value="4" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form>
+    <a href="page-03.html" aria-label="Previous page" title="Previous page">‹</a><button class="page-jump" type="button" aria-label="Page 4 of 18. Press and hold to go to a page">4 / 18</button><a href="page-05.html" aria-label="Next page" title="Next page">›</a>
+    <form class="page-goto" hidden><label>Go to <input type="number" min="1" max="18" value="4" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form>
   </nav>
   <div class="sun-edge"><img id="sun-edge-image" src="assets-runtime/standard/page-03/sun-main-frame-01.webp" alt=""></div>
   <div class="mercury-area">
@@ -224,7 +233,7 @@ tell(p.dataset.say||p.querySelector('.np-name').textContent)}))})();
 })();
 </script>
 <script>
-(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(t=>jump.addEventListener(t,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>17)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
+(()=>{const nav=document.querySelector(".page-nav"),jump=nav.querySelector(".page-jump"),form=nav.querySelector(".page-goto"),input=form.querySelector("input");let timer=0,longPress=false;const open=()=>{longPress=true;form.hidden=false;input.select();input.focus()};jump.addEventListener("pointerdown",()=>{longPress=false;timer=setTimeout(open,650)});["pointerup","pointercancel","pointerleave"].forEach(t=>jump.addEventListener(t,()=>clearTimeout(timer)));jump.addEventListener("click",e=>{if(longPress)e.preventDefault()});jump.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}});jump.addEventListener("contextmenu",e=>{e.preventDefault();open()});form.addEventListener("submit",e=>{e.preventDefault();const page=Number(input.value);if(page<1||page>18)return;try{speechSynthesis.cancel()}catch(err){}location.href=`page-${String(page).padStart(2,"0")}.html`});document.addEventListener("pointerdown",e=>{if(!nav.contains(e.target))form.hidden=true})})();
 
 /* Shared fullscreen toggle, ported from page 1 so every page has it. Fails
    safe: the control hides itself where the API is unavailable or blocked
