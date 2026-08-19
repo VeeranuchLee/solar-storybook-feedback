@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pluto &amp; Charon · Page 19</title>
 <style>
-:root{--cream:#fff7df;--ink:#153c62;--gold:#f0c36e;--blue:#71d6e9;--orange:#d9853f;--violet:#403569}*{box-sizing:border-box}body{margin:0;background:#030817;color:var(--ink);font-family:Nunito,"Trebuchet MS",sans-serif;overflow:hidden}.stage{position:relative;width:min(100vw,1536px);height:min(100vh,1024px);aspect-ratio:3/2;margin:auto;overflow:hidden;background:#07152d}.art{position:absolute;pointer-events:none;object-fit:contain}.bg{inset:0;width:100%;height:100%;object-fit:cover}
+:root{--cream:#fff7df;--ink:#153c62;--gold:#f0c36e;--blue:#71d6e9;--orange:#d9853f;--violet:#403569}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#030817;color:var(--ink);font-family:Nunito,"Trebuchet MS",sans-serif;overflow:hidden}.stage{position:relative;width:min(100vw,150vh,1536px);aspect-ratio:3/2;margin:auto;overflow:hidden;background:#07152d}.art{position:absolute;pointer-events:none;object-fit:contain}.bg{inset:0;width:100%;height:100%;object-fit:cover}
 .scene-plate{z-index:2;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 42%;transform-origin:72% 46%;transition:transform 5.8s linear}
 .stage.dance .scene-plate{transform:translate(1.6%,-1%)}
 .stage.flyby .scene-plate,.stage.flyby .craft-glow{transform:translate(-1.8%,1.1%)}
@@ -28,10 +28,13 @@
 .fact svg{width:78px;height:78px;max-width:100%;max-height:100%}
 .fact strong{display:block;color:#a44e32}
 .modal{position:fixed;z-index:100;inset:0;display:none;place-items:center;background:#050918c7;padding:2vw}.modal.open{display:grid}.dialog{width:min(900px,94vw);max-height:92vh;overflow:auto;background:var(--cream);border:4px solid var(--gold);border-radius:28px;padding:1.2rem;box-shadow:0 20px 70px #0009}.dialog-head{display:flex;justify-content:space-between;gap:1rem;align-items:center}.dialog h2{margin:.1rem;color:#284e79}.close{width:44px;height:44px}.tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin:.8rem 0}.tabs button{padding:.45rem .65rem;border:2px solid #6887a8;border-radius:999px;background:#fff;font-weight:800;cursor:pointer}.tabs button[aria-selected=true]{background:#315d8b;color:#fff}.lesson{display:grid;grid-template-columns:1.3fr 1fr;gap:1rem;align-items:center}.lesson-box{min-height:330px;display:grid;place-items:center;background:#07152d;border-radius:20px;padding:1rem}.lesson-box svg{width:100%;max-height:300px}.lesson-copy{line-height:1.48}.note{font-size:.85rem;color:#657184}.reduced *{animation:none!important;transition:none!important}.reduced animate,.reduced animateTransform,.reduced animateMotion{display:none}
-@media(max-aspect-ratio:149/100){.stage{width:100vw;height:100vh;aspect-ratio:auto}.story{width:47%}.scene-plate{object-position:78% 40%}.tools{top:46%;width:18%}.ari{left:12%;width:26%}.dot{left:34%;width:19%}.status{left:38%;bottom:26%;max-width:28%}.fact-rack{bottom:1.2%}}
+@media(max-aspect-ratio:4/5){.stage{width:100vw;height:100vh;aspect-ratio:auto}.story{width:47%}.scene-plate{object-position:78% 40%}.tools{top:46%;width:18%}.ari{left:12%;width:26%}.dot{left:34%;width:19%}.status{left:38%;bottom:26%;max-width:28%}.fact-rack{bottom:1.2%}}
 @media(max-aspect-ratio:4/5){.story{width:73%;padding:.85rem;top:6%;left:2%}.story p{font-size:.84rem}.page-nav{right:2%;top:1%}.scene-plate{object-position:86% 42%}.dance-halo{left:18%;top:34%;width:78%;height:28%}.heart-glow{left:22%;top:44%;width:22%;height:12%}.craft-glow{left:80%;top:6%;width:12%;height:7%}.ari{left:-12%;bottom:34%;width:42%;height:30%}.dot{left:25%;bottom:35%;width:27%;height:22%}.tools{left:auto;right:2%;top:42%;width:auto;max-width:none;gap:.3rem}.tool{padding:.42rem .55rem;font-size:.69rem}.status{left:50%;right:auto;top:auto;bottom:36.6%;transform:translateX(-50%);max-width:78%;padding:.22rem .55rem;border-radius:12px;font-size:.64rem;line-height:1.15;text-align:center}.fact-rack{grid-template-columns:1fr;gap:6px;bottom:1%}.fact-group{padding:5px 6px 6px;border-radius:16px}.fact-group h2{margin:0 0 4px;font-size:.68rem}.pluto-facts .fact-row,.family-facts .fact-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}.fact{grid-template-columns:48px minmax(0,1fr);grid-template-rows:auto;justify-items:start;align-items:center;text-align:left;min-height:44px;padding:3px 5px;font-size:.72rem}.fact span:first-child{width:48px;height:44px}.fact svg{width:44px;height:44px}.detail{top:36%;right:2%;width:52%;padding:.5rem}.detail strong{font-size:.78rem;line-height:1.2}.lesson{grid-template-columns:1fr}.lesson-box{min-height:220px}}
 
-.page-controls{position:absolute;z-index:40;right:2%;bottom:17.2%;display:flex;gap:6px}
+/* Higher than the 17.2% the other pages use, because this page carries a
+   two-panel fact rack that is taller than the standard tray: at 17.2% the
+   control row sat across the "Dwarf planet family" heading. */
+.page-controls{position:absolute;z-index:40;right:2%;bottom:21.5%;display:flex;gap:6px}
 .page-controls button{border:1px solid #b9ddff66;border-radius:999px;background:#17324fe8;
 color:#fff;padding:5px 11px;font:inherit;font-size:clamp(8px,.85vw,12px);font-weight:850;
 cursor:pointer;backdrop-filter:blur(6px)}
@@ -40,44 +43,66 @@ cursor:pointer;backdrop-filter:blur(6px)}
 @media(max-aspect-ratio:4/5){.page-controls{right:2%;bottom:auto;top:1.5%;left:2%;justify-content:flex-start}}
 
 /* NAMEPLATES:CSS */
-.np{position:absolute;z-index:23;display:inline-flex;align-items:center;gap:.42em;
-padding:.26em .62em .26em .3em;border:2.5px solid #244b79;border-radius:999px;
-background:linear-gradient(#fffdf5,#fff3dc);color:#15365f;font-weight:900;
-font-size:var(--np-size,clamp(9px,1.08vw,16px));line-height:1;white-space:nowrap;
-cursor:pointer;box-shadow:0 4px 14px #0007;transition:transform .16s,box-shadow .16s,background .16s}
-.np:hover{background:linear-gradient(#fffdf5,#ffe9b8);transform:translateY(-1px)}
-.np:active{transform:translateY(1px) scale(.97)}
-.np:focus-visible{outline:3px solid #8eeaff;outline-offset:3px}
-.np .np-av{width:2.05em;height:2.05em;flex:none;border-radius:50%;
-background:#0d1c34;box-shadow:inset 0 0 0 1.5px #244b79;overflow:visible}
+.np{position:absolute;z-index:23;display:flex;flex-direction:column;align-items:center;
+gap:.32em;font-size:var(--np-size,clamp(8px,.9vw,13px));line-height:1;font-weight:900;
+white-space:nowrap}
+/* The drawing. No frame around it: a boxed avatar reads as an icon in a chip,
+   an unboxed one reads as a small world floating in the same sky as the big
+   ones, which on Pages 10 and 16 is exactly what it is. */
+.np-body{display:block;padding:0;border:0;background:transparent;cursor:pointer;
+border-radius:50%;transition:transform .18s;
+/* A cold rim light and a shadow. Without the rim a dark grey moon drawn on a
+   dark grey sky is a smudge at 30px -- the framed disc the old chip drew
+   around the avatar was doing this job, and taking the frame away took it. */
+filter:drop-shadow(0 0 2px #d6ecffcc) drop-shadow(0 4px 9px #000b)}
+.np-body:hover{transform:scale(1.1)}
+.np-body:active{transform:scale(.95)}
+.np-body:focus-visible{outline:3px solid #8eeaff;outline-offset:4px}
+.np .np-av{display:block;width:var(--np-av,clamp(24px,2.7vw,40px));
+height:var(--np-av,clamp(24px,2.7vw,40px))}
 .np .np-blush{fill:#ff8fa3;opacity:.5}
-.np-name{padding-right:.12em}
-.np-ear{flex:none;width:.9em;height:.9em;opacity:.5;transition:opacity .16s}
-.np:hover .np-ear,.np.np-on .np-ear{opacity:1}
-.np.np-on{background:linear-gradient(#fff6d8,#ffe08e);box-shadow:0 0 0 3px #ffc52b,0 4px 14px #0007}
+.np-label{display:inline-flex;align-items:center;gap:.34em;padding:.2em .52em;
+border:2px solid #244b79;border-radius:999px;background:#fff8dff2;color:#15365f;
+font:inherit;cursor:pointer;box-shadow:0 3px 9px #0007;
+transition:background .16s,transform .16s,box-shadow .16s}
+.np-label:hover{background:#ffe9b8;transform:translateY(-1px)}
+.np-label:active{transform:translateY(1px) scale(.97)}
+.np-label:focus-visible{outline:3px solid #8eeaff;outline-offset:3px}
+.np-ear{flex:none;width:.9em;height:.9em;opacity:.55;transition:opacity .16s}
+.np-label:hover .np-ear,.np.np-on .np-ear{opacity:1}
+.np.np-on .np-label{background:#ffe08e;box-shadow:0 0 0 3px #ffc52b,0 3px 9px #0007}
 .np.np-on .np-av{animation:npPop .62s cubic-bezier(.34,1.56,.64,1)}
 @keyframes npPop{0%{transform:scale(1) rotate(0)}35%{transform:scale(1.28) rotate(-9deg)}
 65%{transform:scale(1.05) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
-/* Leader line, so a plate can sit clear of the art and still point at it. */
+/* Leader line, so a plate can sit clear of the art and still point at it. It
+   leaves the drawing, not the middle of the stack, or it would appear to come
+   out of the label's ear glyph. */
 .np-lead::after{content:"";position:absolute;height:2px;background:#ffe9a8cc;
-box-shadow:0 0 4px #0009;top:50%;pointer-events:none}
+box-shadow:0 0 4px #0009;top:calc(var(--np-av,clamp(24px,2.7vw,40px))/2);pointer-events:none}
 .np-lead-r::after{left:100%;width:var(--np-lead,34px);transform-origin:left;
 transform:rotate(var(--np-angle,0deg))}
 .np-lead-l::after{right:100%;width:var(--np-lead,34px);transform-origin:right;
 transform:rotate(var(--np-angle,0deg))}
 /* "You are here" -- the plate for the ground the reader is standing on. */
-.np-here{flex-direction:column;align-items:flex-start;gap:.16em;
-padding:.34em .7em .38em .38em;border-radius:1.1em;border-color:#ffc52b}
-.np-here .np-row{display:flex;align-items:center;gap:.42em}
-.np-here-tag{display:block;padding-left:.2em;color:#a4501c;font-size:.62em;
-font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.np-here .np-label{flex-direction:column;align-items:flex-start;gap:.18em;
+padding:.3em .62em;border-radius:1.05em;border-color:#ffc52b}
+.np-here .np-row{display:flex;align-items:center;gap:.34em}
+.np-here-tag{display:block;color:#a4501c;font-size:.74em;letter-spacing:.09em;
+text-transform:uppercase}
+/* A roster: one block of plates that flows itself, used where a page names a
+   family of small worlds at once. Ten hand-placed positions drift apart every
+   time the type size moves; one grid does not. */
+.np-roster{position:absolute;z-index:23;display:grid;
+grid-template-columns:repeat(var(--np-cols,4),1fr);gap:.7em .3em;
+justify-items:center;align-items:end}
+.np-roster .np{position:static}
 .stage.reduce-motion .np.np-on .np-av,.reduced .np.np-on .np-av,
 .stage.reduced .np.np-on .np-av{animation:none}
 @media(prefers-reduced-motion:reduce){.np.np-on .np-av{animation:none}}
-@media(max-width:700px),(max-aspect-ratio:1/1){
-.np{--np-size:8px;border-width:2px;padding:.22em .5em .22em .24em}
-.np-lead::after{display:none}
-}
+@media(max-width:700px),(max-aspect-ratio:1/1){.np-lead::after{display:none}}
+/* A roster is sized by the space the page has, and on a phone that space is
+   a third of 420px. Four columns of labels do not fit in 140px; two do. */
+@media(max-width:560px){.np-roster{--np-cols:2}}
 
 [data-np="p19-pluto"]{left:49%;top:28%}[data-np="p19-charon"]{left:82%;top:64%}
 @media(max-aspect-ratio:4/5){[data-np="p19-pluto"]{inset:auto;left:10%;top:42%}[data-np="p19-charon"]{inset:auto;left:66%;top:58%}}/* /NAMEPLATES:CSS */
@@ -188,8 +213,8 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 </style></head><body>
 <main class="stage" id="stage">
 <!-- NAMEPLATES:HTML -->
-<button type="button" class="np" data-np="p19-pluto" data-say="Pluto. A real icy world, far beyond Neptune." aria-label="Hear the name Pluto"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p19-pluto"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#c9844e"/><g clip-path="url(#npc-p19-pluto)"><path d="M50 84C28 68 22 50 38 42 44 38 48 42 50 50 52 42 56 38 62 42 78 50 72 68 50 84Z" fill="#efe4c4"/><ellipse cx="42" cy="72" rx="8" ry="9" fill="#fff8df"/><path d="M18 48q16 6 28-4" fill="none" stroke="#8a4e2e" stroke-width="3" stroke-linecap="round"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg><span class="np-name">Pluto</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button>
-<button type="button" class="np" data-np="p19-charon" data-say="Charon. Pluto's giant companion, about half as wide." aria-label="Hear the name Charon"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p19-charon"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#9a9690"/><g clip-path="url(#npc-p19-charon)"><ellipse cx="50" cy="26" rx="20" ry="10" fill="#a85a4a"/><circle cx="30" cy="58" r="5" fill="#7d7974"/><circle cx="70" cy="70" r="6" fill="#7d7974"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg><span class="np-name">Charon</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button>
+<div class="np" data-np="p19-pluto"><button type="button" class="np-body" data-say="Pluto. A real icy world, far beyond Neptune." aria-label="Pluto. Hear about it"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p19-pluto"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#c9844e"/><g clip-path="url(#npc-p19-pluto)"><path d="M50 84C28 68 22 50 38 42 44 38 48 42 50 50 52 42 56 38 62 42 78 50 72 68 50 84Z" fill="#efe4c4"/><ellipse cx="42" cy="72" rx="8" ry="9" fill="#fff8df"/><path d="M18 48q16 6 28-4" fill="none" stroke="#8a4e2e" stroke-width="3" stroke-linecap="round"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg></button><button type="button" class="np-label" data-say="Pluto" aria-label="Hear the name Pluto"><span class="np-name">Pluto</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+<div class="np" data-np="p19-charon"><button type="button" class="np-body" data-say="Charon. Pluto's giant companion, about half as wide." aria-label="Charon. Hear about it"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p19-charon"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#9a9690"/><g clip-path="url(#npc-p19-charon)"><ellipse cx="50" cy="26" rx="20" ry="10" fill="#a85a4a"/><circle cx="30" cy="58" r="5" fill="#7d7974"/><circle cx="70" cy="70" r="6" fill="#7d7974"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg></button><button type="button" class="np-label" data-say="Charon" aria-label="Hear the name Charon"><span class="np-name">Charon</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button></div>
 <!-- /NAMEPLATES:HTML -->
 <!-- SECRETS:HTML -->
 <button type="button" class="sf-star" data-friend="sf19-rock-plain-violet-comet" data-sticker="rock-plain-violet-comet" data-say="Whoosh! I'm Wisp." aria-label="A tiny sparkling star hiding a space friend"></button>
@@ -256,22 +281,37 @@ const nav=$('.page-nav'),jump=$('.page-jump'),form=$('.page-goto'),input=form.qu
 ;(()=>{const q=document.getElementById('quality'),el=document.querySelector('img[src*="assets-runtime/"]:not([data-fixed-tier])');if(!q)return;if(!el){q.hidden=true;return}const im=new Image();im.onerror=()=>{q.hidden=true};im.src=el.getAttribute('src').replace(/assets-runtime\/(standard|high)\//,'assets-runtime/high/')})();
 
 /* NAMEPLATES:JS */
-/* Name boxes: tap a name, hear the name. Routed through this page's own
-   narration helper so the sound toggle and status line keep working.
+/* Name boxes. Two targets, two answers: the drawing tells you what the world
+   is, the label tells you only what it is called. Both route through this
+   page's own narration helper so the sound toggle and status line keep working.
    The leading semicolon is load-bearing: pages 7-10 end their last statement
    without one, and a following line that opens with `(` is parsed as a call on
    that statement's value -- `classList.add('reduced')(...)` -- which throws and
    silently takes this whole block with it. The boxes still looked right and
    simply never spoke. */
-;(()=>{const plates=[...document.querySelectorAll('.np')];if(!plates.length)return;
+;(()=>{const parts=[...document.querySelectorAll('.np-body,.np-label')];
+if(!parts.length)return;
 const tell=(typeof say==='function')?say
 :(typeof showStatus==='function'&&typeof speak==='function')?(t=>{showStatus(t);speak(t)})
 :(t=>{if(!window.speechSynthesis)return;speechSynthesis.cancel();
 const u=new SpeechSynthesisUtterance(t);u.rate=.92;u.pitch=1.06;speechSynthesis.speak(u)});
-let offTimer;plates.forEach(p=>p.addEventListener('click',()=>{
-plates.forEach(x=>x.classList.toggle('np-on',x===p));clearTimeout(offTimer);
-offTimer=setTimeout(()=>p.classList.remove('np-on'),2600);
-tell(p.dataset.say||p.querySelector('.np-name').textContent)}))})();
+/* The page's own picture of the body, made to speak the same sentence the
+   drawing in the plate speaks. A four-year-old aims at the planet, not at the
+   38px emblem beside it. Only plates that name an inert piece of art carry
+   `data-art`; anything the page already wired keeps its own behaviour. */
+document.querySelectorAll('.np[data-art]').forEach(p=>{
+const el=document.querySelector(p.dataset.art),src=p.querySelector('.np-body');
+if(!el||el.dataset.npArt)return;el.dataset.npArt='1';
+el.style.pointerEvents='auto';el.style.cursor='pointer';
+/* stopPropagation, because Page 6 nests the Moon inside the Earth group: a
+   tap on the Moon reached both handlers and the outer one, firing last, said
+   "Earth" over it. */
+el.addEventListener('click',e=>{e.stopPropagation();src.click()})});
+let offTimer;parts.forEach(b=>b.addEventListener('click',()=>{
+const plate=b.closest('.np');
+document.querySelectorAll('.np').forEach(x=>x.classList.toggle('np-on',x===plate));
+clearTimeout(offTimer);offTimer=setTimeout(()=>plate.classList.remove('np-on'),2600);
+tell(b.dataset.say)}))})();
 /* /NAMEPLATES:JS */
 /* SECRETS:JS */
 /* Sparkling stars and the sticker book. Speech goes through the page's own

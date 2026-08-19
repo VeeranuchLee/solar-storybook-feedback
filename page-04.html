@@ -32,44 +32,66 @@
 
 
 /* NAMEPLATES:CSS */
-.np{position:absolute;z-index:23;display:inline-flex;align-items:center;gap:.42em;
-padding:.26em .62em .26em .3em;border:2.5px solid #244b79;border-radius:999px;
-background:linear-gradient(#fffdf5,#fff3dc);color:#15365f;font-weight:900;
-font-size:var(--np-size,clamp(9px,1.08vw,16px));line-height:1;white-space:nowrap;
-cursor:pointer;box-shadow:0 4px 14px #0007;transition:transform .16s,box-shadow .16s,background .16s}
-.np:hover{background:linear-gradient(#fffdf5,#ffe9b8);transform:translateY(-1px)}
-.np:active{transform:translateY(1px) scale(.97)}
-.np:focus-visible{outline:3px solid #8eeaff;outline-offset:3px}
-.np .np-av{width:2.05em;height:2.05em;flex:none;border-radius:50%;
-background:#0d1c34;box-shadow:inset 0 0 0 1.5px #244b79;overflow:visible}
+.np{position:absolute;z-index:23;display:flex;flex-direction:column;align-items:center;
+gap:.32em;font-size:var(--np-size,clamp(8px,.9vw,13px));line-height:1;font-weight:900;
+white-space:nowrap}
+/* The drawing. No frame around it: a boxed avatar reads as an icon in a chip,
+   an unboxed one reads as a small world floating in the same sky as the big
+   ones, which on Pages 10 and 16 is exactly what it is. */
+.np-body{display:block;padding:0;border:0;background:transparent;cursor:pointer;
+border-radius:50%;transition:transform .18s;
+/* A cold rim light and a shadow. Without the rim a dark grey moon drawn on a
+   dark grey sky is a smudge at 30px -- the framed disc the old chip drew
+   around the avatar was doing this job, and taking the frame away took it. */
+filter:drop-shadow(0 0 2px #d6ecffcc) drop-shadow(0 4px 9px #000b)}
+.np-body:hover{transform:scale(1.1)}
+.np-body:active{transform:scale(.95)}
+.np-body:focus-visible{outline:3px solid #8eeaff;outline-offset:4px}
+.np .np-av{display:block;width:var(--np-av,clamp(24px,2.7vw,40px));
+height:var(--np-av,clamp(24px,2.7vw,40px))}
 .np .np-blush{fill:#ff8fa3;opacity:.5}
-.np-name{padding-right:.12em}
-.np-ear{flex:none;width:.9em;height:.9em;opacity:.5;transition:opacity .16s}
-.np:hover .np-ear,.np.np-on .np-ear{opacity:1}
-.np.np-on{background:linear-gradient(#fff6d8,#ffe08e);box-shadow:0 0 0 3px #ffc52b,0 4px 14px #0007}
+.np-label{display:inline-flex;align-items:center;gap:.34em;padding:.2em .52em;
+border:2px solid #244b79;border-radius:999px;background:#fff8dff2;color:#15365f;
+font:inherit;cursor:pointer;box-shadow:0 3px 9px #0007;
+transition:background .16s,transform .16s,box-shadow .16s}
+.np-label:hover{background:#ffe9b8;transform:translateY(-1px)}
+.np-label:active{transform:translateY(1px) scale(.97)}
+.np-label:focus-visible{outline:3px solid #8eeaff;outline-offset:3px}
+.np-ear{flex:none;width:.9em;height:.9em;opacity:.55;transition:opacity .16s}
+.np-label:hover .np-ear,.np.np-on .np-ear{opacity:1}
+.np.np-on .np-label{background:#ffe08e;box-shadow:0 0 0 3px #ffc52b,0 3px 9px #0007}
 .np.np-on .np-av{animation:npPop .62s cubic-bezier(.34,1.56,.64,1)}
 @keyframes npPop{0%{transform:scale(1) rotate(0)}35%{transform:scale(1.28) rotate(-9deg)}
 65%{transform:scale(1.05) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
-/* Leader line, so a plate can sit clear of the art and still point at it. */
+/* Leader line, so a plate can sit clear of the art and still point at it. It
+   leaves the drawing, not the middle of the stack, or it would appear to come
+   out of the label's ear glyph. */
 .np-lead::after{content:"";position:absolute;height:2px;background:#ffe9a8cc;
-box-shadow:0 0 4px #0009;top:50%;pointer-events:none}
+box-shadow:0 0 4px #0009;top:calc(var(--np-av,clamp(24px,2.7vw,40px))/2);pointer-events:none}
 .np-lead-r::after{left:100%;width:var(--np-lead,34px);transform-origin:left;
 transform:rotate(var(--np-angle,0deg))}
 .np-lead-l::after{right:100%;width:var(--np-lead,34px);transform-origin:right;
 transform:rotate(var(--np-angle,0deg))}
 /* "You are here" -- the plate for the ground the reader is standing on. */
-.np-here{flex-direction:column;align-items:flex-start;gap:.16em;
-padding:.34em .7em .38em .38em;border-radius:1.1em;border-color:#ffc52b}
-.np-here .np-row{display:flex;align-items:center;gap:.42em}
-.np-here-tag{display:block;padding-left:.2em;color:#a4501c;font-size:.62em;
-font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.np-here .np-label{flex-direction:column;align-items:flex-start;gap:.18em;
+padding:.3em .62em;border-radius:1.05em;border-color:#ffc52b}
+.np-here .np-row{display:flex;align-items:center;gap:.34em}
+.np-here-tag{display:block;color:#a4501c;font-size:.74em;letter-spacing:.09em;
+text-transform:uppercase}
+/* A roster: one block of plates that flows itself, used where a page names a
+   family of small worlds at once. Ten hand-placed positions drift apart every
+   time the type size moves; one grid does not. */
+.np-roster{position:absolute;z-index:23;display:grid;
+grid-template-columns:repeat(var(--np-cols,4),1fr);gap:.7em .3em;
+justify-items:center;align-items:end}
+.np-roster .np{position:static}
 .stage.reduce-motion .np.np-on .np-av,.reduced .np.np-on .np-av,
 .stage.reduced .np.np-on .np-av{animation:none}
 @media(prefers-reduced-motion:reduce){.np.np-on .np-av{animation:none}}
-@media(max-width:700px),(max-aspect-ratio:1/1){
-.np{--np-size:8px;border-width:2px;padding:.22em .5em .22em .24em}
-.np-lead::after{display:none}
-}
+@media(max-width:700px),(max-aspect-ratio:1/1){.np-lead::after{display:none}}
+/* A roster is sized by the space the page has, and on a phone that space is
+   a third of 420px. Four columns of labels do not fit in 140px; two do. */
+@media(max-width:560px){.np-roster{--np-cols:2}}
 
 [data-np="p4-mercury"]{left:47%;top:58%}[data-np="p4-sun"]{right:1.5%;top:50%}
 @media(max-width:700px),(max-aspect-ratio:1/1){[data-np="p4-mercury"]{inset:auto;left:60%;top:35%}[data-np="p4-sun"]{inset:auto;left:82%;top:31.5%}}/* /NAMEPLATES:CSS */
@@ -87,8 +109,8 @@ font-weight:900;letter-spacing:.09em;text-transform:uppercase}
 <body>
 <main class="book"><section class="stage" id="stage" aria-label="Interactive storybook page about Mercury">
 <!-- NAMEPLATES:HTML -->
-<button type="button" class="np" data-np="p4-mercury" data-say="Mercury. The smallest planet, and the closest one to the Sun." aria-label="Hear the name Mercury"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p4-mercury"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#8e8983"/><g clip-path="url(#npc-p4-mercury)"><circle cx="34" cy="28" r="9" fill="#6d6863"/><circle cx="34" cy="28" r="5" fill="#7d7873"/><circle cx="68" cy="26" r="6" fill="#6d6863"/><circle cx="24" cy="46" r="5" fill="#6d6863"/><circle cx="76" cy="46" r="4" fill="#6d6863"/><circle cx="50" cy="76" r="10" fill="#6d6863"/><circle cx="50" cy="76" r="5.5" fill="#7d7873"/><circle cx="26" cy="70" r="6" fill="#6d6863"/><circle cx="74" cy="72" r="7" fill="#6d6863"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg><span class="np-name">Mercury</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button>
-<button type="button" class="np" data-np="p4-sun" data-say="Sun. Our own star, a giant ball of hot glowing gas." aria-label="Hear the name Sun"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p4-sun"><circle cx="50" cy="50" r="32"/></clipPath></defs><path d="M50.0 3.0L56.6 16.7L68.0 6.6L68.9 21.7L83.2 16.8L78.3 31.1L93.4 32.0L83.3 43.4L97.0 50.0L83.3 56.6L93.4 68.0L78.3 68.9L83.2 83.2L68.9 78.3L68.0 93.4L56.6 83.3L50.0 97.0L43.4 83.3L32.0 93.4L31.1 78.3L16.8 83.2L21.7 68.9L6.6 68.0L16.7 56.6L3.0 50.0L16.7 43.4L6.6 32.0L21.7 31.1L16.8 16.8L31.1 21.7L32.0 6.6L43.4 16.7Z" fill="#ffab16"/><circle cx="50" cy="50" r="32" fill="#ffce3c"/><g clip-path="url(#npc-p4-sun)"><circle cx="50" cy="50" r="32" fill="#ffb01f" opacity=".35"/><circle cx="50" cy="50" r="26" fill="#ffdc63"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg><span class="np-name">Sun</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button>
+<div class="np" data-np="p4-mercury"><button type="button" class="np-body" data-say="Mercury. The smallest planet, and the closest one to the Sun." aria-label="Mercury. Hear about it"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p4-mercury"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#8e8983"/><g clip-path="url(#npc-p4-mercury)"><circle cx="34" cy="28" r="9" fill="#6d6863"/><circle cx="34" cy="28" r="5" fill="#7d7873"/><circle cx="68" cy="26" r="6" fill="#6d6863"/><circle cx="24" cy="46" r="5" fill="#6d6863"/><circle cx="76" cy="46" r="4" fill="#6d6863"/><circle cx="50" cy="76" r="10" fill="#6d6863"/><circle cx="50" cy="76" r="5.5" fill="#7d7873"/><circle cx="26" cy="70" r="6" fill="#6d6863"/><circle cx="74" cy="72" r="7" fill="#6d6863"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg></button><button type="button" class="np-label" data-say="Mercury" aria-label="Hear the name Mercury"><span class="np-name">Mercury</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+<div class="np" data-np="p4-sun"><button type="button" class="np-body" data-say="Sun. Our own star, a giant ball of hot glowing gas." aria-label="Sun. Hear about it"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p4-sun"><circle cx="50" cy="50" r="32"/></clipPath></defs><path d="M50.0 3.0L56.6 16.7L68.0 6.6L68.9 21.7L83.2 16.8L78.3 31.1L93.4 32.0L83.3 43.4L97.0 50.0L83.3 56.6L93.4 68.0L78.3 68.9L83.2 83.2L68.9 78.3L68.0 93.4L56.6 83.3L50.0 97.0L43.4 83.3L32.0 93.4L31.1 78.3L16.8 83.2L21.7 68.9L6.6 68.0L16.7 56.6L3.0 50.0L16.7 43.4L6.6 32.0L21.7 31.1L16.8 16.8L31.1 21.7L32.0 6.6L43.4 16.7Z" fill="#ffab16"/><circle cx="50" cy="50" r="32" fill="#ffce3c"/><g clip-path="url(#npc-p4-sun)"><circle cx="50" cy="50" r="32" fill="#ffb01f" opacity=".35"/><circle cx="50" cy="50" r="26" fill="#ffdc63"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg></button><button type="button" class="np-label" data-say="Sun" aria-label="Hear the name Sun"><span class="np-name">Sun</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button></div>
 <!-- /NAMEPLATES:HTML -->
 
 
@@ -213,22 +235,37 @@ document.getElementById("back-page-3").onclick=()=>{stopNarration();try{speechSy
 
 
 /* NAMEPLATES:JS */
-/* Name boxes: tap a name, hear the name. Routed through this page's own
-   narration helper so the sound toggle and status line keep working.
+/* Name boxes. Two targets, two answers: the drawing tells you what the world
+   is, the label tells you only what it is called. Both route through this
+   page's own narration helper so the sound toggle and status line keep working.
    The leading semicolon is load-bearing: pages 7-10 end their last statement
    without one, and a following line that opens with `(` is parsed as a call on
    that statement's value -- `classList.add('reduced')(...)` -- which throws and
    silently takes this whole block with it. The boxes still looked right and
    simply never spoke. */
-;(()=>{const plates=[...document.querySelectorAll('.np')];if(!plates.length)return;
+;(()=>{const parts=[...document.querySelectorAll('.np-body,.np-label')];
+if(!parts.length)return;
 const tell=(typeof say==='function')?say
 :(typeof showStatus==='function'&&typeof speak==='function')?(t=>{showStatus(t);speak(t)})
 :(t=>{if(!window.speechSynthesis)return;speechSynthesis.cancel();
 const u=new SpeechSynthesisUtterance(t);u.rate=.92;u.pitch=1.06;speechSynthesis.speak(u)});
-let offTimer;plates.forEach(p=>p.addEventListener('click',()=>{
-plates.forEach(x=>x.classList.toggle('np-on',x===p));clearTimeout(offTimer);
-offTimer=setTimeout(()=>p.classList.remove('np-on'),2600);
-tell(p.dataset.say||p.querySelector('.np-name').textContent)}))})();
+/* The page's own picture of the body, made to speak the same sentence the
+   drawing in the plate speaks. A four-year-old aims at the planet, not at the
+   38px emblem beside it. Only plates that name an inert piece of art carry
+   `data-art`; anything the page already wired keeps its own behaviour. */
+document.querySelectorAll('.np[data-art]').forEach(p=>{
+const el=document.querySelector(p.dataset.art),src=p.querySelector('.np-body');
+if(!el||el.dataset.npArt)return;el.dataset.npArt='1';
+el.style.pointerEvents='auto';el.style.cursor='pointer';
+/* stopPropagation, because Page 6 nests the Moon inside the Earth group: a
+   tap on the Moon reached both handlers and the outer one, firing last, said
+   "Earth" over it. */
+el.addEventListener('click',e=>{e.stopPropagation();src.click()})});
+let offTimer;parts.forEach(b=>b.addEventListener('click',()=>{
+const plate=b.closest('.np');
+document.querySelectorAll('.np').forEach(x=>x.classList.toggle('np-on',x===plate));
+clearTimeout(offTimer);offTimer=setTimeout(()=>plate.classList.remove('np-on'),2600);
+tell(b.dataset.say)}))})();
 /* /NAMEPLATES:JS */
 })();
 </script>

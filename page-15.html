@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Uranus · Page 15</title>
 <style>
-:root{--cream:#fff7df;--ink:#153c62;--gold:#f0c36e;--blue:#71d6e9;--orange:#d9853f;--violet:#403569}*{box-sizing:border-box}body{margin:0;background:#030817;color:var(--ink);font-family:Nunito,"Trebuchet MS",sans-serif;overflow:hidden}.stage{position:relative;width:min(100vw,1536px);height:min(100vh,1024px);aspect-ratio:3/2;margin:auto;overflow:hidden;background:#07152d}.art{position:absolute;pointer-events:none;object-fit:contain}.bg{inset:0;width:100%;height:100%;object-fit:cover}.uranus-scene{position:absolute;z-index:4;right:1%;top:10%;width:60%;height:67%;pointer-events:none;transition:transform .9s ease}.rings{inset:0;width:100%;height:100%;filter:drop-shadow(0 8px 18px #0008)}.rings-back{z-index:1}/* A baked rotation: 36 square frames side by side in one image. jump-none is
+:root{--cream:#fff7df;--ink:#153c62;--gold:#f0c36e;--blue:#71d6e9;--orange:#d9853f;--violet:#403569}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#030817;color:var(--ink);font-family:Nunito,"Trebuchet MS",sans-serif;overflow:hidden}.stage{position:relative;width:min(100vw,150vh,1536px);aspect-ratio:3/2;margin:auto;overflow:hidden;background:#07152d}.art{position:absolute;pointer-events:none;object-fit:contain}.bg{inset:0;width:100%;height:100%;object-fit:cover}.uranus-scene{position:absolute;z-index:4;right:1%;top:10%;width:60%;height:67%;pointer-events:none;transition:transform .9s ease}.rings{inset:0;width:100%;height:100%;filter:drop-shadow(0 8px 18px #0008)}.rings-back{z-index:1}/* A baked rotation: 36 square frames side by side in one image. jump-none is
    what makes it exact -- it lands on all 36 frames inclusive, where a plain
    steps(36) would skip the last one and stutter once per turn. */
 .globe{position:absolute;left:50%;top:50%;translate:-50% -50%;
@@ -14,7 +14,7 @@
 .story{position:absolute;z-index:20;left:3%;top:3%;width:36%;padding:1.1rem 1.3rem;border:2px solid #fff8;border-radius:24px;background:#fff8e9ef;box-shadow:0 12px 35px #0007}.eyebrow{font-weight:900;color:#327990;letter-spacing:.08em;text-transform:uppercase}.story h1{margin:.15rem 0 .3rem;font-size:clamp(1.7rem,3vw,3.25rem);line-height:1;color:#294d79}.story p{margin:.4rem 0;line-height:1.35;font-size:clamp(.88rem,1.1vw,1.18rem)}button,a,input{font:inherit}.pill,.tool,.fact,.close{border:2px solid #365a84;border-radius:999px;background:#fffaf0;color:#243d62;font-weight:900;cursor:pointer;box-shadow:0 4px 0 #193b5d}.pill:active,.tool:active,.fact:active{transform:translateY(3px);box-shadow:0 1px 0 #193b5d}.story-actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}.pill{padding:.5rem .8rem}.page-nav{position:absolute;z-index:50;right:1.5%;top:1.5%;display:flex;align-items:center;gap:4px;padding:4px;border:1px solid #71d6e966;border-radius:13px;background:#07152de8}.page-nav>a,.page-jump{display:grid;place-items:center;height:32px;min-width:32px;border:1px solid #71d6e966;border-radius:9px;background:#17496b;color:#fff;text-decoration:none;font-weight:900;cursor:pointer}.page-nav [aria-disabled=true]{opacity:.35;pointer-events:none}.page-jump{min-width:64px;padding:0 8px}.page-goto{position:absolute;right:calc(100% + 6px);top:0;display:flex;gap:4px;padding:7px;border-radius:10px;background:#07152df5}.page-goto[hidden]{display:none}.page-goto input{width:44px}.page-goto button{background:var(--gold);border:0;border-radius:6px;font-weight:900}
 .ari{z-index:11;left:17%;bottom:18%;width:23%;height:52%;transition:opacity .3s}.dot{z-index:12;left:35%;bottom:20%;width:15%;height:36%;transition:opacity .3s}.pose{opacity:0}.pose.active{opacity:1}.tools{position:absolute;z-index:26;left:3%;top:45%;display:grid;gap:.5rem;width:16%;max-width:220px}.tool{padding:.58rem .8rem;background:#fff7dfea;text-align:left;font-size:clamp(.72rem,1vw,.98rem)}.detail{position:absolute;z-index:36;right:2%;top:14%;width:27%;padding:.65rem;border-radius:22px;background:#fff7dfef;border:3px solid var(--gold);box-shadow:0 12px 35px #0008;opacity:0;transform:scale(.86);pointer-events:none;transition:.35s}.detail.show{opacity:1;transform:scale(1)}.detail img{width:100%;border-radius:15px;display:block}.detail strong{display:block;text-align:center;margin-top:.35rem}.status{position:absolute;z-index:45;left:50%;bottom:19.5%;transform:translateX(-50%);max-width:76%;background:#201a43ed;color:#fff;border-radius:999px;padding:.45rem .9rem;font-weight:800;text-align:center;opacity:0;transition:.25s;pointer-events:none}.status.show{opacity:1}
 .facts{position:absolute;z-index:28;left:2%;right:2%;bottom:1.5%;height:20%;display:grid;grid-template-columns:repeat(6,1fr);overflow:hidden;border:3px solid #244b79;border-radius:28px;background:linear-gradient(#fffdf5,#fff6df);color:#15365f;box-shadow:0 8px 26px #0008}.fact{display:grid;grid-template-rows:55% auto;place-items:center;min-width:0;border:0;border-right:1px dashed #8c9aa8;border-radius:0;box-shadow:none;background:transparent;color:inherit;padding:5px;font-size:clamp(7px,.82vw,12px);line-height:1.15;text-align:center}.fact:last-child{border-right:0}.fact span:first-child{display:grid;place-items:center;width:100%;height:100%}.fact svg{width:100%;height:100%;max-width:64px}.fact strong{display:block;color:#a44e32}.modal{position:fixed;z-index:100;inset:0;display:none;place-items:center;background:#050918c7;padding:2vw}.modal.open{display:grid}.dialog{width:min(900px,94vw);max-height:92vh;overflow:auto;background:var(--cream);border:4px solid var(--gold);border-radius:28px;padding:1.2rem;box-shadow:0 20px 70px #0009}.dialog-head{display:flex;justify-content:space-between;gap:1rem;align-items:center}.dialog h2{margin:.1rem;color:#284e79}.close{width:44px;height:44px}.tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin:.8rem 0}.tabs button{padding:.45rem .65rem;border:2px solid #6887a8;border-radius:999px;background:#fff;font-weight:800;cursor:pointer}.tabs button[aria-selected=true]{background:#315d8b;color:#fff}.lesson{display:grid;grid-template-columns:1.3fr 1fr;gap:1rem;align-items:center}.lesson-box{min-height:330px;display:grid;place-items:center;background:#07152d;border-radius:20px;padding:1rem}.lesson-box svg{width:100%;max-height:300px}.lesson-copy{line-height:1.48}.note{font-size:.85rem;color:#657184}.reduced *{animation:none!important;transition:none!important}.reduced animate,.reduced animateTransform,.reduced animateMotion{display:none}
-@media(max-aspect-ratio:149/100){.stage{width:100vw;height:100vh;aspect-ratio:auto}.story{width:47%}.uranus-scene{right:-4%;top:15%;width:70%;height:61%}.voyager{width:25%}.tools{top:46%;width:18%}.ari{left:17%;width:26%}.dot{left:37%;width:19%}.status{bottom:25%}}
+@media(max-aspect-ratio:4/5){.stage{width:100vw;height:100vh;aspect-ratio:auto}.story{width:47%}.uranus-scene{right:-4%;top:15%;width:70%;height:61%}.voyager{width:25%}.tools{top:46%;width:18%}.ari{left:17%;width:26%}.dot{left:37%;width:19%}.status{bottom:25%}}
 @media(max-aspect-ratio:4/5){.story{width:73%;padding:.85rem;top:6%;left:2%}.story p{font-size:.84rem}.page-nav{right:2%;top:1%}.uranus-scene{right:-18%;top:22%;width:92%;height:47%}.voyager{right:-2%;top:18%;width:31%;height:23%}.voyager.fly{transform:translate(-50vw,20vh) rotate(-10deg)}.ari{left:-7%;bottom:30%;width:48%;height:38%}.dot{left:30%;bottom:31%;width:31%;height:28%}.tools{left:auto;right:2%;top:48%;width:auto;max-width:none;gap:.3rem}.tool{padding:.42rem .55rem;font-size:.69rem}.facts{height:31%;grid-template-columns:repeat(2,1fr);border-radius:18px}.fact{grid-template-rows:52px auto;border-right:0;border-bottom:1px dashed #8c9aa8}.fact:nth-last-child(-n+2){border-bottom:0}.fact svg{height:52px}.detail{top:40%;right:2%;width:49%}.lesson{grid-template-columns:1fr}.lesson-box{min-height:220px}}
 
 /* Sound and Calm mode. Pages 11-15 use `.tools` for their own discovery
@@ -39,44 +39,66 @@ cursor:pointer;backdrop-filter:blur(6px)}
 @media(max-aspect-ratio:4/5){.page-controls{right:2%;bottom:auto;top:1.5%;left:2%;justify-content:flex-start}}
 
 /* NAMEPLATES:CSS */
-.np{position:absolute;z-index:23;display:inline-flex;align-items:center;gap:.42em;
-padding:.26em .62em .26em .3em;border:2.5px solid #244b79;border-radius:999px;
-background:linear-gradient(#fffdf5,#fff3dc);color:#15365f;font-weight:900;
-font-size:var(--np-size,clamp(9px,1.08vw,16px));line-height:1;white-space:nowrap;
-cursor:pointer;box-shadow:0 4px 14px #0007;transition:transform .16s,box-shadow .16s,background .16s}
-.np:hover{background:linear-gradient(#fffdf5,#ffe9b8);transform:translateY(-1px)}
-.np:active{transform:translateY(1px) scale(.97)}
-.np:focus-visible{outline:3px solid #8eeaff;outline-offset:3px}
-.np .np-av{width:2.05em;height:2.05em;flex:none;border-radius:50%;
-background:#0d1c34;box-shadow:inset 0 0 0 1.5px #244b79;overflow:visible}
+.np{position:absolute;z-index:23;display:flex;flex-direction:column;align-items:center;
+gap:.32em;font-size:var(--np-size,clamp(8px,.9vw,13px));line-height:1;font-weight:900;
+white-space:nowrap}
+/* The drawing. No frame around it: a boxed avatar reads as an icon in a chip,
+   an unboxed one reads as a small world floating in the same sky as the big
+   ones, which on Pages 10 and 16 is exactly what it is. */
+.np-body{display:block;padding:0;border:0;background:transparent;cursor:pointer;
+border-radius:50%;transition:transform .18s;
+/* A cold rim light and a shadow. Without the rim a dark grey moon drawn on a
+   dark grey sky is a smudge at 30px -- the framed disc the old chip drew
+   around the avatar was doing this job, and taking the frame away took it. */
+filter:drop-shadow(0 0 2px #d6ecffcc) drop-shadow(0 4px 9px #000b)}
+.np-body:hover{transform:scale(1.1)}
+.np-body:active{transform:scale(.95)}
+.np-body:focus-visible{outline:3px solid #8eeaff;outline-offset:4px}
+.np .np-av{display:block;width:var(--np-av,clamp(24px,2.7vw,40px));
+height:var(--np-av,clamp(24px,2.7vw,40px))}
 .np .np-blush{fill:#ff8fa3;opacity:.5}
-.np-name{padding-right:.12em}
-.np-ear{flex:none;width:.9em;height:.9em;opacity:.5;transition:opacity .16s}
-.np:hover .np-ear,.np.np-on .np-ear{opacity:1}
-.np.np-on{background:linear-gradient(#fff6d8,#ffe08e);box-shadow:0 0 0 3px #ffc52b,0 4px 14px #0007}
+.np-label{display:inline-flex;align-items:center;gap:.34em;padding:.2em .52em;
+border:2px solid #244b79;border-radius:999px;background:#fff8dff2;color:#15365f;
+font:inherit;cursor:pointer;box-shadow:0 3px 9px #0007;
+transition:background .16s,transform .16s,box-shadow .16s}
+.np-label:hover{background:#ffe9b8;transform:translateY(-1px)}
+.np-label:active{transform:translateY(1px) scale(.97)}
+.np-label:focus-visible{outline:3px solid #8eeaff;outline-offset:3px}
+.np-ear{flex:none;width:.9em;height:.9em;opacity:.55;transition:opacity .16s}
+.np-label:hover .np-ear,.np.np-on .np-ear{opacity:1}
+.np.np-on .np-label{background:#ffe08e;box-shadow:0 0 0 3px #ffc52b,0 3px 9px #0007}
 .np.np-on .np-av{animation:npPop .62s cubic-bezier(.34,1.56,.64,1)}
 @keyframes npPop{0%{transform:scale(1) rotate(0)}35%{transform:scale(1.28) rotate(-9deg)}
 65%{transform:scale(1.05) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
-/* Leader line, so a plate can sit clear of the art and still point at it. */
+/* Leader line, so a plate can sit clear of the art and still point at it. It
+   leaves the drawing, not the middle of the stack, or it would appear to come
+   out of the label's ear glyph. */
 .np-lead::after{content:"";position:absolute;height:2px;background:#ffe9a8cc;
-box-shadow:0 0 4px #0009;top:50%;pointer-events:none}
+box-shadow:0 0 4px #0009;top:calc(var(--np-av,clamp(24px,2.7vw,40px))/2);pointer-events:none}
 .np-lead-r::after{left:100%;width:var(--np-lead,34px);transform-origin:left;
 transform:rotate(var(--np-angle,0deg))}
 .np-lead-l::after{right:100%;width:var(--np-lead,34px);transform-origin:right;
 transform:rotate(var(--np-angle,0deg))}
 /* "You are here" -- the plate for the ground the reader is standing on. */
-.np-here{flex-direction:column;align-items:flex-start;gap:.16em;
-padding:.34em .7em .38em .38em;border-radius:1.1em;border-color:#ffc52b}
-.np-here .np-row{display:flex;align-items:center;gap:.42em}
-.np-here-tag{display:block;padding-left:.2em;color:#a4501c;font-size:.62em;
-font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.np-here .np-label{flex-direction:column;align-items:flex-start;gap:.18em;
+padding:.3em .62em;border-radius:1.05em;border-color:#ffc52b}
+.np-here .np-row{display:flex;align-items:center;gap:.34em}
+.np-here-tag{display:block;color:#a4501c;font-size:.74em;letter-spacing:.09em;
+text-transform:uppercase}
+/* A roster: one block of plates that flows itself, used where a page names a
+   family of small worlds at once. Ten hand-placed positions drift apart every
+   time the type size moves; one grid does not. */
+.np-roster{position:absolute;z-index:23;display:grid;
+grid-template-columns:repeat(var(--np-cols,4),1fr);gap:.7em .3em;
+justify-items:center;align-items:end}
+.np-roster .np{position:static}
 .stage.reduce-motion .np.np-on .np-av,.reduced .np.np-on .np-av,
 .stage.reduced .np.np-on .np-av{animation:none}
 @media(prefers-reduced-motion:reduce){.np.np-on .np-av{animation:none}}
-@media(max-width:700px),(max-aspect-ratio:1/1){
-.np{--np-size:8px;border-width:2px;padding:.22em .5em .22em .24em}
-.np-lead::after{display:none}
-}
+@media(max-width:700px),(max-aspect-ratio:1/1){.np-lead::after{display:none}}
+/* A roster is sized by the space the page has, and on a phone that space is
+   a third of 420px. Four columns of labels do not fit in 140px; two do. */
+@media(max-width:560px){.np-roster{--np-cols:2}}
 
 [data-np="p15-uranus"]{right:27%;top:64%}
 @media(max-aspect-ratio:4/5){[data-np="p15-uranus"]{inset:auto;left:62%;top:34%}}/* /NAMEPLATES:CSS */
@@ -191,7 +213,7 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 </style></head><body>
 <main class="stage" id="stage">
 <!-- NAMEPLATES:HTML -->
-<button type="button" class="np" data-np="p15-uranus" data-say="Uranus. The ice giant that rolls along on its side." aria-label="Hear the name Uranus"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p15-uranus"><circle cx="50" cy="50" r="30"/></clipPath></defs><circle cx="50" cy="50" r="30" fill="#a9e2e4"/><g clip-path="url(#npc-p15-uranus)"><path d="M16 20h9v64h-9z" fill="#8ccfd2" opacity=".8"/><path d="M75 20h9v64h-9z" fill="#8ccfd2" opacity=".8"/><path d="M44 16h12v68H44z" fill="#c2ecee" opacity=".7"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><ellipse cx="50" cy="50" rx="11" ry="46" fill="none" stroke="#c7f0f2" stroke-width="4" opacity=".9"/><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg><span class="np-name">Uranus</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button>
+<div class="np" data-np="p15-uranus" data-art="#uranusScene"><button type="button" class="np-body" data-say="Uranus. The ice giant that rolls along on its side." aria-label="Uranus. Hear about it"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p15-uranus"><circle cx="50" cy="50" r="30"/></clipPath></defs><circle cx="50" cy="50" r="30" fill="#a9e2e4"/><g clip-path="url(#npc-p15-uranus)"><path d="M16 20h9v64h-9z" fill="#8ccfd2" opacity=".8"/><path d="M75 20h9v64h-9z" fill="#8ccfd2" opacity=".8"/><path d="M44 16h12v68H44z" fill="#c2ecee" opacity=".7"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><ellipse cx="50" cy="50" rx="11" ry="46" fill="none" stroke="#c7f0f2" stroke-width="4" opacity=".9"/><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg></button><button type="button" class="np-label" data-say="Uranus" aria-label="Hear the name Uranus"><span class="np-name">Uranus</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button></div>
 <!-- /NAMEPLATES:HTML -->
 <!-- SECRETS:HTML -->
 <button type="button" class="sf-star" data-friend="sf15-rock-plain-ice-rock" data-sticker="rock-plain-ice-rock" data-say="Hi! I'm Chip." aria-label="A tiny sparkling star hiding a space friend"></button>
@@ -240,22 +262,37 @@ const nav=$('.page-nav'),jump=$('.page-jump'),form=$('.page-goto'),input=form.qu
 ;(()=>{const q=document.getElementById('quality'),el=document.querySelector('img[src*="assets-runtime/"]');if(!q)return;if(!el){q.hidden=true;return}const im=new Image();im.onerror=()=>{q.hidden=true};im.src=el.getAttribute('src').replace(/assets-runtime\/(standard|high)\//,'assets-runtime/high/')})();
 
 /* NAMEPLATES:JS */
-/* Name boxes: tap a name, hear the name. Routed through this page's own
-   narration helper so the sound toggle and status line keep working.
+/* Name boxes. Two targets, two answers: the drawing tells you what the world
+   is, the label tells you only what it is called. Both route through this
+   page's own narration helper so the sound toggle and status line keep working.
    The leading semicolon is load-bearing: pages 7-10 end their last statement
    without one, and a following line that opens with `(` is parsed as a call on
    that statement's value -- `classList.add('reduced')(...)` -- which throws and
    silently takes this whole block with it. The boxes still looked right and
    simply never spoke. */
-;(()=>{const plates=[...document.querySelectorAll('.np')];if(!plates.length)return;
+;(()=>{const parts=[...document.querySelectorAll('.np-body,.np-label')];
+if(!parts.length)return;
 const tell=(typeof say==='function')?say
 :(typeof showStatus==='function'&&typeof speak==='function')?(t=>{showStatus(t);speak(t)})
 :(t=>{if(!window.speechSynthesis)return;speechSynthesis.cancel();
 const u=new SpeechSynthesisUtterance(t);u.rate=.92;u.pitch=1.06;speechSynthesis.speak(u)});
-let offTimer;plates.forEach(p=>p.addEventListener('click',()=>{
-plates.forEach(x=>x.classList.toggle('np-on',x===p));clearTimeout(offTimer);
-offTimer=setTimeout(()=>p.classList.remove('np-on'),2600);
-tell(p.dataset.say||p.querySelector('.np-name').textContent)}))})();
+/* The page's own picture of the body, made to speak the same sentence the
+   drawing in the plate speaks. A four-year-old aims at the planet, not at the
+   38px emblem beside it. Only plates that name an inert piece of art carry
+   `data-art`; anything the page already wired keeps its own behaviour. */
+document.querySelectorAll('.np[data-art]').forEach(p=>{
+const el=document.querySelector(p.dataset.art),src=p.querySelector('.np-body');
+if(!el||el.dataset.npArt)return;el.dataset.npArt='1';
+el.style.pointerEvents='auto';el.style.cursor='pointer';
+/* stopPropagation, because Page 6 nests the Moon inside the Earth group: a
+   tap on the Moon reached both handlers and the outer one, firing last, said
+   "Earth" over it. */
+el.addEventListener('click',e=>{e.stopPropagation();src.click()})});
+let offTimer;parts.forEach(b=>b.addEventListener('click',()=>{
+const plate=b.closest('.np');
+document.querySelectorAll('.np').forEach(x=>x.classList.toggle('np-on',x===plate));
+clearTimeout(offTimer);offTimer=setTimeout(()=>plate.classList.remove('np-on'),2600);
+tell(b.dataset.say)}))})();
 /* /NAMEPLATES:JS */
 /* SECRETS:JS */
 /* Sparkling stars and the sticker book. Speech goes through the page's own
