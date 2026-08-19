@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pluto &amp; Charon · Page 19</title>
+<style>
+:root{--cream:#fff7df;--ink:#153c62;--gold:#f0c36e;--blue:#71d6e9;--orange:#d9853f;--violet:#403569}*{box-sizing:border-box}body{margin:0;background:#030817;color:var(--ink);font-family:Nunito,"Trebuchet MS",sans-serif;overflow:hidden}.stage{position:relative;width:min(100vw,1536px);height:min(100vh,1024px);aspect-ratio:3/2;margin:auto;overflow:hidden;background:#07152d}.art{position:absolute;pointer-events:none;object-fit:contain}.bg{inset:0;width:100%;height:100%;object-fit:cover}
+.scene-plate{z-index:2;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 42%;transform-origin:72% 46%;transition:transform 5.8s linear}
+.stage.dance .scene-plate{transform:translate(1.6%,-1%)}
+.stage.flyby .scene-plate,.stage.flyby .craft-glow{transform:translate(-1.8%,1.1%)}
+.dance-halo,.heart-glow,.craft-glow{position:absolute;z-index:6;pointer-events:none;opacity:0;transition:opacity .45s}
+.dance-halo{left:53%;top:26%;width:44%;height:50%;border-radius:50%;box-shadow:0 0 0 0 #f0c36e00}
+.stage.dance .dance-halo{opacity:1;box-shadow:0 0 34px 12px #f0c36e55,inset 0 0 36px #71d6e933}
+.heart-glow{left:63%;top:45%;width:13%;height:16%;border-radius:50%;background:radial-gradient(circle,#fff8df99 0%,#f0c36e40 46%,transparent 74%)}
+.stage.heart .heart-glow{opacity:1}
+.craft-glow{left:86.2%;top:5.2%;width:6.4%;height:7.2%;border-radius:50%;background:radial-gradient(circle,rgba(113,214,233,.34) 0%,rgba(240,195,110,.2) 38%,transparent 72%);box-shadow:none;mix-blend-mode:screen;transform-origin:center}
+.stage.flyby .craft-glow{opacity:1}
+.story{position:absolute;z-index:20;left:3%;top:3%;width:36%;padding:1.1rem 1.3rem;border:2px solid #fff8;border-radius:24px;background:#fff8e9ef;box-shadow:0 12px 35px #0007}.eyebrow{font-weight:900;color:#327990;letter-spacing:.08em;text-transform:uppercase}.story h1{margin:.15rem 0 .3rem;font-size:clamp(1.7rem,3vw,3.25rem);line-height:1;color:#294d79}.story p{margin:.4rem 0;line-height:1.35;font-size:clamp(.88rem,1.1vw,1.18rem)}button,a,input{font:inherit}.pill,.tool,.fact,.close{border:2px solid #365a84;border-radius:999px;background:#fffaf0;color:#243d62;font-weight:900;cursor:pointer;box-shadow:0 4px 0 #193b5d;min-height:44px}.pill:active,.tool:active,.fact:active{transform:translateY(3px);box-shadow:0 1px 0 #193b5d}.story-actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}.pill{padding:.5rem .8rem}.page-nav{position:absolute;z-index:50;right:1.5%;top:1.5%;display:flex;align-items:center;gap:4px;padding:4px;border:1px solid #71d6e966;border-radius:13px;background:#07152de8}.page-nav>a,.page-jump{display:grid;place-items:center;height:32px;min-width:32px;border:1px solid #71d6e966;border-radius:9px;background:#17496b;color:#fff;text-decoration:none;font-weight:900;cursor:pointer}.page-nav [aria-disabled=true]{opacity:.35;pointer-events:none}.page-jump{min-width:64px;padding:0 8px}.page-goto{position:absolute;right:calc(100% + 6px);top:0;display:flex;gap:4px;padding:7px;border-radius:10px;background:#07152df5}.page-goto[hidden]{display:none}.page-goto input{width:44px}.page-goto button{background:var(--gold);border:0;border-radius:6px;font-weight:900}
+.ari{z-index:11;left:14%;bottom:17%;width:24%;height:52%;transition:opacity .3s}.dot{z-index:12;left:32%;bottom:19%;width:16%;height:36%;transition:opacity .3s}.pose{opacity:0}.pose.active{opacity:1}.tools{position:absolute;z-index:26;left:3%;top:45%;display:grid;gap:.5rem;width:16%;max-width:220px}.tool{padding:.58rem .8rem;background:#fff7dfea;text-align:left;font-size:clamp(.72rem,1vw,.98rem)}.status{position:absolute;z-index:45;left:46%;right:auto;bottom:23.6%;transform:none;width:max-content;max-width:min(24%,370px);background:#201a43ed;color:#fff;border-radius:14px;padding:.38rem .7rem;font-weight:800;text-align:left;line-height:1.22;opacity:0;transition:.25s;pointer-events:none}.status.show{opacity:1}
+.detail{position:absolute;z-index:36;right:2%;top:16%;width:26%;padding:.65rem;border-radius:22px;background:#fff7dfef;border:3px solid var(--gold);box-shadow:0 12px 35px #0008;opacity:0;transform:scale(.86);pointer-events:none;transition:.35s}.detail.show{opacity:1;transform:scale(1)}.detail svg{width:100%;height:auto;display:block;border-radius:14px}.detail strong{display:block;text-align:center;margin-top:.35rem;color:#294d79}
+.fact-rack{position:absolute;z-index:28;left:2%;right:2%;bottom:1.3%;display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:10px;align-items:stretch}
+.fact-group{min-width:0;padding:7px 8px 8px;border:3px solid #244b79;border-radius:20px;background:linear-gradient(#fffdf5,#fff6df);color:#15365f;box-shadow:0 8px 26px #0008}
+.fact-group h2{margin:0 0 5px;color:#a44e32;font-size:clamp(10px,.92vw,13px);font-weight:900;letter-spacing:.08em;text-transform:uppercase;text-align:center}
+.fact-row{display:grid;gap:4px;align-items:stretch}
+.pluto-facts .fact-row{grid-template-columns:repeat(4,minmax(0,1fr))}
+.family-facts .fact-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+.fact{display:grid;grid-template-rows:78px auto;place-items:center;min-width:0;min-height:44px;border:0;border-radius:14px;box-shadow:none;background:transparent;color:inherit;padding:4px 5px;font-size:clamp(10px,.92vw,13px);font-weight:900;line-height:1.15;text-align:center}
+.fact:hover,.fact:focus-visible{background:#fff3d4}
+.fact:focus-visible{outline:3px solid #8eeaff;outline-offset:2px}
+.fact span:first-child{display:grid;place-items:center;width:100%;height:100%}
+.fact svg{width:78px;height:78px;max-width:100%;max-height:100%}
+.fact strong{display:block;color:#a44e32}
+.modal{position:fixed;z-index:100;inset:0;display:none;place-items:center;background:#050918c7;padding:2vw}.modal.open{display:grid}.dialog{width:min(900px,94vw);max-height:92vh;overflow:auto;background:var(--cream);border:4px solid var(--gold);border-radius:28px;padding:1.2rem;box-shadow:0 20px 70px #0009}.dialog-head{display:flex;justify-content:space-between;gap:1rem;align-items:center}.dialog h2{margin:.1rem;color:#284e79}.close{width:44px;height:44px}.tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin:.8rem 0}.tabs button{padding:.45rem .65rem;border:2px solid #6887a8;border-radius:999px;background:#fff;font-weight:800;cursor:pointer}.tabs button[aria-selected=true]{background:#315d8b;color:#fff}.lesson{display:grid;grid-template-columns:1.3fr 1fr;gap:1rem;align-items:center}.lesson-box{min-height:330px;display:grid;place-items:center;background:#07152d;border-radius:20px;padding:1rem}.lesson-box svg{width:100%;max-height:300px}.lesson-copy{line-height:1.48}.note{font-size:.85rem;color:#657184}.reduced *{animation:none!important;transition:none!important}.reduced animate,.reduced animateTransform,.reduced animateMotion{display:none}
+@media(max-aspect-ratio:149/100){.stage{width:100vw;height:100vh;aspect-ratio:auto}.story{width:47%}.scene-plate{object-position:78% 40%}.tools{top:46%;width:18%}.ari{left:12%;width:26%}.dot{left:34%;width:19%}.status{left:38%;bottom:26%;max-width:28%}.fact-rack{bottom:1.2%}}
+@media(max-aspect-ratio:4/5){.story{width:73%;padding:.85rem;top:6%;left:2%}.story p{font-size:.84rem}.page-nav{right:2%;top:1%}.scene-plate{object-position:86% 42%}.dance-halo{left:18%;top:34%;width:78%;height:28%}.heart-glow{left:22%;top:44%;width:22%;height:12%}.craft-glow{left:80%;top:6%;width:12%;height:7%}.ari{left:-12%;bottom:34%;width:42%;height:30%}.dot{left:25%;bottom:35%;width:27%;height:22%}.tools{left:auto;right:2%;top:42%;width:auto;max-width:none;gap:.3rem}.tool{padding:.42rem .55rem;font-size:.69rem}.status{left:50%;right:auto;top:auto;bottom:36.6%;transform:translateX(-50%);max-width:78%;padding:.22rem .55rem;border-radius:12px;font-size:.64rem;line-height:1.15;text-align:center}.fact-rack{grid-template-columns:1fr;gap:6px;bottom:1%}.fact-group{padding:5px 6px 6px;border-radius:16px}.fact-group h2{margin:0 0 4px;font-size:.68rem}.pluto-facts .fact-row,.family-facts .fact-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}.fact{grid-template-columns:48px minmax(0,1fr);grid-template-rows:auto;justify-items:start;align-items:center;text-align:left;min-height:44px;padding:3px 5px;font-size:.72rem}.fact span:first-child{width:48px;height:44px}.fact svg{width:44px;height:44px}.detail{top:36%;right:2%;width:52%;padding:.5rem}.detail strong{font-size:.78rem;line-height:1.2}.lesson{grid-template-columns:1fr}.lesson-box{min-height:220px}}
+
+.page-controls{position:absolute;z-index:40;right:2%;bottom:17.2%;display:flex;gap:6px}
+.page-controls button{border:1px solid #b9ddff66;border-radius:999px;background:#17324fe8;
+color:#fff;padding:5px 11px;font:inherit;font-size:clamp(8px,.85vw,12px);font-weight:850;
+cursor:pointer;backdrop-filter:blur(6px)}
+.page-controls button:hover{background:#2c5d8a}
+.page-controls button:focus-visible{outline:3px solid #8eeaff;outline-offset:3px}
+@media(max-aspect-ratio:4/5){.page-controls{right:2%;bottom:auto;top:1.5%;left:2%;justify-content:flex-start}}
+
+/* NAMEPLATES:CSS */
+.np{position:absolute;z-index:23;display:inline-flex;align-items:center;gap:.42em;
+padding:.26em .62em .26em .3em;border:2.5px solid #244b79;border-radius:999px;
+background:linear-gradient(#fffdf5,#fff3dc);color:#15365f;font-weight:900;
+font-size:var(--np-size,clamp(9px,1.08vw,16px));line-height:1;white-space:nowrap;
+cursor:pointer;box-shadow:0 4px 14px #0007;transition:transform .16s,box-shadow .16s,background .16s}
+.np:hover{background:linear-gradient(#fffdf5,#ffe9b8);transform:translateY(-1px)}
+.np:active{transform:translateY(1px) scale(.97)}
+.np:focus-visible{outline:3px solid #8eeaff;outline-offset:3px}
+.np .np-av{width:2.05em;height:2.05em;flex:none;border-radius:50%;
+background:#0d1c34;box-shadow:inset 0 0 0 1.5px #244b79;overflow:visible}
+.np .np-blush{fill:#ff8fa3;opacity:.5}
+.np-name{padding-right:.12em}
+.np-ear{flex:none;width:.9em;height:.9em;opacity:.5;transition:opacity .16s}
+.np:hover .np-ear,.np.np-on .np-ear{opacity:1}
+.np.np-on{background:linear-gradient(#fff6d8,#ffe08e);box-shadow:0 0 0 3px #ffc52b,0 4px 14px #0007}
+.np.np-on .np-av{animation:npPop .62s cubic-bezier(.34,1.56,.64,1)}
+@keyframes npPop{0%{transform:scale(1) rotate(0)}35%{transform:scale(1.28) rotate(-9deg)}
+65%{transform:scale(1.05) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
+/* Leader line, so a plate can sit clear of the art and still point at it. */
+.np-lead::after{content:"";position:absolute;height:2px;background:#ffe9a8cc;
+box-shadow:0 0 4px #0009;top:50%;pointer-events:none}
+.np-lead-r::after{left:100%;width:var(--np-lead,34px);transform-origin:left;
+transform:rotate(var(--np-angle,0deg))}
+.np-lead-l::after{right:100%;width:var(--np-lead,34px);transform-origin:right;
+transform:rotate(var(--np-angle,0deg))}
+/* "You are here" -- the plate for the ground the reader is standing on. */
+.np-here{flex-direction:column;align-items:flex-start;gap:.16em;
+padding:.34em .7em .38em .38em;border-radius:1.1em;border-color:#ffc52b}
+.np-here .np-row{display:flex;align-items:center;gap:.42em}
+.np-here-tag{display:block;padding-left:.2em;color:#a4501c;font-size:.62em;
+font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.stage.reduce-motion .np.np-on .np-av,.reduced .np.np-on .np-av,
+.stage.reduced .np.np-on .np-av{animation:none}
+@media(prefers-reduced-motion:reduce){.np.np-on .np-av{animation:none}}
+@media(max-width:700px),(max-aspect-ratio:1/1){
+.np{--np-size:8px;border-width:2px;padding:.22em .5em .22em .24em}
+.np-lead::after{display:none}
+}
+
+[data-np="p19-pluto"]{left:49%;top:28%}[data-np="p19-charon"]{left:82%;top:64%}
+@media(max-aspect-ratio:4/5){[data-np="p19-pluto"]{inset:auto;left:10%;top:42%}[data-np="p19-charon"]{inset:auto;left:66%;top:58%}}/* /NAMEPLATES:CSS */
+.np{min-height:44px}
+@media(max-aspect-ratio:4/5) and (min-width:600px){
+[data-np="p19-pluto"]{left:34%;top:30%}
+[data-np="p19-charon"]{left:78%;top:62%}
+}
+/* SECRETS:CSS */
+/* Sparkling stars that hide a space friend, and the sticker book that
+   remembers who has been found.
+
+   The trigger is a small glint of light: a child should have to look for it
+   rather than be told where it is. The glint and the friend share one position
+   and are each centred on it, so a secret is a single point on the page rather
+   than two boxes to keep in agreement. */
+.sf-star,.sf-friend{position:absolute;transform:translate(-50%,-50%)}
+/* A glint, not a picture of a star. This used to show one of the owner's sticker
+   sprites at 18px, and at that size the pastel ones -- which have no face -- read
+   as a white lump on a photograph of space; several of them also carry
+   see-through patches left by the sheet cut, which show as grey smudges on a
+   dark sky. The book already had a better answer on Pages 2-4: a small drawn
+   sparkle. The sticker art is not lost, it is moved to where it is seen big --
+   the friend who pops out, and the sticker book -- and the thing hiding on the
+   painting is now a point of light.
+
+   Big invisible button, small mark. Page 6's original sparkle is 70px wide
+   holding 25px of star, and that split is the point: a mark small enough to hunt
+   for must not mean a target too small for a four-year-old's finger. */
+.sf-star{z-index:24;width:44px;height:44px;padding:0;border:0;background:none;
+cursor:pointer;display:grid;place-items:center;line-height:0;color:#fff6c8}
+/* Deliberately quiet -- the owner's rule is that a child should have to look for
+   it. The twinkle is what makes that fair: the glint nearly fades out and comes
+   back, so a page scanned patiently gives it away and a page glanced at does not. */
+.sf-star::before{content:"✦";line-height:1;
+font-size:var(--sf-art,clamp(13px,1.05vw,15px));
+text-shadow:0 0 3px #ffffffaa,0 0 7px #ffc65eaa;
+animation:sfTwinkle 4.6s ease-in-out infinite}
+.sf-star:hover::before{text-shadow:0 0 4px #fff,0 0 12px #ffd27a}
+.sf-star:focus-visible{outline:3px solid #8eeaff;outline-offset:4px;border-radius:50%}
+.sf-star[hidden]{display:none}
+@keyframes sfTwinkle{0%,100%{opacity:.2;transform:scale(.72)}
+45%{opacity:.92;transform:scale(1.08)}70%{opacity:.34;transform:scale(.85)}}
+.sf-friend{z-index:25;pointer-events:none;width:15%;height:21%}
+.sf-pop{width:100%;height:100%;opacity:0;transform:translateY(14%) scale(.5);
+transition:opacity .38s,transform .52s cubic-bezier(.34,1.56,.64,1)}
+.sf-pop img{width:100%;height:100%;object-fit:contain;
+filter:drop-shadow(0 8px 16px #000a) drop-shadow(0 0 14px #ffd76a55)}
+.sf-friend.sf-here .sf-pop{opacity:1;transform:none}
+.sf-friend.sf-going .sf-pop{opacity:0;transform:translateY(-16%) scale(.82)}
+
+/* The sticker book. A child collects across the whole book, so the count is
+   kept in localStorage and every page shows the same running total. */
+/* The sticker book lives in the page's existing control row rather than
+   floating on the picture. Absolutely positioning it meant ten hand-tuned spots
+   that still collided -- with a story card at one window size, a fact tray at
+   another. In the control row it is laid out in flow, so it cannot collide at
+   any size, it is in the place children already look for buttons, and it is in
+   the same place on every page. */
+.sf-book{position:static;z-index:27;display:inline-flex;align-items:center;gap:.34em;
+padding:.26em .62em .26em .34em;border:2px solid #ffd76a;border-radius:999px;
+background:#0b1730e8;color:#ffeab5;font:inherit;font-weight:900;
+font-size:clamp(8px,.85vw,12px);cursor:pointer;box-shadow:0 3px 12px #0008}
+.sf-book:hover{background:#17325a}
+/* Let the control row wrap. Several pages lay their row out without wrapping,
+   and in portrait it already ran past the edge of the stage before the sticker
+   button joined it -- page 6's was 105% of the stage wide. One extra button
+   made that visible, so it is fixed here rather than left to overflow. */
+.tools,.page-controls,.toolbar{flex-wrap:wrap-reverse;justify-content:flex-end}
+/* wrap-reverse, not wrap: these rows are anchored near the bottom of the stage,
+   so an overflow line has to go *up* into the sky. Wrapping downwards pushed the
+   sticker button off the stage on a phone and onto the rover on Mars. */
+.sf-book:focus-visible{outline:3px solid #8eeaff;outline-offset:3px}
+.sf-book img{width:1.5em;height:1.5em;object-fit:contain}
+.sf-book.sf-pulse{animation:sfPulse .7s ease-out}
+@keyframes sfPulse{0%{transform:scale(1)}40%{transform:scale(1.18)}100%{transform:scale(1)}}
+.sf-panel{position:absolute;z-index:70;inset:6% 8%;display:none;flex-direction:column;
+padding:14px 16px;border:2px solid #ffd76a;border-radius:22px;background:#07152df7;
+box-shadow:0 18px 50px #000d;backdrop-filter:blur(6px)}
+.sf-panel.sf-open{display:flex}
+.sf-panel h2{margin:0 0 2px;color:#ffd76a;font-size:clamp(13px,1.5vw,20px)}
+.sf-panel p{margin:0 0 10px;color:#bdd8f0;font-size:clamp(8px,.9vw,12px)}
+.sf-grid{flex:1;display:grid;gap:6px;overflow:auto;
+grid-template-columns:repeat(auto-fill,minmax(52px,1fr));align-content:start}
+.sf-slot{position:relative;aspect-ratio:1;border-radius:12px;background:#0d1c34;
+display:grid;place-items:center;padding:5px}
+.sf-slot img{width:100%;height:100%;object-fit:contain}
+.sf-slot.sf-locked img{filter:brightness(0) opacity(.32)}
+.sf-slot.sf-got{background:#16345c;box-shadow:inset 0 0 0 2px #ffd76a}
+.sf-close{position:absolute;right:10px;top:10px;width:32px;height:32px;border:0;
+border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16px;cursor:pointer}
+.reduced .sf-star::before,.reduce-motion .sf-star::before,
+.stage.reduced .sf-star::before,.stage.reduce-motion .sf-star::before{animation:none;opacity:.85}
+.reduced .sf-pop,.reduce-motion .sf-pop,
+.stage.reduced .sf-pop,.stage.reduce-motion .sf-pop{transition:opacity .18s}
+@media(prefers-reduced-motion:reduce){.sf-star::before{animation:none;opacity:.85}}
+@media(max-aspect-ratio:4/5){.sf-star{width:44px;height:44px;--sf-art:clamp(13px,3.4vw,15px)}
+.page-controls{max-width:56%}
+/* Page 5 and 6 lay their portrait control row out 105% of the stage wide, so it
+   already ran off both edges before the sticker button existed. Constraining it
+   makes it wrap inside the stage, which is what made the button reachable on a
+   phone at all. */
+.tools{max-width:96%;right:2%}
+.sf-friend{width:18%;height:13%}.sf-panel{inset:4% 4%}}
+
+[data-friend="sf19-rock-plain-violet-comet"],#sf19-rock-plain-violet-comet{left:54%;top:12%}[data-friend="sf19-friend-shy-violet"],#sf19-friend-shy-violet{left:88%;top:24%}[data-friend="sf19-ship-star-cruiser"],#sf19-ship-star-cruiser{left:72%;top:56%}
+@media(max-aspect-ratio:4/5){[data-friend="sf19-rock-plain-violet-comet"],#sf19-rock-plain-violet-comet{inset:auto;left:88%;top:16%}[data-friend="sf19-friend-shy-violet"],#sf19-friend-shy-violet{inset:auto;left:28%;top:52%}[data-friend="sf19-ship-star-cruiser"],#sf19-ship-star-cruiser{inset:auto;left:50%;top:58%}}/* /SECRETS:CSS */
+</style></head><body>
+<main class="stage" id="stage">
+<!-- NAMEPLATES:HTML -->
+<button type="button" class="np" data-np="p19-pluto" data-say="Pluto. A real icy world, far beyond Neptune." aria-label="Hear the name Pluto"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p19-pluto"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#c9844e"/><g clip-path="url(#npc-p19-pluto)"><path d="M50 84C28 68 22 50 38 42 44 38 48 42 50 50 52 42 56 38 62 42 78 50 72 68 50 84Z" fill="#efe4c4"/><ellipse cx="42" cy="72" rx="8" ry="9" fill="#fff8df"/><path d="M18 48q16 6 28-4" fill="none" stroke="#8a4e2e" stroke-width="3" stroke-linecap="round"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg><span class="np-name">Pluto</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button>
+<button type="button" class="np" data-np="p19-charon" data-say="Charon. Pluto's giant companion, about half as wide." aria-label="Hear the name Charon"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p19-charon"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#9a9690"/><g clip-path="url(#npc-p19-charon)"><ellipse cx="50" cy="26" rx="20" ry="10" fill="#a85a4a"/><circle cx="30" cy="58" r="5" fill="#7d7974"/><circle cx="70" cy="70" r="6" fill="#7d7974"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg><span class="np-name">Charon</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button>
+<!-- /NAMEPLATES:HTML -->
+<!-- SECRETS:HTML -->
+<button type="button" class="sf-star" data-friend="sf19-rock-plain-violet-comet" data-sticker="rock-plain-violet-comet" data-say="Whoosh! I'm Wisp." aria-label="A tiny sparkling star hiding a space friend"></button>
+<div class="sf-friend" id="sf19-rock-plain-violet-comet"><div class="sf-pop"><img src="assets-runtime/standard/shared/space-friends/rock-plain-violet-comet.webp" alt="Wisp, a space friend"></div></div>
+<button type="button" class="sf-star" data-friend="sf19-friend-shy-violet" data-sticker="friend-shy-violet" data-say="Hello! I'm Dusk." aria-label="A tiny sparkling star hiding a space friend"></button>
+<div class="sf-friend" id="sf19-friend-shy-violet"><div class="sf-pop"><img src="assets-runtime/standard/shared/space-friends/friend-shy-violet.webp" alt="Dusk, a space friend"></div></div>
+<button type="button" class="sf-star" data-friend="sf19-ship-star-cruiser" data-sticker="ship-star-cruiser" data-say="Hi! I'm Cruise." aria-label="A tiny sparkling star hiding a space friend"></button>
+<div class="sf-friend" id="sf19-ship-star-cruiser"><div class="sf-pop"><img src="assets-runtime/standard/shared/space-friends/ship-star-cruiser.webp" alt="Cruise, a space friend"></div></div>
+<button type="button" class="sf-book" aria-label="Open the sticker book"><img src="assets-runtime/standard/shared/space-friends/star-happy-gold.webp" alt=""><span>Stickers</span><span class="sf-tally">0 / 0</span></button>
+<section class="sf-panel" role="dialog" aria-modal="true" aria-label="Sticker book"><button type="button" class="sf-close" aria-label="Close the sticker book">&times;</button><h2>My sticker book</h2><p>Tap a sparkling star on any page to meet a space friend and keep their sticker.</p><div class="sf-grid"></div></section>
+<script>const SF_ROSTER=[{"id":"rock-fire-comet","art":"rock-fire-comet","name":"Flick"},{"id":"friend-orange-waver","art":"friend-orange-waver","name":"Tango"},{"id":"rock-gold-crystal-rock","art":"rock-gold-crystal-rock","name":"Nugget"},{"id":"friend-jelly-blue","art":"friend-jelly-blue","name":"Bloop"},{"id":"friend-blue-octo","art":"friend-blue-octo","name":"Squish"},{"id":"rock-frost-comet","art":"rock-frost-comet","name":"Frosty"},{"id":"friend-moon-hugger","art":"friend-moon-hugger","name":"Cuddle"},{"id":"friend-little-robot","art":"friend-little-robot","name":"Beep"},{"id":"rock-grey-rock","art":"rock-grey-rock","name":"Pebble"},{"id":"rock-lava-rock","art":"rock-lava-rock","name":"Ember"},{"id":"friend-rock-peeker","art":"friend-rock-peeker","name":"Peek"},{"id":"ship-moon-buggy","art":"ship-moon-buggy","name":"Trundle"},{"id":"rock-dark-rock","art":"rock-dark-rock","name":"Cinder"},{"id":"friend-suited-teal","art":"friend-suited-teal","name":"Zed"},{"id":"ship-saucer-classic","art":"ship-saucer-classic","name":"Whizz"},{"id":"rock-plain-purple-rock","art":"rock-plain-purple-rock","name":"Plum"},{"id":"ship-crystal-hauler","art":"ship-crystal-hauler","name":"Hauler"},{"id":"ship-little-digger","art":"ship-little-digger","name":"Scoop"},{"id":"friend-big-violet","art":"friend-big-violet","name":"Grape"},{"id":"ship-rocket-red","art":"ship-rocket-red","name":"Zoom"},{"id":"rock-ice-crystal-rock","art":"rock-ice-crystal-rock","name":"Sparkle"},{"id":"ship-sub-explorer","art":"ship-sub-explorer","name":"Dipper"},{"id":"friend-hoodie-teal","art":"friend-hoodie-teal","name":"Hoodie"},{"id":"rock-plain-ice-comet","art":"rock-plain-ice-comet","name":"Glide"},{"id":"friend-star-friend","art":"friend-star-friend","name":"Twinkle"},{"id":"ship-halo-saucer","art":"ship-halo-saucer","name":"Ringo"},{"id":"ship-jelly-saucer","art":"ship-jelly-saucer","name":"Wobble"},{"id":"friend-calm-blue","art":"friend-calm-blue","name":"Zen"},{"id":"rock-plain-ice-rock","art":"rock-plain-ice-rock","name":"Chip"},{"id":"friend-floaty-mint","art":"friend-floaty-mint","name":"Drift"},{"id":"ship-crystal-glider","art":"ship-crystal-glider","name":"Glider"},{"id":"friend-book-reader","art":"friend-book-reader","name":"Pip"},{"id":"rock-blue-gem-rock","art":"rock-blue-gem-rock","name":"Gem"},{"id":"ship-ringed-pod","art":"ship-ringed-pod","name":"Halo"},{"id":"star-ice-blue","art":"star-ice-blue","name":"Chill"},{"id":"friend-blue-shy","art":"friend-blue-shy","name":"Shy"},{"id":"ship-star-sled","art":"ship-star-sled","name":"Sled"},{"id":"rock-plain-violet-comet","art":"rock-plain-violet-comet","name":"Wisp"},{"id":"friend-shy-violet","art":"friend-shy-violet","name":"Dusk"},{"id":"ship-star-cruiser","art":"ship-star-cruiser","name":"Cruise"}],SF_ART="assets-runtime/standard/shared/space-friends";</script>
+<!-- /SECRETS:HTML -->
+<img class="art bg scene-plate" id="scene" data-fixed-tier src="assets-runtime/standard/page-19/pluto-charon-scene-v2.jpg" alt="Realistic view of icy Pluto, giant Charon, their faint shared path, and distant New Horizons">
+<div class="dance-halo" aria-hidden="true"></div>
+<div class="heart-glow" aria-hidden="true"></div>
+<div class="craft-glow" aria-hidden="true"></div>
+<section class="story"><div class="eyebrow">Page 19 · Distant icy worlds</div><h1>Pluto &amp; Charon</h1><p>Far beyond Neptune, icy Pluto and its giant moon Charon travel around a shared meeting point. New Horizons flew past in 2015 and saw a bright heart of nitrogen ice. Pluto is still a real world — one of five official dwarf planets.</p><div class="story-actions"><button class="pill" id="listen">▶ Listen</button><button class="pill" id="about">◎ Explore Pluto</button></div></section>
+<nav class="page-nav" aria-label="Page navigation"><a href="page-18.html" aria-label="Previous page">‹</a><button class="page-jump" aria-label="Page 19 of 19. Press and hold to go to a page">19 / 19</button><a aria-disabled="true" aria-label="Next page">›</a><form class="page-goto" hidden><label>Go to <input type="number" min="1" max="19" value="19"></label><button>Go</button></form></nav>
+<img class="art ari pose active" data-ari="present" src="assets-runtime/standard/page-17/ari-neptune-present-v1.webp" alt="Ari presenting Pluto"><img class="art ari pose" data-ari="look" src="assets-runtime/standard/page-17/ari-neptune-distance-look-v1.webp" alt="Ari watching the shared dance">
+<img class="art dot pose active" data-dot="scan" src="assets-runtime/standard/page-17/dot-neptune-weather-scan-v1.webp" alt="Dot scanning Pluto"><img class="art dot pose" data-dot="study" src="assets-runtime/standard/page-17/dot-voyager-neptune-study-v1.webp" alt="Dot studying the New Horizons flyby">
+<div class="tools" aria-label="Pluto discoveries"><button class="tool" id="dance">↺ Watch the shared dance</button><button class="tool" id="heart">❤ See the bright heart</button><button class="tool" id="flyby">⌁ New Horizons, 2015</button></div>
+<aside class="detail" id="danceDetail" aria-live="polite"><svg viewBox="0 0 320 180" role="img" aria-hidden="true"><rect width="320" height="180" rx="14" fill="#071625"/><ellipse cx="168" cy="96" rx="118" ry="58" fill="none" stroke="#8c9aa8" stroke-width="3" stroke-dasharray="8 7" opacity=".8"/><ellipse cx="168" cy="96" rx="62" ry="34" fill="none" stroke="#71d6e9" stroke-width="3" stroke-dasharray="8 7"/><circle cx="108" cy="96" r="28" fill="#c9844e" stroke="#fff8df" stroke-width="3"/><ellipse cx="100" cy="104" rx="10" ry="11" fill="#efe4c4"/><circle cx="232" cy="96" r="16" fill="#9a9690" stroke="#fff8df" stroke-width="3"/><ellipse cx="232" cy="86" rx="10" ry="5" fill="#a85a4a"/><g transform="translate(168 96)"><circle r="7" fill="#f0c36e" stroke="#fff8df" stroke-width="2"/><path d="M-12 0h24M0-12v24" stroke="#f0c36e" stroke-width="3" stroke-linecap="round"/></g></svg><strong>They travel around a meeting point in the space between them.</strong></aside>
+<aside class="detail" id="heartDetail" aria-live="polite"><svg viewBox="0 0 320 180" role="img" aria-hidden="true"><rect width="320" height="180" rx="14" fill="#071625"/><circle cx="168" cy="104" r="68" fill="#c9844e"/><path d="M168 156C124 128 114 96 136 82 146 76 154 82 168 98 182 82 190 76 200 82 222 96 212 128 168 156Z" fill="#efe4c4"/><path d="M168 150C132 128 126 102 144 92 152 87 158 92 168 106 158 98 144 100 136 112 128 124 142 140 168 150Z" fill="#fff8df"/><path d="M132 104q22 6 32-10" fill="none" stroke="#cfe0ff" stroke-width="5" stroke-linecap="round"/></svg><strong>A bright heart of nitrogen ice — what New Horizons photographed.</strong></aside>
+<aside class="detail" id="flybyDetail" aria-live="polite"><svg viewBox="0 0 320 180" role="img" aria-hidden="true"><rect width="320" height="180" rx="14" fill="#071625"/><circle cx="210" cy="118" r="46" fill="#c9844e"/><path d="M210 150C182 132 176 112 190 102 196 98 202 102 210 112 218 102 224 98 230 102 244 112 238 132 210 150Z" fill="#efe4c4"/><path d="M28 44l214 86" stroke="#71d6e9" stroke-width="4" stroke-dasharray="8 7" stroke-linecap="round"/><path d="M230 118l22 12-28 2" fill="#71d6e9"/></svg><strong>New Horizons flew past in 2015. It did not orbit or land.</strong></aside>
+<div class="status" id="status" role="status"></div>
+<div class="fact-rack">
+<section class="fact-group pluto-facts" aria-label="Pluto facts">
+<h2>Pluto facts</h2>
+<div class="fact-row">
+<button class="fact" data-icon="pluto-diameter.svg" data-say="Pluto is about 2,377 kilometres across, smaller than Earth's Moon."><span></span><span><strong>Icy world</strong>About 2,377 km</span></button>
+<button class="fact" data-icon="charon-size.svg" data-say="Charon is about half as wide as Pluto — the largest moon compared with its world."><span></span><span><strong>Giant companion</strong>About half as wide</span></button>
+<button class="fact" data-icon="pluto-year.svg" data-say="Pluto takes about 248 Earth years to travel once around the Sun, on a tilted, stretched-out path."><span></span><span><strong>Long year</strong>About 248 Earth years</span></button>
+<button class="fact" data-icon="heart-nitrogen.svg" data-say="New Horizons saw a bright heart-shaped patch. The left side is a huge nitrogen-ice plain."><span></span><span><strong>Bright heart</strong>Nitrogen ice</span></button>
+</div>
+</section>
+<section class="fact-group family-facts" aria-label="Dwarf planet family">
+<h2>Dwarf planet family</h2>
+<div class="fact-row">
+<button class="fact" data-icon="five-moons.svg" data-say="Pluto has five known moons: Charon, and four much smaller ones named Styx, Nix, Kerberos, and Hydra."><span></span><span><strong>Five moons</strong>Charon and four tiny ones</span></button>
+<button class="fact" data-icon="dwarf-planet.svg" data-say="Pluto is a dwarf planet: it is round, it orbits the Sun, and it has not cleared other objects from its neighbourhood. It is still a real world."><span></span><span><strong>Dwarf planet</strong>Still a real world</span></button>
+</div>
+</section>
+</div><div class="page-controls" aria-label="Page controls"><button type="button" id="sound" aria-pressed="true">Sound on</button><button type="button" id="motion" aria-pressed="false" title="Stop everything on the page from moving (reduced motion)">Calm mode</button><button type="button" id="replay">Replay</button><button type="button" id="fullscreen">Full screen</button><button type="button" id="quality" aria-pressed="false">Standard picture</button></div>
+</main>
+<div class="modal" id="modal"><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="lessonTitle"><div class="dialog-head"><h2 id="lessonTitle">A famous icy world</h2><button class="close" id="close" aria-label="Close">×</button></div><div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-diagram="pluto-charon-size.svg" data-say="Pluto is about 2,377 kilometres across, smaller than Earth's Moon." data-title="How wide is Pluto?" data-copy="Pluto is about 2,377 kilometres, or 1,477 miles, across — about one-fifth as wide as Earth, and smaller than Earth's Moon. Charon is about 1,214 kilometres, or 754 miles, across, about half as wide as Pluto. This picture changes the sizes so the worlds can fit; it is not a true scale model.">Size</button><button role="tab" aria-selected="false" data-diagram="barycenter-dance.svg" data-say="Pluto and Charon travel around a meeting point in the space between them. That shared dance is something we can see." data-title="The shared meeting point" data-copy="Charon is so big that Pluto does not sit still while Charon goes around it. Both worlds travel around a shared gravity point, the barycenter, in the space between them. Some people call them a double planet. That is not an official name. The dance itself is something we can see.">Dance</button><button role="tab" aria-selected="false" data-diagram="tilted-oval-orbit.svg" data-say="Pluto takes about 248 Earth years to travel once around the Sun, on a tilted, stretched-out path." data-title="A long, tilted year" data-copy="Pluto's path around the Sun is stretched into an oval and tipped compared with the planets. It can travel as close as 30 times Earth's distance from the Sun, and as far as about 49 times. One trip takes about 248 Earth years. This picture shortens and tips the path so it can fit; it is not a true map.">Path</button><button role="tab" aria-selected="false" data-diagram="heart-nitrogen-ice.svg" data-say="New Horizons saw a bright heart-shaped patch on Pluto. The left side is a huge nitrogen-ice plain." data-title="The heart of nitrogen ice" data-copy="The bright heart is called Tombaugh Regio. Its western lobe, Sputnik Planitia, is a huge plain of nitrogen ice, with methane and carbon monoxide ices too. Pictures show ice that looks as if it has flowed. Scientists think it can still move, slowly, like a glacier. Pluto also has a thin nitrogen air that may thicken when Pluto is nearer the Sun. Nobody has seen life here.">Heart</button><button role="tab" aria-selected="false" data-diagram="new-horizons-flyby.svg" data-say="In 2015, New Horizons flew past Pluto. It did not go into orbit, and it did not land." data-title="A visit, not a landing" data-copy="New Horizons is the only spacecraft to explore Pluto up close. It flew by on 14 July 2015, coming about 12,500 kilometres, or 7,800 miles, from Pluto, then kept going. It photographed Pluto, Charon, and the four smaller moons. The picture is a simple teaching drawing, not a photograph.">Flyby</button><button role="tab" aria-selected="false" data-diagram="dwarf-planet-family.svg" data-say="The IAU names five official dwarf planets: Ceres, Pluto, Haumea, Makemake, and Eris. There may be more waiting to be found." data-title="Five official dwarf planets" data-copy="A dwarf planet orbits the Sun and is round enough that its own gravity pulled it into a ball, but it has not swept other objects out of its neighbourhood. The IAU has named five: Ceres in the asteroid belt, then Pluto, Haumea, Makemake, and Eris farther out. Pluto is still a real world. This family picture is not to scale.">Family</button></div><div class="lesson"><div class="lesson-box" id="diagram"></div><div class="lesson-copy"><h3 id="lessonName">How wide is Pluto?</h3><p id="lessonCopy"></p><p class="note">Tap the diagram to replay its motion. Diagrams are explanatory and not to scale.</p></div></div></section></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const stage=$('#stage'),status=$('#status');let reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,soundOn=true;let lastFocus,timer,actionTimer;
+function say(t){show(t);if(!soundOn||!window.speechSynthesis)return;speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(t))}function show(t){status.textContent=t;status.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>status.classList.remove('show'),4400)}
+function poses(a,d){$$('.ari.pose').forEach(x=>x.classList.toggle('active',x.dataset.ari===a));$$('.dot.pose').forEach(x=>x.classList.toggle('active',x.dataset.dot===d))}
+function resetScene(){stage.classList.remove('dance','heart','flyby');$$('.detail').forEach(el=>el.classList.remove('show'))}
+function playSvg(root){if(reduced)return;root.querySelectorAll('animate,animateTransform,animateMotion').forEach(a=>{try{a.beginElement()}catch{}})}
+function autoReset(){clearTimeout(actionTimer);actionTimer=setTimeout(()=>{resetScene();poses('present','scan')},6200)}
+$('#listen').onclick=()=>say('Far beyond Neptune, icy Pluto and its giant moon Charon travel around a shared meeting point. New Horizons flew past in 2015 and saw a bright heart of nitrogen ice. Pluto is still a real world — one of five official dwarf planets.');
+$('#dance').onclick=()=>{resetScene();poses('look','study');if(!reduced)stage.classList.add('dance');$('#danceDetail').classList.add('show');say('Pluto and Charon travel around a meeting point in the space between them. That shared dance is something we can see.');autoReset()};
+$('#heart').onclick=()=>{resetScene();poses('present','scan');stage.classList.add('heart');$('#heartDetail').classList.add('show');say('New Horizons saw a bright heart-shaped patch on Pluto. The left side is a huge nitrogen-ice plain.');autoReset()};
+$('#flyby').onclick=()=>{resetScene();poses('present','study');if(!reduced)stage.classList.add('flyby');$('#flybyDetail').classList.add('show');say('In 2015, New Horizons flew past Pluto. It did not go into orbit, and it did not land.');autoReset()};
+$$('.fact').forEach(b=>b.onclick=()=>{playSvg(b);say(b.dataset.say)});
+const modal=$('#modal');let diagramRequest=0;async function loadDiagram(btn){const request=++diagramRequest;$$('[role=tab]').forEach(x=>x.setAttribute('aria-selected',x===btn));$('#lessonName').textContent=btn.dataset.title;$('#lessonCopy').textContent=btn.dataset.copy;const r=await fetch(`assets-runtime/standard/page-19/diagrams/${btn.dataset.diagram}?v=1`),svg=await r.text();if(request!==diagramRequest)return;$('#diagram').innerHTML=svg;playSvg($('#diagram'))}function openModal(){lastFocus=document.activeElement;modal.classList.add('open');stage.inert=true;loadDiagram($('[role=tab]'));$('#close').focus()}function closeModal(){modal.classList.remove('open');stage.inert=false;lastFocus?.focus()}$('#about').onclick=openModal;$('#close').onclick=closeModal;$$('[role=tab]').forEach(b=>b.onclick=()=>{loadDiagram(b);say(b.dataset.say)});$('#diagram').onclick=()=>playSvg($('#diagram'));modal.onclick=e=>{if(e.target===modal)closeModal()};document.addEventListener('keydown',e=>{if(!modal.classList.contains('open'))return;if(e.key==='Escape')closeModal();if(e.key==='Tab'){const f=$$('.dialog button'),i=f.indexOf(document.activeElement);if(e.shiftKey&&i===0){e.preventDefault();f.at(-1).focus()}else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus()}}});
+async function loadFacts(){$$('.fact').forEach(async b=>{const r=await fetch(`assets-runtime/standard/page-19/icons/${b.dataset.icon}?v=1`);b.firstElementChild.innerHTML=await r.text()})}loadFacts();
+const nav=$('.page-nav'),jump=$('.page-jump'),form=$('.page-goto'),input=form.querySelector('input');let hold,long=false;const openJump=()=>{long=true;form.hidden=false;input.select();input.focus()};jump.onpointerdown=()=>{long=false;hold=setTimeout(openJump,650)};['pointerup','pointercancel','pointerleave'].forEach(t=>jump.addEventListener(t,()=>clearTimeout(hold)));jump.onclick=e=>{if(long)e.preventDefault()};jump.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openJump()}};form.onsubmit=e=>{e.preventDefault();const n=+input.value;if(n>0&&n<20)location.href=`page-${String(n).padStart(2,'0')}.html`};document.addEventListener('pointerdown',e=>{if(!nav.contains(e.target))form.hidden=true});if(reduced)document.body.classList.add('reduced');
+
+(()=>{const sb=document.getElementById('sound'),mb=document.getElementById('motion');const syncSound=()=>{sb.textContent=soundOn?'Sound on':'Sound off';sb.setAttribute('aria-pressed',String(soundOn))};const syncMotion=()=>{mb.textContent=reduced?'Full motion':'Calm mode';mb.setAttribute('aria-pressed',String(reduced));document.body.classList.toggle('reduced',reduced)};sb.onclick=()=>{soundOn=!soundOn;if(!soundOn&&window.speechSynthesis)speechSynthesis.cancel();syncSound()};mb.onclick=()=>{reduced=!reduced;syncMotion();if(reduced)stage.classList.remove('dance','flyby')};syncSound();syncMotion()})();
+(()=>{const byId=s=>document.getElementById(s);byId('replay').onclick=()=>location.reload();const fs=byId('fullscreen'),root=document.documentElement;if(!root.requestFullscreen)fs.hidden=true;else fs.onclick=()=>document.fullscreenElement?document.exitFullscreen():root.requestFullscreen().catch(()=>{});let tier='standard';try{if(localStorage.getItem('sb-quality')==='high')tier='high'}catch(e){}const anyImg=()=>document.querySelector('img[src*="assets-runtime/"]:not([data-fixed-tier])');const retier=()=>[...document.querySelectorAll('img[src*="assets-runtime/"]:not([data-fixed-tier])')].forEach(i=>i.src=i.getAttribute('src').replace(/assets-runtime\/(standard|high)\//,'assets-runtime/'+tier+'/'));const highReady=()=>new Promise(r=>{const el=anyImg();if(!el)return r(false);const im=new Image();im.onload=()=>r(true);im.onerror=()=>r(false);im.src=el.getAttribute('src').replace(/assets-runtime\/(standard|high)\//,'assets-runtime/high/')});const qb=byId('quality'),sync=()=>{qb.textContent=tier==='high'?'Sharper picture':'Standard picture';qb.setAttribute('aria-pressed',String(tier==='high'))};const remember=()=>{try{tier==='high'?localStorage.setItem('sb-quality','high'):localStorage.removeItem('sb-quality')}catch(e){}};qb.onclick=async()=>{if(tier==='high'){tier='standard';retier();remember();sync();return}qb.disabled=true;const ok=await highReady();qb.disabled=false;if(!ok){qb.textContent='Standard only';setTimeout(sync,2200);return}tier='high';retier();remember();sync()};if(tier==='high'){tier='standard';highReady().then(ok=>{if(ok){tier='high';retier()}else remember();sync()})}sync()})();
+;(()=>{const q=document.getElementById('quality'),el=document.querySelector('img[src*="assets-runtime/"]:not([data-fixed-tier])');if(!q)return;if(!el){q.hidden=true;return}const im=new Image();im.onerror=()=>{q.hidden=true};im.src=el.getAttribute('src').replace(/assets-runtime\/(standard|high)\//,'assets-runtime/high/')})();
+
+/* NAMEPLATES:JS */
+/* Name boxes: tap a name, hear the name. Routed through this page's own
+   narration helper so the sound toggle and status line keep working.
+   The leading semicolon is load-bearing: pages 7-10 end their last statement
+   without one, and a following line that opens with `(` is parsed as a call on
+   that statement's value -- `classList.add('reduced')(...)` -- which throws and
+   silently takes this whole block with it. The boxes still looked right and
+   simply never spoke. */
+;(()=>{const plates=[...document.querySelectorAll('.np')];if(!plates.length)return;
+const tell=(typeof say==='function')?say
+:(typeof showStatus==='function'&&typeof speak==='function')?(t=>{showStatus(t);speak(t)})
+:(t=>{if(!window.speechSynthesis)return;speechSynthesis.cancel();
+const u=new SpeechSynthesisUtterance(t);u.rate=.92;u.pitch=1.06;speechSynthesis.speak(u)});
+let offTimer;plates.forEach(p=>p.addEventListener('click',()=>{
+plates.forEach(x=>x.classList.toggle('np-on',x===p));clearTimeout(offTimer);
+offTimer=setTimeout(()=>p.classList.remove('np-on'),2600);
+tell(p.dataset.say||p.querySelector('.np-name').textContent)}))})();
+/* /NAMEPLATES:JS */
+/* SECRETS:JS */
+/* Sparkling stars and the sticker book. Speech goes through the page's own
+   helper so the Sound toggle keeps working; one friend at a time so taps cannot
+   stack; the collection is shared across the whole book via localStorage. */
+;(()=>{const stars=[...document.querySelectorAll('.sf-star')];if(!stars.length)return;
+const tell=(typeof say==='function')?say
+:(typeof showStatus==='function'&&typeof speak==='function')?(t=>{showStatus(t);speak(t)})
+:(typeof showFact==='function'&&typeof speakRole==='function')?(t=>{showFact(t);speakRole(t)})
+:(t=>{if(!window.speechSynthesis)return;speechSynthesis.cancel();
+const u=new SpeechSynthesisUtterance(t);u.rate=.95;u.pitch=1.25;speechSynthesis.speak(u)});
+/* A two-note plink, made rather than loaded: it needs no asset, no licence and
+   no download, and it is the same trick page 2 already uses for its chime. */
+let actx;const plink=()=>{try{const A=window.AudioContext||window.webkitAudioContext;if(!A)return;
+actx=actx||new A();if(actx.state==='suspended')actx.resume();
+[[880,0],[1320,.09]].forEach(([f,t])=>{const o=actx.createOscillator(),g=actx.createGain();
+o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(.0001,actx.currentTime+t);
+g.gain.exponentialRampToValueAtTime(.16,actx.currentTime+t+.015);
+g.gain.exponentialRampToValueAtTime(.0001,actx.currentTime+t+.28);
+o.connect(g);g.connect(actx.destination);o.start(actx.currentTime+t);o.stop(actx.currentTime+t+.3)})}catch(e){}};
+
+const KEY='sb-stickers';
+const load=()=>{try{return new Set(JSON.parse(localStorage.getItem(KEY)||'[]'))}catch(e){return new Set()}};
+const save=set=>{try{localStorage.setItem(KEY,JSON.stringify([...set]))}catch(e){}};
+let got=load();
+const book=document.querySelector('.sf-book'),tally=book&&book.querySelector('.sf-tally');
+/* Prefer .page-controls: on pages 11-14 that is the utility row, while .tools
+   there holds the page's own discovery buttons. On pages 5-10 .tools *is* the
+   utility row. Asked for in one selector list this picks whichever comes first
+   in the document, not the one wanted -- page 12 got its empty .tools and the
+   book vanished -- so they are tried in order, and a zero-sized row is skipped. */
+const host=['.page-controls','.tools','.toolbar'].map(q=>document.querySelector(q))
+ .find(el=>el&&el.getBoundingClientRect().width>10);
+if(book&&host)host.appendChild(book);
+const syncBook=()=>{if(tally)tally.textContent=`${got.size} / ${SF_ROSTER.length}`};
+
+const panel=document.querySelector('.sf-panel'),grid=panel&&panel.querySelector('.sf-grid');
+const paint=()=>{if(!grid)return;grid.innerHTML=SF_ROSTER.map(f=>{
+const has=got.has(f.id);
+return `<div class="sf-slot ${has?'sf-got':'sf-locked'}" title="${has?f.name:'Still hidden'}">`+
+`<img src="${SF_ART}/${f.art}.webp" alt="${has?f.name:'A sticker still to find'}"></div>`}).join('')};
+const outside=()=>[...panel.parentElement.children].filter(x=>x!==panel);
+if(book){book.addEventListener('click',()=>{paint();panel.classList.add('sf-open');
+outside().forEach(x=>x.inert=true);panel.querySelector('.sf-close').focus()})}
+if(panel){const shut=()=>{panel.classList.remove('sf-open');outside().forEach(x=>x.inert=false);
+if(book)book.focus()};panel.querySelector('.sf-close').onclick=shut;
+addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('sf-open'))shut()})}
+
+let busy=false,timers=[];
+let total=stars.filter(s=>s.offsetParent!==null).length;
+addEventListener('resize',()=>{if(!busy)total=stars.filter(s=>s.offsetParent!==null).length});
+stars.forEach(star=>star.addEventListener('click',()=>{
+if(busy)return;busy=true;const id=star.dataset.friend;
+const friend=document.getElementById(id);star.hidden=true;
+friend.classList.remove('sf-going');friend.classList.add('sf-here');
+plink();
+if(!got.has(star.dataset.sticker)){got.add(star.dataset.sticker);save(got);syncBook();
+if(book){book.classList.remove('sf-pulse');void book.offsetWidth;book.classList.add('sf-pulse')}}
+tell(star.dataset.say);
+timers.forEach(clearTimeout);timers=[
+ setTimeout(()=>friend.classList.add('sf-going'),3600),
+ setTimeout(()=>{friend.classList.remove('sf-here','sf-going');star.hidden=false;busy=false},4400)]}));
+syncBook()})();
+/* /SECRETS:JS */
+</script></body></html>
