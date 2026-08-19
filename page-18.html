@@ -202,6 +202,9 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
    layouts inherit the same factor without being edited. `scale` composes with
    `transform`, so the pose animations still work on top of it. */
 .ari,.dot{scale:.8;transform-origin:50% 100%}
+.crew{z-index:11;left:13%;bottom:17%;width:37%;height:51%;scale:.8;transform-origin:50% 100%;transition:transform .4s ease}.stage.retro .crew{transform:rotate(-2deg)}.stage.seen .crew{transform:translateY(-1.2%)}
+@media(max-aspect-ratio:4/5){.crew{left:8%;bottom:22%;width:45%;height:42%}}
+@media(max-aspect-ratio:4/5){.crew{left:-10%;bottom:30%;width:62%;height:36%}}
 </style></head><body>
 <main class="stage" id="stage">
 <!-- NAMEPLATES:HTML -->
@@ -230,8 +233,7 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 <section class="story"><div class="eyebrow">Page 18 · The backward moon</div><h1>Triton</h1><p>Far from home, a pale pink moon walks the other way around giant Neptune. Voyager 2 once flew past and saw dark streaks and icy fountains on this freezing world.</p><div class="story-actions"><button class="pill" id="listen">▶ Listen</button><button class="pill" id="about">◎ Explore Triton</button></div></section>
 <nav class="page-nav" aria-label="Page navigation"><a href="page-17.html" aria-label="Previous page">‹</a><button class="page-jump" aria-label="Page 18 of 20. Press and hold to go to a page">18 / 20</button><a href="page-19.html" aria-label="Next page">›</a><form class="page-goto" hidden><label>Go to <input type="number" min="1" max="20" value="18"></label><button>Go</button></form></nav>
 <img class="art craft" id="craft" src="assets-runtime/standard/page-17/voyager-2-neptune-v1.webp" alt="Voyager 2 flying toward Triton">
-<img class="art ari pose active" data-ari="present" src="assets-runtime/standard/page-17/ari-neptune-present-v1.webp" alt="Ari presenting Triton"><img class="art ari pose" data-ari="look" src="assets-runtime/standard/page-17/ari-neptune-distance-look-v1.webp" alt="Ari watching Triton's path">
-<img class="art dot pose active" data-dot="scan" src="assets-runtime/standard/page-17/dot-neptune-weather-scan-v1.webp" alt="Dot scanning Triton"><img class="art dot pose" data-dot="study" src="assets-runtime/standard/page-17/dot-voyager-neptune-study-v1.webp" alt="Dot studying Voyager 2 observations">
+<img class="art crew" src="assets-runtime/standard/page-18/ari-dot-triton-field-study-v1.webp" alt="Ari steadies a field viewer while Dot samples Triton's icy surface">
 <div class="tools" aria-label="Triton discoveries"><button class="tool" id="orbit">↺ Watch the backward path</button><button class="tool" id="voyager">⌁ Voyager 2's 1989 look</button><button class="tool" id="cold">❄ Feel the deep cold</button></div>
 <aside class="detail" id="seenDetail" aria-live="polite"><svg viewBox="0 0 320 180" role="img" aria-hidden="true"><rect width="320" height="180" rx="14" fill="#071625"/><circle cx="186" cy="118" r="64" fill="#e8b8a0"/><path d="M142 104q36 16 80-4" fill="none" stroke="#4a322c" stroke-width="8" stroke-linecap="round"/><path d="M140 124q44 12 88 0" fill="none" stroke="#4a322c" stroke-width="6" stroke-linecap="round"/><path d="M204 72c8-26 4-46-8-62" fill="none" stroke="#71d6e9" stroke-width="6" stroke-linecap="round"/><circle cx="194" cy="14" r="4" fill="#4a322c"/><g transform="translate(58 70) rotate(-16)"><rect x="-16" y="-9" width="32" height="18" rx="3" fill="#f0c36e"/><path d="M16 0h22" stroke="#d9853f" stroke-width="4"/></g></svg><strong>Dark streaks and a geyser-like fountain — what Voyager 2 photographed.</strong></aside>
 <div class="status" id="status" role="status"></div>
@@ -241,7 +243,7 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const stage=$('#stage'),status=$('#status');let reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,soundOn=true;let lastFocus,timer,actionTimer;
 function say(t){show(t);if(!soundOn||!window.speechSynthesis)return;speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(t))}function show(t){status.textContent=t;status.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>status.classList.remove('show'),4400)}
-function poses(a,d){$$('.ari.pose').forEach(x=>x.classList.toggle('active',x.dataset.ari===a));$$('.dot.pose').forEach(x=>x.classList.toggle('active',x.dataset.dot===d))}
+function poses(){}
 function resetScene(){stage.classList.remove('retro','seen','cold');$('#craft').classList.remove('fly');$('#seenDetail').classList.remove('show')}
 function playSvg(root){if(reduced)return;root.querySelectorAll('animate,animateTransform,animateMotion').forEach(a=>{try{a.beginElement()}catch{}})}
 function autoReset(){clearTimeout(actionTimer);actionTimer=setTimeout(()=>{resetScene();poses('present','scan')},6200)}
