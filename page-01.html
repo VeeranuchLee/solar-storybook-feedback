@@ -176,6 +176,21 @@ html,body{margin:0;height:100%;background:#05060d;color:var(--ink);
 #ari{position:absolute;inset:0;z-index:23;pointer-events:none}
 #ari .ari-pose{opacity:1}
 #ari .ari-pose.hidden{opacity:0}
+/* Ari's hit box is a 20% x 39% rectangle around a boy sitting up in bed, and
+   only 59.6% of it was Ari. At head height the box was about twice the width
+   of the head, so ~38px of curtain and sky either side of it (at the 768px
+   iPad width) answered to "Wave to Ari" -- which is what the owner reported.
+   This polygon follows the silhouette of the rest and wave poses *combined*,
+   so the target does not shift when Ari waves, padded outward by 1.2% of the
+   stage so a child aiming at an edge still lands. Measured from the art in
+   assets-runtime/standard/page-01/, not eyeballed:
+     area 69.7% of the old rectangle, and 83.0% of it is Ari,
+     while 97.1% of Ari's own pixels stay tappable.
+   Verified by hit-testing on the running page: the curtain 7% left of the head
+   used to return ari-hit and now returns the stage, while the head still waves.
+   Where clip-path is unsupported this degrades to the old rectangle, which is
+   over-generous rather than broken. */
+#ari-hit{clip-path:polygon(70.4% 6.2%,78.3% 12.5%,75.3% 18.8%,76.0% 25.0%,100.0% 31.2%,100.0% 37.5%,97.1% 43.8%,96.2% 50.0%,92.6% 56.2%,87.4% 62.5%,90.3% 68.8%,100.0% 75.0%,100.0% 81.2%,97.1% 87.5%,79.6% 93.8%,14.2% 93.8%,2.1% 87.5%,0.0% 81.2%,0.0% 75.0%,4.7% 68.8%,7.0% 62.5%,10.3% 56.2%,13.8% 50.0%,20.4% 43.8%,23.6% 37.5%,14.5% 31.2%,11.2% 25.0%,12.2% 18.8%,13.5% 12.5%,23.6% 6.2%)}
 #dot{z-index:24}
 .layer.gleam img{animation:objGleam 11s ease-in-out infinite}
 #dot img{animation-delay:2.6s}
