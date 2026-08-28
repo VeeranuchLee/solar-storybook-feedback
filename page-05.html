@@ -14,6 +14,15 @@ body{overflow-x:hidden}
 .book{min-height:100vh;display:grid;place-items:center}
 .stage{position:relative;width:min(100vw,150vh,1536px);aspect-ratio:3/2;overflow:hidden;background:#3a1b06 url("assets-runtime/standard/page-05/venus-space-background.webp") center/cover no-repeat;isolation:isolate}
 .stage:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(10,4,0,.7),transparent 43%),linear-gradient(0deg,rgba(12,4,0,.63),transparent 40%)}
+
+/* Owner, 2026-08-27: "need to make sure ALL games has back icon to the hub".
+   Mirrors .page-nav's geometry on the opposite corner -- the book's whole chrome
+   lives top-right, and top-left, which was empty, is where the same arrow sits in
+   every other app the hub links to. --focus is defined on page 1 only, hence the
+   literal fallback the other pages already use for focus rings. */
+.story-hub{position:absolute;z-index:40;top:1.5%;left:1.5%;display:grid;place-items:center;height:32px;min-width:32px;padding:0 8px;border:1px solid rgba(255,255,255,.2);border-radius:8px;background:#16345c;color:#fff;font:inherit;font-weight:900;text-decoration:none}
+.story-hub:hover{background:#285b87}
+.story-hub:focus-visible{outline:3px solid var(--focus,#8eeaff);outline-offset:2px}
 .page-nav{position:absolute;z-index:40;top:2%;left:2%;display:flex;gap:.45rem;align-items:center}.page-nav>a,.page-jump,.tool{display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid #ffd77c;border-radius:999px;background:rgba(28,13,3,.75);color:#fff;text-decoration:none;font-weight:900;box-shadow:0 4px 15px #0008}.page-jump{padding:0 .8rem}
 .story{position:absolute;z-index:12;top:9%;left:4%;width:31%;text-shadow:0 3px 7px #000}.story h1{margin:0;color:var(--gold);font-size:clamp(1.7rem,4vw,3.5rem);line-height:.93}.story h1 small{display:block;font-size:.55em;margin-top:.2em}.story p{font-size:clamp(.82rem,1.65vw,1.35rem);line-height:1.38;margin:.75em 0}
 .planet{position:absolute;z-index:3;right:-2%;top:-15%;width:69%;aspect-ratio:1;border:0;background:none;padding:0;cursor:pointer;border-radius:50%}.planet:after{content:"";position:absolute;z-index:5;top:16%;bottom:16%;left:18%;width:3px;border-radius:99px;background:#8ff;box-shadow:0 0 8px #fff,0 0 22px #5ff;opacity:0;pointer-events:none}.planet img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}.surface{opacity:0}.radar{opacity:0;clip-path:inset(0 100% 0 0);filter:drop-shadow(0 0 15px #6ff)}.cloud{opacity:1}.cloud-detail{mix-blend-mode:screen;opacity:.52;animation:drift 8s ease-in-out infinite alternate;transform-origin:center}.detail2{opacity:.4;animation-duration:11s;animation-direction:alternate-reverse}.planet.radar-on .cloud{opacity:.32}.planet.radar-on .surface{opacity:.18}.planet.radar-on .radar{opacity:1;animation:radarReveal 2.2s ease-in-out forwards}.planet.radar-on:after{opacity:1;animation:radarLine 2.2s ease-in-out forwards}.planet img{transition:opacity .65s ease}
@@ -259,6 +268,10 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
     <span style="--x:12%;--y:71%;--s:3px;--d:2.8s;--delay:-1.5s"></span><span style="--x:27%;--y:73%;--s:5px;--d:3.3s;--delay:-.2s"></span><span style="--x:34%;--y:29%;--s:3px;--d:2.6s;--delay:-2s"></span>
     <span style="--x:3%;--y:48%;--s:3px;--d:3.5s;--delay:-1.3s"></span><span style="--x:19%;--y:29%;--s:4px;--d:2.4s;--delay:-.6s"></span><span style="--x:35%;--y:66%;--s:4px;--d:3s;--delay:-2.4s"></span>
   </div>
+  <!-- Absolute URL on purpose: published, /solar-storybook-feedback/ and
+       /children-apps/ are siblings, but in the repo the hub lives under site/, so a
+       relative link would work live and 404 in every local preview. -->
+  <a class="story-hub" href="https://veeranuchlee.github.io/children-apps/" aria-label="Back to Children Games" title="Back to Children Games">←</a>
   <nav class="page-nav" data-current-page="5" aria-label="Page navigation"><a href="page-04.html" aria-label="Previous page">‹</a><button class="page-jump" id="pageJump" type="button" aria-label="Page 5 of 20. Press and hold to go to a page">5 / 20</button><a href="page-06.html" aria-label="Next page" title="Next page">›</a><form class="page-goto" hidden><label>Go to <input type="number" min="1" max="20" value="5" inputmode="numeric" aria-label="Page number"></label><button type="submit">Go</button></form></nav>
   <div class="tools"><button class="tool" id="motion" type="button" aria-pressed="false" title="Stop everything on the page from moving (reduced motion)">Calm mode</button><button class="tool" id="sound" type="button">🔊 Sound</button><button class="tool" id="replay" type="button">↻ Replay</button><button class="tool" id="fullscreen" type="button" aria-label="Full screen">⛶ Full</button><button class="tool" id="quality" type="button" aria-pressed="false">✦ Standard</button></div>
   <section class="story">
@@ -336,7 +349,7 @@ if(rtTier==="high"){rtTier="standard";highReady().then(ok=>{if(ok){rtTier="high"
    these pages are opened over file:// where fetch is blocked.
    NOTE: rendered via the unofficial edge backend -- re-render through
    --backend azure before publishing (see assets-manifest.json provenance). */
-const NARRATION={};
+const NARRATION={"Radar reveals the surface below.":"p05-narrator-01-radar-reveals-the-surface-below.mp3","Golden clouds return.":"p05-narrator-02-golden-clouds-return.mp3","Venus is wrapped in thick golden clouds above an extremely hot surface.":"p05-narrator-03-venus-is-wrapped-in-thick-golden.mp3","Venus is almost as wide as Earth, but its thick atmosphere traps heat. Radar helps us explore the surface beneath its golden clouds.":"p05-narrator-04-venus-is-almost-as-wide-as.mp3","Venus hides behind golden clouds.":"p05-narrator-05-venus-hides-behind-golden-clouds.mp3","Radar mapper scans Venus.":"p05-narrator-06-radar-mapper-scans-venus.mp3","A protected lander touches down.":"p05-narrator-07-a-protected-lander-touches-down.mp3","An imaginary glider rides the clouds.":"p05-narrator-08-an-imaginary-glider-rides-the-clouds.mp3","Venus's thick atmosphere holds in heat.":"p05-narrator-09-venus-s-thick-atmosphere-holds-in.mp3","Venus spins backward.":"p05-narrator-10-venus-spins-backward.mp3","The Sun rises in the west.":"p05-narrator-11-the-sun-rises-in-the-west.mp3","Almost Earth-sized: 12,104 kilometres.":"p05-narrator-12-almost-earth-sized-12-104-kilometres.mp3","About 467 degrees. Hottest planet!":"p05-narrator-13-about-467-degrees-hottest-planet.mp3","One backward turn: 243 Earth days.":"p05-narrator-14-one-backward-turn-243-earth-days.mp3","One year: 225 Earth days.":"p05-narrator-15-one-year-225-earth-days.mp3","No moons.":"p05-narrator-16-no-moons.mp3","Pressure: 93 times Earth's sea level.":"p05-narrator-17-pressure-93-times-earth-s-sea.mp3"};
 const NARRATION_BASE="assets/audio/page-05/";
 let narrationAudio=null,narrationToken=0;
 const stopNarration=()=>{try{if(narrationAudio){narrationToken++;narrationAudio.onended=null;narrationAudio.onerror=null;narrationAudio.pause()}}catch(e){}};

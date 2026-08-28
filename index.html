@@ -269,6 +269,15 @@ html,body{margin:0;height:100%;background:#05060d;color:var(--ink);
   opacity:.6;font-size:14px;background:var(--panel);padding:4px 12px;border-radius:20px}
 /* Shared book navigator geometry — matched to pages 2-6 (32px / gap 4 /
      padding 4 / top 1.5% right 1.5%). This page previously ran ~15% larger. */
+
+/* Owner, 2026-08-27: "need to make sure ALL games has back icon to the hub".
+   Mirrors .page-nav's geometry on the opposite corner -- the book's whole chrome
+   lives top-right, and top-left, which was empty, is where the same arrow sits in
+   every other app the hub links to. --focus is defined on page 1 only, hence the
+   literal fallback the other pages already use for focus rings. */
+.story-hub{position:absolute;z-index:40;top:1.5%;left:1.5%;display:grid;place-items:center;height:32px;min-width:32px;padding:0 8px;border:1px solid rgba(255,255,255,.2);border-radius:8px;background:#16345c;color:#fff;font:inherit;font-weight:900;text-decoration:none}
+.story-hub:hover{background:#285b87}
+.story-hub:focus-visible{outline:3px solid var(--focus,#8eeaff);outline-offset:2px}
 .page-nav{position:absolute;z-index:40;top:1.5%;right:1.5%;display:flex;align-items:center;gap:4px;padding:4px;
   border:1px solid rgba(255,255,255,.2);border-radius:13px;background:rgba(8,14,31,.78);backdrop-filter:blur(7px)}
 .page-nav>a,.page-jump{display:grid;place-items:center;height:32px;min-width:32px;border:1px solid rgba(255,255,255,.2);
@@ -513,6 +522,10 @@ body.reduce-motion .night-light{transition:none !important}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.1L20 9.3l-4 3.7.9 5.5L12 16l-4.9 2.5.9-5.5-4-3.7 5.8-1.2z"/></svg>
       </button>
     </div>
+    <!-- Absolute URL on purpose: published, /solar-storybook-feedback/ and
+         /children-apps/ are siblings, but in the repo the hub lives under site/, so a
+         relative link would work live and 404 in every local preview. -->
+    <a class="story-hub" href="https://veeranuchlee.github.io/children-apps/" aria-label="Back to Children Games" title="Back to Children Games">←</a>
     <nav class="page-nav" data-current-page="1" aria-label="Page navigation">
       <a aria-label="Previous page" aria-disabled="true" title="Previous page">‹</a>
       <button class="page-jump" type="button" aria-label="Page 1 of 20. Press and hold to go to a page" title="Press and hold to go to a page">1 / 20</button>
@@ -576,7 +589,13 @@ body.reduce-motion .night-light{transition:none !important}
      these pages are opened over file:// where fetch is blocked.
      NOTE: rendered via the unofficial edge backend -- re-render through
      --backend azure before publishing (see assets-manifest.json provenance). */
-  const NARRATION = {};
+  const NARRATION = {
+      "Ari couldn't sleep. Jupiter was shining so bright outside the window! Ari opened a book about the solar system.": "p01-narrator-01-ari-couldn-t-sleep-jupiter-was.mp3",
+      "It tells me the names, but not what it would really be like to visit them.": "p01-ari-02-it-tells-me-the-names-but.mp3",
+      "Beep! Beep! A tiny robot woke up inside Ari's toy rocket.": "p01-narrator-03-beep-beep-a-tiny-robot-woke.mp3",
+      "Specialist mission accepted!": "p01-dot-04-specialist-mission-accepted.mp3",
+      "Hi!": "p01-ari-05-hi.mp3"
+  };
   const NARRATION_BASE = "assets/audio/page-01/";
   let narrationAudio = null, narrationToken = 0;
   function stopNarration() {
