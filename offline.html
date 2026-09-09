@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ari &amp; Dot · This page is still on its way</title>
+<!--
+  Shown when a child turns to a page the book has not saved yet and there is no
+  network. The worker caches pages on the way past rather than downloading all 64 MB
+  up front, so a page nobody has opened is genuinely not on the device.
+
+  WHY THIS EXISTS RATHER THAN FALLING BACK TO PAGE 1.
+
+  The first version served the cached Page 1 for any missing page. It "worked" -- no
+  browser error -- and it was a lie: the address bar said page-07 and the book showed
+  Page 1, with the counter reading 1 / 20. That is precisely the shape of failure this
+  app was fixing on 2026-09-09 in two other places, where something degraded so
+  gracefully that nobody could tell it had broken. A child being quietly shown the
+  wrong page is worse than a child being told the truth.
+
+  The copy names no cause and offers no caveat -- AGENTS.md, "child copy must not
+  hedge". Dot is the one who explains things in this book, so Dot explains it.
+-->
+<style>
+  html, body { margin: 0; height: 100%; background: #05060d; color: #f4f1ea;
+    font-family: "Baloo 2", ui-rounded, "Segoe UI", system-ui, -apple-system, sans-serif; }
+  main { height: 100%; display: grid; place-items: center; text-align: center;
+    padding: 1.5rem; gap: 0; }
+  .card { max-width: 30rem; }
+  /* Dot's own neutral pose, not a stock robot: this is a page a child looks at,
+     so it is an art surface like any other. 34 KB, precached with the shell so it
+     is there in the one situation this page exists for. */
+  .dot { width: 9rem; height: auto; margin: 0 auto .75rem; display: block; }
+  h1 { font-size: 1.6rem; margin: 0 0 .6rem; }
+  p { font-size: 1.15rem; margin: 0 0 1.6rem; color: #cfd6e6; }
+  a { display: inline-block; background: #ffd67a; color: #14203a; font-weight: 800;
+    font-size: 1.15rem; text-decoration: none; padding: .8rem 1.6rem; border-radius: 999px;
+    box-shadow: 0 4px 0 #b8913f; }
+  a:active { transform: translateY(2px); box-shadow: 0 2px 0 #b8913f; }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <img class="dot" src="assets-runtime/standard/page-02/dot-neutral.webp" alt="Dot, the little robot">
+    <h1>This page is still on its way!</h1>
+    <p>Dot needs the internet to bring it. Let’s go back to the start.</p>
+    <a href="page-01.html">Back to the beginning</a>
+  </div>
+</main>
+</body>
+</html>

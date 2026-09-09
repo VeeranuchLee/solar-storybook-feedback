@@ -1,0 +1,1063 @@
+{
+  "$comment": [
+    "The Moon Explorer's single source of truth. Family pages, the Hall of Fame and",
+    "the Whose Moon? game all read this file, so a fact is written once.",
+    "",
+    "Owner's rules, 2026-09-06: no moon counts anywhere; the standard label is",
+    "'Orbits:' and never 'Planet:', so Pluto and the other dwarf worlds fit the same",
+    "sentence; every moon teaches name + what it orbits; important moons also get one",
+    "short thing they are known for.",
+    "",
+    "tier 1 = hero, gets a strong fact and sometimes an interaction.",
+    "tier 2 = recognition card: name, what it orbits, one line.",
+    "'fame' is set only on the moons that appear in the Hall of Fame, and it is what",
+    "the trophy card says. The quiz builds its three levels from tier and fame, so a",
+    "moon added here appears in the game without anything else being edited.",
+    "avatar = a key in tools/bodies.py."
+  ],
+  "families": [
+    {
+      "id": "earth-mars",
+      "page": "m2",
+      "title": "Earth and Mars",
+      "sub": "Three moons, and one of them is ours",
+      "intro": "Start with the moon you already know, then meet the two little ones going round Mars."
+    },
+    {
+      "id": "jupiter",
+      "page": "m3",
+      "title": "Jupiter",
+      "sub": "The big four, and some small ones",
+      "intro": "Jupiter has four large moons that Galileo saw through a telescope four hundred years ago, and they are all completely different from each other."
+    },
+    {
+      "id": "saturn-major",
+      "page": "m4",
+      "title": "Saturn's big moons",
+      "sub": "Lakes, jets and one enormous crater",
+      "intro": "Saturn's big moons are some of the strangest worlds anywhere: one has weather, one sprays water into space, and one looks like it has been hit by a cannonball."
+    },
+    {
+      "id": "saturn-small",
+      "page": "m5",
+      "title": "Saturn's strange little moons",
+      "sub": "Ravioli, shepherds and a swap",
+      "intro": "These are small, and every single one of them is odd. Some are shaped like pasta. Two of them swap places."
+    },
+    {
+      "id": "uranus",
+      "page": "m6",
+      "title": "Uranus",
+      "sub": "The moons named after plays and poems",
+      "intro": "Uranus is the only planet whose moons are not named after myths. They are named after characters from Shakespeare's plays and one long poem by Alexander Pope."
+    },
+    {
+      "id": "neptune",
+      "page": "m7",
+      "title": "Neptune",
+      "sub": "One big moon going the wrong way",
+      "intro": "Neptune has one large moon and a handful of small ones. The large one does something no other big moon does."
+    },
+    {
+      "id": "dwarf",
+      "page": "m8",
+      "title": "Pluto and the dwarf worlds",
+      "sub": "Even little worlds have moons",
+      "intro": "You do not have to be a planet to have a moon. Pluto has five, and three other dwarf worlds have their own."
+    }
+  ],
+  "moons": [
+    {
+      "id": "moon",
+      "name": "The Moon",
+      "orbits": "Earth",
+      "family": "earth-mars",
+      "avatar": "moon",
+      "tier": 1,
+      "tags": [
+        "cratered"
+      ],
+      "factShort": "Our own moon — the only one we have walked on.",
+      "factExtra": "Twelve people have stood on it. It always keeps the same side facing us, so from Earth you never see its back.",
+      "say": "The Moon. Ours. The only world anybody has ever walked on."
+    },
+    {
+      "id": "phobos",
+      "name": "Phobos",
+      "pron": "FOH-bos",
+      "orbits": "Mars",
+      "family": "earth-mars",
+      "avatar": "phobos",
+      "tier": 1,
+      "tags": [
+        "irregular",
+        "weird-shape"
+      ],
+      "factShort": "The bigger, closer moon of Mars. It races round three times a day.",
+      "factExtra": "Phobos is so close to Mars that it goes round faster than Mars turns. From the ground it would rise in the west and set in the east.",
+      "say": "Phobos. The bigger of the two moons of Mars, and so close that it goes round three times a day."
+    },
+    {
+      "id": "deimos",
+      "name": "Deimos",
+      "pron": "DY-mos",
+      "orbits": "Mars",
+      "family": "earth-mars",
+      "avatar": "deimos",
+      "tier": 1,
+      "tags": [
+        "irregular"
+      ],
+      "factShort": "The smaller, further moon of Mars. Barely bigger than a town.",
+      "say": "Deimos. The smaller moon of Mars, further out and slower."
+    },
+    {
+      "id": "io",
+      "name": "Io",
+      "pron": "EYE-oh",
+      "orbits": "Jupiter",
+      "family": "jupiter",
+      "avatar": "io",
+      "tier": 1,
+      "tags": [
+        "volcanic"
+      ],
+      "fame": "Volcano moon",
+      "interaction": "volcano",
+      "factShort": "The volcano moon. More volcanoes than anywhere else in the solar system.",
+      "factExtra": "Jupiter squeezes and stretches Io as it goes round, and all that squeezing makes the inside hot. Some of its volcanoes throw material hundreds of kilometres up.",
+      "say": "Io. The volcano moon. Nowhere else in the solar system has so many."
+    },
+    {
+      "id": "europa",
+      "name": "Europa",
+      "pron": "yoo-ROH-puh",
+      "orbits": "Jupiter",
+      "family": "jupiter",
+      "avatar": "europa",
+      "tier": 1,
+      "tags": [
+        "ocean"
+      ],
+      "fame": "Ocean under the ice",
+      "interaction": "ocean",
+      "factShort": "A shell of ice with an ocean of water underneath it.",
+      "factExtra": "The cracks all over Europa are in its ice. Underneath there is thought to be more liquid water than in all the oceans of Earth put together.",
+      "say": "Europa. A world of ice, with an ocean hidden underneath it."
+    },
+    {
+      "id": "ganymede",
+      "name": "Ganymede",
+      "pron": "GAN-ih-meed",
+      "orbits": "Jupiter",
+      "family": "jupiter",
+      "avatar": "ganymede",
+      "tier": 1,
+      "tags": [
+        "biggest"
+      ],
+      "fame": "Biggest moon of all",
+      "interaction": "size",
+      "factShort": "The biggest moon in the solar system — bigger than the planet Mercury.",
+      "factExtra": "Ganymede is the only moon known to make its own magnetic field, and it has a salty ocean deep inside as well.",
+      "say": "Ganymede. The biggest moon in the whole solar system. It is bigger than the planet Mercury."
+    },
+    {
+      "id": "callisto",
+      "name": "Callisto",
+      "pron": "kuh-LIS-toh",
+      "orbits": "Jupiter",
+      "family": "jupiter",
+      "avatar": "callisto",
+      "tier": 1,
+      "tags": [
+        "cratered"
+      ],
+      "factShort": "The most cratered world we know of. Nothing has smoothed it over.",
+      "factExtra": "Callisto's surface is so old and so battered that it is almost solid craters. Nothing has happened there to rub them out.",
+      "say": "Callisto. Covered in craters, and almost unchanged for billions of years."
+    },
+    {
+      "id": "amalthea",
+      "name": "Amalthea",
+      "pron": "am-al-THEE-uh",
+      "orbits": "Jupiter",
+      "family": "jupiter",
+      "avatar": "amalthea",
+      "tier": 2,
+      "tags": [
+        "irregular",
+        "weird-shape"
+      ],
+      "factShort": "The reddest thing in the solar system.",
+      "say": "Amalthea. A small red moon, close in to Jupiter."
+    },
+    {
+      "id": "thebe",
+      "name": "Thebe",
+      "pron": "THEE-bee",
+      "orbits": "Jupiter",
+      "family": "jupiter",
+      "avatar": "thebe",
+      "tier": 2,
+      "tags": [
+        "irregular"
+      ],
+      "factShort": "Its dust makes one of Jupiter's faint rings.",
+      "say": "Thebe. The dust knocked off it makes one of Jupiter's faint rings."
+    },
+    {
+      "id": "metis",
+      "name": "Metis",
+      "pron": "MEE-tiss",
+      "orbits": "Jupiter",
+      "family": "jupiter",
+      "avatar": "metis",
+      "tier": 2,
+      "tags": [
+        "irregular"
+      ],
+      "factShort": "The closest moon to Jupiter of them all.",
+      "say": "Metis. The closest moon of all to Jupiter."
+    },
+    {
+      "id": "adrastea",
+      "name": "Adrastea",
+      "pron": "ad-ruh-STEE-uh",
+      "orbits": "Jupiter",
+      "family": "jupiter",
+      "avatar": "adrastea",
+      "tier": 2,
+      "tags": [
+        "irregular"
+      ],
+      "factShort": "Tiny, and inside Jupiter's faint ring.",
+      "say": "Adrastea. A tiny moon inside Jupiter's ring."
+    },
+    {
+      "id": "himalia",
+      "name": "Himalia",
+      "pron": "hih-MAY-lee-uh",
+      "orbits": "Jupiter",
+      "family": "jupiter",
+      "avatar": "himalia",
+      "tier": 2,
+      "tags": [
+        "irregular"
+      ],
+      "factShort": "The biggest of Jupiter's far-out, dark little moons.",
+      "say": "Himalia. The biggest of Jupiter's small outer moons."
+    },
+    {
+      "id": "titan",
+      "name": "Titan",
+      "pron": "TY-tun",
+      "orbits": "Saturn",
+      "family": "saturn-major",
+      "avatar": "titan",
+      "tier": 1,
+      "tags": [
+        "atmosphere"
+      ],
+      "fame": "Thick air, and rain",
+      "interaction": "titan",
+      "factShort": "Thick orange air, with rivers, lakes and seas on the ground.",
+      "factExtra": "Titan is the only moon with a proper atmosphere. It rains there — but the rain is not water, it is methane, because Titan is far too cold for water to be liquid.",
+      "say": "Titan. The only moon with thick air, and the only other place we know of with rivers and seas on the surface."
+    },
+    {
+      "id": "enceladus",
+      "name": "Enceladus",
+      "pron": "en-SELL-uh-dus",
+      "orbits": "Saturn",
+      "family": "saturn-major",
+      "avatar": "enceladus",
+      "tier": 1,
+      "tags": [
+        "ocean"
+      ],
+      "fame": "Sprays icy jets",
+      "interaction": "plume",
+      "factShort": "Sprays jets of salty water into space from cracks at its south pole.",
+      "factExtra": "The spray comes from an ocean under the ice, and some of it becomes part of one of Saturn's rings. A spacecraft flew through the jets and tasted them.",
+      "say": "Enceladus. It sprays water into space from cracks near its south pole."
+    },
+    {
+      "id": "mimas",
+      "name": "Mimas",
+      "pron": "MY-mass",
+      "orbits": "Saturn",
+      "family": "saturn-major",
+      "avatar": "mimas",
+      "tier": 1,
+      "tags": [
+        "cratered"
+      ],
+      "fame": "One giant crater",
+      "factShort": "One crater takes up nearly a third of it.",
+      "factExtra": "The crater is called Herschel, and whatever hit Mimas very nearly broke it apart. You can still see cracks on the far side.",
+      "say": "Mimas. One enormous crater takes up almost a third of the whole moon."
+    },
+    {
+      "id": "iapetus",
+      "name": "Iapetus",
+      "pron": "eye-AP-uh-tus",
+      "orbits": "Saturn",
+      "family": "saturn-major",
+      "avatar": "iapetus",
+      "tier": 1,
+      "tags": [
+        "weird-shape"
+      ],
+      "fame": "Two different sides",
+      "factShort": "One side is dark as tar, the other is bright as snow.",
+      "factExtra": "Iapetus always leads with the same side as it goes round, and that side sweeps up dark dust. It also has a ridge of mountains running right round its middle, like a walnut.",
+      "say": "Iapetus. One side of it is dark as tar and the other is bright as snow."
+    },
+    {
+      "id": "hyperion",
+      "name": "Hyperion",
+      "pron": "hy-PEER-ee-on",
+      "orbits": "Saturn",
+      "family": "saturn-major",
+      "avatar": "hyperion",
+      "tier": 1,
+      "tags": [
+        "weird-shape",
+        "irregular"
+      ],
+      "factShort": "Full of holes, like a sponge — and it tumbles instead of spinning.",
+      "factExtra": "Hyperion tumbles so unpredictably that nobody can say which way it will be facing next month.",
+      "say": "Hyperion. Full of holes like a sponge, and it tumbles end over end."
+    },
+    {
+      "id": "rhea",
+      "name": "Rhea",
+      "pron": "REE-uh",
+      "orbits": "Saturn",
+      "family": "saturn-major",
+      "avatar": "rhea",
+      "tier": 2,
+      "tags": [
+        "cratered"
+      ],
+      "factShort": "Saturn's second-biggest moon. Icy and heavily cratered.",
+      "say": "Rhea. Saturn's second biggest moon, made mostly of ice."
+    },
+    {
+      "id": "dione",
+      "name": "Dione",
+      "pron": "dy-OH-nee",
+      "orbits": "Saturn",
+      "family": "saturn-major",
+      "avatar": "dione",
+      "tier": 2,
+      "tags": [
+        "cratered"
+      ],
+      "factShort": "Has bright streaks that turned out to be cliffs of ice.",
+      "say": "Dione. Its bright streaks are tall cliffs made of ice."
+    },
+    {
+      "id": "tethys",
+      "name": "Tethys",
+      "pron": "TEE-thiss",
+      "orbits": "Saturn",
+      "family": "saturn-major",
+      "avatar": "tethys",
+      "tier": 2,
+      "tags": [
+        "cratered"
+      ],
+      "factShort": "Carries a huge crater and a canyon most of the way round it.",
+      "say": "Tethys. It has a huge crater and a canyon running most of the way around it."
+    },
+    {
+      "id": "pan",
+      "name": "Pan",
+      "pron": "PAN",
+      "orbits": "Saturn",
+      "family": "saturn-small",
+      "avatar": "pan",
+      "tier": 1,
+      "tags": [
+        "weird-shape",
+        "ring-shepherd"
+      ],
+      "fame": "The ravioli moon",
+      "factShort": "Shaped like a ravioli, with a ridge of ring stuff round its middle.",
+      "factExtra": "Pan flies along a gap in Saturn's rings and sweeps material onto its own equator, which is how it grew the ridge that gives it that shape.",
+      "say": "Pan. It is shaped like a ravioli, because it sweeps up ring material round its middle."
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas",
+      "pron": "AT-lus",
+      "orbits": "Saturn",
+      "family": "saturn-small",
+      "avatar": "atlas",
+      "tier": 1,
+      "tags": [
+        "weird-shape",
+        "ring-shepherd"
+      ],
+      "factShort": "Even flatter than Pan — a little flying saucer.",
+      "say": "Atlas. Flatter even than Pan, like a tiny flying saucer."
+    },
+    {
+      "id": "daphnis",
+      "name": "Daphnis",
+      "pron": "DAF-nis",
+      "orbits": "Saturn",
+      "family": "saturn-small",
+      "avatar": "daphnis",
+      "tier": 1,
+      "tags": [
+        "ring-shepherd",
+        "weird-shape"
+      ],
+      "fame": "Makes waves in the rings",
+      "interaction": "waves",
+      "factShort": "Flies down a gap in the rings and makes waves in the edges.",
+      "factExtra": "Daphnis is only about eight kilometres across, and yet its gravity is enough to pull the edge of the ring into waves you can see from a spacecraft.",
+      "say": "Daphnis. It flies down a gap in Saturn's rings and makes waves in the edges as it passes."
+    },
+    {
+      "id": "prometheus",
+      "name": "Prometheus",
+      "pron": "pro-MEE-thee-us",
+      "orbits": "Saturn",
+      "family": "saturn-small",
+      "avatar": "prometheus",
+      "tier": 1,
+      "tags": [
+        "ring-shepherd",
+        "irregular"
+      ],
+      "factShort": "One of two sheepdog moons that keep a thin ring in line.",
+      "say": "Prometheus. One of the two moons that herd Saturn's thin F ring."
+    },
+    {
+      "id": "pandora",
+      "name": "Pandora",
+      "pron": "pan-DOR-uh",
+      "orbits": "Saturn",
+      "family": "saturn-small",
+      "avatar": "pandora",
+      "tier": 1,
+      "tags": [
+        "ring-shepherd",
+        "irregular"
+      ],
+      "factShort": "The other sheepdog. It works the far side of the same ring.",
+      "say": "Pandora. The other ring sheepdog, working the far side of the same ring."
+    },
+    {
+      "id": "janus",
+      "name": "Janus",
+      "pron": "JAY-nus",
+      "orbits": "Saturn",
+      "family": "saturn-small",
+      "avatar": "janus",
+      "tier": 1,
+      "tags": [
+        "weird-shape"
+      ],
+      "fame": "The moons that swap places",
+      "interaction": "swap",
+      "factShort": "Swaps orbits with Epimetheus every four years.",
+      "factExtra": "Janus and Epimetheus travel almost the same path. Every four years the inner one catches the outer one up, they tug on each other, and they trade places without ever touching.",
+      "say": "Janus. Every four years it swaps orbits with Epimetheus."
+    },
+    {
+      "id": "epimetheus",
+      "name": "Epimetheus",
+      "pron": "ep-ih-MEE-thee-us",
+      "orbits": "Saturn",
+      "family": "saturn-small",
+      "avatar": "epimetheus",
+      "tier": 1,
+      "tags": [
+        "weird-shape"
+      ],
+      "interaction": "swap",
+      "factShort": "The other half of the swap. Same path, four years apart.",
+      "say": "Epimetheus. The other half of the swap with Janus."
+    },
+    {
+      "id": "phoebe",
+      "name": "Phoebe",
+      "pron": "FEE-bee",
+      "orbits": "Saturn",
+      "family": "saturn-small",
+      "avatar": "phoebe",
+      "tier": 1,
+      "tags": [
+        "retrograde",
+        "irregular"
+      ],
+      "factShort": "Dark, far out, and going round Saturn backwards.",
+      "say": "Phoebe. Dark, far out, and going round Saturn the wrong way, because it was probably captured."
+    },
+    {
+      "id": "miranda",
+      "name": "Miranda",
+      "pron": "mih-RAN-duh",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "miranda",
+      "tier": 1,
+      "tags": [
+        "literary",
+        "weird-shape"
+      ],
+      "fame": "The patchwork moon",
+      "factShort": "A patchwork world, with the tallest cliff we know of anywhere.",
+      "factExtra": "Verona Rupes on Miranda is around twenty kilometres tall. Miranda looks as though several different worlds were stuck together.",
+      "say": "Miranda. A patchwork moon, and it has the tallest cliff anybody has found anywhere."
+    },
+    {
+      "id": "ariel",
+      "name": "Ariel",
+      "pron": "AIR-ee-el",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "ariel",
+      "tier": 1,
+      "tags": [
+        "literary"
+      ],
+      "factShort": "The brightest of Uranus's moons, cut across by valleys.",
+      "say": "Ariel. The brightest moon of Uranus, with long valleys across it."
+    },
+    {
+      "id": "umbriel",
+      "name": "Umbriel",
+      "pron": "UM-bree-el",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "umbriel",
+      "tier": 1,
+      "tags": [
+        "literary"
+      ],
+      "factShort": "The darkest of the five, with one bright ring on it nobody can explain.",
+      "say": "Umbriel. The darkest of Uranus's big moons, with one mysterious bright ring on it."
+    },
+    {
+      "id": "titania",
+      "name": "Titania",
+      "pron": "ty-TAH-nee-uh",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "titania",
+      "tier": 1,
+      "tags": [
+        "literary"
+      ],
+      "factShort": "The biggest moon of Uranus.",
+      "say": "Titania. The biggest moon of Uranus."
+    },
+    {
+      "id": "oberon",
+      "name": "Oberon",
+      "pron": "OH-ber-on",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "oberon",
+      "tier": 1,
+      "tags": [
+        "literary",
+        "cratered"
+      ],
+      "factShort": "The outermost big one, and covered in old craters.",
+      "say": "Oberon. The furthest out of Uranus's big moons, and covered in old craters."
+    },
+    {
+      "id": "puck",
+      "name": "Puck",
+      "pron": "PUK",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "puck",
+      "tier": 2,
+      "tags": [
+        "literary"
+      ],
+      "factShort": "A small dark moon inside the big five.",
+      "say": "Puck. A small dark moon, closer in than the big five."
+    },
+    {
+      "id": "cordelia",
+      "name": "Cordelia",
+      "pron": "cor-DEEL-yuh",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "cordelia",
+      "tier": 2,
+      "tags": [
+        "literary",
+        "ring-shepherd"
+      ],
+      "factShort": "The closest moon to Uranus.",
+      "say": "Cordelia. The closest moon of all to Uranus."
+    },
+    {
+      "id": "ophelia",
+      "name": "Ophelia",
+      "pron": "oh-FEE-lee-uh",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "ophelia",
+      "tier": 2,
+      "tags": [
+        "literary",
+        "ring-shepherd"
+      ],
+      "factShort": "Herds one of Uranus's narrow rings with Cordelia.",
+      "say": "Ophelia. With Cordelia it herds one of Uranus's narrow rings."
+    },
+    {
+      "id": "cressida",
+      "name": "Cressida",
+      "pron": "KRESS-ih-duh",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "cressida",
+      "tier": 2,
+      "tags": [
+        "literary"
+      ],
+      "factShort": "One of a crowd of small moons close in.",
+      "say": "Cressida. One of a crowd of small moons close in to Uranus."
+    },
+    {
+      "id": "desdemona",
+      "name": "Desdemona",
+      "pron": "dez-duh-MOH-nuh",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "desdemona",
+      "tier": 2,
+      "tags": [
+        "literary"
+      ],
+      "factShort": "A small inner moon on a crowded path.",
+      "say": "Desdemona. A small inner moon of Uranus."
+    },
+    {
+      "id": "juliet",
+      "name": "Juliet",
+      "pron": "JOO-lee-et",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "juliet",
+      "tier": 2,
+      "tags": [
+        "literary",
+        "irregular"
+      ],
+      "factShort": "Long rather than round.",
+      "say": "Juliet. Longer than it is wide."
+    },
+    {
+      "id": "portia",
+      "name": "Portia",
+      "pron": "POR-shuh",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "portia",
+      "tier": 2,
+      "tags": [
+        "literary"
+      ],
+      "factShort": "One of the larger of the small inner moons.",
+      "say": "Portia. One of the larger small moons of Uranus."
+    },
+    {
+      "id": "rosalind",
+      "name": "Rosalind",
+      "pron": "ROZ-uh-lind",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "rosalind",
+      "tier": 2,
+      "tags": [
+        "literary"
+      ],
+      "factShort": "Named after a heroine who runs away to the forest.",
+      "say": "Rosalind. Named after a heroine who runs away to the forest."
+    },
+    {
+      "id": "belinda",
+      "name": "Belinda",
+      "pron": "beh-LIN-duh",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "belinda",
+      "tier": 2,
+      "tags": [
+        "literary"
+      ],
+      "factShort": "Named from a poem rather than a play.",
+      "say": "Belinda. Named from a poem by Alexander Pope, rather than from a play."
+    },
+    {
+      "id": "mab",
+      "name": "Mab",
+      "pron": "MAB",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "mab",
+      "tier": 2,
+      "tags": [
+        "literary"
+      ],
+      "factShort": "Tiny, and it makes a faint dusty ring of its own.",
+      "say": "Mab. Tiny, and it leaves a faint dusty ring behind it."
+    },
+    {
+      "id": "caliban",
+      "name": "Caliban",
+      "pron": "KAL-ih-ban",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "caliban",
+      "tier": 2,
+      "tags": [
+        "literary",
+        "retrograde",
+        "irregular"
+      ],
+      "factShort": "Far out, dark, and going round backwards.",
+      "say": "Caliban. Far out from Uranus, dark, and going round backwards."
+    },
+    {
+      "id": "sycorax",
+      "name": "Sycorax",
+      "pron": "SIK-or-ax",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "sycorax",
+      "tier": 2,
+      "tags": [
+        "literary",
+        "retrograde",
+        "irregular"
+      ],
+      "factShort": "The biggest of the far-out captured ones, and the reddest.",
+      "say": "Sycorax. The biggest of Uranus's far out moons, and the reddest of them."
+    },
+    {
+      "id": "prospero",
+      "name": "Prospero",
+      "pron": "PROSS-per-oh",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "prospero",
+      "tier": 2,
+      "tags": [
+        "literary",
+        "retrograde",
+        "irregular"
+      ],
+      "factShort": "A small dark moon a very long way out.",
+      "say": "Prospero. A small dark moon a very long way out from Uranus."
+    },
+    {
+      "id": "setebos",
+      "name": "Setebos",
+      "pron": "SET-eh-bos",
+      "orbits": "Uranus",
+      "family": "uranus",
+      "avatar": "setebos",
+      "tier": 2,
+      "tags": [
+        "literary",
+        "retrograde",
+        "irregular"
+      ],
+      "factShort": "Another distant one, also going the wrong way.",
+      "say": "Setebos. Another distant moon of Uranus, also going the wrong way."
+    },
+    {
+      "id": "triton",
+      "name": "Triton",
+      "pron": "TRY-ton",
+      "orbits": "Neptune",
+      "family": "neptune",
+      "avatar": "triton",
+      "tier": 1,
+      "tags": [
+        "retrograde"
+      ],
+      "fame": "Goes round backwards",
+      "interaction": "retrograde",
+      "factShort": "The only big moon that goes round its planet backwards.",
+      "factExtra": "Every other big moon travels the same way its planet spins. Triton does not, which is the strongest clue that it did not form there — Neptune caught it.",
+      "say": "Triton. The only large moon anywhere that goes round its planet backwards."
+    },
+    {
+      "id": "proteus",
+      "name": "Proteus",
+      "pron": "PROH-tee-us",
+      "orbits": "Neptune",
+      "family": "neptune",
+      "avatar": "proteus",
+      "tier": 2,
+      "tags": [
+        "irregular",
+        "weird-shape"
+      ],
+      "factShort": "Almost big enough for gravity to have pulled it round. Almost.",
+      "say": "Proteus. Nearly big enough to be round, and not quite."
+    },
+    {
+      "id": "nereid",
+      "name": "Nereid",
+      "pron": "NEER-ee-id",
+      "orbits": "Neptune",
+      "family": "neptune",
+      "avatar": "nereid",
+      "tier": 2,
+      "tags": [
+        "irregular"
+      ],
+      "factShort": "Swings far out and back again on a very stretched path.",
+      "say": "Nereid. Its path is so stretched that it swings far out and back again."
+    },
+    {
+      "id": "larissa",
+      "name": "Larissa",
+      "pron": "luh-RISS-uh",
+      "orbits": "Neptune",
+      "family": "neptune",
+      "avatar": "larissa",
+      "tier": 2,
+      "tags": [
+        "irregular"
+      ],
+      "factShort": "Voyager 2 is the only spacecraft that has ever seen it.",
+      "say": "Larissa. Voyager 2 is the only spacecraft that has ever seen it."
+    },
+    {
+      "id": "galatea",
+      "name": "Galatea",
+      "pron": "gal-uh-TEE-uh",
+      "orbits": "Neptune",
+      "family": "neptune",
+      "avatar": "galatea",
+      "tier": 2,
+      "tags": [
+        "ring-shepherd",
+        "irregular"
+      ],
+      "factShort": "Keeps the clumps in one of Neptune's rings in place.",
+      "say": "Galatea. It keeps the clumps in one of Neptune's rings in place."
+    },
+    {
+      "id": "despina",
+      "name": "Despina",
+      "pron": "des-PEE-nuh",
+      "orbits": "Neptune",
+      "family": "neptune",
+      "avatar": "despina",
+      "tier": 2,
+      "tags": [
+        "irregular"
+      ],
+      "factShort": "One of the small inner moons, close to the rings.",
+      "say": "Despina. One of Neptune's small inner moons."
+    },
+    {
+      "id": "thalassa",
+      "name": "Thalassa",
+      "pron": "thuh-LASS-uh",
+      "orbits": "Neptune",
+      "family": "neptune",
+      "avatar": "thalassa",
+      "tier": 2,
+      "tags": [
+        "irregular"
+      ],
+      "factShort": "A small flat moon whose name means 'sea'.",
+      "say": "Thalassa. A small flat moon, and its name means the sea."
+    },
+    {
+      "id": "naiad",
+      "name": "Naiad",
+      "pron": "NY-ad",
+      "orbits": "Neptune",
+      "family": "neptune",
+      "avatar": "naiad",
+      "tier": 2,
+      "tags": [
+        "irregular"
+      ],
+      "factShort": "The closest moon to Neptune.",
+      "say": "Naiad. The closest moon of all to Neptune."
+    },
+    {
+      "id": "hippocamp",
+      "name": "Hippocamp",
+      "pron": "HIP-oh-camp",
+      "orbits": "Neptune",
+      "family": "neptune",
+      "avatar": "hippocamp",
+      "tier": 2,
+      "tags": [
+        "irregular"
+      ],
+      "factShort": "Very small, and nobody knew it was there until 2013.",
+      "say": "Hippocamp. So small that nobody knew it was there until two thousand and thirteen."
+    },
+    {
+      "id": "charon",
+      "name": "Charon",
+      "pron": "KAIR-on, or SHAR-on",
+      "orbits": "Pluto",
+      "family": "dwarf",
+      "avatar": "charon",
+      "tier": 1,
+      "tags": [
+        "dwarf-planet-moon"
+      ],
+      "fame": "Pluto's dancing partner",
+      "interaction": "barycentre",
+      "factShort": "So big next to Pluto that the two of them swing round each other.",
+      "factExtra": "Charon is about half as wide as Pluto. They always keep the same faces towards each other, turning together like two dancers holding hands.",
+      "say": "Charon. So big compared to Pluto that the two of them swing around a point in empty space between them."
+    },
+    {
+      "id": "nix",
+      "name": "Nix",
+      "pron": "NIKS",
+      "orbits": "Pluto",
+      "family": "dwarf",
+      "avatar": "nix",
+      "tier": 2,
+      "tags": [
+        "dwarf-planet-moon",
+        "irregular"
+      ],
+      "factShort": "Small, bright and tumbling.",
+      "say": "Nix. Small, bright, and it tumbles as it goes."
+    },
+    {
+      "id": "hydra",
+      "name": "Hydra",
+      "pron": "HY-druh",
+      "orbits": "Pluto",
+      "family": "dwarf",
+      "avatar": "hydra",
+      "tier": 2,
+      "tags": [
+        "dwarf-planet-moon",
+        "irregular"
+      ],
+      "factShort": "The outermost of Pluto's little moons.",
+      "say": "Hydra. The furthest out of Pluto's small moons."
+    },
+    {
+      "id": "kerberos",
+      "name": "Kerberos",
+      "pron": "KER-ber-os",
+      "orbits": "Pluto",
+      "family": "dwarf",
+      "avatar": "kerberos",
+      "tier": 2,
+      "tags": [
+        "dwarf-planet-moon",
+        "irregular"
+      ],
+      "factShort": "Tiny, dark, and shaped like two lumps stuck together.",
+      "say": "Kerberos. Tiny and dark, and shaped like two lumps stuck together."
+    },
+    {
+      "id": "styx",
+      "name": "Styx",
+      "pron": "STIKS",
+      "orbits": "Pluto",
+      "family": "dwarf",
+      "avatar": "styx",
+      "tier": 2,
+      "tags": [
+        "dwarf-planet-moon",
+        "irregular"
+      ],
+      "factShort": "The smallest of Pluto's five.",
+      "say": "Styx. The smallest of Pluto's moons."
+    },
+    {
+      "id": "hiiaka",
+      "name": "Hi'iaka",
+      "pron": "hee-ee-AH-kah",
+      "orbits": "Haumea",
+      "family": "dwarf",
+      "avatar": "hiiaka",
+      "tier": 2,
+      "tags": [
+        "dwarf-planet-moon"
+      ],
+      "factShort": "The bigger moon of Haumea, and made of very clean ice.",
+      "say": "Hi'iaka. The bigger of the two moons of the dwarf world Haumea."
+    },
+    {
+      "id": "namaka",
+      "name": "Namaka",
+      "pron": "nah-MAH-kah",
+      "orbits": "Haumea",
+      "family": "dwarf",
+      "avatar": "namaka",
+      "tier": 2,
+      "tags": [
+        "dwarf-planet-moon"
+      ],
+      "factShort": "Haumea's smaller, inner moon.",
+      "say": "Namaka. Haumea's smaller moon."
+    },
+    {
+      "id": "dysnomia",
+      "name": "Dysnomia",
+      "pron": "dis-NOH-mee-uh",
+      "orbits": "Eris",
+      "family": "dwarf",
+      "avatar": "dysnomia",
+      "tier": 2,
+      "tags": [
+        "dwarf-planet-moon"
+      ],
+      "factShort": "The moon of Eris, the dwarf world that started the argument about Pluto.",
+      "say": "Dysnomia. The moon of Eris, out beyond Pluto."
+    },
+    {
+      "id": "mk2",
+      "name": "Makemake's moon",
+      "pron": "MAH-kee-MAH-kee",
+      "orbits": "Makemake",
+      "family": "dwarf",
+      "avatar": "mk2",
+      "tier": 2,
+      "tags": [
+        "dwarf-planet-moon"
+      ],
+      "factShort": "Found in 2016, very dark, and still waiting for a proper name.",
+      "say": "Makemake's moon. It was found in twenty sixteen, it is very dark, and it still has no proper name."
+    }
+  ],
+  "hallOfFame": [
+    "ganymede",
+    "io",
+    "europa",
+    "enceladus",
+    "titan",
+    "mimas",
+    "pan",
+    "triton",
+    "miranda",
+    "charon",
+    "iapetus",
+    "janus",
+    "daphnis"
+  ]
+}

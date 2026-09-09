@@ -1,5 +1,10 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ari &amp; Dot · Page 20 — Our journey continues</title><style>
-:root{--cream:#fff8e9;--ink:#18365e;--cyan:#71d6e9;--gold:#f3c86b}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:Nunito,system-ui,sans-serif;background:#020815;color:var(--ink)}.stage{position:relative;width:min(100vw,150vh);height:min(100vh,66.667vw);margin:auto;overflow:hidden;background:#020815}.art{position:absolute;pointer-events:none}.scene{inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.story{position:absolute;z-index:20;left:3%;top:3%;width:38%;padding:1rem 1.25rem;border:2px solid #fff8;border-radius:24px;background:#fff8e9ef;box-shadow:0 12px 35px #0008}.eyebrow{font-weight:900;color:#327990;letter-spacing:.08em;text-transform:uppercase}.story h1{margin:.15rem 0 .3rem;font-size:clamp(1.7rem,3vw,3.2rem);line-height:1;color:#294d79}.story p{margin:.35rem 0;line-height:1.35;font-size:clamp(.84rem,1.08vw,1.15rem)}button,a,input{font:inherit}.pill,.tool,.fact,.close{border:2px solid #365a84;border-radius:999px;background:#fffaf0;color:#243d62;font-weight:900;cursor:pointer;box-shadow:0 4px 0 #193b5d;min-height:44px}.pill,.tool{padding:.45rem .75rem}.pill:active,.tool:active,.fact:active{transform:translateY(3px);box-shadow:0 1px 0 #193b5d}.actions{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.55rem}
+:root{--cream:#fff8e9;--ink:#18365e;--cyan:#71d6e9;--gold:#f3c86b}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:Nunito,system-ui,sans-serif;background:#020815;color:var(--ink)}.stage{position:relative;width:min(100vw,150vh);height:min(100vh,66.667vw);margin:auto;overflow:hidden;background:#020815}.art{position:absolute;pointer-events:none}.scene{inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.story{position:absolute;z-index:20;left:3%;top:3%;width:38%;padding:1rem 1.25rem;border:2px solid #fff8;border-radius:24px;background:#fff8e9ef;box-shadow:0 12px 35px #0008}.eyebrow{font-weight:900;color:#327990;letter-spacing:.08em;text-transform:uppercase}.story h1{margin:.15rem 0 .3rem;font-size:clamp(1.7rem,3vw,3.2rem);line-height:1;color:#294d79}.story p{margin:.35rem 0;line-height:1.35;font-size:clamp(.84rem,1.08vw,1.15rem)}button,a,input{font:inherit}/* The door to the Moon Explorer (owner plan, 2026-09-06). The story ends here;
+   the moon section is a bonus atlas the child comes back to, so it is offered
+   rather than continued into -- a link in the story card, not a 21st page. */
+.moon-door{display:inline-grid;place-items:center;padding:.45rem .75rem;text-decoration:none;background:#ffe6a8}
+.moon-door:hover{background:#ffd76a}
+.pill,.tool,.fact,.close{border:2px solid #365a84;border-radius:999px;background:#fffaf0;color:#243d62;font-weight:900;cursor:pointer;box-shadow:0 4px 0 #193b5d;min-height:44px}.pill,.tool{padding:.45rem .75rem}.pill:active,.tool:active,.fact:active{transform:translateY(3px);box-shadow:0 1px 0 #193b5d}.actions{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.55rem}
 /* Owner, 2026-08-27: "need to make sure ALL games has back icon to the hub".
    Mirrors .page-nav's geometry on the opposite corner -- the book's whole chrome
    lives top-right, and top-left, which was empty, is where the same arrow sits in
@@ -193,14 +198,38 @@ window.__NARRATION_BASE = "assets-runtime/narration/";
     stop();
     var mine = ++token;
     if (!el) el = new Audio();
+
     /* A clip that cannot load must not leave a child in silence, so a failure
        falls back to the very utterance we intercepted. The token stops a
-       superseded clip's late error from talking over whatever is playing now. */
-    function fail() { if (mine !== token) return; token++; realSpeak(utterance); }
-    el.onerror = fail;
-    el.src = BASE + file;
-    var played = el.play();
-    if (played && played.catch) played.catch(fail);
+       superseded clip's late error from talking over whatever is playing now.
+
+       ONE RETRY BEFORE THE ROBOT (owner decision, 2026-09-09). A dropped request
+       on the wifi is indistinguishable here from a clip that does not exist, and
+       both used to go straight to the OS voice. The owner heard exactly that --
+       one page robotic, the rest in Ari's voice -- and a transient miss is the
+       only thing that explains a robot page that moves around, since every one of
+       the book's 405 lines is mapped, rendered and published. So a failure gets a
+       second attempt, cache-bypassed, before the fallback. The cost when a file is
+       genuinely gone is one extra request; the gain when the network hiccuped is a
+       child hearing Ari instead of an adult robot. AUDIO-DIRECTION.md: no OS
+       voices. */
+    var attempt = 0;
+    function play() {
+      if (mine !== token) return;
+      /* The retry must not be answered from the same failed cache entry. */
+      el.src = BASE + file + (attempt ? "?retry=" + attempt : "");
+      var played = el.play();
+      if (played && played.catch) played.catch(onFail);
+    }
+    function onFail() {
+      if (mine !== token) return;
+      if (attempt++ < 1) { play(); return; }
+      token++;
+      el.onerror = null;
+      realSpeak(utterance);
+    }
+    el.onerror = onFail;
+    play();
   };
 })();
 </script>
@@ -209,12 +238,12 @@ window.__NARRATION_BASE = "assets-runtime/narration/";
 <!-- /SECRETS:HTML -->
 <img class="art scene" id="scene" data-fixed-tier src="assets-runtime/standard/page-20/milky-way-hero-grok-v1.jpg" alt="A wide realistic spiral galaxy glowing among countless stars"><div class="voyage-stars" aria-hidden="true"></div><div class="pink-nebula-glints" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="galaxy-glints" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 <div class="glow belt-glow" aria-hidden="true"></div><div class="glow cloud-glow" aria-hidden="true"></div><div class="glow orbit-glow" aria-hidden="true"></div>
-<section class="story"><div class="eyebrow">Page 20 · The journey continues</div><h1>Beyond our worlds</h1><p>Which world is most amazing? There is no single answer. Beyond Neptune lies the observed Kuiper Belt, and much farther away scientists infer a vast Oort Cloud. Our whole solar system travels inside the Milky Way — with more questions waiting ahead.</p><div class="actions"><button class="pill" id="listen">▶ Listen</button><button class="pill" id="about">◎ Explore beyond</button></div></section>
+<section class="story"><div class="eyebrow">Page 20 · The journey continues</div><h1>Beyond our worlds</h1><p>Which world is most amazing? There is no single answer. Beyond Neptune lies the observed Kuiper Belt, and much farther away scientists infer a vast Oort Cloud. Our whole solar system travels inside the Milky Way — with more questions waiting ahead.</p><div class="actions"><button class="pill" id="listen">▶ Listen</button><button class="pill" id="about">◎ Explore beyond</button><a class="pill moon-door" href="page-m1.html">🌙 Moon Explorer →</a></div></section>
 <!-- Absolute URL on purpose: published, /solar-storybook-feedback/ and
      /children-apps/ are siblings, but in the repo the hub lives under site/, so a
      relative link would work live and 404 in every local preview. -->
 <a class="story-hub" href="https://veeranuchlee.github.io/children-apps/" aria-label="Back to Children Games" title="Back to Children Games">←</a>
-<nav class="page-nav" aria-label="Page navigation"><a href="page-19.html" aria-label="Previous page">‹</a><button class="page-jump" aria-label="Page 20 of 20. Press and hold to go to a page">20 / 20</button><a aria-disabled="true" aria-label="Next page">›</a><form class="page-goto" hidden><label>Go to <input type="number" min="1" max="20" value="20"></label><button>Go</button></form></nav>
+<nav class="page-nav" aria-label="Page navigation"><a href="page-19.html" aria-label="Previous page">‹</a><button class="page-jump" aria-label="Page 20 of 20. Press and hold to go to a page">20 / 20</button><a href="page-m1.html" aria-label="Next: Moon Explorer" title="Moon Explorer">›</a><form class="page-goto" hidden><label>Go to <input type="number" min="1" max="20" value="20"></label><button>Go</button></form></nav>
 <img class="art ari pose active" data-ari="present" src="assets-runtime/standard/page-17/ari-neptune-present-v1.webp" alt="Ari pointing toward the galaxy"><img class="art ari pose" data-ari="look" src="assets-runtime/standard/page-17/ari-neptune-distance-look-v1.webp" alt="Ari looking into deep space"><img class="art dot pose active" data-dot="scan" src="assets-runtime/standard/page-17/dot-neptune-weather-scan-v1.webp" alt="Dot scanning the stars"><img class="art dot pose" data-dot="study" src="assets-runtime/standard/page-17/dot-voyager-neptune-study-v1.webp" alt="Dot studying the galaxy">
 <div class="tools" aria-label="Beyond the planets discoveries"><button class="tool" id="belt">✦ Find the Kuiper Belt</button><button class="tool" id="cloud">◌ Imagine the Oort Cloud</button><button class="tool" id="orbit">↺ Follow the Sun</button></div>
 <aside class="detail" id="beltDetail"><strong>Observed:</strong> Many icy worlds circle beyond Neptune in the Kuiper Belt.</aside><aside class="detail" id="cloudDetail"><strong>Inferred:</strong> Comet paths point to a distant Oort Cloud, but no spacecraft has seen it.</aside><aside class="detail" id="orbitDetail"><strong>A galactic year:</strong> The Sun takes roughly 230 million years to circle the Milky Way.</aside><div class="status" id="status" role="status"></div>
@@ -288,4 +317,14 @@ timers.forEach(clearTimeout);timers=[
  setTimeout(()=>{friend.classList.remove('sf-here','sf-going');star.hidden=false;busy=false},4400)]}));
 syncBook()})();
 /* /SECRETS:JS */
-</script></body></html>
+</script><!-- SERVICEWORKER:JS -->
+<script>
+/* Generated by tools/wire-service-worker.py. Do not edit by hand. */
+if ("serviceWorker" in navigator) {
+  addEventListener("load", function () {
+    navigator.serviceWorker.register("service-worker.js").catch(function () {});
+  });
+}
+</script>
+<!-- /SERVICEWORKER:JS -->
+</body></html>
