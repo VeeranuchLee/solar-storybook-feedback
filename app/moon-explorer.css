@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Ari & Dot Book 1 — Moon Explorer (pages M1-M10)
+   Ari & Dot Book 1 — Solar System Explorer (pages M1-M11)
    --------------------------------------------------------------------------
    The twenty story pages are one fixed 3:2 picture each, because they are
    scenes. These are not scenes: they are a menu and a small atlas the child
@@ -121,6 +121,18 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .mx-close{position:absolute;right:12px;top:10px;width:40px;height:40px;border:0;
   border-radius:50%;background:var(--edge);color:#fff;font-size:1.3rem;font-weight:900;cursor:pointer}
 .mx-note{margin-top:.5rem;color:#6a7f96;font-size:clamp(.6rem,.8vw,.8rem)}
+
+/* ---------- hub group headings -------------------------------------------- */
+/* The group level, shown as a heading over the same flat menu rather than as a
+   page the child has to walk down. It has to read as a divider at a glance on a
+   768px iPad, so it takes a rule and a size no family card uses. */
+.mx-group{max-width:1180px;margin:clamp(16px,2.4vw,28px) auto 0;
+  padding:0 clamp(12px,2vw,24px)}
+.mx-group h2{margin:0;padding-bottom:.28rem;border-bottom:2px solid #1d3b66;
+  color:var(--cream);line-height:1.1;font-size:clamp(1rem,1.9vw,1.5rem)}
+.mx-group p{margin:.22rem 0 0;color:var(--gold);font-weight:800;line-height:1.25;
+  font-size:clamp(.66rem,.95vw,.9rem)}
+.mx-group+.mx-menu{margin-top:clamp(8px,1.1vw,12px)}
 
 /* ---------- hub menu ------------------------------------------------------ */
 .mx-menu{max-width:1180px;margin:clamp(12px,2vw,22px) auto 0;

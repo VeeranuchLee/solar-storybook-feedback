@@ -26,11 +26,11 @@
 .detail{position:absolute;z-index:36;right:2%;top:16%;width:26%;padding:.65rem;border-radius:22px;background:#fff7dfef;border:3px solid var(--gold);box-shadow:0 12px 35px #0008;opacity:0;transform:scale(.86);pointer-events:none;transition:.35s}.detail.show{opacity:1;transform:scale(1)}.detail svg{width:100%;height:auto;display:block;border-radius:14px}.detail strong{display:block;text-align:center;margin-top:.35rem;color:#294d79}
 .fact-rack{position:absolute;z-index:28;left:2%;right:2%;bottom:1.3%;display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:10px;align-items:stretch}
 .fact-group{min-width:0;padding:7px 8px 8px;border:3px solid #244b79;border-radius:20px;background:linear-gradient(#fffdf5,#fff6df);color:#15365f;box-shadow:0 8px 26px #0008}
-.fact-group h2{margin:0 0 5px;color:#a44e32;font-size:clamp(10px,.92vw,13px);font-weight:900;letter-spacing:.08em;text-transform:uppercase;text-align:center}
+.fact-group h2{margin:0 0 5px;color:#a44e32;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;text-align:center}
 .fact-row{display:grid;gap:4px;align-items:stretch}
 .pluto-facts .fact-row{grid-template-columns:repeat(4,minmax(0,1fr))}
 .family-facts .fact-row{grid-template-columns:repeat(2,minmax(0,1fr))}
-.fact{display:grid;grid-template-rows:78px auto;place-items:center;min-width:0;min-height:44px;border:0;border-radius:14px;box-shadow:none;background:transparent;color:inherit;padding:4px 5px;font-size:clamp(10px,.92vw,13px);font-weight:900;line-height:1.15;text-align:center}
+.fact{display:grid;grid-template-rows:78px auto;place-items:center;min-width:0;min-height:44px;border:0;border-radius:14px;box-shadow:none;background:transparent;color:inherit;padding:4px 5px;font-size:12px;font-weight:900;line-height:1.15;text-align:center}
 .fact:hover,.fact:focus-visible{background:#fff3d4}
 .fact:focus-visible{outline:3px solid #8eeaff;outline-offset:2px}
 .fact span:first-child{display:grid;place-items:center;width:100%;height:100%}
@@ -38,12 +38,17 @@
 .fact strong{display:block;color:#a44e32}
 .modal{position:fixed;z-index:100;inset:0;display:none;place-items:center;background:#050918c7;padding:2vw}.modal.open{display:grid}.dialog{width:min(900px,94vw);max-height:92vh;overflow:auto;background:var(--cream);border:4px solid var(--gold);border-radius:28px;padding:1.2rem;box-shadow:0 20px 70px #0009}.dialog-head{display:flex;justify-content:space-between;gap:1rem;align-items:center}.dialog h2{margin:.1rem;color:#284e79}.close{width:44px;height:44px}.tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin:.8rem 0}.tabs button{padding:.45rem .65rem;border:2px solid #6887a8;border-radius:999px;background:#fff;font-weight:800;cursor:pointer}.tabs button[aria-selected=true]{background:#315d8b;color:#fff}.lesson{display:grid;grid-template-columns:1.3fr 1fr;gap:1rem;align-items:center}.lesson-box{min-height:330px;display:grid;place-items:center;background:#07152d;border-radius:20px;padding:1rem}.lesson-box svg{width:100%;max-height:300px}.lesson-copy{line-height:1.48}.note{font-size:.85rem;color:#657184}.reduced *{animation:none!important;transition:none!important}.reduced animate,.reduced animateTransform,.reduced animateMotion{display:none}
 @media(max-aspect-ratio:4/5){.stage{width:100vw;height:100vh;aspect-ratio:auto}.story{width:47%}.scene-plate{object-position:78% 40%}.tools{top:46%;width:18%}.ari{left:12%;width:26%}.dot{left:34%;width:19%}.status{left:38%;bottom:26%;max-width:28%}.fact-rack{bottom:1.2%}}
-@media(max-aspect-ratio:4/5){.story{width:73%;padding:.85rem;top:6%;left:2%}.story p{font-size:.84rem}.page-nav{right:2%;top:1%}.scene-plate{object-position:86% 42%}.dance-halo{left:18%;top:34%;width:78%;height:28%}.heart-glow{left:22%;top:44%;width:22%;height:12%}.craft-glow{left:80%;top:6%;width:12%;height:7%}.ari{left:-12%;bottom:34%;width:42%;height:30%}.dot{left:25%;bottom:35%;width:27%;height:22%}.tools{left:auto;right:2%;top:42%;width:auto;max-width:none;gap:.3rem}.tool{padding:.42rem .55rem;font-size:.69rem}.status{left:50%;right:auto;top:auto;bottom:36.6%;transform:translateX(-50%);max-width:78%;padding:.22rem .55rem;border-radius:12px;font-size:.64rem;line-height:1.15;text-align:center}.fact-rack{grid-template-columns:1fr;gap:6px;bottom:1%}.fact-group{padding:5px 6px 6px;border-radius:16px}.fact-group h2{margin:0 0 4px;font-size:.68rem}.pluto-facts .fact-row,.family-facts .fact-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}.fact{grid-template-columns:48px minmax(0,1fr);grid-template-rows:auto;justify-items:start;align-items:center;text-align:left;min-height:44px;padding:3px 5px;font-size:.72rem}.fact span:first-child{width:48px;height:44px}.fact svg{width:44px;height:44px}.detail{top:36%;right:2%;width:52%;padding:.5rem}.detail strong{font-size:.78rem;line-height:1.2}.lesson{grid-template-columns:1fr}.lesson-box{min-height:220px}}
+@media(max-aspect-ratio:4/5){.story{width:73%;padding:.85rem;top:6%;left:2%}.story p{font-size:.84rem}.page-nav{right:2%;top:1%}.scene-plate{object-position:86% 42%}.dance-halo{left:18%;top:34%;width:78%;height:28%}.heart-glow{left:22%;top:44%;width:22%;height:12%}.craft-glow{left:80%;top:6%;width:12%;height:7%}.ari{left:-12%;bottom:34%;width:42%;height:30%}.dot{left:25%;bottom:35%;width:27%;height:22%}.tools{left:auto;right:2%;top:42%;width:auto;max-width:none;gap:.3rem}.tool{padding:.42rem .55rem;font-size:.69rem}.status{left:50%;right:auto;top:auto;bottom:36.6%;transform:translateX(-50%);max-width:78%;padding:.22rem .55rem;border-radius:12px;font-size:.64rem;line-height:1.15;text-align:center}.fact-rack{grid-template-columns:1fr;gap:6px;bottom:1%}.fact-group{padding:5px 6px 6px;border-radius:16px}.fact-group h2{margin:0 0 4px;font-size:12px}.pluto-facts .fact-row,.family-facts .fact-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}.fact{grid-template-columns:48px minmax(0,1fr);grid-template-rows:auto;justify-items:start;align-items:center;text-align:left;min-height:44px;padding:3px 5px;font-size:12px}.fact span:first-child{width:48px;height:44px}.fact svg{width:44px;height:44px}.detail{top:36%;right:2%;width:52%;padding:.5rem}.detail strong{font-size:.78rem;line-height:1.2}.lesson{grid-template-columns:1fr}.lesson-box{min-height:220px}}
 
 /* Higher than the 17.2% the other pages use, because this page carries a
    two-panel fact rack that is taller than the standard tray: at 17.2% the
    control row sat across the "Dwarf planet family" heading. */
-.page-controls{position:absolute;z-index:40;right:2%;bottom:21.5%;display:flex;gap:6px}
+/* 2026-09-13: raised again, 21.5% -> 24%, with this page's fact-tray text held at exactly 12px
+   rather than the 13.8px landscape clamp the other pages use. The 12px floor made the rack taller
+   and at 21.5% the control row covered the "Dwarf planet family" heading; with the 13.8px clamp no
+   bottom value cleared both that heading and the Charon nameplate above the "Full screen" button
+   (measured sweep 23-28%). At 12px, 23.5-25% clears both; 24% leaves margin on each side. */
+.page-controls{position:absolute;z-index:40;right:2%;bottom:24%;display:flex;gap:6px}
 .page-controls button{border:1px solid #b9ddff66;border-radius:999px;background:#17324fe8;
 color:#fff;padding:5px 11px;font:inherit;font-size:clamp(8px,.85vw,12px);font-weight:850;
 cursor:pointer;backdrop-filter:blur(6px)}
@@ -222,7 +227,16 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 .crew{z-index:11;left:13%;bottom:17%;width:36%;height:50%;scale:.8;transform-origin:50% 100%;transition:transform .4s ease}.stage.dance .crew{transform:rotate(2deg)}.stage.flyby .crew{transform:translateY(-1.2%)}
 @media(max-aspect-ratio:4/5){.crew{left:8%;bottom:22%;width:44%;height:41%}}
 @media(max-aspect-ratio:4/5){.crew{left:-10%;bottom:33%;width:62%;height:34%}}
-</style></head><body>
+</style>  <style>
+  /* Touch hygiene -- owner 2026-09-15: a child's drag became a blue text selection,
+     and pinches zoomed the page. user-select and touch-callout stop the first;
+     touch-action: manipulation stops double-tap zoom without killing scroll. Pinch
+     itself needs the gesturestart guard below, because iOS ignores user-scalable=no. */
+  html { -webkit-text-size-adjust: 100%; }
+  body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; touch-action: manipulation; }
+  input, textarea, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
+  </style>
+</head><body>
 <main class="stage" id="stage">
 <!-- NAMEPLATES:HTML -->
 <div class="np" data-np="p19-pluto"><button type="button" class="np-body" data-say="Pluto. A real icy world, far beyond Neptune." aria-label="Pluto. Hear about it"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p19-pluto"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#c9844e"/><g clip-path="url(#npc-p19-pluto)"><path d="M50 84C28 68 22 50 38 42 44 38 48 42 50 50 52 42 56 38 62 42 78 50 72 68 50 84Z" fill="#efe4c4"/><ellipse cx="42" cy="72" rx="8" ry="9" fill="#fff8df"/><path d="M18 48q16 6 28-4" fill="none" stroke="#8a4e2e" stroke-width="3" stroke-linecap="round"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg></button><button type="button" class="np-label" data-say="Pluto" aria-label="Hear the name Pluto"><span class="np-name">Pluto</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button></div>
@@ -484,4 +498,11 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 <!-- /SERVICEWORKER:JS -->
-</body></html>
+  <script>
+  /* Pinch-zoom guard. iOS Safari ignores user-scalable=no (since iOS 10), so this is
+     the only thing that stops two small hands zooming the page mid-play. gesturestart
+     fires once per pinch; preventing it cancels the zoom and touches nothing else.
+     Other browsers never fire it, so this is inert there. */
+  document.addEventListener("gesturestart", function (e) { e.preventDefault(); }, { passive: false });
+  </script>
+  </body></html>

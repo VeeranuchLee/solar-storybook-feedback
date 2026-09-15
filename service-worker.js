@@ -46,8 +46,11 @@
  *                   pipeline; the twenty pages carry the narration retry, and a
  *                   page that is not downloaded yet says so instead of silently
  *                   showing Page 1.
+ *   v2  2026-09-14  Page 10's asteroid deep dive becomes a ten-body roster.
+ *                   This only arms a candidate; publishing remains separately
+ *                   approval-gated.
  */
-const CACHE_NAME = "solar-storybook-v1";
+const CACHE_NAME = "solar-storybook-v3";
 
 /* The front door and the first page: enough to open the book with no network.
    `./` and `./index.html` are the same document; both are listed because a child

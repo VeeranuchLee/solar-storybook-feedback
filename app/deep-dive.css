@@ -1,0 +1,736 @@
+/* ============================================================
+   Ari & Dot — table of contents + deep-dive mini-book shell.
+
+   Styles for `app/deep-dive.js`. Loaded by any main page that opts in; adds
+   nothing to a page that does not.
+
+   WHY EVERYTHING IS NAMESPACED `dd-` / `toc-`.
+
+   The twenty story pages are self-contained documents with their own inline
+   <style>, written at different times, and between them they already use
+   `.close`, `.card`, `.chip`, `.facts`, `.modal`, `.panel` and `.tools`. A
+   shared stylesheet that claimed any of those names would silently restyle the
+   page underneath it — the page would still work, and would look wrong, which
+   is the hardest kind of breakage to attribute. So every selector in this file
+   is prefixed, and none of them is an element selector.
+
+   WHY THE OVERLAY IS `position: fixed` AND SIZED BY SCRIPT.
+
+   Each page draws a fixed 3:2 stage, letterboxed inside the viewport:
+
+       width: min(100vw, 150vh, <cap>);  aspect-ratio: 3/2;
+
+   ...and the cap is not the same on every page (1400px on page 1, 1536px on
+   pages 7 and 9). Reproducing that arithmetic here would mean a second copy of
+   a formula that is already inconsistent, and getting a fixed-aspect stage
+   wrong on one axis crops the art without any error. So the script measures the
+   real `#stage` rectangle and writes it into the four custom properties below.
+   The overlay then covers the stage exactly, on every page, at every viewport,
+   with no arithmetic of its own.
+
+   TAP TARGETS. Nothing interactive in this file is under 48px on its short
+   side. The book's own page-navigator runs 32px and is deliberately left alone;
+   this is new UI, and new UI gets the full target.
+   ============================================================ */
+
+.dd-root {
+  --dd-navy: #06152d;
+  --dd-panel: #0b1f3d;
+  --dd-line: #71d6e966;
+  --dd-blue: #8de8ff;
+  --dd-gold: #ffe27d;
+  --dd-cream: #fff8df;
+  --dd-ink: #f3f7ff;
+
+  /* Written by deep-dive.js from the measured #stage rectangle. The fallbacks
+     cover a page with no stage at all — the overlay then fills the viewport,
+     which is ugly rather than broken. */
+  --dd-left: 0px;
+  --dd-top: 0px;
+  --dd-w: 100vw;
+  --dd-h: 100vh;
+}
+
+/* `hidden` has to win here. Every interactive thing in this file is given an
+   explicit `display`, and an author `display` beats the user agent's
+   `[hidden]{display:none}` — so a hidden Back button or a hidden footer stays on
+   screen, doing nothing, looking like a control. Scoped to this overlay so it
+   cannot change how a page hides its own things. */
+.dd-root [hidden] { display: none !important; }
+
+.dd-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(3, 7, 18, .72);
+  backdrop-filter: blur(3px);
+}
+.dd-scrim[hidden] { display: none; }
+
+.dd-panel {
+  position: fixed;
+  left: var(--dd-left);
+  top: var(--dd-top);
+  width: var(--dd-w);
+  height: var(--dd-h);
+  z-index: 901;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  border-radius: 14px;
+  background:
+    radial-gradient(120% 90% at 78% 14%, #17325c 0%, #0d1f3e 46%, #071429 78%, #04101f 100%);
+  color: var(--dd-ink);
+  font-family: ui-rounded, "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .6);
+}
+.dd-panel[hidden] { display: none; }
+
+/* ---- Top bar: Back on the left, Close on the right (§4) ----
+   They are different controls with different jobs, so they are given different
+   shapes as well as different corners: Back is an outlined arrow that moves
+   inside the mini-book, Close is a filled gold pill that leaves it. A child who
+   learns one does not have to relearn the other. */
+.dd-bar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--dd-line);
+  background: rgba(4, 12, 26, .6);
+}
+/* Placed explicitly, so that hiding Back for the contents overlay leaves an
+   empty first column and the title stays centred, instead of every item
+   sliding one column left. */
+.dd-bar > .dd-btn-back  { grid-column: 1; }
+.dd-bar > .dd-head      { grid-column: 2; }
+.dd-bar > .dd-btn-close { grid-column: 3; }
+
+.dd-btn {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 2px solid var(--dd-line);
+  background: #17496b;
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  font-size: clamp(13px, 1.6vw, 17px);
+  cursor: pointer;
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 6px;
+}
+.dd-btn:hover { background: #24659a; }
+.dd-btn:focus-visible { outline: 3px solid var(--dd-blue); outline-offset: 3px; }
+
+/* Back on the deep dive's FIRST page is dimmed and inert, not silently
+   re-pointed at Close. Deliberate, and it copies the book's own page navigator,
+   where Previous on page 1 sits in place greyed out rather than disappearing or
+   doing something else. The target keeps its full 48px: a disabled control that
+   also shrinks moves every neighbour when it re-enables. */
+.dd-btn[aria-disabled="true"] { opacity: .34; pointer-events: none; }
+
+.dd-btn-close {
+  background: var(--dd-gold);
+  border-color: var(--dd-gold);
+  color: #17203a;
+}
+.dd-btn-close:hover { background: #ffd14f; }
+
+.dd-head { min-width: 0; text-align: center; }
+.dd-head h2 {
+  margin: 0;
+  font-size: clamp(15px, 2.2vw, 24px);
+  line-height: 1.15;
+  color: var(--dd-gold);
+  overflow-wrap: anywhere;
+}
+.dd-head p {
+  margin: 2px 0 0;
+  font-size: clamp(11px, 1.4vw, 15px);
+  color: var(--dd-blue);
+  opacity: .9;
+}
+
+/* ---- Content area ---- */
+.dd-body {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 14px 18px;
+  display: grid;
+  /* `safe` is the whole reason this is not plain `center`. Held upright, a
+     768x1024 iPad gives this panel the page's full-height stage, and a
+     start-aligned mini-book page then sits in the top third with two thirds of
+     black under it. Centred, it reads as a page. `safe` is what stops that
+     centring from cutting the top off a page whose content is taller than the
+     panel — it falls back to start exactly when it overflows, which is the one
+     case where centring would put content above the scroll origin, out of
+     reach. The contents overlay keeps `start` (see .toc-body): a list of
+     twenty cards always overflows and should begin at the top. */
+  align-content: safe center;
+  gap: 12px;
+}
+.dd-copy {
+  margin: 0;
+  font-size: clamp(13px, 1.7vw, 19px);
+  line-height: 1.45;
+  max-width: 62ch;
+}
+
+/* The hero picture on a single-focus or compare page.
+   `max-height` is in `dvh` against the overlay's own measured height rather
+   than a fixed pixel cap: this panel is as tall as the page's stage, which on
+   a 768x1024 iPad is a different shape from the same page in landscape, and a
+   picture sized for one crowds the words out of the other. `object-fit:
+   contain` because these are whole moons — cropping one is cropping the
+   subject. */
+.dd-hero {
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  border: 1px solid var(--dd-line);
+  background: radial-gradient(85% 110% at 50% 40%, #16325a 0%, #0a1b34 62%, #06111f 100%);
+  padding: 10px;
+  overflow: hidden;
+}
+.dd-hero img {
+  max-width: 100%;
+  max-height: min(38vh, calc(var(--dd-h) * .34));
+  object-fit: contain;
+}
+
+/* HotspotScene (§10) — a scene with a few large, clearly labelled targets.
+   The targets are drawn as soft discs on the panel; Phase 1B gave both
+   overviews a picture, and the discs sit on top of it unchanged. */
+.dd-scene {
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid var(--dd-line);
+  background:
+    radial-gradient(90% 120% at 20% 10%, #1d3f6d 0%, #0b1c36 60%, #071327 100%);
+  padding: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+}
+/* The overview's picture. It is the scene's backdrop, so it is taken out of
+   flow and the labelled discs lay out over it exactly as they did without one.
+   Dimmed, because a disc has to stay readable against whatever part of a photo
+   happens to fall behind it. */
+.dd-scene-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  opacity: .62;
+  pointer-events: none;
+}
+.dd-scene { min-height: min(34vh, calc(var(--dd-h) * .3)); }
+
+.dd-hotspot {
+  position: relative;             /* over .dd-scene-art */
+  min-height: 64px;
+  min-width: 120px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 2px solid var(--dd-blue);
+  background: rgba(14, 44, 78, .92);
+  color: var(--dd-cream);
+  font: inherit;
+  font-weight: 800;
+  font-size: clamp(13px, 1.7vw, 18px);
+  cursor: pointer;
+}
+.dd-hotspot:hover { background: #17568f; }
+.dd-hotspot:focus-visible { outline: 3px solid var(--dd-gold); outline-offset: 3px; }
+
+/* Compare (§12) — 3 to 5 items, large labels, nothing crowded. */
+.dd-compare {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+.dd-compare-item {
+  border-radius: 16px;
+  border: 1px solid var(--dd-line);
+  background: rgba(10, 30, 58, .85);
+  padding: 12px 14px;
+  text-align: center;
+}
+.dd-compare-item strong {
+  display: block;
+  font-size: clamp(15px, 2.1vw, 22px);
+  color: var(--dd-gold);
+}
+.dd-compare-item span {
+  display: block;
+  margin-top: 4px;
+  font-size: clamp(12px, 1.5vw, 16px);
+  line-height: 1.35;
+}
+
+/* FactStrip (§10) — the bottom ribbon idiom the main pages already use. */
+.dd-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  border-radius: 16px;
+  border: 1px solid var(--dd-line);
+  background: linear-gradient(#fffdf5, #fff6df);
+  color: #15365f;
+  padding: 10px;
+}
+.dd-fact { text-align: center; padding: 4px; }
+.dd-fact span {
+  display: block;
+  font-size: clamp(11px, 1.3vw, 14px);
+  font-weight: 800;
+}
+.dd-fact strong {
+  display: block;
+  margin-top: 2px;
+  font-size: clamp(13px, 1.7vw, 18px);
+  color: #a44e32;
+}
+
+/* ChipList (§10) — secondary labels. Tidy, and every chip is still a real
+   target, because §7.5 has these becoming tappable pronunciations in Phase 1C. */
+.dd-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.dd-chip {
+  min-height: 48px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--dd-line);
+  background: rgba(12, 36, 66, .9);
+  color: var(--dd-cream);
+  font: inherit;
+  font-weight: 800;
+  font-size: clamp(13px, 1.6vw, 17px);
+  line-height: 1.15;
+  cursor: pointer;
+  /* A chip carrying a written pronunciation is two stacked lines, so it is
+     laid out rather than left to the button's default centring. `min-height`
+     still governs: 48px is a floor, and the second line grows the chip past it
+     rather than squeezing the text. */
+  display: grid;
+  align-content: center;
+  gap: 1px;
+  text-align: center;
+}
+.dd-chip:hover { background: #17568f; }
+.dd-chip:focus-visible { outline: 3px solid var(--dd-gold); outline-offset: 3px; }
+
+.dd-chip-name { display: block; }
+.dd-chip-pron {
+  display: block;
+  font-size: clamp(10px, 1.2vw, 13px);
+  font-weight: 700;
+  color: var(--dd-blue);
+  opacity: .92;
+  letter-spacing: .01em;
+}
+/* The chosen chip, and the one panel its fact lands in. Gold marks the choice
+   because gold is already what "you are here" means in this overlay — the
+   contents card for the current page and the lit position dot both use it. */
+.dd-chip[data-on="true"] {
+  border-color: var(--dd-gold);
+  background: #1c4677;
+}
+.dd-chip[data-on="true"] .dd-chip-name { color: var(--dd-gold); }
+.dd-chip-note {
+  border-radius: 16px;
+  border: 1px solid var(--dd-line);
+  background: linear-gradient(#fffdf5, #fff6df);
+  color: #15365f;
+  padding: 12px 14px;
+  min-height: 44px;
+  display: grid;
+  align-content: center;
+  gap: 3px;
+}
+.dd-chip-note strong {
+  font-size: clamp(13px, 1.7vw, 18px);
+  color: #a44e32;
+}
+.dd-chip-note strong:empty { display: none; }
+.dd-chip-note span {
+  font-size: clamp(12px, 1.5vw, 16px);
+  line-height: 1.35;
+}
+
+/* ---- Foot: position inside the mini-book, and forward movement ---- */
+.dd-foot {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--dd-line);
+  background: rgba(4, 12, 26, .6);
+}
+.dd-pos {
+  grid-column: 2;
+  font-weight: 800;
+  font-size: clamp(12px, 1.5vw, 16px);
+  color: var(--dd-blue);
+}
+.dd-dots { grid-column: 1; display: flex; gap: 6px; align-items: center; }
+.dd-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(141, 232, 255, .32);
+}
+.dd-dot[data-on="true"] { background: var(--dd-gold); }
+.dd-next { grid-column: 3; justify-self: end; }
+
+/* ============================================================
+   TOC overlay (§7.1). Card UI is allowed HERE and only here.
+   ============================================================ */
+.toc-body { display: grid; align-content: start; gap: 14px; }
+.toc-chapter {
+  margin: 0;
+  font-size: clamp(12px, 1.5vw, 16px);
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--dd-blue);
+  opacity: .85;
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 10px;
+}
+.toc-card {
+  min-height: 68px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--dd-line);
+  background: rgba(10, 30, 58, .88);
+  color: var(--dd-ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.toc-card:hover { background: #17496b; }
+.toc-card:focus-visible { outline: 3px solid var(--dd-gold); outline-offset: 3px; }
+.toc-card[data-current="true"] { border-color: var(--dd-gold); background: #1c4677; }
+.toc-num {
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  background: var(--dd-gold);
+  color: #17203a;
+  font-weight: 900;
+  font-size: 15px;
+}
+.toc-text { min-width: 0; }
+.toc-text strong {
+  display: block;
+  font-size: clamp(12px, 1.5vw, 16px);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.toc-text span {
+  display: block;
+  margin-top: 2px;
+  font-size: clamp(10px, 1.2vw, 13px);
+  line-height: 1.25;
+  color: var(--dd-blue);
+  opacity: .88;
+}
+
+/* ============================================================
+   The controls that live ON a main page.
+   ============================================================ */
+
+/* The book icon that opens the contents (§7.1). Top-left, under the back-to-hub
+   arrow, which is where the page's other chrome already is. It is not a story
+   action: the main page's two-CTA budget (§5) is for things in the story, and
+   this sits with the navigation furniture. */
+.toc-open {
+  position: absolute;
+  z-index: 60;
+  left: 1.5%;
+  top: calc(1.5% + 42px);
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, .2);
+  background: #16345c;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+}
+.toc-open:hover { background: #285b87; }
+.toc-open:focus-visible { outline: 3px solid #8eeaff; outline-offset: 2px; }
+.toc-open svg { width: 26px; height: 26px; }
+
+/* The deep-dive launch button a main page offers (§3's "Explore the moons").
+   Phase 1A mounts it only for a preview entry; Phase 1B gives pages 10 and 12
+   real ones. It is drawn as a secondary action so it cannot outshout Listen. */
+.dd-open {
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 2px solid var(--dd-gold, #ffe27d);
+  background: rgba(10, 30, 58, .9);
+  color: #fff8df;
+  font: inherit;
+  font-weight: 800;
+  font-size: clamp(13px, 1.6vw, 17px);
+  cursor: pointer;
+}
+.dd-open:hover { background: #17496b; }
+.dd-open:focus-visible { outline: 3px solid #8eeaff; outline-offset: 3px; }
+
+/* ---- Calm mode ----
+   Every page carries a Calm mode button that sets `.reduced` on <body> and
+   stops the page moving. The overlay has one transition and it honours it. */
+.dd-panel { animation: dd-in .22s ease-out; }
+@keyframes dd-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+body.reduced .dd-panel,
+body.reduce-motion .dd-panel { animation: none; }
+@media (prefers-reduced-motion: reduce) { .dd-panel { animation: none; } }
+
+/* ============================================================
+   The asteroid roster (§7.2), and the ten body pages behind it.
+
+   The rules that matter here are about SIZE and about TAPPING, and both are
+   explained at length in app/deep-dive.js above renderRoster(). In short:
+
+     Every true-scale rock is `diameter_km x --rk` and nothing else, so the six
+     big worlds are drawn in honest proportion to one another. `--rk` is a
+     single number written by fitRoster() after it measures the panel; the
+     arithmetic lives here so that one measured number governs the whole scene
+     and no rock can be sized by hand.
+
+     The four small worlds are shown enlarged inside a magnifier, with the body
+     at TRUE scale as a dot underneath it — the same `km x --rk` formula, so
+     the honest size cannot drift away from the enlarged drawing.
+
+     A rock button is transparent to the pointer. The silhouette inside it is
+     the target, widened evenly by a non-scaling stroke, because a rectangle
+     over an irregular rock is mostly empty and eats its neighbour's taps.
+   ============================================================ */
+
+.dd-roster {
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid var(--dd-line);
+  background:
+    radial-gradient(90% 120% at 20% 10%, #1d3f6d 0%, #0b1c36 60%, #071327 100%);
+  padding: 14px;
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+  /* Fallbacks only. fitRoster() overwrites both as soon as the panel is on
+     screen and can be measured; these keep the scene sane for the one frame
+     before that, and on a browser that never fires the callback. */
+  --rk: 0.21;
+  --glass: 92px;
+}
+
+/* One baseline, largest first. The lineup is the whole size statement, so the
+   rocks stand on a line rather than being centred in equal cells. */
+.dd-roster-belt,
+.dd-roster-zoom {
+  position: relative;                 /* over .dd-scene-art */
+  display: flex;
+  align-items: flex-end;
+  justify-content: safe center;
+  width: 100%;
+}
+.dd-roster-belt {
+  flex-wrap: nowrap;                  /* one baseline is the size comparison */
+  gap: 10px;                          /* ROCK_GAP in deep-dive.js — keep in step */
+  overflow-x: auto;                   /* the 44px art floor wins on narrower panels */
+}
+.dd-roster-zoom { flex-wrap: nowrap; gap: 18px; }
+
+/* ---- one rock ----
+   `pointer-events: none` is the hit-shaping, not a mistake: it takes the
+   button's rectangle out of the hit test and leaves only the silhouette and
+   the name pill, both of which switch it back on. The button keeps its focus
+   ring and its keyboard behaviour, because neither goes through hit testing. */
+.dd-rock {
+  position: relative;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+}
+.dd-rock:focus-visible {
+  outline: 3px solid var(--dd-gold);
+  outline-offset: 4px;
+  border-radius: 14px;
+}
+
+.dd-rock-svg {
+  display: block;
+  /* The honest size, from one measured scale. Nothing else sets it. */
+  width:  calc(var(--km) * var(--rk) * var(--aw) * 1px);
+  height: calc(var(--km) * var(--rk) * var(--ah) * 1px);
+  /* The tap halo is a stroke that reaches past the drawing's own box, and an
+     SVG clips to its viewport by default — without this the widened part of
+     the target is invisible AND untappable, which is the worse half. */
+  overflow: visible;
+  transform-origin: 50% 100%;
+  transition: transform .16s ease-out;
+}
+.dd-rock:hover .dd-rock-svg { transform: scale(1.06); }
+
+/* The silhouette, painted invisible, as the target. `non-scaling-stroke` is
+   what makes 14 mean 14 screen pixels on Ceres and on Gaspra alike — in user
+   units it would be a 30px halo on one and a 21px halo on the other. */
+.dd-rock-hit > * {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 14;
+  vector-effect: non-scaling-stroke;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.dd-rock-pill {
+  pointer-events: auto;
+  cursor: pointer;
+  padding: 3px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--dd-line);
+  background: rgba(7, 22, 44, .9);
+  color: var(--dd-cream);
+  font-weight: 800;
+  font-size: clamp(11px, 1.3vw, 14px);
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.dd-rock:hover .dd-rock-pill { background: #17568f; }
+
+/* ---- the magnifier, for the four that are too small to draw honestly ----
+   A lens is understood before it is read, which is why the four small bodies
+   are shown through one instead of being quietly drawn at Vesta's size. Each
+   lens magnifies by a different amount — one factor that lifted Gaspra to a
+   tappable size would put Lutetia at 366px — so the drawing inside carries no
+   size information at all, and the dot underneath carries all of it. */
+.dd-rock-lens,
+.dd-focus-lens { --gw: var(--glass); }
+.dd-rock-lens[data-wide="true"],
+.dd-focus-lens[data-wide="true"] {
+  /* Ida is drawn nearly twice as wide as she is tall. A round lens would cut
+     her to 31px on the short axis, under the target floor. */
+  --gw: calc(var(--glass) * 1.55);
+}
+
+.dd-rock-glass {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--gw);
+  height: var(--glass);
+  border-radius: 50%;
+  border: 5px solid #c6d4e6;
+  background:
+    radial-gradient(circle at 34% 26%, rgba(196,228,255,.30), rgba(10,28,52,.62) 68%);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .45), inset 0 0 14px rgba(150, 200, 255, .18);
+}
+/* The handle. Low on the left, out of the way of the dot below, so the two
+   readings — "this is a lens" and "this is its real size" — do not collide. */
+.dd-rock-glass::after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 72%;
+  width: calc(var(--glass) * .34);
+  height: max(6px, calc(var(--glass) * .07));
+  border-radius: 99px;
+  background: linear-gradient(180deg, #cfdcec, #7f90a6);
+  transform: rotate(34deg);
+  transform-origin: 100% 50%;
+}
+.dd-rock-lens .dd-rock-svg,
+.dd-focus-lens .dd-rock-svg {
+  /* Contain the full SVG in 82% of the glass on BOTH axes. The previous rule
+     fixed only its height, so Ida and Gaspra (both strongly elongated) spilled
+     through the sides of the lens. `min()` chooses the limiting axis while
+     preserving the drawing's aspect ratio. */
+  width: min(calc(var(--gw) * .82),
+             calc(var(--glass) * .82 * var(--aw) / var(--ah)));
+  height: min(calc(var(--glass) * .82),
+              calc(var(--gw) * .82 * var(--ah) / var(--aw)));
+  transform-origin: 50% 50%;
+}
+
+/* The body at TRUE scale — the same formula the six big ones use, so the
+   enlarged drawing above it can never quietly become the size claim. The
+   leader ties the dot to its lens; the four dots land on one row, so Lutetia's
+   really is eight times Gaspra's and a child can see it. */
+.dd-rock-true {
+  position: relative;
+  width:  calc(var(--km) * var(--rk) * var(--sw) * 1px);
+  height: calc(var(--km) * var(--rk) * var(--sh) * 1px);
+  min-width: 2px;
+  min-height: 2px;
+  border-radius: 44%;
+  background: #f2e7c8;
+  box-shadow: 0 0 0 1px rgba(4, 12, 26, .75);
+}
+.dd-rock-true::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  margin-bottom: 3px;
+  width: 2px;
+  height: 11px;
+  transform: translateX(-50%);
+  background: linear-gradient(rgba(206, 230, 255, .08), rgba(206, 230, 255, .66));
+}
+
+/* ---- a body's own page ----
+   One scale for all ten pages, taken from Ceres rather than from whichever
+   body is showing: a scale that reset per page would make every world the same
+   size again, which is the one thing the roster exists to prevent. */
+.dd-focus {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 6px 0 2px;
+  --rk: 0.3;
+  --glass: 150px;
+}
+.dd-focus .dd-rock-svg,
+.dd-focus .dd-rock-hit > * { pointer-events: none; cursor: default; }
+.dd-focus .dd-rock-svg { transition: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dd-rock-svg { transition: none; }
+  .dd-rock:hover .dd-rock-svg { transform: none; }
+}
+body.reduced .dd-rock-svg,
+body.reduce-motion .dd-rock-svg { transition: none; }
+body.reduced .dd-rock:hover .dd-rock-svg,
+body.reduce-motion .dd-rock:hover .dd-rock-svg { transform: none; }

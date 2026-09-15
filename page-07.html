@@ -1,4 +1,9 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Ari &amp; Dot · Page 7 — The Moon: Earth’s Partner</title><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Ari &amp; Dot · Page 7 — The Moon: Earth’s Partner</title>
+<!-- The contents overlay and the deep-dive mini-book shell (DEEP-DIVE-SPEC.md Phase 1A).
+     Every selector in it is prefixed dd-/toc-, so this page keeps all of its
+     own styles. -->
+<link rel="stylesheet" href="app/deep-dive.css">
+<style>
 :root{--navy:#06152d;--blue:#8de8ff;--gold:#ffe27d;--cream:#fff8df}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#020713;color:#fff;font-family:ui-rounded,"Avenir Next","Segoe UI",system-ui,sans-serif}.book{min-height:100vh;display:grid;place-items:center}button{font:inherit}.stage{position:relative;width:min(100vw,150vh,1536px);aspect-ratio:3/2;overflow:hidden;isolation:isolate;background:#10111a url("assets-runtime/standard/page-07/lunar-background-v1.webp") center/cover no-repeat}.stage:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,#020713a8 0,transparent 38%),linear-gradient(0deg,#0207139a 0,transparent 38%)}
 .story{position:absolute;z-index:20;left:2%;top:2%;width:32%;padding:13px 15px;border:1px solid #c9efff66;border-radius:18px;background:linear-gradient(140deg,#06142ef2,#28304bcf);box-shadow:0 10px 32px #000b}.story h1{margin:0;color:var(--gold);font-size:clamp(22px,3vw,43px);line-height:1}.story h1 small{display:block;color:#fff;font-size:.48em}.story p{margin:6px 0;font-size:clamp(9px,1vw,14px);line-height:1.35}.story strong{color:var(--blue)}.actions{display:flex;gap:7px;flex-wrap:wrap}.story button,.tool,.science-open{border:1px solid #c9efff66;border-radius:999px;background:#253858;color:#fff;padding:6px 11px;font-weight:850;cursor:pointer}.primary{background:#2a7796!important}
 
@@ -29,7 +34,7 @@
    six literal assets/ references the public export deliberately refuses to
    ship. The standalone files under assets/page-07/icons/ stay the source of
    truth for the asset library and are kept byte-identical to what is inlined. */
-.facts{position:absolute;z-index:25;left:2%;right:2%;bottom:1.5%;height:20%;display:grid;grid-template-columns:repeat(6,1fr);overflow:hidden;border:3px solid #244b79;border-radius:28px;background:linear-gradient(#fffdf5,#fff6df);color:#15365f;box-shadow:0 8px 26px #0008}.fact{display:grid;grid-template-rows:55% auto;place-items:center;min-width:0;border:0;border-right:1px dashed #8c9aa8;background:transparent;color:inherit;padding:5px;cursor:pointer;font-size:clamp(7px,.82vw,12px);font-weight:850;line-height:1.15;text-align:center}.fact:last-child{border-right:0}.fact svg{width:auto;height:100%;max-width:62px}.fact strong{display:block;color:#0756a1}.fact.on{background:#dff8ff}
+.facts{position:absolute;z-index:25;left:2%;right:2%;bottom:1.5%;height:20%;display:grid;grid-template-columns:repeat(6,1fr);overflow:hidden;border:3px solid #244b79;border-radius:28px;background:linear-gradient(#fffdf5,#fff6df);color:#15365f;box-shadow:0 8px 26px #0008}.fact{display:grid;grid-template-rows:55% auto;place-items:center;min-width:0;border:0;border-right:1px dashed #8c9aa8;background:transparent;color:inherit;padding:5px;cursor:pointer;font-size:clamp(12px,1.35vw,17px);font-weight:850;line-height:1.15;text-align:center}.fact:last-child{border-right:0}.fact svg{width:auto;height:100%;max-width:62px}.fact strong{display:block;color:#0756a1}.fact.on{background:#dff8ff}
 /* Three separate bands along the bottom: subtitle, tools, then the fact tray.
    They previously all sat at bottom:21.5% and the subtitle covered the quality
    button by a measured 53px -- the same collision class TURN-2026-08-08-2041
@@ -65,7 +70,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offse
    ground line far lower than the desktop crop -- at the old bottom:35% Ari and
    Dot floated in empty black sky. These values are measured against the
    composited ground, not guessed from the desktop numbers. */
-.ari{left:14%;bottom:26.5%;width:42%;height:38%}.dot{right:8%;bottom:28%;width:27%;height:28%}.jump{left:22%;top:28%}.science-open{right:2%;top:35%}.footprint{left:5%;bottom:33%;width:17%}.rock{left:25%;bottom:33.5%;width:12%}.facts{height:31%;grid-template-columns:repeat(2,1fr);bottom:1%;border-radius:18px}.fact{grid-template-rows:52px auto;border-right:0;border-bottom:1px dashed #8c9aa8}.fact:nth-child(2n){border-right:0}.fact:nth-last-child(-n+2){border-bottom:0}.fact svg{height:52px}.tools{bottom:32.5%;flex-wrap:wrap;justify-content:flex-end;max-width:58%}.status{position:fixed;left:4%;right:4%;bottom:max(8px,env(safe-area-inset-bottom))}.science{inset:6% 4% 19%;grid-template-columns:1fr!important;grid-template-rows:1fr auto}.orbit-note{white-space:normal}.page-nav{right:2%;top:1%}}
+.ari{left:14%;bottom:26.5%;width:42%;height:38%}.dot{right:8%;bottom:28%;width:27%;height:28%}.jump{left:22%;top:28%}.science-open{right:2%;top:35%}.footprint{left:5%;bottom:33%;width:17%}.rock{left:25%;bottom:33.5%;width:12%}.facts{height:31%;grid-template-columns:repeat(2,1fr);bottom:1%;border-radius:18px}.fact{font-size:12px;grid-template-rows:52px auto;border-right:0;border-bottom:1px dashed #8c9aa8}.fact:nth-child(2n){border-right:0}.fact:nth-last-child(-n+2){border-bottom:0}.fact svg{height:52px}.tools{bottom:32.5%;flex-wrap:wrap;justify-content:flex-end;max-width:58%}.status{position:fixed;left:4%;right:4%;bottom:max(8px,env(safe-area-inset-bottom))}.science{inset:6% 4% 19%;grid-template-columns:1fr!important;grid-template-rows:1fr auto}.orbit-note{white-space:normal}.page-nav{right:2%;top:1%}}
 
 
 
@@ -232,7 +237,16 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 
 [data-friend="sf7-friend-moon-hugger"],#sf7-friend-moon-hugger{left:17%;top:38%}[data-friend="sf7-friend-little-robot"],#sf7-friend-little-robot{left:45%;top:10%}[data-friend="sf7-rock-grey-rock"],#sf7-rock-grey-rock{left:77%;top:10%}
 @media(max-aspect-ratio:4/5){[data-friend="sf7-friend-moon-hugger"],#sf7-friend-moon-hugger{inset:auto;left:13%;top:28%}[data-friend="sf7-friend-little-robot"],#sf7-friend-little-robot{inset:auto;left:69%;top:20%}[data-friend="sf7-rock-grey-rock"],#sf7-rock-grey-rock{inset:auto;left:87%;top:20%}}/* /SECRETS:CSS */
-</style></head><body><main class="book"><section class="stage" id="stage" aria-label="The Moon: Earth’s Partner">
+</style>  <style>
+  /* Touch hygiene -- owner 2026-09-15: a child's drag became a blue text selection,
+     and pinches zoomed the page. user-select and touch-callout stop the first;
+     touch-action: manipulation stops double-tap zoom without killing scroll. Pinch
+     itself needs the gesturestart guard below, because iOS ignores user-scalable=no. */
+  html { -webkit-text-size-adjust: 100%; }
+  body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; touch-action: manipulation; }
+  input, textarea, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
+  </style>
+</head><body><main class="book"><section class="stage" id="stage" aria-label="The Moon: Earth’s Partner">
 <!-- NAMEPLATES:HTML -->
 <div class="np np-here" data-np="p7-moon"><button type="button" class="np-body" data-say="You are standing on the Moon with us! Jump, and you would fly six times higher than you can at home. That blue marble up in the sky is Earth." aria-label="You are on Moon. Hear about it"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p7-moon"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#dedad2"/><g clip-path="url(#npc-p7-moon)"><circle cx="34" cy="26" r="11" fill="#b3aea4"/><circle cx="66" cy="24" r="7" fill="#b3aea4"/><circle cx="76" cy="42" r="6" fill="#bdb8ae"/><circle cx="20" cy="48" r="6" fill="#bdb8ae"/><circle cx="46" cy="76" r="12" fill="#b3aea4"/><circle cx="72" cy="72" r="8" fill="#bdb8ae"/><circle cx="22" cy="72" r="6" fill="#c6c1b7"/><circle cx="34" cy="26" r="6" fill="#c6c1b7"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg></button><button type="button" class="np-label" data-say="The Moon" aria-label="Hear the name Moon"><span class="np-here-tag">You are here</span><span class="np-row"><span class="np-name">Moon</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></span></button></div>
 <div class="np np-lead np-lead-r" data-np="p7-earth" data-art=".earth"><button type="button" class="np-body" data-say="Earth. Our home. The blue planet with air, water and life." aria-label="Earth. Hear about it"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p7-earth"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#3f92da"/><g clip-path="url(#npc-p7-earth)"><path d="M16 24q14-8 24 2t-4 16-20 2-4-14z" fill="#5eb257"/><path d="M58 18q16-4 22 6t-6 16-20-4-2-14z" fill="#5eb257"/><path d="M14 62q12-6 20 2t10 18-16 8-18-12z" fill="#5eb257"/><path d="M60 64q16-8 26 2t-8 20-24-6z" fill="#5eb257"/><path d="M42 78q10-4 14 4t-8 8-10-6z" fill="#6ec065"/><path d="M10 34q14-6 26 0t22-2v6q-12 6-24 0t-24 2z" fill="#fff" opacity=".6"/><path d="M18 70q16-6 28 0t26-2v6q-14 6-28 0t-26 2z" fill="#fff" opacity=".5"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg></button><button type="button" class="np-label" data-say="Earth" aria-label="Hear the name Earth"><span class="np-name">Earth</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button></div>
@@ -536,7 +550,13 @@ syncBook()})();
 const el=document.querySelector('img[src*="assets-runtime/"]');if(!el){q.hidden=true;return}
 const im=new Image();im.onerror=()=>{q.hidden=true};
 im.src=el.getAttribute('src').replace(/assets-runtime\/(standard|high)\//,'assets-runtime/high/')})();
-</script><!-- SERVICEWORKER:JS -->
+</script><!-- Contents overlay + deep-dive system. Data first, engine second: the engine
+     reads window.BOOK_NAV at load and does nothing without it. In Phase 1A the
+     "Explore moons" button this mounts is a preview entry, so it appears only
+     with ?deepdive=preview and this page is unchanged for a child. -->
+<script src="app/book-nav.js"></script>
+<script src="app/deep-dive.js"></script>
+<!-- SERVICEWORKER:JS -->
 <script>
 /* Generated by tools/wire-service-worker.py. Do not edit by hand. */
 if ("serviceWorker" in navigator) {
@@ -546,4 +566,11 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 <!-- /SERVICEWORKER:JS -->
-</body></html>
+  <script>
+  /* Pinch-zoom guard. iOS Safari ignores user-scalable=no (since iOS 10), so this is
+     the only thing that stops two small hands zooming the page mid-play. gesturestart
+     fires once per pinch; preventing it cancels the zoom and touches nothing else.
+     Other browsers never fire it, so this is inert there. */
+  document.addEventListener("gesturestart", function (e) { e.preventDefault(); }, { passive: false });
+  </script>
+  </body></html>

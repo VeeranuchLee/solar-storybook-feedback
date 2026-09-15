@@ -1,23 +1,80 @@
 {
   "$comment": [
-    "The Moon Explorer's single source of truth. Family pages, the Hall of Fame and",
-    "the Whose Moon? game all read this file, so a fact is written once.",
+    "The Solar System Explorer's single source of truth. Family pages, the Hall of",
+    "Fame and the Whose Moon? game all read this file, so a fact is written once.",
+    "",
+    "THE FILE IS STILL CALLED moons.json, AND THE RUNTIME IS STILL moon-explorer.js.",
+    "That is deliberate (owner decision, 2026-09-10). The section grew past moons on",
+    "that date and the names no longer describe it, but the book is live and a",
+    "sweeping rename of a shipped, service-worker-cached app risks more than the",
+    "tidiness gains. The mismatch is recorded rather than fixed. What a child reads",
+    "says Solar System Explorer everywhere; only the filenames lag.",
+    "",
+    "THREE LEVELS: group -> family -> body.",
+    "A group is the kind of thing (Moons, Asteroids). A family is a page of them",
+    "(Jupiter, Saturn's big moons). A body is one card. Adding a group -- Comets,",
+    "Dwarf Planets -- is an entry in `groups`, a family pointing at it, its bodies,",
+    "and one page-mNN.html stub. No runtime code changes for any of that.",
     "",
     "Owner's rules, 2026-09-06: no moon counts anywhere; the standard label is",
     "'Orbits:' and never 'Planet:', so Pluto and the other dwarf worlds fit the same",
-    "sentence; every moon teaches name + what it orbits; important moons also get one",
-    "short thing they are known for.",
+    "sentence; every body teaches name + what it orbits; important ones also get one",
+    "short thing they are known for. Asteroids orbit 'the Sun' and are never",
+    "presented as moons (owner decision, 2026-09-10).",
     "",
     "tier 1 = hero, gets a strong fact and sometimes an interaction.",
     "tier 2 = recognition card: name, what it orbits, one line.",
-    "'fame' is set only on the moons that appear in the Hall of Fame, and it is what",
+    "'fame' is set only on the bodies that appear in the Hall of Fame, and it is what",
     "the trophy card says. The quiz builds its three levels from tier and fame, so a",
-    "moon added here appears in the game without anything else being edited.",
+    "body added here appears in the game without anything else being edited.",
+    "'unnamed' marks a body with no proper name yet; the game's parity check reads",
+    "that flag instead of keeping its own copy of the list.",
     "avatar = a key in tools/bodies.py."
+  ],
+  "groups": [
+    {
+      "id": "moons",
+      "title": "Moons",
+      "sub": "Worlds that go round another world",
+      "hosts": [
+        "saturn"
+      ],
+      "more": "More moons to know by sight",
+      "extras": [
+        {
+          "kind": "fame",
+          "page": "m9",
+          "avatar": "ganymede",
+          "title": "Moon Hall of Fame",
+          "sub": "The one each moon is famous for",
+          "pageSub": "Every one of these is the best in the solar system at something",
+          "intro": "Tap any of them to find out more, or to jump to the rest of its family."
+        },
+        {
+          "kind": "game",
+          "page": "m10",
+          "avatar": "triton",
+          "title": "Whose Moon?",
+          "sub": "A game — can you say what it goes round?",
+          "pageSub": "Say which world it goes around"
+        }
+      ]
+    },
+    {
+      "id": "asteroids",
+      "title": "Asteroids",
+      "sub": "Rocky worlds that go round the Sun",
+      "hosts": [
+        "vesta"
+      ],
+      "more": "More asteroids to know by sight",
+      "extras": []
+    }
   ],
   "families": [
     {
       "id": "earth-mars",
+      "group": "moons",
       "page": "m2",
       "title": "Earth and Mars",
       "sub": "Three moons, and one of them is ours",
@@ -25,6 +82,7 @@
     },
     {
       "id": "jupiter",
+      "group": "moons",
       "page": "m3",
       "title": "Jupiter",
       "sub": "The big four, and some small ones",
@@ -32,6 +90,7 @@
     },
     {
       "id": "saturn-major",
+      "group": "moons",
       "page": "m4",
       "title": "Saturn's big moons",
       "sub": "Lakes, jets and one enormous crater",
@@ -39,6 +98,7 @@
     },
     {
       "id": "saturn-small",
+      "group": "moons",
       "page": "m5",
       "title": "Saturn's strange little moons",
       "sub": "Ravioli, shepherds and a swap",
@@ -46,6 +106,7 @@
     },
     {
       "id": "uranus",
+      "group": "moons",
       "page": "m6",
       "title": "Uranus",
       "sub": "The moons named after plays and poems",
@@ -53,6 +114,7 @@
     },
     {
       "id": "neptune",
+      "group": "moons",
       "page": "m7",
       "title": "Neptune",
       "sub": "One big moon going the wrong way",
@@ -60,13 +122,27 @@
     },
     {
       "id": "dwarf",
+      "group": "moons",
       "page": "m8",
       "title": "Pluto and the dwarf worlds",
       "sub": "Even little worlds have moons",
       "intro": "You do not have to be a planet to have a moon. Pluto has five, and three other dwarf worlds have their own."
+    },
+    {
+      "id": "asteroids",
+      "group": "asteroids",
+      "page": "m11",
+      "title": "Asteroids",
+      "sub": "Lumpy worlds in the belt between Mars and Jupiter",
+      "intro": "Asteroids go round the Sun, the same way the planets do. They are much smaller, most of them are lumpy rather than round, and every one of these travels in the wide belt between Mars and Jupiter.",
+      "allLabel": "All the asteroids",
+      "pics": [
+        "vesta",
+        "ida"
+      ]
     }
   ],
-  "moons": [
+  "bodies": [
     {
       "id": "moon",
       "name": "The Moon",
@@ -1042,7 +1118,143 @@
         "dwarf-planet-moon"
       ],
       "factShort": "Found in 2016, very dark, and still waiting for a proper name.",
-      "say": "Makemake's moon. It was found in twenty sixteen, it is very dark, and it still has no proper name."
+      "say": "Makemake's moon. It was found in twenty sixteen, it is very dark, and it still has no proper name.",
+      "unnamed": true
+    },
+    {
+      "id": "vesta",
+      "name": "Vesta",
+      "pron": "VES-tuh",
+      "orbits": "the Sun",
+      "family": "asteroids",
+      "avatar": "vesta",
+      "tier": 1,
+      "tags": [
+        "rocky",
+        "bright"
+      ],
+      "factShort": "One of the biggest asteroids in the belt, and the only one you can spot without a telescope.",
+      "factExtra": "Vesta has a mountain at its south pole more than twice the height of Mount Everest, sitting in the middle of an enormous crater.",
+      "say": "Vesta. One of the biggest asteroids in the belt, and the only one you can spot without a telescope."
+    },
+    {
+      "id": "psyche",
+      "name": "Psyche",
+      "pron": "SY-kee",
+      "orbits": "the Sun",
+      "family": "asteroids",
+      "avatar": "psyche",
+      "tier": 1,
+      "tags": [
+        "metal"
+      ],
+      "factShort": "A metal-rich world no spacecraft has reached yet.",
+      "factExtra": "Psyche may be the leftover metal core of a small world that was smashed apart long ago. A spacecraft is on its way there now.",
+      "say": "Psyche. A metal-rich world no spacecraft has reached yet."
+    },
+    {
+      "id": "ida",
+      "name": "Ida",
+      "pron": "EYE-duh",
+      "orbits": "the Sun",
+      "family": "asteroids",
+      "avatar": "ida",
+      "tier": 1,
+      "tags": [
+        "irregular",
+        "has-moon"
+      ],
+      "factShort": "This long, lumpy asteroid has its own tiny moon, called Dactyl.",
+      "factExtra": "Dactyl is only about one and a half kilometres across. Galileo photographed the pair in 1993, and it was the first moon anybody had ever found going round an asteroid.",
+      "say": "Ida. This long, lumpy asteroid has its own tiny moon, called Dactyl."
+    },
+    {
+      "id": "gaspra",
+      "name": "Gaspra",
+      "pron": "GAS-pruh",
+      "orbits": "the Sun",
+      "family": "asteroids",
+      "avatar": "gaspra",
+      "tier": 1,
+      "tags": [
+        "irregular"
+      ],
+      "factShort": "The first asteroid a spacecraft ever visited up close.",
+      "factExtra": "Galileo flew past Gaspra in 1991 on its way to Jupiter. Before that, nobody had ever seen an asteroid close up.",
+      "say": "Gaspra. The first asteroid a spacecraft ever visited up close."
+    },
+    {
+      "id": "mathilde",
+      "name": "Mathilde",
+      "pron": "muh-TIL-duh",
+      "orbits": "the Sun",
+      "family": "asteroids",
+      "avatar": "mathilde",
+      "tier": 1,
+      "tags": [
+        "dark",
+        "cratered"
+      ],
+      "factShort": "So dark it is like coal, with craters nearly as wide as itself.",
+      "factExtra": "Mathilde turns so slowly that one of its days lasts more than seventeen Earth days.",
+      "say": "Mathilde. So dark it is like coal, with craters nearly as wide as itself."
+    },
+    {
+      "id": "pallas",
+      "name": "Pallas",
+      "pron": "PAL-us",
+      "orbits": "the Sun",
+      "family": "asteroids",
+      "avatar": "pallas",
+      "tier": 2,
+      "tags": [
+        "rocky"
+      ],
+      "factShort": "Almost as big as Vesta, on a steeply tilted path.",
+      "say": "Pallas. Almost as big as Vesta, on a steeply tilted path."
+    },
+    {
+      "id": "hygiea",
+      "name": "Hygiea",
+      "pron": "hy-JEE-uh",
+      "orbits": "the Sun",
+      "family": "asteroids",
+      "avatar": "hygiea",
+      "tier": 2,
+      "tags": [
+        "dark"
+      ],
+      "factShort": "A dark world, and rounder than anyone expected.",
+      "say": "Hygiea. A dark world, and rounder than anyone expected."
+    },
+    {
+      "id": "juno",
+      "name": "Juno",
+      "pron": "JOO-noh",
+      "orbits": "the Sun",
+      "family": "asteroids",
+      "avatar": "juno",
+      "tier": 2,
+      "tags": [
+        "rocky"
+      ],
+      "factShort": "A stony asteroid with a big bite taken out of one side.",
+      "say": "Juno. A stony asteroid with a big bite taken out of one side."
+    },
+    {
+      "id": "lutetia",
+      "name": "Lutetia",
+      "pron": "loo-TEE-shuh",
+      "orbits": "the Sun",
+      "family": "asteroids",
+      "avatar": "lutetia",
+      "tier": 2,
+      "tags": [
+        "irregular",
+        "cratered"
+      ],
+      "factShort": "Rosetta flew past and found a battered, grooved surface.",
+      "say": "Lutetia. Rosetta flew past and found a battered, grooved surface."
     }
   ],
   "hallOfFame": [
