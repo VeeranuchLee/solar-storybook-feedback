@@ -180,6 +180,36 @@
   line-height: 1.45;
   max-width: 62ch;
 }
+.dd-copy-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+.dd-speak {
+  min-height: 48px;
+  padding: 8px 15px;
+  border-radius: 999px;
+  border: 2px solid var(--dd-gold);
+  background: #173f6c;
+  color: var(--dd-cream);
+  font: inherit;
+  font-size: clamp(12px, 1.5vw, 16px);
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.dd-speak:hover { background: #24659a; }
+.dd-speak:focus-visible { outline: 3px solid var(--dd-blue); outline-offset: 3px; }
+
+@media (max-width: 560px) {
+  .dd-copy-row { grid-template-columns: 1fr; }
+  .dd-speak { justify-self: start; }
+}
 
 /* The hero picture on a single-focus or compare page.
    `max-height` is in `dvh` against the overlay's own measured height rather

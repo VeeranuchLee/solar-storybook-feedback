@@ -475,6 +475,10 @@
     elTitle.textContent = p.title || dd.title;
     elSub.textContent = p.subtitle || dd.title;
 
+    /* A body destination is one tap away from the belt roster. Say where Back
+       goes: a six-year-old should not have to infer navigation history. */
+    elBack.lastChild.textContent = p.layoutType === "asteroid-focus" ? "Back to belt" : "Back";
+
     var canBack = canGoBack();
     elBack.setAttribute("aria-disabled", canBack ? "false" : "true");
     elBack.setAttribute("aria-label", canBack ? "Back one page" : "Back. This is the first page");
@@ -492,6 +496,7 @@
     }
 
     elBody.textContent = "";
+    elBody.className = "dd-body" + (p.layoutType ? " dd-body-" + p.layoutType : "");
     elBody.scrollTop = 0;
     /* The outgoing page's fit closure points at nodes that have just been
        thrown away. Drop it before the new page installs its own. */
@@ -531,7 +536,16 @@
       elBody.appendChild(fig);
     }
 
-    if (p.body) elBody.appendChild(el("p", "dd-copy", p.body));
+    if (p.body) {
+      if (p.layoutType === "asteroid-focus") {
+        var copyRow = el("div", "dd-copy-row");
+        copyRow.appendChild(el("p", "dd-copy", p.body));
+        if (p.narration) copyRow.appendChild(readAloudButton(p));
+        elBody.appendChild(copyRow);
+      } else {
+        elBody.appendChild(el("p", "dd-copy", p.body));
+      }
+    }
 
     switch (p.layoutType) {
       case "overview-hotspots": renderHotspots(p); break;
@@ -545,6 +559,29 @@
     }
 
     if (p.facts && p.facts.length) renderFacts(p.facts);
+  }
+
+  /* Deep dives use the page's normal narration bridge. Page 10 has already
+     mapped each of these exact ten strings to licensed rendered AAC; calling
+     speechSynthesis here lets that bridge play the file while preserving the
+     page-wide Sound toggle and cancellation behaviour. The QA gate verifies
+     that every configured string has a shipped mapping, so this never relies
+     on the operating-system fallback. */
+  function readAloudButton(p) {
+    var b = el("button", "dd-speak");
+    b.type = "button";
+    b.dataset.narration = p.narration;
+    b.setAttribute("aria-label", "Read about " + p.title);
+    b.innerHTML = '<span aria-hidden="true">🔊</span><span>Read this page</span>';
+    b.addEventListener("click", function () {
+      if (!window.speechSynthesis || !window.SpeechSynthesisUtterance) return;
+      window.speechSynthesis.cancel();
+      var utterance = new SpeechSynthesisUtterance(p.narration);
+      utterance.rate = .94;
+      utterance.pitch = 1.06;
+      window.speechSynthesis.speak(utterance);
+    });
+    return b;
   }
 
   /* HotspotScene — a few big targets that jump to a page inside this mini-book. */

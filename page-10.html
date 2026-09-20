@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="app/deep-dive.css">
 <style>
 :root{--blue:#71d6e9;--gold:#f0c36e;--cream:#fff8df;--navy:#07152d;--rust:#a44e32}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#020713;color:#fff;font-family:ui-rounded,"Avenir Next","Segoe UI",system-ui,sans-serif}.book{min-height:100vh;display:grid;place-items:center}button{font:inherit}.stage{position:relative;width:min(100vw,150vh,1536px);aspect-ratio:3/2;overflow:hidden;isolation:isolate;background:#07152d url("assets-runtime/standard/page-10/asteroid-belt-background-v1.webp") center/cover no-repeat}.stage:after{content:"";position:absolute;z-index:1;inset:0;pointer-events:none;background:linear-gradient(90deg,#020713c2,transparent 41%),linear-gradient(0deg,#020713a8,transparent 37%)}
-.story{position:absolute;z-index:30;left:2%;top:2%;width:37%;padding:13px 15px;border:1px solid #71d6e966;border-radius:18px;background:linear-gradient(140deg,#07152df2,#163b5edb);box-shadow:0 10px 32px #0009}.story h1{margin:0;color:var(--gold);font-size:clamp(21px,2.8vw,42px);line-height:1}.story h1 small{display:block;color:#fff;font-size:.45em}.story p{margin:7px 0;font-size:clamp(9px,1vw,14px);line-height:1.35}.story strong{color:#9eeeff}.actions,.tools{display:flex;gap:6px;flex-wrap:wrap}.story button,.tool,.lesson-open{border:1px solid #71d6e977;border-radius:999px;background:#17496b;color:#fff;padding:6px 11px;font-weight:850;cursor:pointer}
+.story{position:absolute;z-index:30;left:2%;top:2%;width:37%;padding:13px 15px;border:1px solid #71d6e966;border-radius:18px;background:linear-gradient(140deg,#07152df2,#163b5edb);box-shadow:0 10px 32px #0009}.story h1{margin:0;color:var(--gold);font-size:clamp(21px,2.8vw,42px);line-height:1}.story h1 small{display:block;color:#fff;font-size:.45em}.story p{margin:7px 0;font-size:clamp(12px,1vw,14px);line-height:1.35}.story strong{color:#9eeeff}.actions,.tools{display:flex;gap:6px;flex-wrap:wrap}.story button,.tool,.lesson-open{border:1px solid #71d6e977;border-radius:999px;background:#17496b;color:#fff;padding:6px 11px;font-weight:850;cursor:pointer}
 /* The two story CTAs carry a 44px floor. "About Ceres" is the child's only
    door into the `asteroid-belt` deep dive, and at 126x36 it was under the
    target size on the 9.7" iPad this book is designed for. Listen gets the same
@@ -41,7 +41,7 @@
 line-height:1.3}
 /* NAMEPLATES:CSS */
 .np{position:absolute;z-index:23;display:flex;flex-direction:column;align-items:center;
-gap:.32em;font-size:var(--np-size,clamp(8px,.9vw,13px));line-height:1;font-weight:900;
+gap:.32em;font-size:var(--np-size,clamp(12px,.9vw,15px));line-height:1;font-weight:900;
 white-space:nowrap}
 /* The drawing. No frame around it: a boxed avatar reads as an icon in a chip,
    an unboxed one reads as a small world floating in the same sky as the big
@@ -157,7 +157,7 @@ filter:drop-shadow(0 8px 16px #000a) drop-shadow(0 0 14px #ffd76a55)}
 .sf-book{position:static;z-index:27;display:inline-flex;align-items:center;gap:.34em;
 padding:.26em .62em .26em .34em;border:2px solid #ffd76a;border-radius:999px;
 background:#0b1730e8;color:#ffeab5;font:inherit;font-weight:900;
-font-size:clamp(8px,.85vw,12px);cursor:pointer;box-shadow:0 3px 12px #0008}
+font-size:clamp(12px,.85vw,14px);cursor:pointer;box-shadow:0 3px 12px #0008}
 .sf-book:hover{background:#17325a}
 /* Let the control row wrap. Several pages lay their row out without wrapping,
    and in portrait it already ran past the edge of the stage before the sticker
@@ -176,7 +176,7 @@ padding:14px 16px;border:2px solid #ffd76a;border-radius:22px;background:#07152d
 box-shadow:0 18px 50px #000d;backdrop-filter:blur(6px)}
 .sf-panel.sf-open{display:flex}
 .sf-panel h2{margin:0 0 2px;color:#ffd76a;font-size:clamp(13px,1.5vw,20px)}
-.sf-panel p{margin:0 0 10px;color:#bdd8f0;font-size:clamp(8px,.9vw,12px)}
+.sf-panel p{margin:0 0 10px;color:#bdd8f0;font-size:clamp(12px,.9vw,14px)}
 .sf-grid{flex:1;display:grid;gap:6px;overflow:auto;
 grid-template-columns:repeat(auto-fill,minmax(52px,1fr));align-content:start}
 .sf-slot{position:relative;aspect-ratio:1;border-radius:12px;background:#0d1c34;
@@ -212,17 +212,16 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
    `transform`, so the pose animations still work on top of it. */
 .ari,.dot{scale:.8;transform-origin:50% 100%}
 </style>  <style>
-  /* Touch hygiene -- owner 2026-09-15: a child's drag became a blue text selection,
-     and pinches zoomed the page. user-select and touch-callout stop the first;
-     touch-action: manipulation stops double-tap zoom without killing scroll. Pinch
-     itself needs the gesturestart guard below, because iOS ignores user-scalable=no. */
-  html { -webkit-text-size-adjust: 100%; }
+  /* Touch hygiene: user-select and touch-callout stop accidental selection;
+     manipulation on both root surfaces suppresses double-tap zoom while leaving
+     pinch available in both directions (INTERACTION-DIRECTION.md). */
+  html { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
   body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; touch-action: manipulation; }
   input, textarea, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
   </style>
 </head><body><main class="book"><section class="stage" id="stage" aria-label="The Asteroid Belt and Ceres">
 <!-- NAMEPLATES:HTML -->
-<div class="np" data-np="p10-ceres"><button type="button" class="np-body" data-say="Ceres. The largest world in the asteroid belt." aria-label="Ceres. Hear about it"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p10-ceres"><circle cx="50" cy="50" r="32"/></clipPath></defs><circle cx="50" cy="50" r="32" fill="#8e857b"/><g clip-path="url(#npc-p10-ceres)"><circle cx="28" cy="30" r="9" fill="#736b63"/><circle cx="62" cy="78" r="10" fill="#736b63"/><circle cx="22" cy="64" r="6" fill="#7c746c"/><circle cx="46" cy="52" r="5" fill="#7c746c"/><circle cx="70" cy="26" r="14" fill="#cfc8bd"/><circle cx="70" cy="26" r="8" fill="#fffdf6"/><circle cx="84" cy="52" r="5" fill="#e8e2d6"/><ellipse cx="36" cy="30" rx="12" ry="6.5" fill="#fff" opacity=".26" transform="rotate(-30 36 30)"/></g><g transform="translate(8.00,11.00) scale(0.84)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g></svg></button><button type="button" class="np-label" data-say="Ceres" aria-label="Hear the name Ceres"><span class="np-name">Ceres</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+<div class="np" data-np="p10-ceres"><button type="button" class="np-body" data-say="Ceres. The largest world in the asteroid belt." aria-label="Ceres. Hear about it"><img class="np-av" src="assets-runtime/standard/bodies/ceres.webp" alt="" aria-hidden="true"></button><button type="button" class="np-label" data-say="Ceres" aria-label="Hear the name Ceres"><span class="np-name">Ceres</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button></div>
 <div class="np" data-np="p10-belt"><button type="button" class="np-body" data-say="The asteroid belt. Millions of rocky worlds, with lots of empty space between them." aria-label="Asteroid belt. Hear about it"><svg class="np-av" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><defs><clipPath id="npc-p10-belt"><path d="M30 34q16-12 30 0t8 26-24 14-22-12 8-28z"/></clipPath></defs><path d="M30 34q16-12 30 0t8 26-24 14-22-12 8-28z" fill="#948a7d"/><g clip-path="url(#npc-p10-belt)"><circle cx="38" cy="38" r="5" fill="#7d7469"/><circle cx="62" cy="70" r="5" fill="#7d7469"/></g><g transform="translate(17.00,20.00) scale(0.66)"><g class="np-face"><ellipse class="np-blush" cx="30" cy="58" rx="5.6" ry="3.4"/><ellipse class="np-blush" cx="70" cy="58" rx="5.6" ry="3.4"/><g class="np-eyes"><ellipse cx="39" cy="46" rx="7" ry="8.4" fill="#fff"/><ellipse cx="61" cy="46" rx="7" ry="8.4" fill="#fff"/><circle cx="39.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="61.6" cy="47.4" r="4.6" fill="#16233d"/><circle cx="41.4" cy="44.4" r="2" fill="#fff"/><circle cx="63.4" cy="44.4" r="2" fill="#fff"/></g><path d="M45 58.5q5 5.4 10 0" fill="none" stroke="#16233d" stroke-width="3" stroke-linecap="round"/></g></g><path d="M4 20q9-8 15 0t-2 13-15-4z" fill="#a3988a"/><path d="M78 12q10-7 15 2t-4 12-13-5z" fill="#a3988a"/><path d="M84 66q11-4 13 5t-8 10-9-9z" fill="#9a8f81"/><path d="M6 74q10-7 14 2t-5 11-11-7z" fill="#9a8f81"/><circle cx="26" cy="9" r="4" fill="#b0a598"/><circle cx="66" cy="92" r="4.5" fill="#b0a598"/><circle cx="95" cy="40" r="3.5" fill="#b0a598"/><circle cx="5" cy="48" r="3.5" fill="#b0a598"/><circle cx="46" cy="8" r="2.6" fill="#b0a598"/><circle cx="30" cy="92" r="3" fill="#b0a598"/></svg></button><button type="button" class="np-label" data-say="The asteroid belt" aria-label="Hear the name Asteroid belt"><span class="np-name">Asteroid belt</span><svg class="np-ear" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#15365f"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="#15365f" stroke-width="2" stroke-linecap="round"/></svg></button></div>
 <!-- /NAMEPLATES:HTML -->
 
@@ -481,15 +480,11 @@ syncBook()})();
 /* /SECRETS:JS */
 })();
 
-/* Hide the picture-quality control unless the sharper tier is really there.
-   It is sidecar-only and unpublished, so on the live site it would otherwise be
-   a button that can only ever say "Standard only". Same rule the fullscreen
-   button already follows. The probe costs one 404 and re-shows the control the
-   moment the tier exists. */
-;(()=>{const q=document.getElementById('quality');if(!q)return;
-const el=document.querySelector('img[src*="assets-runtime/"]');if(!el){q.hidden=true;return}
-const im=new Image();im.onerror=()=>{q.hidden=true};
-im.src=el.getAttribute('src').replace(/assets-runtime\/(standard|high)\//,'assets-runtime/high/')})();
+/* The sharper tier is sidecar-only and unpublished, so the live control would
+   only ever report "Standard only". Keep it out of the shipped interface; a
+   preview that mounts the high tier can unhide it explicitly. Avoid probing a
+   deliberately absent public file, which used to log a 404 on every visit. */
+;(()=>{const q=document.getElementById('quality');if(q)q.hidden=true})();
 </script><!-- Contents overlay + deep-dive system. Data first, engine second: the engine
      reads window.BOOK_NAV at load and does nothing without it.
      Page 10's "Meet the asteroids" button carries data-deep-dive, so the engine
@@ -512,11 +507,4 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 <!-- /SERVICEWORKER:JS -->
-  <script>
-  /* Pinch-zoom guard. iOS Safari ignores user-scalable=no (since iOS 10), so this is
-     the only thing that stops two small hands zooming the page mid-play. gesturestart
-     fires once per pinch; preventing it cancels the zoom and touches nothing else.
-     Other browsers never fire it, so this is inert there. */
-  document.addEventListener("gesturestart", function (e) { e.preventDefault(); }, { passive: false });
-  </script>
   </body></html>

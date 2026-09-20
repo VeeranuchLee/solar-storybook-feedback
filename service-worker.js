@@ -49,8 +49,13 @@
  *   v2  2026-09-14  Page 10's asteroid deep dive becomes a ten-body roster.
  *                   This only arms a candidate; publishing remains separately
  *                   approval-gated.
+ *   v3  2026-09-16  The asteroid roster and story-page nameplates receive the
+ *                   same rendered body art.
+ *   v4  2026-09-20  Release candidate combining the approved Uranus nameplate
+ *                   cut with Page 10's completed asteroid destinations and
+ *                   read-aloud controls. Publication remains approval-gated.
  */
-const CACHE_NAME = "solar-storybook-v3";
+const CACHE_NAME = "solar-storybook-v4";
 
 /* The front door and the first page: enough to open the book with no network.
    `./` and `./index.html` are the same document; both are listed because a child

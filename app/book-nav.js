@@ -226,8 +226,8 @@ window.BOOK_NAV = {
         {
           id: "a0",
           image: { src: "assets-runtime/standard/page-10/asteroid-roster-background-v1.webp", alt: "" },
-          title: "Choose an asteroid",
-          subtitle: "Ten worlds in the belt",
+          title: "Explore the Asteroid Belt",
+          subtitle: "Choose one of ten worlds",
           layoutType: "asteroid-roster",
           body: "Tap an asteroid to learn more about it!",
           /* `family` is the only thing declared here, and it is an editorial
@@ -270,8 +270,8 @@ window.BOOK_NAV = {
           title: "Vesta",
           subtitle: "VES-tuh",
           layoutType: "asteroid-focus",
-          body: "Vesta. The brightest asteroid, with a giant dent at its south pole.",
-          narration: "Vesta",
+          body: "Vesta. One of the biggest asteroids in the belt.",
+          narration: "Vesta. One of the biggest asteroids in the belt.",
           facts: [
             { label: "How wide", value: "525 km" },
             { label: "Visitor", value: "Dawn" },

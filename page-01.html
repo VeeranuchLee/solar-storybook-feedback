@@ -455,7 +455,7 @@ body.reduce-motion .night-light{transition:none !important}
          alt="Small red and cream toy rocket standing on the floor">
     <img id="toy-smoke" class="full-stage toy-smoke" src="assets-runtime/standard/page-01/toy-rocket-smoke-v1.webp" alt="">
 
-    <!-- 8 · static astronomy book; its hotspot opens and reads the real story -->
+    <!-- 8 · static astronomy book; its hotspot below opens the contents -->
     <div class="layer" id="book" style="left:49.8%;top:73.7%;width:22.8%">
       <img src="assets-runtime/standard/page-01/book-open.webp" alt="Open astronomy book resting quietly on the bed">
     </div>
@@ -498,17 +498,27 @@ body.reduce-motion .night-light{transition:none !important}
             style="left:5.9%;top:52.5%;width:11%;height:23%"></button>
     <button id="desk-globe-hit" class="hotspot" type="button" aria-label="Spin the desk globe slowly"
             style="left:88.4%;top:47.5%;width:11.2%;height:17%"></button>
-    <button id="book-hit" class="hotspot centred" type="button"
-            aria-label="Open the story and read it aloud" aria-haspopup="dialog"
-            aria-controls="story-overlay" aria-expanded="false"
+    <!-- Owner, 2026-09-16: the book on the bed opens the CONTENTS and the
+         storycard's "Open story" button is the one way into the story. The
+         flat contents icon that used to sit in the chrome is gone too, which
+         settles its own old argument the other way: one book-shaped thing,
+         one job. data-book-nav="toc" is the hook app/deep-dive.js mounts, so
+         the engine keeps the dialog, its focus trap, and the focus that
+         returns here when it closes. aria-haspopup but no
+         aria-controls/aria-expanded: the engine builds its dialog unnamed
+         and never syncs a trigger's state, so those could only point at the
+         wrong thing or lie about expansion. The icon carried neither. -->
+    <button id="book-hit" class="hotspot centred" type="button" data-book-nav="toc"
+            aria-label="Open the contents. Jump to any page" aria-haspopup="dialog"
             style="left:49.8%;top:73.7%;width:22.8%;height:18%"></button>
 
     <!-- 12 · page furniture -->
     <div class="pagenum" aria-hidden="true">1</div>
     <div class="storycard">
       <h1>The Question in the Night Sky</h1>
-      <p>Tap the book—or use this button—to reveal and hear tonight’s story.</p>
-      <button id="story-start" class="story-start" type="button">Open story</button>
+      <p>Tap the book on the bed to open the contents. Tap this button to hear tonight’s story.</p>
+      <button id="story-start" class="story-start" type="button"
+              aria-haspopup="dialog" aria-controls="story-overlay" aria-expanded="false">Open story</button>
     </div>
 
     <div id="story-overlay" class="story-overlay" hidden role="dialog" aria-modal="true"
@@ -554,22 +564,6 @@ body.reduce-motion .night-light{transition:none !important}
          /children-apps/ are siblings, but in the repo the hub lives under site/, so a
          relative link would work live and 404 in every local preview. -->
     <a class="story-hub" href="https://veeranuchlee.github.io/children-apps/" aria-label="Back to Children Games" title="Back to Children Games">←</a>
-
-    <!-- The book icon that opens the contents (DEEP-DIVE-SPEC.md §7.1). It sits
-         under the back-to-hub arrow, with the page's other navigation chrome,
-         and it is NOT the astronomy book in the room: that one is the story and
-         still opens and reads it. Two book-shaped things doing different jobs
-         would be one too many, so this is drawn as a flat contents icon with a
-         visible label rather than as a picture of a book. -->
-    <button id="toc-open" class="toc-open" type="button" data-book-nav="toc"
-            aria-label="Contents. Jump to any page" title="Contents">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/>
-        <path d="M4 5.5V20.5A2.5 2.5 0 0 0 6.5 18H20v3H6.5A2.5 2.5 0 0 1 4 18.5z"/>
-        <path d="M8 7.5h8M8 11h8M8 14.5h5"/>
-      </svg>
-    </button>
 
     <nav class="page-nav" data-current-page="1" aria-label="Page navigation">
       <a aria-label="Previous page" aria-disabled="true" title="Previous page">‹</a>
@@ -911,11 +905,13 @@ window.__NARRATION_BASE = "assets-runtime/narration/";
   function clearTimers() { timers.forEach(window.clearTimeout); timers = []; }
 
   /* ============================================================
-     STORY · The static astronomy book opens the real Page 1 text.
-     Narration changes role for storyteller, Ari and Dot; the book art
-     itself stays completely still by owner decision.
+     STORY · The "Open story" button reveals and reads the real Page 1
+     text. Owner, 2026-09-16: the book on the bed opens the contents
+     instead, so this button is the story's only trigger and focus
+     returns here when the story closes. Narration changes role for
+     storyteller, Ari and Dot; the book art itself stays completely
+     still by owner decision.
      ============================================================ */
-  const bookHit = $("book-hit");
   const storyStart = $("story-start");
   const storyOverlay = $("story-overlay");
   const storyClose = $("story-close");
@@ -928,7 +924,7 @@ window.__NARRATION_BASE = "assets-runtime/narration/";
     { role: "narrator", text: "Beep! Beep! A tiny robot woke up inside Ari's toy rocket." },
     { role: "dot", text: "Specialist mission accepted!" }
   ];
-  let storyRun = 0, storyOpen = false, storyBackgroundControls = [], storyReturnFocus = bookHit;
+  let storyRun = 0, storyOpen = false, storyBackgroundControls = [], storyReturnFocus = storyStart;
 
   function clearStoryHighlight() {
     storyOverlay.querySelectorAll("[data-story-part]").forEach(p => p.classList.remove("reading"));
@@ -1003,13 +999,13 @@ window.__NARRATION_BASE = "assets-runtime/narration/";
     return readStory();
   }
 
-  function openStory(trigger = bookHit) {
+  function openStory(trigger = storyStart) {
     if (storyOpen) return readStory();
-    storyReturnFocus = trigger || bookHit;
+    storyReturnFocus = trigger || storyStart;
     storyOpen = true;
     storyOverlay.hidden = false;
     stage.dataset.story = "open";
-    bookHit.setAttribute("aria-expanded", "true");
+    storyStart.setAttribute("aria-expanded", "true");
     storyBackgroundControls = [...stage.querySelectorAll("button")]
       .filter(button => !storyOverlay.contains(button))
       .map(button => ({ button, disabled: button.disabled }));
@@ -1027,7 +1023,7 @@ window.__NARRATION_BASE = "assets-runtime/narration/";
     delete stage.dataset.story;
     storyBackgroundControls.forEach(({ button, disabled }) => { button.disabled = disabled; });
     storyBackgroundControls = [];
-    bookHit.setAttribute("aria-expanded", "false");
+    storyStart.setAttribute("aria-expanded", "false");
     if (restoreFocus) storyReturnFocus.focus();
     return true;
   }
@@ -1890,7 +1886,8 @@ window.__NARRATION_BASE = "assets-runtime/narration/";
   bind(posterHit, posterActivate);
   bind(orreryHit, spinOrrery);
   bind(deskGlobeHit, spinDeskGlobe);
-  bind(bookHit, openStory);
+  /* The book on the bed opens the contents through data-book-nav="toc",
+     which app/deep-dive.js mounts; the story has this one trigger. */
   bind(storyStart, () => openStory(storyStart));
   bind(storyClose, closeStory);
   bind(storyBack, closeStory);
