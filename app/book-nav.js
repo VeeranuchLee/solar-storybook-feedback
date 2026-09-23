@@ -249,17 +249,34 @@ window.BOOK_NAV = {
              number the drawing needs — the diameter that sets its size, the
              silhouette, the tap shape — comes from app/asteroid-avatars.js, so
              there is nothing here that can disagree with the picture. */
+          /* `say` is the name READ ALOUD when a child taps the name pill (owner
+             brief, 2026-09-23). It is a separate field from `name` because the
+             two disagree exactly once: the page shows "Ida & Dactyl" and the
+             voice has to say "Ida and Dactyl" — an ampersand is a character a
+             pre-reader has never met, and the clip was rendered saying "and".
+
+             It is also the lookup key, character for character, into the host
+             page's `window.__NARRATION` map. All ten clips already exist and
+             already ship (`p10-narrator-06-ceres.m4a` through
+             `p10-narrator-26-gaspra.m4a`): they were rendered while the roster
+             still lived on page 10 itself, and were retired from the cast on
+             2026-09-21 when menus stopped being harvested. Retirement is
+             bookkeeping, not death — `narration/ids.json` keeps every spent
+             ordinal — so harvesting these ten names again takes back the same
+             ten ids and therefore the same ten paid files. Nothing here is a
+             new render. Reword one of these strings and you orphan a paid clip
+             and buy its replacement, so do not. */
           asteroids: [
-            { key: "ceres",    name: "Ceres",        family: "big",   targetPage: "a1"  },
-            { key: "vesta",    name: "Vesta",        family: "big",   targetPage: "a2"  },
-            { key: "pallas",   name: "Pallas",       family: "big",   targetPage: "a3"  },
-            { key: "hygiea",   name: "Hygiea",       family: "big",   targetPage: "a4"  },
-            { key: "juno",     name: "Juno",         family: "big",   targetPage: "a5"  },
-            { key: "psyche",   name: "Psyche",       family: "big",   targetPage: "a6"  },
-            { key: "lutetia",  name: "Lutetia",      family: "small", targetPage: "a7"  },
-            { key: "mathilde", name: "Mathilde",     family: "small", targetPage: "a8"  },
-            { key: "ida",      name: "Ida & Dactyl", family: "small", targetPage: "a9"  },
-            { key: "gaspra",   name: "Gaspra",       family: "small", targetPage: "a10" }
+            { key: "ceres",    name: "Ceres",        say: "Ceres",          family: "big",   targetPage: "a1"  },
+            { key: "vesta",    name: "Vesta",        say: "Vesta",          family: "big",   targetPage: "a2"  },
+            { key: "pallas",   name: "Pallas",       say: "Pallas",         family: "big",   targetPage: "a3"  },
+            { key: "hygiea",   name: "Hygiea",       say: "Hygiea",         family: "big",   targetPage: "a4"  },
+            { key: "juno",     name: "Juno",         say: "Juno",           family: "big",   targetPage: "a5"  },
+            { key: "psyche",   name: "Psyche",       say: "Psyche",         family: "big",   targetPage: "a6"  },
+            { key: "lutetia",  name: "Lutetia",      say: "Lutetia",        family: "small", targetPage: "a7"  },
+            { key: "mathilde", name: "Mathilde",     say: "Mathilde",       family: "small", targetPage: "a8"  },
+            { key: "ida",      name: "Ida & Dactyl", say: "Ida and Dactyl", family: "small", targetPage: "a9"  },
+            { key: "gaspra",   name: "Gaspra",       say: "Gaspra",         family: "small", targetPage: "a10" }
           ]
         }
       ],

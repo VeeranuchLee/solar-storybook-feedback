@@ -677,6 +677,7 @@
     }
     var wasDeepDive = state.activeOverlay === "deepDive";
     var source = state.deepDiveSourcePage;
+    clearPulse();
 
     state.activeOverlay = null;
     state.activeDeepDiveId = null;
@@ -748,8 +749,11 @@
     elBody.className = "dd-body" + (p.layoutType ? " dd-body-" + p.layoutType : "");
     elBody.scrollTop = 0;
     /* The outgoing page's fit closure points at nodes that have just been
-       thrown away. Drop it before the new page installs its own. */
+       thrown away. Drop it before the new page installs its own, and drop any
+       name-pill pulse with it: its timer would otherwise fire against a node
+       that is no longer on screen. */
     pendingFit = null;
+    clearPulse();
     renderLayout(p);
   }
 
@@ -783,8 +787,11 @@
     elBody.className = "dd-body" + (m.layoutType ? " dd-body-" + m.layoutType : "");
     elBody.scrollTop = 0;
     /* The outgoing page's fit closure points at nodes that have just been
-       thrown away. Drop it before the new page installs its own. */
+       thrown away. Drop it before the new page installs its own, and drop any
+       name-pill pulse with it: its timer would otherwise fire against a node
+       that is no longer on screen. */
     pendingFit = null;
+    clearPulse();
     renderLayout(m, true);
   }
 
@@ -1035,10 +1042,19 @@
        THE FOUR SMALL ONES ARE DRAWN IN A MAGNIFIER. At the same `rk` Gaspra is
        under four pixels, so it is shown enlarged inside a lens — and a lens is
        a thing a five-year-old already understands to mean "this is bigger than
-       life". The honesty is the dot at the tip of the lens's handle: that is
-       the body at TRUE scale, sized by the same `km x rk` rule as the six, so
-       Lutetia's dot is visibly eight times Gaspra's. The lens says "enlarged",
-       the dot says "this much", and neither needs a word.
+       life". The honesty is the dot beneath the glass, tied to it by a short
+       leader: that is the body at TRUE scale, sized by the same `km x rk` rule
+       as the six, so Lutetia's dot is visibly eight times Gaspra's. The lens
+       says "enlarged", the dot says "this much", and neither needs a word.
+
+       The lens had a drawn HANDLE until 2026-09-23. It is gone, on the owner's
+       instruction, and the reason is worth keeping: each handle jutted left
+       from its glass and stopped at the edge of the previous one, so the four
+       lenses read as four beads on one white line. A line between things is a
+       claim about them — a path, an order, a sequence — and there is no
+       sequence here. Lutetia, Mathilde, Ida and Gaspra are four separate
+       worlds in no particular order, and the picture was saying otherwise.
+       The round glass and its bright rim carry "enlarged" on their own.
 
      The magnifications differ between the four lenses — they have to, because
      one magnification that lifted Gaspra to 44px would put Lutetia at 366px —
@@ -1064,7 +1080,19 @@
      rock on screen is held at 44px of visible art by `rkFloor()` below. */
 
   var ROCK_MIN = 44;     // px of visible rock, on its shorter axis
-  var ROCK_GAP = 10;     // px; must match .dd-roster-belt's gap
+  /* 8px, down from 10 on 2026-09-23. The name pills became tap targets that
+     day and got wider with it, and at 768px — the iPad this book is drawn for
+     — the six-body lineup then measured the panel's width to the pixel. Two
+     pixels per gap is the cheapest place to buy the row some room; the
+     alternative was shrinking a target a child has to hit. Must match
+     .dd-roster-belt's gap. */
+  var ROCK_GAP = 8;
+  /* The fit searches for the largest scale whose row still fits, so without
+     this it converges ON the boundary and leaves nothing for sub-pixel
+     rounding: the row measured 689px inside a 687px belt and grew a scrollbar
+     between the two rows — a stray horizontal line, on the exact menu the
+     owner had just asked to have one removed from. */
+  var ROW_SLACK = 4;     // px of room the fitted row must leave spare
   var RK_MAX = 0.42;     // px per km — past this Ceres outgrows any panel
   var uidSeq = 0;
 
@@ -1128,8 +1156,81 @@
     return floor;
   }
 
+  /* ------------------------------------------------------------
+     THE NAME PILL, AND WHY IT IS A SECOND BUTTON
+
+     Owner brief, 2026-09-23: "Tap asteroid image -> open that asteroid's
+     detail page. Tap name pill / speaker area -> play audio of the asteroid's
+     name only."
+
+     That is two jobs, so it is two buttons. The pill used to be a `<span>`
+     INSIDE the rock button, which made the whole thing one target with one
+     meaning; a button cannot be nested in a button, so the rock and the pill
+     are now siblings in a `.dd-rock-cell` wrapper. The two must not overlap:
+     the rock is hit-shaped by its silhouette (see `.dd-rock-hit`) and the pill
+     is a plain rectangle below it, so neither can eat the other's taps. The
+     rock's shaped target is untouched by this change — the brief is explicit
+     that it stays as it is.
+
+     A PILL THAT CANNOT SPEAK IS NOT AN AUDIO CONTROL. `speechSynthesis` here
+     reaches the host page's clip map, not the OS voice, but only for a string
+     the map carries character for character; anything else falls through to an
+     adult robot, which AUDIO-DIRECTION.md calls a defect. And a control that
+     visibly offers sound and then does nothing is the same defect a child can
+     see. So `nameClip()` asks the map FIRST, and a name it does not carry gets
+     the old inert label back — no speaker icon, no tap target, no handler —
+     rather than a button that lies. All ten belt names are mapped today; this
+     is what keeps an eleventh from shipping silent.
+     ------------------------------------------------------------ */
+
+  /* The exact string the host page's map has a clip for, or null. `say` is
+     separate from `name` because the roster shows "Ida & Dactyl" and the clip
+     says "Ida and Dactyl". */
+  function nameClip(a) {
+    var text = a.say || a.name || "";
+    var map = window.__NARRATION;
+    return (text && map && map[text]) ? text : null;
+  }
+
+  var EAR = '<svg class="dd-rock-ear" viewBox="0 0 24 24" aria-hidden="true" ' +
+            'focusable="false">' +
+            '<path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/>' +
+            '<path d="M16.5 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" ' +
+            'fill="none" stroke="currentColor" stroke-width="2" ' +
+            'stroke-linecap="round"/></svg>';
+
+  /* The pulse runs for a fixed span rather than until the clip ends, because
+     the shim that plays it replaces `speechSynthesis.speak` wholesale and
+     never fires the utterance's `onend` — there is no end event to listen for.
+     The ten name clips measure 0.65s to 1.49s, so 1.5s covers the longest and
+     overruns the shortest by under a second. A second tap clears the first
+     pulse, so the highlight always names the clip that is playing now. */
+  var PULSE_MS = 1500;
+  var pulseTimer = null, pulsing = null;
+
+  function clearPulse() {
+    if (pulseTimer) { clearTimeout(pulseTimer); pulseTimer = null; }
+    if (pulsing) { pulsing.dataset.playing = "false"; pulsing = null; }
+  }
+
+  function sayName(pill, text) {
+    if (!window.speechSynthesis || !window.SpeechSynthesisUtterance) return;
+    clearPulse();
+    /* Stops whatever is playing, including a clip the shim started, and is the
+       same call the page's Mute button makes. */
+    window.speechSynthesis.cancel();
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = .94;
+    utterance.pitch = 1.06;
+    window.speechSynthesis.speak(utterance);
+    pulsing = pill;
+    pill.dataset.playing = "true";
+    pulseTimer = setTimeout(clearPulse, PULSE_MS);
+  }
+
   function buildRock(a, lens) {
     var f = rockFactors(a.key);
+    var cell = el("div", "dd-rock-cell");
     var b = el("button", "dd-rock" + (lens ? " dd-rock-lens" : ""));
     b.type = "button";
     b.dataset.rock = a.key;
@@ -1145,8 +1246,8 @@
       var glass = el("span", "dd-rock-glass");
       glass.appendChild(rockArt(a.key));
       b.appendChild(glass);
-      /* The body at TRUE scale, at the tip of the handle. Same `km x rk` rule
-         as the six big ones — this is the honest half of the lens. */
+      /* The body at TRUE scale, under the glass. Same `km x rk` rule as the six
+         big ones — this is the honest half of the lens. */
       var dot = el("span", "dd-rock-true");
       dot.setAttribute("aria-hidden", "true");
       b.appendChild(dot);
@@ -1154,11 +1255,29 @@
       b.appendChild(rockArt(a.key));
     }
 
-    b.appendChild(el("span", "dd-rock-pill", a.name));
     b.addEventListener("click", function () {
       openTarget(a.targetPage);
     });
-    return b;
+    cell.appendChild(b);
+
+    var text = nameClip(a);
+    var pill;
+    if (text) {
+      pill = el("button", "dd-rock-pill");
+      pill.type = "button";
+      pill.dataset.say = text;
+      pill.setAttribute("aria-label", "Hear the name " + a.name);
+      pill.appendChild(el("span", "dd-rock-pill-name", a.name));
+      pill.insertAdjacentHTML("beforeend", EAR);
+      pill.addEventListener("click", function () { sayName(pill, text); });
+    } else {
+      /* No clip for this name on this page. A label, and nothing that looks
+         tappable — see the note above. */
+      pill = el("span", "dd-rock-pill dd-rock-pill-mute");
+      pill.appendChild(el("span", "dd-rock-pill-name", a.name));
+    }
+    cell.appendChild(pill);
+    return cell;
   }
 
   function renderRoster(p) {
@@ -1256,12 +1375,13 @@
       }
       return w;
     }
+    var rowRoom = avail - ROW_SLACK;
     var rk = RK_MAX;
-    if (rowWidth(rk) > avail) {
+    if (rowWidth(rk) > rowRoom) {
       var lo = Math.min(floor, RK_MAX), hi = RK_MAX;
       for (var k = 0; k < 24; k++) {
         var mid = (lo + hi) / 2;
-        if (rowWidth(mid) <= avail) lo = mid; else hi = mid;
+        if (rowWidth(mid) <= rowRoom) lo = mid; else hi = mid;
       }
       rk = lo;
     }

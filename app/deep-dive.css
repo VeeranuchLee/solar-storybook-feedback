@@ -588,16 +588,33 @@ body.reduce-motion .dd-panel { animation: none; }
 }
 .dd-roster-belt {
   flex-wrap: nowrap;                  /* one baseline is the size comparison */
-  gap: 10px;                          /* ROCK_GAP in deep-dive.js — keep in step */
+  gap: 8px;                           /* ROCK_GAP in deep-dive.js — keep in step */
   overflow-x: auto;                   /* the 44px art floor wins on narrower panels */
 }
-.dd-roster-zoom { flex-wrap: nowrap; gap: 18px; }
+/* 26px, not the belt's 10px, and wider than the 18px it was before the lens
+   handles came off: the handles used to fill the space between the glasses, so
+   removing them without opening the gap would have left four circles sitting
+   closer together than they ever looked. Separate worlds want air. */
+.dd-roster-zoom { flex-wrap: nowrap; gap: 26px; }
+
+/* ---- one cell: a rock, and the name pill under it ----
+   Two buttons, because they do two different things (see deep-dive.js's note
+   above `buildRock`). The cell is the flex item and the column both of them
+   line up in; `align-items: flex-end` on the row still lands every pill on one
+   baseline, because the pill is the last thing in every cell. */
+.dd-rock-cell {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+}
 
 /* ---- one rock ----
    `pointer-events: none` is the hit-shaping, not a mistake: it takes the
-   button's rectangle out of the hit test and leaves only the silhouette and
-   the name pill, both of which switch it back on. The button keeps its focus
-   ring and its keyboard behaviour, because neither goes through hit testing. */
+   button's rectangle out of the hit test and leaves only the silhouette,
+   which switches it back on. The name pill is a separate button beside it and
+   is unaffected. The button keeps its focus ring and its keyboard behaviour,
+   because neither goes through hit testing. */
 .dd-rock {
   position: relative;
   pointer-events: none;
@@ -644,20 +661,87 @@ body.reduce-motion .dd-panel { animation: none; }
   cursor: pointer;
 }
 
+/* ---- the name pill: a tap target, not a caption ----
+   Owner brief, 2026-09-23: tapping it plays the body's name, and it has to be
+   "large and easy to tap" for a preschooler — "avoid tiny icons as the only
+   tap target". So the whole pill is the button and the speaker is a hint
+   drawn inside it, never the target itself.
+
+   64px is a floor and not a look. The book is designed for a 9.7" iPad at
+   768px and its existing targets are around that size, so the pill matches
+   them; `min-height` rather than a fixed height lets a long name wrap without
+   the text escaping the box. The growth is all downward from the art, into
+   the cell's own row, so the pill cannot reach up and steal a tap from the
+   rock's shaped silhouette above it — the two targets touch but never
+   overlap. */
 .dd-rock-pill {
   pointer-events: auto;
   cursor: pointer;
-  padding: 3px 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 64px;
+  min-width: 64px;
+  margin: 0;
+  /* Horizontal padding is deliberately tighter than the vertical. The six
+     true-scale bodies must stand on ONE unbroken line — that lineup is the
+     whole size lesson — and `fitRoster` gives up shrinking the rocks once a
+     pill is the wider of the two, so every pixel of pill width comes straight
+     out of Ceres. At 16px each side the row overflowed its own panel at 768px
+     and grew a scrollbar between the two rows, which is the last thing a menu
+     that just lost a connector line needs. The tap target does not suffer:
+     64px of height is what a finger needs, and no pill is under 80px wide. */
+  padding: 8px 9px;
   border-radius: 999px;
   border: 1px solid var(--dd-line);
   background: rgba(7, 22, 44, .9);
   color: var(--dd-cream);
+  font-family: inherit;
   font-weight: 800;
-  font-size: clamp(11px, 1.3vw, 14px);
+  font-size: clamp(12px, 1.4vw, 15px);
   line-height: 1.25;
   white-space: nowrap;
+  transition: background .16s ease-out, transform .16s ease-out;
+  -webkit-tap-highlight-color: transparent;
 }
-.dd-rock:hover .dd-rock-pill { background: #17568f; }
+.dd-rock-pill:hover { background: #17568f; }
+.dd-rock-pill:focus-visible {
+  outline: 3px solid var(--dd-gold);
+  outline-offset: 3px;
+}
+.dd-rock-ear {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  color: var(--dd-cream);
+  opacity: .85;
+}
+
+/* A name the host page has no clip for. It keeps the old behaviour exactly —
+   a label, with nothing that offers a sound it cannot make. */
+.dd-rock-pill-mute {
+  pointer-events: none;
+  cursor: default;
+  min-height: 0;
+  min-width: 0;
+  padding: 3px 11px;
+  background: rgba(7, 22, 44, .9);
+}
+
+/* ---- playback feedback ----
+   The tap has to answer visibly, or a child who cannot hear the clip yet taps
+   again over the top of it. Gold rim, lifted background, and one slow breath
+   of a pulse for as long as the clip runs. */
+.dd-rock-pill[data-playing="true"] {
+  background: #17568f;
+  border-color: var(--dd-gold);
+  animation: dd-pill-pulse 750ms ease-in-out 2;
+}
+@keyframes dd-pill-pulse {
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(242, 231, 200, .55); }
+  50%      { transform: scale(1.06); box-shadow: 0 0 0 7px rgba(242, 231, 200, 0); }
+}
 
 /* ---- the magnifier, for the four that are too small to draw honestly ----
    A lens is understood before it is read, which is why the four small bodies
@@ -686,20 +770,16 @@ body.reduce-motion .dd-panel { animation: none; }
     radial-gradient(circle at 34% 26%, rgba(196,228,255,.30), rgba(10,28,52,.62) 68%);
   box-shadow: 0 2px 10px rgba(0, 0, 0, .45), inset 0 0 14px rgba(150, 200, 255, .18);
 }
-/* The handle. Low on the left, out of the way of the dot below, so the two
-   readings — "this is a lens" and "this is its real size" — do not collide. */
-.dd-rock-glass::after {
-  content: "";
-  position: absolute;
-  right: 100%;
-  top: 72%;
-  width: calc(var(--glass) * .34);
-  height: max(6px, calc(var(--glass) * .07));
-  border-radius: 99px;
-  background: linear-gradient(180deg, #cfdcec, #7f90a6);
-  transform: rotate(34deg);
-  transform-origin: 100% 50%;
-}
+/* THE HANDLE IS GONE, AND IT IS NOT COMING BACK BY ACCIDENT (owner,
+   2026-09-23). Each lens used to draw a pale bar out of its left side at 34°.
+   One handle reads as a magnifying glass; four in a row, each ending at the
+   edge of the lens before it, read as one white line threading Lutetia →
+   Mathilde → Ida & Dactyl → Gaspra together. A line between things claims a
+   relationship — a path, an order, a sequence — and these four have none: they
+   are four separate worlds in no particular order, and the owner asked for
+   them to look it. The glass keeps its bright rim and its highlight, which is
+   what says "enlarged"; the dot below keeps the honest size. Do not reinstate
+   a decorative element that runs between neighbouring items here. */
 .dd-rock-lens .dd-rock-svg,
 .dd-focus-lens .dd-rock-svg {
   /* Contain the full SVG in 82% of the glass on BOTH axes. The previous rule
@@ -756,11 +836,21 @@ body.reduce-motion .dd-panel { animation: none; }
 .dd-focus .dd-rock-hit > * { pointer-events: none; cursor: default; }
 .dd-focus .dd-rock-svg { transition: none; }
 
+/* Reduced motion takes the movement away, never the feedback: the playing
+   pill still changes colour and still takes the gold rim, because that is the
+   part that answers the child's tap. Only the scaling breath goes. */
 @media (prefers-reduced-motion: reduce) {
   .dd-rock-svg { transition: none; }
   .dd-rock:hover .dd-rock-svg { transform: none; }
+  .dd-rock-pill { transition: background .16s ease-out; }
+  .dd-rock-pill[data-playing="true"] { animation: none; transform: none; }
 }
 body.reduced .dd-rock-svg,
 body.reduce-motion .dd-rock-svg { transition: none; }
 body.reduced .dd-rock:hover .dd-rock-svg,
 body.reduce-motion .dd-rock:hover .dd-rock-svg { transform: none; }
+body.reduced .dd-rock-pill[data-playing="true"],
+body.reduce-motion .dd-rock-pill[data-playing="true"] {
+  animation: none;
+  transform: none;
+}
