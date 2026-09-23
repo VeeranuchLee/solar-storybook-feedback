@@ -55,7 +55,9 @@
  *                   cut with Page 10's completed asteroid destinations and
  *                   read-aloud controls. Publication remains approval-gated.
  */
-const CACHE_NAME = "solar-storybook-v4";
+// v5 2026-09-22: zoom-trap fix -- the global gesturestart pinch blocker is
+//        gone estate-wide (INTERACTION-DIRECTION.md); this bump carries it.
+const CACHE_NAME = "solar-storybook-v5";
 
 /* The front door and the first page: enough to open the book with no network.
    `./` and `./index.html` are the same document; both are listed because a child

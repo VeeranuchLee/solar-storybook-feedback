@@ -22,6 +22,12 @@
    `deepDivePageIndex` and `deepDiveSourcePage`. All five are here, in one
    object, and every transition goes through the four functions below it.
 
+   Three further fields route the selection menus, which a deep dive now keeps
+   in its `menus` array rather than inside `pages`: `activeMenuId` is set
+   exactly when a menu is on screen, `launchMenuId` names the menu whose tap
+   opened the body page showing (so Close can go back to it), and
+   `menuParentId` chains a menu that was itself opened from a menu.
+
    The book is twenty separate HTML documents, not one app shell. So
    `currentMainPage` is a real thing the document already knows, and changing it
    means a navigation. That makes `goToMainPage()` the only place a page change
@@ -63,7 +69,11 @@
    that does one thing four times and a different thing the fifth cannot be
    learned by a six-year-old, and the book already dims Previous this way on
    page 1 rather than making it mean something else. Close is always there, in
-   its own corner, in its own colour.
+   its own corner, in its own colour — except on a body page a menu launched,
+   where Close goes back to that menu first, because the menu is still inside
+   the mini-book and is the surface the child chose from. The menus count as
+   "inside" for Back too: a body page's first step can reach the menu that
+   opened it, and a menu opened from another menu reaches that menu.
 
    See `back()` for how "nowhere left to go" is worked out — it is not simply
    "the first page", because a deep dive can be entered part-way through.
@@ -104,7 +114,10 @@
     activeDeepDiveId: null,
     deepDivePageIndex: 0,
     deepDiveSourcePage: null,   // captured when a deep dive OPENS. See header.
-    deepDiveHistory: []         // indices visited, for Back
+    deepDiveHistory: [],        // indices visited, for Back
+    activeMenuId: null,         // set exactly while a menu is on screen
+    launchMenuId: null,         // the menu whose tap opened the body page showing
+    menuParentId: null          // a menu opened FROM another menu (s6 from s0)
   };
 
   function persist() {
@@ -114,7 +127,10 @@
         activeOverlay: state.activeOverlay,
         activeDeepDiveId: state.activeDeepDiveId,
         deepDivePageIndex: state.deepDivePageIndex,
-        deepDiveSourcePage: state.deepDiveSourcePage
+        deepDiveSourcePage: state.deepDiveSourcePage,
+        activeMenuId: state.activeMenuId,
+        launchMenuId: state.launchMenuId,
+        menuParentId: state.menuParentId
       }));
     } catch (e) { /* private browsing: the book still works, nothing is remembered */ }
   }
@@ -383,32 +399,208 @@
 
     state.activeOverlay = "deepDive";
     state.activeDeepDiveId = id;
-    state.deepDivePageIndex = indexOfPage(dd, opts.page) || 0;
     /* THE CAPTURE. Where this child is right now — not dd.sourcePage. */
     state.deepDiveSourcePage = state.currentMainPage;
-    state.deepDiveHistory = [state.deepDivePageIndex];
-    persist();
+    state.launchMenuId = null;
+    state.menuParentId = null;
 
-    elBack.hidden = false;
-    elFoot.hidden = false;
-    elNext.hidden = false;
-    elClose.setAttribute("aria-label", "Close. Go back to the story");
-    elBody.className = "dd-body";
-    renderDeepDivePage();
+    /* `opts.page` naming a body page is a deep link, and a deep-linked child
+       has no launching menu: Close must promise the story, not the choices.
+       Anything else — no page named, or a menu named — opens the entry menu,
+       which is the surface a child lands on. */
+    var at = opts.page ? indexOfPage(dd, opts.page) : -1;
+    if (at >= 0) {
+      state.activeMenuId = null;
+      state.deepDivePageIndex = at;
+      state.deepDiveHistory = [at];
+      renderDeepDivePage();
+    } else {
+      var entry = opts.page ? menuById(dd, opts.page) : null;
+      if (opts.page && !entry) {
+        console.error("[book-nav] " + id + " has no page or menu called '" +
+                      opts.page + "', so the entry menu is shown instead.");
+      }
+      if (!entry && dd.menus && dd.menus.length) entry = dd.menus[0];
+      if (entry) {
+        openMenu(entry.id);
+      } else {
+        /* A config with no menus yet still opens at its first body page. */
+        state.activeMenuId = null;
+        state.deepDivePageIndex = 0;
+        state.deepDiveHistory = [0];
+        renderDeepDivePage();
+      }
+    }
+    persist();
     showPanel(true);
     elClose.focus();
   }
 
+  /* -1 when the id is no page of this mini-book. Returning 0 here (the old
+     behaviour) quietly turned an unmatched id into the first page, which
+     cannot stand now that a target may name a menu instead. */
   function indexOfPage(dd, pageId) {
-    if (!pageId) return 0;
+    if (!pageId) return -1;
     for (var i = 0; i < dd.pages.length; i++) if (dd.pages[i].id === pageId) return i;
-    return 0;
+    return -1;
+  }
+
+  function menuById(dd, menuId) {
+    var list = (dd && dd.menus) || [];
+    for (var i = 0; i < list.length; i++) if (list[i].id === menuId) return list[i];
+    return null;
+  }
+
+  /* The menu that offers another menu, read out of the config: menus reach one
+     another only through their targets, so the link is already in the data and
+     does not need to be declared a second time. */
+  function parentMenuId(dd, menuId) {
+    var list = (dd && dd.menus) || [];
+    for (var i = 0; i < list.length; i++) {
+      var hs = list[i].hotspots || [];
+      for (var j = 0; j < hs.length; j++) {
+        if (hs[j].targetPage === menuId) return list[i].id;
+      }
+    }
+    return null;
+  }
+
+  /* A menu's destinations are their own sequence. Each menu owns one
+     contiguous run of `dd.pages`: the run starts at the first page that menu
+     points to and ends where the next menu's run begins, or at the end of the
+     array. Saturn is why: a child who entered through s6 "strange little
+     moons" and tapped "Ring shapers" was shown 8 / 11, a count that reaches
+     back over s0's seven pages to a menu that child never chose. The four
+     little-moon pages read 1 / 4, because s6 is the surface they chose. The
+     four deep dives with a single menu own the whole array as one run, so
+     their numbering does not change.
+
+     The runs are DERIVED and never declared: `dd.pages` is kept in menu order
+     (book-nav.js records that promise), so a menu's first page target tells
+     the engine where its run starts. A hand-written table of Saturn's
+     boundaries would be a second copy of what the config already says, and
+     the copy is what drifts the first time a page is inserted — the roster's
+     `size` tokens were removed for exactly that kind of drift. */
+
+  /* The config is read-only data once loaded, so each deep dive's runs are
+     worked out once and kept. */
+  var spanCache = {};
+
+  /* A menu's first destination in `pages`, or -1 when every target names
+     another menu. Targets that name menus are skipped: s0 points at s6, and
+     s6's pages are s6's run, not s0's. */
+  function menuSpanStart(dd, m) {
+    var targets = (m.hotspots || []).concat(m.asteroids || []);
+    for (var i = 0; i < targets.length; i++) {
+      var at = indexOfPage(dd, targets[i].targetPage);
+      if (at >= 0) return at;
+    }
+    return -1;
+  }
+
+  function menuSpans(dd) {
+    if (spanCache[dd.id]) return spanCache[dd.id];
+    var spans = [];
+    var list = dd.menus || [];
+    for (var i = 0; i < list.length; i++) {
+      var start = menuSpanStart(dd, list[i]);
+      /* A menu whose targets are all menus owns no run. */
+      if (start < 0) continue;
+      /* Runs move forward through `pages`, so a start at or behind the last
+         one found means the config has broken menu order, and runs derived
+         from it would number pages by a shape the menus do not have. Say so,
+         and leave the numbering to the menus that did keep the order. */
+      if (spans.length && start <= spans[spans.length - 1].start) {
+        console.error("[book-nav] the menus of " + dd.id + " must reach a first " +
+                      "page in menu order, and '" + list[i].id + "' does not, " +
+                      "so its destinations are not numbered as their own run.");
+        continue;
+      }
+      spans.push({ start: start, count: 0 });
+    }
+    for (var j = 0; j < spans.length; j++) {
+      spans[j].count = (j + 1 < spans.length ? spans[j + 1].start : dd.pages.length) -
+                       spans[j].start;
+    }
+    spanCache[dd.id] = spans;
+    return spans;
+  }
+
+  /* The run a body page belongs to, found from the page's own index and not
+     from how the child arrived: a deep link straight to s9 reads 3 / 4 with no
+     dependence on launchMenuId, which keeps its own job of telling Close
+     which menu to return to. A page no run covers — a config with no menus,
+     or a gap before the first run — falls back to the whole array, which is
+     the numbering every deep dive had before runs existed. */
+  function spanForIndex(dd, index) {
+    var spans = menuSpans(dd);
+    for (var i = 0; i < spans.length; i++) {
+      if (index >= spans[i].start && index < spans[i].start + spans[i].count) {
+        return spans[i];
+      }
+    }
+    return { start: 0, count: dd.pages.length };
+  }
+
+  /* Opening a menu is navigation, not paging: no index moves and no history
+     grows. `parentId` is handed in because where the child came from is the
+     caller's fact — the entry menu has no parent, a menu reached from another
+     menu has that menu. */
+  function openMenu(menuId, parentId) {
+    var dd = deepDiveById(state.activeDeepDiveId);
+    var m = menuById(dd, menuId);
+    if (!m) return;
+    state.activeMenuId = menuId;
+    state.menuParentId = parentId || null;
+    /* No body page is showing once the menu is, so nothing launched one. */
+    state.launchMenuId = null;
+    renderMenu(m);
+  }
+
+  /* A target names a body page or a menu, and the config carries one field for
+     both, so both arrays are searched before the choice is called broken. */
+  function openTarget(targetId) {
+    var dd = deepDiveById(state.activeDeepDiveId);
+    if (!dd || !targetId) return;
+    var fromMenu = state.activeMenuId;
+
+    var at = indexOfPage(dd, targetId);
+    if (at >= 0) {
+      state.activeMenuId = null;
+      state.launchMenuId = fromMenu;
+      state.deepDivePageIndex = at;
+      /* History restarts at the chosen body, so Back unwinds this page's own
+         steps and then, with none left, the menu that launched it. */
+      state.deepDiveHistory = [at];
+      renderDeepDivePage();
+      persist();
+      return;
+    }
+
+    var m = menuById(dd, targetId);
+    if (m) {
+      openMenu(m.id, fromMenu);
+      persist();
+      return;
+    }
+    console.error("[book-nav] target '" + targetId + "' is neither a page nor a " +
+                  "menu of " + dd.id + ", so that choice goes nowhere.");
   }
 
   function goToDeepDivePage(index, opts) {
     var dd = deepDiveById(state.activeDeepDiveId);
     if (!dd) return;
+    /* A menu is not page 0: while one is showing there is nothing for Next —
+       or for a harness driving it — to step to until a body page is chosen. */
+    if (state.activeMenuId) return;
     if (index < 0 || index >= dd.pages.length) return;
+    /* Nor can a step cross out of the current menu's run: Next from s12 would
+       walk a child into s7 and the little-moon pages without ever passing the
+       s6 menu that introduces them. On a run's last page Next is inert exactly
+       as it is on the mini-book's last page. */
+    var here = spanForIndex(dd, state.deepDivePageIndex);
+    var step = spanForIndex(dd, index);
+    if (here.start !== step.start || here.count !== step.count) return;
     state.deepDivePageIndex = index;
     if (!opts || !opts.replaceHistory) state.deepDiveHistory.push(index);
     persist();
@@ -422,28 +614,49 @@
   /* Back moves INSIDE the deep dive. It never leaves it — see the header.
 
      Two ways to move back, and both are needed. Popping the history undoes the
-     jump that was actually made, which matters because a hotspot on the
-     overview page can skip several pages forward and "one less than the index"
-     would not undo it. But a deep dive can also be ENTERED at a page — Phase
-     1B's "About Ceres" is meant to open the asteroid-belt mini-book straight at
-     Ceres — and such a child has no history at all. Popping alone would leave
-     Back dead for the whole mini-book and make its first pages unreachable, so
-     with no history to pop, Back steps one page back instead.
+     jump that was actually made, which matters because a hotspot on a menu can
+     skip several pages forward and "one less than the index" would not undo it.
+     But a deep dive can also be ENTERED at a page — Phase 1B's "About Ceres" is
+     meant to open the asteroid-belt mini-book straight at Ceres — and such a
+     child has no history at all. Popping alone would leave Back dead for the
+     whole mini-book and make its first pages unreachable, so with no history to
+     pop, Back steps one page back instead.
 
-     Which leaves Back inert in exactly one situation: no history, and already
-     on the mini-book's first page. There is genuinely nowhere inside to go. */
+     A third rung sits under both, for a body page a menu opened: with the
+     history spent and the index already 0, the menu that launched the page is
+     where this child actually came from, so Back returns to it. And on a menu
+     opened from another menu (Saturn's s6 from s0), Back returns to that menu.
+
+     Which leaves Back inert in exactly one situation: no history, already on
+     the mini-book's first body page, no launching menu, no menu showing. There
+     is genuinely nowhere inside to go. */
   function canGoBack() {
-    return state.deepDiveHistory.length > 1 || state.deepDivePageIndex > 0;
+    if (state.activeMenuId) return !!state.menuParentId;
+    return state.deepDiveHistory.length > 1 ||
+           state.deepDivePageIndex > 0 ||
+           !!state.launchMenuId;
   }
 
   function back() {
     if (state.activeOverlay !== "deepDive") return;
+    if (state.activeMenuId) {
+      if (state.menuParentId) {
+        var dd = deepDiveById(state.activeDeepDiveId);
+        openMenu(state.menuParentId, parentMenuId(dd, state.menuParentId));
+        persist();
+      }
+      return;
+    }
     if (state.deepDiveHistory.length > 1) {
       state.deepDiveHistory.pop();
       state.deepDivePageIndex = state.deepDiveHistory[state.deepDiveHistory.length - 1];
     } else if (state.deepDivePageIndex > 0) {
       state.deepDivePageIndex -= 1;
       state.deepDiveHistory = [state.deepDivePageIndex];
+    } else if (state.launchMenuId) {
+      openMenu(state.launchMenuId, state.menuParentId);
+      persist();
+      return;
     } else {
       return;
     }
@@ -451,13 +664,25 @@
     renderDeepDivePage();
   }
 
-  /* Close LEAVES the deep dive, and returns to the page that opened it. */
+  /* Close LEAVES the deep dive, and returns to the page that opened it — with
+     one stop first: on a body page a menu launched, Close goes back to that
+     menu, which is still inside the mini-book and is the surface the child
+     chose from. Escape and the scrim call this same function, so they follow
+     this rule rather than one of their own. */
   function closeOverlay() {
+    if (state.activeOverlay === "deepDive" && !state.activeMenuId && state.launchMenuId) {
+      openMenu(state.launchMenuId, state.menuParentId);
+      persist();
+      return;
+    }
     var wasDeepDive = state.activeOverlay === "deepDive";
     var source = state.deepDiveSourcePage;
 
     state.activeOverlay = null;
     state.activeDeepDiveId = null;
+    state.activeMenuId = null;
+    state.launchMenuId = null;
+    state.menuParentId = null;
     state.deepDiveHistory = [];
     persist();
     showPanel(false);
@@ -469,27 +694,51 @@
     var dd = deepDiveById(state.activeDeepDiveId);
     if (!dd) return;
     var p = dd.pages[state.deepDivePageIndex];
-    var total = dd.pages.length;
-    var n = state.deepDivePageIndex + 1;
+    /* Counted within the menu's run, not the whole mini-book — see
+       menuSpans(). The run comes from the index alone, so a deep-linked page
+       numbers itself with no launching menu to ask. */
+    var span = spanForIndex(dd, state.deepDivePageIndex);
+    var total = span.count;
+    var n = state.deepDivePageIndex - span.start + 1;
 
     elTitle.textContent = p.title || dd.title;
     elSub.textContent = p.subtitle || dd.title;
+
+    /* A menu takes the page furniture away; a body page always brings it back. */
+    elBack.hidden = false;
+    elFoot.hidden = false;
+    elNext.hidden = false;
 
     /* A body destination is one tap away from the belt roster. Say where Back
        goes: a six-year-old should not have to infer navigation history. */
     elBack.lastChild.textContent = p.layoutType === "asteroid-focus" ? "Back to belt" : "Back";
 
     var canBack = canGoBack();
+    /* With nothing to unwind and no page to step back to, Back's next move is
+       the menu that opened this page — say that, not "one page", and use the
+       same word for the menu that Close does. */
+    var backToMenu = canBack && state.launchMenuId &&
+                     state.deepDiveHistory.length <= 1 && state.deepDivePageIndex === 0;
+    var backLabel = "Back. This is the first page";
+    if (canBack) backLabel = backToMenu ? "Back to the choices" : "Back one page";
     elBack.setAttribute("aria-disabled", canBack ? "false" : "true");
-    elBack.setAttribute("aria-label", canBack ? "Back one page" : "Back. This is the first page");
+    elBack.setAttribute("aria-label", backLabel);
 
-    var canNext = state.deepDivePageIndex < total - 1;
+    /* Close keeps its promise honest: on a page a menu opened it goes back to
+       that menu, not out of the mini-book, and the label says which. */
+    elClose.setAttribute("aria-label", state.launchMenuId
+      ? "Close. Go back to the choices"
+      : "Close. Go back to the story");
+
+    /* Next's reach is the run, so it is inert on a run's last page even when
+       the mini-book carries on behind the next menu. */
+    var canNext = state.deepDivePageIndex < span.start + total - 1;
     elNext.setAttribute("aria-disabled", canNext ? "false" : "true");
     elNext.setAttribute("aria-label", canNext ? "Next page" : "Next. This is the last page");
 
     elPos.textContent = n + " / " + total;
     elDots.textContent = "";
-    for (var i = 0; i < total; i++) {
+    for (var i = span.start; i < span.start + total; i++) {
       var d = el("span", "dd-dot");
       d.dataset.on = String(i === state.deepDivePageIndex);
       elDots.appendChild(d);
@@ -504,10 +753,45 @@
     renderLayout(p);
   }
 
+  /* A menu renders through the same layout renderers a page uses — picture,
+     copy, hotspots or roster — with all of the page furniture taken away: no
+     dots, no x / y, no Next. The contents overlay already hides `elFoot` for
+     exactly this reason ("there is no page 2 of it"), and a menu is in the
+     same position: a counter over a surface you choose from would count
+     something that is not a page. Back is taken away too, unless the menu was
+     reached from another menu, when Back is the way back to it. */
+  function renderMenu(m) {
+    var dd = deepDiveById(state.activeDeepDiveId);
+
+    elTitle.textContent = m.title || dd.title;
+    elSub.textContent = m.subtitle || dd.title;
+
+    elFoot.hidden = true;
+    if (state.menuParentId) {
+      elBack.hidden = false;
+      elBack.lastChild.textContent = "Back";
+      elBack.setAttribute("aria-disabled", "false");
+      /* Names its destination, the way "Back to belt" does on an asteroid
+         page, and uses the same word for the choices Close does. */
+      elBack.setAttribute("aria-label", "Back to the choices");
+    } else {
+      elBack.hidden = true;
+    }
+    elClose.setAttribute("aria-label", "Close. Go back to the story");
+
+    elBody.textContent = "";
+    elBody.className = "dd-body" + (m.layoutType ? " dd-body-" + m.layoutType : "");
+    elBody.scrollTop = 0;
+    /* The outgoing page's fit closure points at nodes that have just been
+       thrown away. Drop it before the new page installs its own. */
+    pendingFit = null;
+    renderLayout(m, true);
+  }
+
   /* ---------- layout renderers (§12) ----------
      A layoutType the engine does not know still renders its words rather than
      rendering nothing: an unfinished config should look plain, not empty. */
-  function renderLayout(p) {
+  function renderLayout(p, isMenu) {
     /* The picture comes FIRST, above the words. "Children get images, not
        lists": our readers are six and seven, and a page that opens with five
        lines of prose and no picture is a page they turn away from. `image` is
@@ -536,14 +820,29 @@
       elBody.appendChild(fig);
     }
 
+    /* EVERY DESTINATION with words gets the control, and no menu does.
+
+       The gate used to be `asteroid-focus`, which meant the ten belt pages
+       could be read aloud and the thirty moon pages could not -- not because
+       anyone decided a child exploring Saturn needs less help reading than a
+       child exploring the belt, but because the belt was the only deep-dive
+       text that had ever reached the narration map. That was a pipeline
+       accident, and gating the UI on the layout made the accident look like a
+       design.
+
+       Menus are excluded by the owner's call, and it is the same call that took
+       the dots and Next off them: a menu is a routing surface, and a speaker is
+       one more piece of chrome on a surface deliberately stripped. `isMenu` is
+       passed in rather than inferred from the layout type, because inferring
+       behaviour from the layout is the exact mistake above. */
     if (p.body) {
-      if (p.layoutType === "asteroid-focus") {
+      if (isMenu) {
+        elBody.appendChild(el("p", "dd-copy", p.body));
+      } else {
         var copyRow = el("div", "dd-copy-row");
         copyRow.appendChild(el("p", "dd-copy", p.body));
-        if (p.narration) copyRow.appendChild(readAloudButton(p));
+        copyRow.appendChild(readAloudButton(p));
         elBody.appendChild(copyRow);
-      } else {
-        elBody.appendChild(el("p", "dd-copy", p.body));
       }
     }
 
@@ -567,16 +866,36 @@
      page-wide Sound toggle and cancellation behaviour. The QA gate verifies
      that every configured string has a shipped mapping, so this never relies
      on the operating-system fallback. */
+  /* WHAT THIS ACTUALLY SPEAKS, because the API's name is misleading here.
+
+     `speechSynthesis.speak` is not the OS robot voice in this book. Every page
+     carries a `window.__NARRATION` map written by tools/wire-narration.py and a
+     shim that intercepts speak(), looks the exact string up in that map, and
+     plays the licensed clip. The OS voice is only what happens to a string the
+     map does NOT carry -- and AUDIO-DIRECTION.md calls that fallback a defect,
+     not a degraded mode. So the string handed over here has to be one the host
+     page's map carries, character for character.
+
+     `narration || body` is the whole rule. The ten asteroid pages set both, to
+     the same string, which is why harvesting `body` adds no duplicate and costs
+     no second render. Every moon page sets only `body`, and those are the
+     strings tools/extract-narration.py now lifts out of book-nav.js so that
+     they reach the map at all. */
+  function speakableText(p) {
+    return p.narration || p.body || "";
+  }
+
   function readAloudButton(p) {
+    var text = speakableText(p);
     var b = el("button", "dd-speak");
     b.type = "button";
-    b.dataset.narration = p.narration;
-    b.setAttribute("aria-label", "Read about " + p.title);
+    b.dataset.narration = text;
+    b.setAttribute("aria-label", "Read about " + (p.title || "this page"));
     b.innerHTML = '<span aria-hidden="true">🔊</span><span>Read this page</span>';
     b.addEventListener("click", function () {
       if (!window.speechSynthesis || !window.SpeechSynthesisUtterance) return;
       window.speechSynthesis.cancel();
-      var utterance = new SpeechSynthesisUtterance(p.narration);
+      var utterance = new SpeechSynthesisUtterance(text);
       utterance.rate = .94;
       utterance.pitch = 1.06;
       window.speechSynthesis.speak(utterance);
@@ -584,10 +903,10 @@
     return b;
   }
 
-  /* HotspotScene — a few big targets that jump to a page inside this mini-book. */
+  /* HotspotScene — a few big targets that jump to a page or a menu inside this
+     mini-book. */
   function renderHotspots(p) {
     if (!p.hotspots || !p.hotspots.length) return;
-    var dd = deepDiveById(state.activeDeepDiveId);
     var scene = el("div", "dd-scene");
     /* On an overview the picture is the scene itself and the targets sit on
        top of it, which is exactly what deep-dive.css was written for: "when
@@ -615,7 +934,7 @@
         b.style.transform = "translate(-50%,-50%)";
       }
       b.addEventListener("click", function () {
-        goToDeepDivePage(indexOfPage(dd, h.targetPage));
+        openTarget(h.targetPage);
       });
       scene.appendChild(b);
     });
@@ -696,7 +1015,7 @@
      THE ASTEROID ROSTER, AND THE ONE THING THE ART IS NOT ALLOWED TO SAY
      ============================================================
 
-     §7.2's first page is a menu of ten belt bodies. They run from Ceres at 940
+     §7.2's entry menu is a menu of ten belt bodies. They run from Ceres at 940
      km to Gaspra at 12 km — a 78:1 spread — and the whole difficulty is that a
      menu wants ten similar buttons and the truth wants one huge rock and one
      speck. A row of ten same-sized rocks would teach a six-year-old that the
@@ -809,7 +1128,7 @@
     return floor;
   }
 
-  function buildRock(a, dd, lens) {
+  function buildRock(a, lens) {
     var f = rockFactors(a.key);
     var b = el("button", "dd-rock" + (lens ? " dd-rock-lens" : ""));
     b.type = "button";
@@ -837,7 +1156,7 @@
 
     b.appendChild(el("span", "dd-rock-pill", a.name));
     b.addEventListener("click", function () {
-      goToDeepDivePage(indexOfPage(dd, a.targetPage));
+      openTarget(a.targetPage);
     });
     return b;
   }
@@ -845,7 +1164,6 @@
   function renderRoster(p) {
     var list = p.asteroids || [];
     if (!list.length) return;
-    var dd = deepDiveById(state.activeDeepDiveId);
 
     var scene = el("div", "dd-roster");
     if (p.image && p.image.src) {
@@ -871,7 +1189,7 @@
         c.type = "button";
         c.appendChild(el("span", "dd-chip-name", a.name));
         c.addEventListener("click", function () {
-          goToDeepDivePage(indexOfPage(dd, a.targetPage));
+          openTarget(a.targetPage);
         });
         plain.appendChild(c);
       });
@@ -890,7 +1208,7 @@
         return;
       }
       var lens = a.family === "small";
-      var node = buildRock(a, dd, lens);
+      var node = buildRock(a, lens);
       items.push({ f: rockFactors(a.key), lens: lens, node: node });
       (lens ? zoom : belt).appendChild(node);
     });
@@ -1011,13 +1329,16 @@
   }
 
   /* Which side of the line a body falls on is the roster's decision, so the
-     body page reads it from the roster rather than keeping its own copy. */
+     body page reads it from the roster rather than keeping its own copy. The
+     roster is a menu now, so every menu is searched for it. */
   function isSmall(key) {
     var dd = deepDiveById(state.activeDeepDiveId);
-    var first = dd && dd.pages && dd.pages[0];
-    var list = (first && first.asteroids) || [];
+    var list = (dd && dd.menus) || [];
     for (var i = 0; i < list.length; i++) {
-      if (list[i].key === key) return list[i].family === "small";
+      var rocks = list[i].asteroids || [];
+      for (var j = 0; j < rocks.length; j++) {
+        if (rocks[j].key === key) return rocks[j].family === "small";
+      }
     }
     return false;
   }
@@ -1067,11 +1388,12 @@
     (NAV.deepDives || []).forEach(function (dd) {
       if (!offeredHere(dd, state.currentMainPage)) return;
 
-      /* `data-deep-dive-page="a1"` opens the mini-book AT a page instead of at
-         its first. `openDeepDive` has taken `opts.page` since Phase 1A and
-         `back()` was written for exactly this case — "a deep dive can also be
-         ENTERED at a page … with no history to pop, Back steps one page back
-         instead" — but nothing could reach either declaratively. §7.2 is what
+      /* `data-deep-dive-page="a1"` opens the mini-book AT a body page instead
+         of at its entry menu. `openDeepDive` has taken `opts.page` since
+         Phase 1A, and `back()` was written for exactly this case — "a deep
+         dive can also be ENTERED at a page … with no history to pop, Back
+         steps one page back instead" — but nothing could reach either
+         declaratively. §7.2 is what
          needs it: page 10's second button says "About Ceres", so it has to land
          on Ceres. A button whose label names one thing and whose tap shows a
          different one is the kind of small lie a six-year-old notices first. */
@@ -1104,6 +1426,7 @@
     config: NAV,
     openTOC: openTOC,
     openDeepDive: openDeepDive,
+    openMenu: openMenu,
     back: back,
     next: next,
     close: closeOverlay,

@@ -27,6 +27,16 @@
        title       shown in the deep-dive title bar
        sourcePage  where it BELONGS in the book (§8's `sourcePage`)
        launchFrom  where its button is actually offered
+       menus       the selection menus, OUTSIDE `pages`. `menus[0]` is the ENTRY
+                   menu — the surface a child lands on when the deep dive opens
+                   with no explicit page. The engine draws them without the page
+                   furniture and counts them nowhere
+       pages       the body pages, and only these: what the position counter
+                   counts, what the dots are drawn for, what Next steps
+                   through — within one menu's run of them at a time. Keep
+                   `pages` in menu order: a menu's run starts at the first page
+                   it points to and ends where the next menu's run begins, and
+                   the engine derives every boundary from that
 
    `sourcePage` and `launchFrom` are deliberately separate, and this is the
    single most important line in the file. The spec's return rule (§3, §11) is
@@ -99,7 +109,7 @@ window.BOOK_NAV = {
       launchFrom: ["page-07", "page-09"],
       launchLabel: "Explore moons",
       preview: true,
-      pages: [
+      menus: [
         {
           id: "m0",
           title: "What is a moon?",
@@ -111,7 +121,9 @@ window.BOOK_NAV = {
             { id: "little",  label: "Little moons",     targetPage: "m2" },
             { id: "sidebys", label: "Side by side",     targetPage: "m3" }
           ]
-        },
+        }
+      ],
+      pages: [
         {
           id: "m1",
           title: "Big moons",
@@ -209,8 +221,8 @@ window.BOOK_NAV = {
 
     /* ---- Page 10: the asteroid belt (§7.2) ----
        The old A0 offered four abstract topics. The owner asked for the bodies
-       instead: the first page is now a ten-body roster, and every rock opens
-       its own page. The former compare and chip pages are folded into those
+       instead: the entry menu is a ten-body roster, and every rock opens its
+       own page. The former compare and chip pages are folded into those
        body pages so a child never has to choose a category before choosing the
        asteroid they came to meet.
 
@@ -222,7 +234,7 @@ window.BOOK_NAV = {
       sourcePage: "page-10",
       launchFrom: ["page-10"],
       launchLabel: "Explore the belt",
-      pages: [
+      menus: [
         {
           id: "a0",
           image: { src: "assets-runtime/standard/page-10/asteroid-roster-background-v1.webp", alt: "" },
@@ -249,7 +261,9 @@ window.BOOK_NAV = {
             { key: "ida",      name: "Ida & Dactyl", family: "small", targetPage: "a9"  },
             { key: "gaspra",   name: "Gaspra",       family: "small", targetPage: "a10" }
           ]
-        },
+        }
+      ],
+      pages: [
         {
           id: "a1",
           asteroid: { key: "ceres", name: "Ceres" },
@@ -407,7 +421,7 @@ window.BOOK_NAV = {
       sourcePage: "page-12",
       launchFrom: ["page-12"],
       launchLabel: "Explore the moons",
-      pages: [
+      menus: [
         {
           id: "j0",
           image: { src: "assets-runtime/standard/page-12/galilean-moons-group-v1.webp", alt: "Io, Europa, Ganymede and Callisto together" },
@@ -421,7 +435,9 @@ window.BOOK_NAV = {
             { id: "ganymede", label: "Ganymede", targetPage: "j3" },
             { id: "callisto", label: "Callisto", targetPage: "j4" }
           ]
-        },
+        }
+      ],
+      pages: [
         {
           id: "j1",
           image: { src: "assets-runtime/standard/page-12/io-hero-v1.webp", alt: "Io, yellow and volcanic" },
@@ -508,7 +524,7 @@ window.BOOK_NAV = {
       sourcePage: "page-14",
       launchFrom: ["page-14"],
       launchLabel: "Explore the moons",
-      pages: [
+      menus: [
         {
           id: "s0",
           image: { src: "assets-runtime/standard/page-14/saturn-limb-page14-v1.webp", alt: "Saturn beyond its moons" },
@@ -523,6 +539,22 @@ window.BOOK_NAV = {
             { id: "strange", label: "Strange little moons", targetPage: "s6" }
           ]
         },
+        {
+          id: "s6",
+          image: { src: "assets-runtime/standard/page-14/deep-dive-moons/saturn-small-moons-rings-scene-v1.webp", alt: "Small icy moons moving among Saturn's rings" },
+          title: "Saturn's strange little moons",
+          subtitle: "Eight small moons, each one odd",
+          layoutType: "overview-hotspots",
+          body: "These moons are small, and every single one of them is odd. Some are shaped like pasta. Two of them swap places. Choose a group to look closer.",
+          hotspots: [
+            { id: "ravioli", label: "Ring shapers", targetPage: "s7" },
+            { id: "sheepdogs", label: "Two sheepdogs", targetPage: "s8" },
+            { id: "swap", label: "Swap moons", targetPage: "s9" },
+            { id: "phoebe", label: "Far-out Phoebe", targetPage: "s10" }
+          ]
+        }
+      ],
+      pages: [
         {
           id: "s1",
           image: { src: "assets-runtime/standard/page-14/titan-hero-v1.webp", alt: "Titan wrapped in thick orange air" },
@@ -551,7 +583,7 @@ window.BOOK_NAV = {
           id: "s3",
           image: { src: "assets-runtime/standard/page-14/deep-dive-moons/mimas-herschel-hero-v1.webp", alt: "Mimas with the enormous Herschel crater" },
           title: "Mimas",
-          subtitle: "say it: MY-mass",
+          subtitle: "say it: MY-muss",
           layoutType: "single-focus",
           body: "One crater takes up nearly a third of Mimas. The crater is called Herschel, and whatever hit Mimas very nearly broke it apart. Cracks from the impact still cross the far side.",
           facts: [{ label: "Famous for", value: "One giant crater" }]
@@ -599,20 +631,6 @@ window.BOOK_NAV = {
             { name: "Rhea", note: "REE-uh — Saturn's second-biggest moon, icy and heavily cratered." },
             { name: "Dione", note: "dy-OH-nee — bright streaks that are cliffs of ice." },
             { name: "Tethys", note: "TEE-thiss — a huge crater and a canyon most of the way around it." }
-          ]
-        },
-        {
-          id: "s6",
-          image: { src: "assets-runtime/standard/page-14/deep-dive-moons/saturn-small-moons-rings-scene-v1.webp", alt: "Small icy moons moving among Saturn's rings" },
-          title: "Saturn's strange little moons",
-          subtitle: "Eight small moons, each one odd",
-          layoutType: "overview-hotspots",
-          body: "These moons are small, and every single one of them is odd. Some are shaped like pasta. Two of them swap places. Choose a group to look closer.",
-          hotspots: [
-            { id: "ravioli", label: "Ring shapers", targetPage: "s7" },
-            { id: "sheepdogs", label: "Two sheepdogs", targetPage: "s8" },
-            { id: "swap", label: "Swap moons", targetPage: "s9" },
-            { id: "phoebe", label: "Far-out Phoebe", targetPage: "s10" }
           ]
         },
         {
@@ -673,7 +691,7 @@ window.BOOK_NAV = {
       sourcePage: "page-16",
       launchFrom: ["page-16"],
       launchLabel: "Explore the moons",
-      pages: [
+      menus: [
         {
           id: "u0",
           image: { src: "assets-runtime/standard/page-16/uranus-distant-limb-v1.webp", alt: "Uranus beside its five major moons" },
@@ -688,7 +706,9 @@ window.BOOK_NAV = {
             { id: "titania", label: "Titania", targetPage: "u4" },
             { id: "oberon", label: "Oberon", targetPage: "u5" }
           ]
-        },
+        }
+      ],
+      pages: [
         {
           id: "u1",
           image: { src: "assets-runtime/standard/page-16/miranda-patchwork-closeup-v1.webp", alt: "Miranda's patchwork cliffs" },

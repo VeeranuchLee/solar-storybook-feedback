@@ -207,9 +207,8 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 </style>  <style>
   /* Touch hygiene -- owner 2026-09-15: a child's drag became a blue text selection,
      and pinches zoomed the page. user-select and touch-callout stop the first;
-     touch-action: manipulation stops double-tap zoom without killing scroll. Pinch
-     itself needs the gesturestart guard below, because iOS ignores user-scalable=no. */
-  html { -webkit-text-size-adjust: 100%; }
+     touch-action: manipulation stops double-tap zoom without killing scroll. Pinch is never blocked: it is a zoomed-in child's only way back out (INTERACTION-DIRECTION.md). */
+  html { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
   body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; touch-action: manipulation; }
   input, textarea, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
   </style>
@@ -238,12 +237,11 @@ window.__NARRATION = {
  "Hi! I'm Frosty.": "p06-friend-14-hi-i-m-frosty.m4a",
  "Saturn. The ringed giant.": "p13-narrator-05-saturn-the-ringed-giant.m4a",
  "Titan hides beneath orange haze and has methane lakes. Tiny, icy Enceladus sprays water-rich material from fractures near its south pole.": "p14-narrator-01-titan-hides-beneath-orange-haze-and.m4a",
- "Titan is more than ten times wider than Enceladus, yet both moons reveal complex and surprising worlds.": "p14-narrator-02-titan-is-more-than-ten-times.m4a",
- "Titan has thick nitrogen air, methane weather, and lakes and seas made mainly of liquid methane and ethane.": "p14-narrator-03-titan-has-thick-nitrogen-air-methane.m4a",
- "Water vapor and ice grains spray from fractures near Enceladus’s south pole, carrying evidence from a salty ocean below.": "p14-narrator-04-water-vapor-and-ice-grains-spray.m4a",
  "Titan. Saturn's biggest moon, hidden under thick orange haze.": "p14-narrator-05-titan-saturn-s-biggest-moon-hidden.m4a",
  "Enceladus. A small icy moon that sprays water into space.": "p14-narrator-06-enceladus-a-small-icy-moon-that.m4a",
  "Enceladus": "p14-narrator-07-enceladus.m4a",
+ "Mimas. One enormous crater takes up nearly a third of it.": "p14-narrator-22-mimas-one-enormous-crater-takes-up.m4a",
+ "Iapetus. One side is dark as tar and the other is bright as snow.": "p14-narrator-23-iapetus-one-side-is-dark-as.m4a",
  "Wobble! I'm Wobble.": "p14-friend-08-wobble-i-m-wobble.m4a",
  "Hello! I'm Zen.": "p14-friend-09-hello-i-m-zen.m4a",
  "Titan has a dense, mostly nitrogen atmosphere wrapped in orange organic haze.": "p14-narrator-10-titan-has-a-dense-mostly-nitrogen.m4a",
@@ -252,14 +250,17 @@ window.__NARRATION = {
  "Enceladus is a small moon, about 500 kilometres across.": "p14-narrator-13-enceladus-is-a-small-moon-about.m4a",
  "Plumes spray water vapor and ice grains from fractures near Enceladus's south pole.": "p14-narrator-14-plumes-spray-water-vapor-and-ice.m4a",
  "Measurements support a global salty ocean beneath Enceladus's icy shell.": "p14-narrator-15-measurements-support-a-global-salty-ocean.m4a",
- "Titan is much larger than Enceladus.": "p14-narrator-16-titan-is-much-larger-than-enceladus.m4a",
- "Titan has thick nitrogen air wrapped in orange haze.": "p14-narrator-17-titan-has-thick-nitrogen-air-wrapped.m4a",
- "On Titan, methane makes clouds, rain, rivers, and lakes.": "p14-narrator-18-on-titan-methane-makes-clouds-rain.m4a",
- "Titan's lakes and seas are made mainly of methane and ethane.": "p14-narrator-19-titan-s-lakes-and-seas-are.m4a",
- "Water vapor and ice grains spray from fractures near Enceladus's south pole.": "p14-narrator-20-water-vapor-and-ice-grains-spray.m4a",
- "Evidence points to a salty ocean beneath Enceladus's ice.": "p14-narrator-21-evidence-points-to-a-salty-ocean.m4a",
- "Mimas. One enormous crater takes up nearly a third of it.": "p14-narrator-22-mimas-one-enormous-crater-takes-up.m4a",
- "Iapetus. One side is dark as tar and the other is bright as snow.": "p14-narrator-23-iapetus-one-side-is-dark-as.m4a"
+ "Thick orange air, with rivers, lakes and seas on the ground. Titan is the only moon with a proper atmosphere. It rains there — but the rain is methane, because Titan is far too cold for water to be liquid.": "p14-narrator-24-thick-orange-air-with-rivers-lakes.m4a",
+ "Enceladus sprays jets of salty water into space from cracks at its south pole. The spray comes from an ocean under the ice, and some of it becomes part of one of Saturn's rings.": "p14-narrator-25-enceladus-sprays-jets-of-salty-water.m4a",
+ "One crater takes up nearly a third of Mimas. The crater is called Herschel, and whatever hit Mimas very nearly broke it apart. Cracks from the impact still cross the far side.": "p14-narrator-26-one-crater-takes-up-nearly-a.m4a",
+ "One side of Iapetus is dark as tar, and the other is bright as snow. It also has a ridge of mountains running right around its middle, like a walnut.": "p14-narrator-27-one-side-of-iapetus-is-dark.m4a",
+ "Four moons circle the same planet, but each one tells a different story.": "p14-narrator-28-four-moons-circle-the-same-planet.m4a",
+ "Hyperion is full of holes, like a sponge, and it tumbles instead of spinning steadily. Its tumbling is so unpredictable that nobody can say which way it will face next month.": "p14-narrator-29-hyperion-is-full-of-holes-like.m4a",
+ "Rhea, Dione and Tethys are large icy moons covered with signs of a long history.": "p14-narrator-30-rhea-dione-and-tethys-are-large.m4a",
+ "Tiny moons can push and sweep Saturn's ring material into surprising shapes.": "p14-narrator-31-tiny-moons-can-push-and-sweep.m4a",
+ "Prometheus and Pandora travel on opposite sides of Saturn's thin F ring. Their gravity helps herd the ring material and keep it in line.": "p14-narrator-32-prometheus-and-pandora-travel-on-opposite.m4a",
+ "Janus and Epimetheus travel on almost the same path. Every four years they tug on each other and trade places without ever touching.": "p14-narrator-33-janus-and-epimetheus-travel-on-almost.m4a",
+ "Phoebe is dark, far from Saturn, and travels around the planet backwards compared with Saturn's large moons. Its backward path is evidence that Saturn captured it long ago.": "p14-narrator-34-phoebe-is-dark-far-from-saturn.m4a"
 };
 window.__NARRATION_BASE = "assets-runtime/narration/";
 (function () {
@@ -501,11 +502,4 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 <!-- /SERVICEWORKER:JS -->
-  <script>
-  /* Pinch-zoom guard. iOS Safari ignores user-scalable=no (since iOS 10), so this is
-     the only thing that stops two small hands zooming the page mid-play. gesturestart
-     fires once per pinch; preventing it cancels the zoom and touches nothing else.
-     Other browsers never fire it, so this is inert there. */
-  document.addEventListener("gesturestart", function (e) { e.preventDefault(); }, { passive: false });
-  </script>
   </body></html>

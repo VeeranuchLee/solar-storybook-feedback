@@ -176,9 +176,8 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 </style>  <style>
   /* Touch hygiene -- owner 2026-09-15: a child's drag became a blue text selection,
      and pinches zoomed the page. user-select and touch-callout stop the first;
-     touch-action: manipulation stops double-tap zoom without killing scroll. Pinch
-     itself needs the gesturestart guard below, because iOS ignores user-scalable=no. */
-  html { -webkit-text-size-adjust: 100%; }
+     touch-action: manipulation stops double-tap zoom without killing scroll. Pinch is never blocked: it is a zoomed-in child's only way back out (INTERACTION-DIRECTION.md). */
+  html { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
   body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; touch-action: manipulation; }
   input, textarea, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
   </style>
@@ -198,9 +197,6 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 window.__NARRATION = {
  "Titania": "p02-narrator-30-titania.m4a",
  "Miranda, Ariel, Umbriel, Titania, and Oberon circle Uranus. Their names come from literature, and each moon carries a different record across its icy surface.": "p16-narrator-01-miranda-ariel-umbriel-titania-and-oberon.m4a",
- "Titania and Oberon are the largest major moons. Miranda is much smaller.": "p16-narrator-02-titania-and-oberon-are-the-largest.m4a",
- "These moons are named for characters from the works of Shakespeare and Alexander Pope.": "p16-narrator-03-these-moons-are-named-for-characters.m4a",
- "Voyager 2 photographed all five major moons during its Uranus flyby in January nineteen eighty-six.": "p16-narrator-04-voyager-2-photographed-all-five-major.m4a",
  "Hi! I'm Pip.": "p16-friend-05-hi-i-m-pip.m4a",
  "Hello! I'm Gem.": "p16-friend-06-hello-i-m-gem.m4a",
  "Whoosh! I'm Halo.": "p16-friend-07-whoosh-i-m-halo.m4a",
@@ -213,37 +209,20 @@ window.__NARRATION = {
  "Titania is Uranus's largest moon and has long rift valleys across its crust.": "p16-narrator-14-titania-is-uranus-s-largest-moon.m4a",
  "Oberon is old and heavily cratered, with dark material on some crater floors.": "p16-narrator-15-oberon-is-old-and-heavily-cratered.m4a",
  "Oberon": "p16-narrator-16-oberon.m4a",
- "Uranus's moons are named for characters from Shakespeare and Alexander Pope.": "p16-narrator-17-uranus-s-moons-are-named-for.m4a",
  "Miranda has patchwork terrain and canyons far deeper than Earth's Grand Canyon.": "p16-narrator-18-miranda-has-patchwork-terrain-and-canyons.m4a",
  "Ariel is bright and crossed by intersecting fault valleys.": "p16-narrator-19-ariel-is-bright-and-crossed-by.m4a",
  "Umbriel is the darkest major moon and has a mysterious bright ring feature.": "p16-narrator-20-umbriel-is-the-darkest-major-moon.m4a",
  "Titania is Uranus's largest moon and has very long fault valleys.": "p16-narrator-21-titania-is-uranus-s-largest-moon.m4a",
  "Oberon is the outermost major moon and is heavily cratered.": "p16-narrator-22-oberon-is-the-outermost-major-moon.m4a",
- "Cordelia. It and Ophelia keep the bright epsilon ring thin.": "p16-narrator-23-cordelia-it-and-ophelia-keep-the.m4a",
- "Cordelia": "p16-narrator-24-cordelia.m4a",
- "Ophelia. It herds that same bright ring from the outside.": "p16-narrator-25-ophelia-it-herds-that-same-bright.m4a",
- "Ophelia": "p16-narrator-26-ophelia.m4a",
- "Juliet. This little moon races around Uranus in half a day.": "p16-narrator-27-juliet-this-little-moon-races-around.m4a",
- "Juliet": "p16-narrator-28-juliet.m4a",
- "Portia. It leads a crowded family of tiny inner moons.": "p16-narrator-29-portia-it-leads-a-crowded-family.m4a",
- "Portia": "p16-narrator-30-portia.m4a",
- "Puck. Voyager is the only visitor to see this moon close up.": "p16-narrator-31-puck-voyager-is-the-only-visitor.m4a",
- "Puck": "p16-narrator-32-puck.m4a",
- "Mab. Its dust supplies the faint outer mu ring.": "p16-narrator-33-mab-its-dust-supplies-the-faint.m4a",
- "Mab": "p16-narrator-34-mab.m4a",
- "Caliban. This far moon circles Uranus the opposite way.": "p16-narrator-35-caliban-this-far-moon-circles-uranus.m4a",
- "Caliban": "p16-narrator-36-caliban.m4a",
- "Sycorax. The biggest far-out moon is a faint reddish speck.": "p16-narrator-37-sycorax-the-biggest-far-out-moon.m4a",
- "Sycorax": "p16-narrator-38-sycorax.m4a",
- "Prospero. We have only ever seen it as a moving speck.": "p16-narrator-39-prospero-we-have-only-ever-seen.m4a",
- "Prospero": "p16-narrator-40-prospero.m4a",
- "Setebos. This far moon takes about six years to go around.": "p16-narrator-41-setebos-this-far-moon-takes-about.m4a",
- "Setebos": "p16-narrator-42-setebos.m4a",
- "Titania and Oberon are the largest, while Miranda is much smaller.": "p16-narrator-43-titania-and-oberon-are-the-largest.m4a",
- "Moving outward from Uranus comes Miranda, Ariel, Umbriel, Titania, then Oberon.": "p16-narrator-44-moving-outward-from-uranus-comes-miranda.m4a",
- "Miranda's surface joins old cratered ground to younger ridges and immense canyons.": "p16-narrator-45-miranda-s-surface-joins-old-cratered.m4a",
- "Ariel is bright and faulted, while Umbriel is dark and ancient.": "p16-narrator-46-ariel-is-bright-and-faulted-while.m4a",
- "Titania has long rifts, while Oberon is older and more heavily cratered.": "p16-narrator-47-titania-has-long-rifts-while-oberon.m4a"
+ "Miranda is a patchwork world with the tallest cliff we know of anywhere. Verona Rupes rises twenty kilometres, and the surface looks as though several different worlds were stuck together.": "p16-narrator-48-miranda-is-a-patchwork-world-with.m4a",
+ "Ariel is the brightest of Uranus's moons. Long fault valleys cut across its icy surface.": "p16-narrator-49-ariel-is-the-brightest-of-uranus.m4a",
+ "Umbriel is the darkest of the five major moons. Its ancient surface holds one bright ring-shaped feature that nobody can explain.": "p16-narrator-50-umbriel-is-the-darkest-of-the.m4a",
+ "Titania is the biggest moon of Uranus. Long rift valleys cross its icy crust.": "p16-narrator-51-titania-is-the-biggest-moon-of.m4a",
+ "Oberon is the outermost of Uranus's five major moons. Its old surface is covered in craters, with dark material on some crater floors.": "p16-narrator-52-oberon-is-the-outermost-of-uranus.m4a",
+ "These small inner moons also carry names from stories and poems. Tap a name to read how to say it.": "p16-narrator-53-these-small-inner-moons-also-carry.m4a",
+ "These four moons travel far from Uranus and go around it backwards. Their unusual paths tell us that Uranus captured them.": "p16-narrator-54-these-four-moons-travel-far-from.m4a",
+ "Titania is the largest. Oberon is close behind. Ariel and Umbriel are similar in size, while Miranda is less than half as wide as either one.": "p16-narrator-55-titania-is-the-largest-oberon-is.m4a",
+ "Voyager 2 photographed all five major moons during its Uranus flyby in January 1986. Those pictures revealed Miranda's patchwork cliffs, Ariel's valleys, Umbriel's bright ring, Titania's rifts and Oberon's craters.": "p16-narrator-56-voyager-2-photographed-all-five-major.m4a"
 };
 window.__NARRATION_BASE = "assets-runtime/narration/";
 (function () {
@@ -422,11 +401,4 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 <!-- /SERVICEWORKER:JS -->
-  <script>
-  /* Pinch-zoom guard. iOS Safari ignores user-scalable=no (since iOS 10), so this is
-     the only thing that stops two small hands zooming the page mid-play. gesturestart
-     fires once per pinch; preventing it cancels the zoom and touches nothing else.
-     Other browsers never fire it, so this is inert there. */
-  document.addEventListener("gesturestart", function (e) { e.preventDefault(); }, { passive: false });
-  </script>
   </body></html>

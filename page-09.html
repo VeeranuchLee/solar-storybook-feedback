@@ -198,9 +198,8 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 </style>  <style>
   /* Touch hygiene -- owner 2026-09-15: a child's drag became a blue text selection,
      and pinches zoomed the page. user-select and touch-callout stop the first;
-     touch-action: manipulation stops double-tap zoom without killing scroll. Pinch
-     itself needs the gesturestart guard below, because iOS ignores user-scalable=no. */
-  html { -webkit-text-size-adjust: 100%; }
+     touch-action: manipulation stops double-tap zoom without killing scroll. Pinch is never blocked: it is a zoomed-in child's only way back out (INTERACTION-DIRECTION.md). */
+  html { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
   body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; touch-action: manipulation; }
   input, textarea, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
   </style>
@@ -244,7 +243,11 @@ window.__NARRATION = {
  "Phobos circles close and fast. Deimos travels farther out and more slowly.": "p09-narrator-15-phobos-circles-close-and-fast-deimos.m4a",
  "Phobos is larger than Deimos. This comparison is not to scale.": "p09-narrator-16-phobos-is-larger-than-deimos-this.m4a",
  "Phobos is moving inward very slowly, over millions of years.": "p09-narrator-17-phobos-is-moving-inward-very-slowly.m4a",
- "They are small, with weak gravity, so they remain irregular rather than round.": "p09-narrator-18-they-are-small-with-weak-gravity.m4a"
+ "They are small, with weak gravity, so they remain irregular rather than round.": "p09-narrator-18-they-are-small-with-weak-gravity.m4a",
+ "The biggest moons are round, like little planets. Ganymede circles Jupiter and is the largest moon in the solar system. Titan circles Saturn and wears a thick orange sky.": "p07-narrator-20-the-biggest-moons-are-round-like.m4a",
+ "Small moons are not round. Gravity is too weak to pull them into a ball, so they keep the lumpy shape they started with. Mars keeps two of them: Phobos and Deimos.": "p07-narrator-21-small-moons-are-not-round-gravity.m4a",
+ "Put three moons together and the difference jumps out.": "p07-narrator-22-put-three-moons-together-and-the.m4a",
+ "Moons carry names from old stories. Here are some to try.": "p07-narrator-23-moons-carry-names-from-old-stories.m4a"
 };
 window.__NARRATION_BASE = "assets-runtime/narration/";
 (function () {
@@ -464,11 +467,4 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 <!-- /SERVICEWORKER:JS -->
-  <script>
-  /* Pinch-zoom guard. iOS Safari ignores user-scalable=no (since iOS 10), so this is
-     the only thing that stops two small hands zooming the page mid-play. gesturestart
-     fires once per pinch; preventing it cancels the zoom and touches nothing else.
-     Other browsers never fire it, so this is inert there. */
-  document.addEventListener("gesturestart", function (e) { e.preventDefault(); }, { passive: false });
-  </script>
   </body></html>

@@ -1,0 +1,2340 @@
+{
+  "$generated": "solar-storybook/tools/build-audio.py -- do not hand-edit",
+  "$why": "master md5 each shipped clip was transcoded from; see build-audio.py",
+  "clips": {
+    "p01-ari-02-it-tells-me-the-names-but": {
+      "clip_sha256": "6f429b4a9da3ef9dd49db6f7540fa8a265e3952aa70c3cbba481c4a1e1516112",
+      "master_sha256": "5163c63b1fd55cbca7f76bd53150880352718aee7fe361bdd2759b17d68867ee",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p01-ari-05-hi": {
+      "clip_sha256": "07f0c6dd4e3643caddc196a8a35a17fd3c7eefbb694546708b98de6fe44c5a93",
+      "master_sha256": "81f88602119bfd87a772005fdfcf0a07f0b9bdc6f7402f1cb9b56cff95eb6f5f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p01-dot-04-specialist-mission-accepted": {
+      "clip_sha256": "65f3dda559ae7121e47f524b434eb785984aa071463ef61a789eec7397249a7d",
+      "master_sha256": "2a80a4a4f94fe365a77f1b6b7f84af318b94ac43ee2d743d45c24665f50e9f10",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p01-narrator-01-ari-couldn-t-sleep-jupiter-was": {
+      "clip_sha256": "0891cb7a1a6f1a2090396eede14a23b248bed5af9574bc0e6276fa4b00211c73",
+      "master_sha256": "942e533e0b373600a0b6c2323cab7d0dec0f552305e6904ad732410eb29fd708",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p01-narrator-03-beep-beep-a-tiny-robot-woke": {
+      "clip_sha256": "311bb51b17cb98912a8cd0a76d45fade720b61fa59ed9fd78490f1aa6fc60ec9",
+      "master_sha256": "efd52233949f36112e2f75a869459f69440224ca1b804a42dc072cce4decb634",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-ari-01-hi-space-explorers": {
+      "clip_sha256": "6d75d96ea0b433d9f41e619e79dee4515be3b7e2b92c49215d8562095088fa22",
+      "master_sha256": "6f95a3aab1fab4553aab3b55268781987acc364e2ff33ac07e0bc0c1ae61e998",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-ari-02-wow-everything-in-space-is-moving": {
+      "clip_sha256": "23c220ce1c87a4167af2c81cef8d479c6f886a2d6d3dd5e53196e82b5675ea45",
+      "master_sha256": "c06c2b847eef28ff2a0a206b9395dd393e8d8165877726d1b4c8322848fedac2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-dot-03-planets-travel-around-the-sun-and": {
+      "clip_sha256": "71338e4dbaeddfec2c29e9dff0e167f56b54fd9e2a9176360292cde8ef23ec99",
+      "master_sha256": "4f05494ae8c199b287407d4fd35efd4e868eab1ee1f35b3e38933039d7490d69",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-04-watch-the-planets-travel-around-the": {
+      "clip_sha256": "12540b063cfe9424f48ce6e5187ac0a484969f6ad5b8bdb286118d413f88891e",
+      "master_sha256": "80f5e2d340e65e3ff37fa6cc021730a10bf53d5d58e5e05bdcdcf5d782da6966",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-05-sun": {
+      "clip_sha256": "4156b5391eac71c87bcbec0d7f5ec4f91b4a8e373ad39a52c6a59f2851db462b",
+      "master_sha256": "c1e6186a859da7426422fae2d5e9882cb968783127c6a708c6a74898cdea94dc",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-06-earth": {
+      "clip_sha256": "e7bf2799a257bd93841717c288044e4bc0015e39c62aae2b09b410aa6f917acd",
+      "master_sha256": "ebf7dcc07bc1846bdde8abd7fa50b29804005e7b654f9df2e0458a98682ab8b0",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-07-asteroid-belt": {
+      "clip_sha256": "99d8edf108d4ab27cfd7e8b0cecf37545ad9d4a1184186c6dd02df35dafc9dd5",
+      "master_sha256": "bdb93cdfa11724c7d4586f6eb7a012b024b59f5816295b0e6e2b088a93643796",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-08-the-solar-system-is-a-moving": {
+      "clip_sha256": "ae192dbe79d1522644565a1305e1ac01e93cd4494c7c1d31c00bdf72761199c5",
+      "master_sha256": "e67778d079ec4e96fb5bd19195084d6eabe7235a3f34729d8f076d99639a18ae",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-09-ceres-is-a-dwarf-planet-in": {
+      "clip_sha256": "9ad517cf44f15f58896f4f27805ff71672cd8b8f10c3633ebcf550a8d9bce515",
+      "master_sha256": "6e989fb020c8b5a14adfc8c7b4474245e3cdc9377e7495c86d4d9d24a6e17677",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-10-vesta-is-one-of-the-largest": {
+      "clip_sha256": "050f071ccd25ca8b03e2f5eb45a030a9d53416778d17dbe5f244b272fced24e0",
+      "master_sha256": "ae677a2e7d383a1c3b07b265944d53683bad7496ec664ebe84efa402b8f03d66",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-11-eros-is-a-near-earth-asteroid": {
+      "clip_sha256": "d1d652dff70c2a0281b14e34c36d5583213d5dc64a8683413a9f6c985fd8776f",
+      "master_sha256": "1634b1e4550c15e19fd5a74f6e750100665b6fa11fb15507a9513d4156004062",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-12-mercury-venus-earth-and-mars-are": {
+      "clip_sha256": "087ebeba505134041a9a33a0d809e0143166274823c9a73fc7b416c281280443",
+      "master_sha256": "7daf6d4834f6a0cec378e08ffb6d1d6074a2bcdc17cd0fba23c133455cb2642c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-13-jupiter-and-saturn-are-giant-planets": {
+      "clip_sha256": "b210483e88af7eb6f3ab4837661186b72dae833c3d58837b36cce4d8a545de18",
+      "master_sha256": "00d2e5bf71a78caeeb74dc8731ccfbab4e501a6b2dc0196073eaa5e618fd5fe7",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-14-uranus-and-neptune-are-cold-ice": {
+      "clip_sha256": "a4edf2d0db731b5c439de09ea52ea1a9002a284761036124624b5b99050bf866",
+      "master_sha256": "785963832027e8641bf1764b1cffebaabebf8fc9b069cbdd18404b4a23bf69a1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-15-mercury": {
+      "clip_sha256": "429ab58d5b9522092848cbe747d2f0d6ec7cd7d57156f2399ad93894f35b9c85",
+      "master_sha256": "251a31eda17e6d265d49f05a721252b661613a3c3bff59eedf506b98e34713ce",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-16-venus": {
+      "clip_sha256": "97ae96a3984a96255e258ccbe345b19f83ac412db55fd765943f7e51d045ba0c",
+      "master_sha256": "c4b4c5008ab5b4b57e2b104be8615764fcb2e72cb3a814ec757942a30a565066",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-17-mars": {
+      "clip_sha256": "3ce73e62a48398353cd4b9d3304c636f839ff5bb4f0deacd1d6fa63055ed9b2f",
+      "master_sha256": "67d031438c7c553b4423dee334d46286284eba71fb2b0ebf8e987c9f78e7223a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-18-jupiter": {
+      "clip_sha256": "a6e463a23d2a27d9e690117c668355b5fcd2af88c20f958a790cfcca1ccd7ca7",
+      "master_sha256": "a385f32a82503e0d2537337154515e607e391d365009abf27ce8f9054be32871",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-19-saturn": {
+      "clip_sha256": "0b9714e505f53287bdf5a890e501e4a96bb9c90121904dc77f12b7c639be30c4",
+      "master_sha256": "5651816fa67b6bef63a7df0d578e0b39fff208e69683f6af779570b4547299a7",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-20-uranus": {
+      "clip_sha256": "7dde0e44fa91e6f12494388c38eacd2bb952dab2650ca53cb603d36c09166b46",
+      "master_sha256": "2e8941d6f3cc09dbe748a196246ea20f19172ffe9c99ddac5c18f59e3373e912",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-21-neptune": {
+      "clip_sha256": "971ebdf9208cc241befcbe84a116721ecd7c7fb9c48d5676ce9b640dd26aa959",
+      "master_sha256": "7b389544c0554ac69be4c96d2be6e9afc3ff23d9f2d39f66566667546d084d0e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-22-moon": {
+      "clip_sha256": "ebfed87a5336fcf4997d7c044ebfb6bbbc5bff96325bad9974425a28b676be26",
+      "master_sha256": "e62d3198d758df514d87db4691bca89c4fc6d1bd16bb5113e8f6f19722e71c33",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-23-phobos": {
+      "clip_sha256": "9f284c40c63ac57cf1b3c9bda74530f89fee562ecb470ff7758bddc4bd7d1278",
+      "master_sha256": "0b636fe1da1e1ea799c15f926b31fa6eae922b3d6d749c26b77ea140f3c58fc2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-24-deimos": {
+      "clip_sha256": "a733b76d54c1fb605823a41dd8f769b026acc1f62a5a969e8bbda1b0ccedc5cc",
+      "master_sha256": "b9fa46f57125569548c633a76c0a68861259abd612211bb2a229b7f7d1fb4b7f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-25-io": {
+      "clip_sha256": "d4c80846e7770444232444c834fa838059ff2b9cfc66217ad8fc99a1c9b8a164",
+      "master_sha256": "9635d14a185a41bf22b326e6c5d8ebd37084090c9e903c9961e0edd66ea5245d",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-26-europa": {
+      "clip_sha256": "eb5a4d3c078558b4c74ed5a513f2ff0d494659c68d4511043dbe9bbc83c50b66",
+      "master_sha256": "5fbdc002bde4187045eae7e08992afc048e321bd5dbc41ecc3c6d4240ccc1ab8",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-27-ganymede": {
+      "clip_sha256": "800389b2fc7fa1c304dc3dab0cd3321313836c1406f9595c43e4ae7e075efac2",
+      "master_sha256": "6e701890b2efbab064603fe53dd9501ffef5740b750a3a5be318ea1152bbce40",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-28-callisto": {
+      "clip_sha256": "38def01d333a9ff6b683a01ddb1038dcaee667e6988bcdec2b036b2f8673ff04",
+      "master_sha256": "2764aaa8ceb19aac352c6efd2ccbb97c826b9ef9feff8f2827624521130701a2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-29-titan": {
+      "clip_sha256": "f9733ea6441ef78ed716961798ec99e91fa4cd6c862f7f6313eaea1976bd6cc4",
+      "master_sha256": "311dc72105db7a491fb55664aec7f460728e363a8306a0fe2d5cac880cff74fc",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-30-titania": {
+      "clip_sha256": "50e43435b7668b15ce17eb2681b9f2de5acffadaf74b18103d6aa295193d09b2",
+      "master_sha256": "69f0d16e867d1fff6081482cda201a709c31fb1df8ec05155d3e6f4458aa7263",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p02-narrator-31-triton": {
+      "clip_sha256": "1235bd019025f7612dab1516a6a339880f0be9396dbd12bddf0e51c6c44cc614",
+      "master_sha256": "dd11c1c7ff684823bd6beb578a6b5436fbd49404227699ea698c5bf3cf01c814",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-narrator-01-the-sun-is-a-giant-sphere": {
+      "clip_sha256": "42ca69bd16df1b98eb80e2d37439bab128efad3118bad6e41ebdb70612460eac",
+      "master_sha256": "32be91ffa89c54ceb799f3750fb9d5e90435519ec6b94d9e9a33410b86bfaf7f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-narrator-02-the-sun-is-our-star-its": {
+      "clip_sha256": "e5420b032267a2da65306c33988ed7ae015f5cfd860b9d223b2cdb13aee847d2",
+      "master_sha256": "2844b6407d635915367ccb72500917a43a7f4162aba2cb80a0c0e42d3e38bfff",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-narrator-06-a-prominence-is-a-huge-loop": {
+      "clip_sha256": "25ce2234421aa6109bfda6a1fdf380d66a6efe8c3e045d2594dfab03a6c9dda7",
+      "master_sha256": "f3b5f8f52d0444af288ece4731a4e27d5dd0c08961c2cf1b01d7f57214092ef9",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-narrator-07-sunspots-look-dark-because-they-are": {
+      "clip_sha256": "d02d8fb30908529b6fc0c013a4abfae71c672ab821ae94ebac9cefc1abb66b15",
+      "master_sha256": "456dce41011c6e9a7a4090a8875234367ad2086684b6dc6dabb57dad92b8fec6",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-narrator-08-hot-plasma-rises-cools-and-sinks": {
+      "clip_sha256": "d065656a29aa747296e91667cc7c1f603859ecf27ed6c8cace857e4501ea4e33",
+      "master_sha256": "6911e3fdf1b925c7a78c726075632762b1d623928d35fae667b3b44579f3ad36",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-narrator-09-a-solar-flare-is-a-sudden": {
+      "clip_sha256": "7122331bad3c19ea197b15ef9b5d64d86a5f137d951a4f16247d076c26db157a",
+      "master_sha256": "a101259da8af26385a062b7c59ff48e9ca77ae1f4690370398edbeee8a89da06",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-narrator-10-the-sun-is-about-1-39": {
+      "clip_sha256": "f29f85f29c069b82dcf3bcd548d9b09e08a982436a06bc0db7a72069ab126c50",
+      "master_sha256": "8cfe72e22ea02da3b0ccfe463327ac3d49d3e670148055ea13c645b36ef6d80d",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-narrator-11-the-sun-s-visible-surface-is": {
+      "clip_sha256": "b457bde1f8f84287c08ff010d6b11859293572fab8d18f4ea2d78060ebbe9c61",
+      "master_sha256": "29572999919adecfe51d1807f507a7eb54670e4c4008b1237d5c8335ab615136",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-narrator-12-the-sun-s-core-is-about": {
+      "clip_sha256": "dc10dc85809c50a5595d02b8b12155f4b6c21d71929cd1d9f523a3ec80c7a396",
+      "master_sha256": "5c19f0a9e6bd4fbeeb0017e394445a486a99ade59134ada50c5da2ac7b95b9a7",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-narrator-13-sunlight-takes-about-8-minutes-to": {
+      "clip_sha256": "54293ca63ae8a143d8079149a67cb90bf0ed7af364b2668c6cdcdc69dd60fbbd",
+      "master_sha256": "cceacef8c80dd33016c83947996c33088b46a15e160ffc44da9642ac8649ab3c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-narrator-14-the-sun-s-gravity-helps-hold": {
+      "clip_sha256": "0cc1dfc87cd7fff061444aa84130daa6c4ee19a0d1380ff0cdfae1dbe2404a5e",
+      "master_sha256": "c0918dfd1715d2a5e2b6cce301ede60f23a88b95a8cc60932aeacf82629acb4c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-narrator-15-sun-our-own-star-a-giant": {
+      "clip_sha256": "67cff9a3090142a7de0f7f812ccd751e8c040e199fa3e2d13199217503711e04",
+      "master_sha256": "e24df7b88ac3d2615e9fe3a1dfebac4eb0eb45b12836a00879744460734a66a1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-visitor-03-my-shield-helps-protect-me-from": {
+      "clip_sha256": "a79a7404a39632306322e9e0d9fe4223f73fb4f22dda12eb6415a4eb13b96e34",
+      "master_sha256": "da24d152d330205fd2e14777d29b024fe77461f61020af5718496c71bce7b701",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-visitor-04-i-found-a-cooler-darker-sunspot": {
+      "clip_sha256": "afea9c6f901e0f77f2bc695fa4a41f96fa2cafcda3063d29313cfc661f2de1f4",
+      "master_sha256": "0e1ac89ca053bbfa97b2cec790f51f1c633ce7a51d4d5b84559f13ec4677ef5b",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p03-visitor-05-that-bright-flash-was-a-solar": {
+      "clip_sha256": "23ff8982504465227d9173f3b88d857c26694ef6b7f231d93b098d9d50d86a1c",
+      "master_sha256": "d41a1ed7d0f556c1e1183a9608b24d7c7cb05b32a9b52f43e035596e8b8bf053",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-01-mercury-is-the-smallest-planet-and": {
+      "clip_sha256": "85855c02c4fe952450ffce61f6adc1a9751a7eb84bd21a3191a405597ca1da51",
+      "master_sha256": "22a34d1fdfe664390b8e3613f4c48d69bbe231f91d642a689a12b10538328274",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-02-mercury-races-around-the-sun-faster": {
+      "clip_sha256": "59475da5eba44ad329e95f16fa51807753be05a7b67b5d3ed97b95baab5970c1",
+      "master_sha256": "3e7fca1b517243de929de7f6c3a356e3553aab907554a41f51f49a63dc5af6d2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-03-mercury-s-sunny-side-can-reach": {
+      "clip_sha256": "618e42ca1888572cb1d59f5ea4b4eaad8eea8ab9e4167f3c44851595363e368e",
+      "master_sha256": "97da2751c48f493db6c5ad91f650146f9e67062285e8942df585a782a6ffc511",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-04-mercury-s-night-side-can-fall": {
+      "clip_sha256": "01e726ac7c95a692f0503f2b8e753807e924fd924a1e4d06063971d7119f5fe9",
+      "master_sha256": "83d5ee6dd9905dc4fbe47d3d6f3398af2834a1f6dc2d42db78aa2c2183e31120",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-05-mercury-s-old-surface-is-covered": {
+      "clip_sha256": "6d01a0d46d8e4b435e2fa108b6280c250134747f6bd058a8f2f69fac73bda4c7",
+      "master_sha256": "f0372468510c8b33013acae0c51055f3116568b85cf254ef7e618ca65925e0dc",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-06-mercury-travels-around-the-sun-faster": {
+      "clip_sha256": "8aabd5ca66965ff7a64ce4dced581d734cd6067e7b48800772da3d66fd9185a3",
+      "master_sha256": "ac452db1fe6492882ad5843a48cf9e651cae73ce229787697bdcd028cbbf62b8",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-10-mercury-is-about-4-879-kilometres": {
+      "clip_sha256": "dbaf38c45dc789057c5428a32b14cd8b55aba5851b1ab189739e4f63b3006e89",
+      "master_sha256": "da16719f9c0cc60a5461600a034960a6cd9350cc9695940425d7afd4c4b577f7",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-11-mercury-can-reach-about-430-degrees": {
+      "clip_sha256": "d39a37447e9d2d6e4931e1dc32bc1956f97fc08bd6c34961a142128612842012",
+      "master_sha256": "3890717d565b90c44a36a4592a92a0b1126eee37a4cf43d41144860848a2a226",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-12-mercury-travels-around-the-sun-in": {
+      "clip_sha256": "492654e8efe0d1b0fd284150821970f2c94b1f8205226d7421e2141784e0cf40",
+      "master_sha256": "e3bf5b67fe9a41eba6a6e0e4016f4c6ea558a6fd63c67dd64dcbd6f5d43a474a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-13-mercury-turns-once-on-its-axis": {
+      "clip_sha256": "03e54d4f88ba5a3334b1c4016a2da57f27ff4a96d097a1543fa71c3f3641e86e",
+      "master_sha256": "4c380129d048128330475512fbb9bb60b8b0ce1b3167773766ab22f113c8f65a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-14-mercury-has-no-moons": {
+      "clip_sha256": "d49404fe79fe28ece751a1376fc2f3ff72f2e3f67839887eb3706083c79431f2",
+      "master_sha256": "1e165882d3efd397bb2e7a3b7f21ee7989a03ae2bd8b69324da69e2ce29cbc25",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-15-mercury-has-only-a-very-thin": {
+      "clip_sha256": "6f47c51e2ed531cb4880748ac57616a661d0fd7493b930a4815eaa5538586ecb",
+      "master_sha256": "b02e224ab12040610c4340896cc78724d3d72b30815ecd6f53b1cec92247388f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-narrator-16-mercury-the-smallest-planet-and-the": {
+      "clip_sha256": "f4d88ddcb79ec745c818bc4afe579da2e9b9c0dc161444b511c0dd0cbf0a2ebd",
+      "master_sha256": "8fdbcaa2049390a7e74e4c5f9a147fd84717963eb867769aaa72e217a427fb41",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-visitor-07-mercury-finishes-a-year-in-only": {
+      "clip_sha256": "864afda9760fd620107725de298d190acc83ca8df3ec71be925f2600d338e9e0",
+      "master_sha256": "8947ac8e670f4240d4b354ebfa89b44640c81f09f6ff491e9d5c44cbd982ab23",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-visitor-08-mercury-s-surface-is-covered-with": {
+      "clip_sha256": "f98b2d51f57e3eb869421dc18b320c264293ce025bd47bf039bc0de8296b39eb",
+      "master_sha256": "93b4f094a414ee5ad192c4cae07f8d5cdf27892adeaf768a513ede610df24a99",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p04-visitor-09-my-shield-protects-me-from-the": {
+      "clip_sha256": "c74884b4bbb28005373d6309810865b49d0b5fb144074b9300cafab1d5db78c2",
+      "master_sha256": "8b92e8246a23901186e33ee3930f22d2a4661fb965ea531b8e834d9ef79cbaeb",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-friend-13-hi-i-m-flick": {
+      "clip_sha256": "fff3710ac9d0ba065d0662cdfa2d30e08b20d91001ab7b82ec2e0531c7e1746e",
+      "master_sha256": "43a941f478d31ea3ad19143002be9f35fb80a57fbe3eaf4f7eb8e14f2518bf81",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-friend-14-hello-i-m-tango": {
+      "clip_sha256": "5c4b6709d65c1ce3a8091bb9f8c57a8629a5af291bee5bf23846bb6eafe15a35",
+      "master_sha256": "b3f423fe3d8b4de606ad0f3c31b3cd894301ed74026076552a67ac7cfa9ddd11",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-friend-15-hi-there-i-m-nugget": {
+      "clip_sha256": "01f4b105d438b894c0127a7b162df28aa552dc68cf6eaa66a4d8f00ed63d240a",
+      "master_sha256": "1312440e0f25f113519727f81ec201fca194ffd4320ef251d82bccc78ed20673",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-01-radar-reveals-the-surface-below": {
+      "clip_sha256": "ea6241a89b88177fb282a6a8779c1ab3f6dbf1c594e1e219e6602f87d369bafc",
+      "master_sha256": "d5e3dbb112863fde76cf3e77354b02994a7886a0eba003b7f431d23f3cb0b50f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-02-golden-clouds-return": {
+      "clip_sha256": "70b43ab929dae4d6a82e24ea0a1b76c20f4db42945c92d432deb7ba47d794e83",
+      "master_sha256": "76d2ed5a65803c66a756868fb3f709a1b9652c52da739bbc63600154040f37b7",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-03-venus-is-wrapped-in-thick-golden": {
+      "clip_sha256": "f2d5e35fd4b5a2b3ee374fc861955da5afda993c0fbc22de9c2eb38f8f78ed7d",
+      "master_sha256": "4928854d26abca7d653fdc9c31ae99d6297f8af98c705ae84ff76c9a983c78fb",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-04-venus-is-almost-as-wide-as": {
+      "clip_sha256": "cb3cbcd41ffec64f6db00c27abd0b86202c7054f60229f7c5459bd47e4c23d75",
+      "master_sha256": "fcfb021009832a2f3c78a950def78101ffd28987d23766d18db6fc91dab76ea1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-05-venus-hides-behind-golden-clouds": {
+      "clip_sha256": "6cd0593e0f040001ae46c5c4c138ffd51dc63dcb4a5fc1a3ae96134b638985de",
+      "master_sha256": "942be85e41838d12bfa68f9be216ea39a3b69bd633b79b4bcad0b7fe2dd9e458",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-06-radar-mapper-scans-venus": {
+      "clip_sha256": "6b7e43aa04af45c2feabedd9a9961afac910d8269b6b6434818f626a025fd7e2",
+      "master_sha256": "2356cd4ff9673fe07564044da0af793c6659b9752c1532dd034025648703eb88",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-07-a-protected-lander-touches-down": {
+      "clip_sha256": "dc69ba6bc906f1c604b3f98aaa033bea4b7c6cf1397de2caf453e84b96cac683",
+      "master_sha256": "17ec475893183bd6fa3c3bd284e5ad207d11849640214879817eb7354677c989",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-08-an-imaginary-glider-rides-the-clouds": {
+      "clip_sha256": "09641abe259b679fb30e3b2061c01924458da4a65b225193fef61a5e56ace2b9",
+      "master_sha256": "1bd3b726d7cd6922e51f9565fac0465be82c5acb0431ef22282bfdfc91f195ad",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-09-venus-s-thick-atmosphere-holds-in": {
+      "clip_sha256": "cb600fe398ab24ef2f2277d98f53c97956a6727cba60c0e408f6072e7a0d117a",
+      "master_sha256": "a73a5a9fa1d29a64c9b1f1a4909346dfa68920932c1141e5ab9f1835ed8d8446",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-10-venus-spins-backward": {
+      "clip_sha256": "50305ff3d80add797b07d3e39ca0b2a11d4c5c36e6414b1f0fdb1f5e979ee626",
+      "master_sha256": "b4df64a3edab7f22f2f8a1d4d61c278787ed84060fd8e0730c04a0e2bcb00943",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-11-the-sun-rises-in-the-west": {
+      "clip_sha256": "dd4779dd634fe3a67fc5a51d0714ca0a0bea354391737d7ab993d6a48d6ea98a",
+      "master_sha256": "7eaa8c2c6fb02d65f0cdef4c67955fe2e24a41c1335a3236f9942adf718d3d91",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-12-venus-earth-s-almost-twin-hidden": {
+      "clip_sha256": "3eb87bad312f78f00f8aeb098ecf407eac7fffe05775a7b155cc271410ffffd1",
+      "master_sha256": "7aabd9c03fd7c2f53f742f4abbe34f93bb4db3cc8c4bd43dc0dc536569bd2d2e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-16-almost-earth-sized-12-104-kilometres": {
+      "clip_sha256": "c42f151ec0e53df7641969cf9ffa35f8f9190527b780a6f50169dd19bbb502a8",
+      "master_sha256": "c4bfb94192014aaeeffc8547eaec60086d0d2262d75cc0a42517d6bdaa7c507c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-17-about-467-degrees-hottest-planet": {
+      "clip_sha256": "7b95afaee7e8edbc76c73c5c280008708a3c846fcdb274be1e798d2dc68a3173",
+      "master_sha256": "cae44b0d78af3b2aa5c583c0d0a2c1d6ace031dd1ebc9996522301a2bb7ca2a1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-18-one-backward-turn-243-earth-days": {
+      "clip_sha256": "c44c5d727994ca79a853f764cf268de5e62ba37c2f6e1cbe359d2dc7f080ffd4",
+      "master_sha256": "b46527aba6b8b54d9a484961e3efc71900c2e2a6d17b1e67bef21dcc142bd994",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-19-one-year-225-earth-days": {
+      "clip_sha256": "f8062223c71a1e2193bef78e9f4914b54bee3bf9710aea653d4003ff19e20fd2",
+      "master_sha256": "685ec020644e196193ae05d31f4a7e35ca6cfc714025632f1ce801adbb20ad1d",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-20-no-moons": {
+      "clip_sha256": "0a66ec45d7df0187ef67afe65965b53227ed949022e419621892eaefda5e47f9",
+      "master_sha256": "61270e7230cdab6ace481d6bd51b407af0b348fff8552fb05882778f283d948e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p05-narrator-21-pressure-93-times-earth-s-sea": {
+      "clip_sha256": "e0e1ec533d319f35249a84dbfd60e9514ffdc8c55f64823dee703234ec3278c5",
+      "master_sha256": "4fb7ca8a99c36c8421a5d14fcbf55b13efe2d8e4d717037e5c853cdda26c30ac",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-friend-12-hi-i-m-bloop": {
+      "clip_sha256": "d516ed2cf9df450b932457543fd340da1a8de8d3570d6bb43e9d12ea954be0d7",
+      "master_sha256": "ef8ff92524b81c3585e22eafa65bc5e37523eab70607be84bbbdcd65919fe3d2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-friend-13-hello-i-m-squish": {
+      "clip_sha256": "d80ac98a21c43b6963e123de34f1d2425e15c1452443b674160f9f29beabb4d6",
+      "master_sha256": "05afeed1cb5303689ef3a905824737f6c890032f61d7e7c0769eef1ace9183fd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-friend-14-hi-i-m-frosty": {
+      "clip_sha256": "acfc0683e2a620ab1bb719a3752bd13c39b6e32b6fd292d9bf8d1ce17488edae",
+      "master_sha256": "7944746b12a897b83a9c393ad4783a6f66344e0c0315d84e33c42b61ad67a2c1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-01-earth-is-a-blue-ocean-world": {
+      "clip_sha256": "4172573e3c172de9233f01e5c6deef8fb99ca6319e002d0d7d02152c38d3e126",
+      "master_sha256": "cb13ac0135e4a62f5b81432b9cbbbfc328fde94fbc6cc7d28a0ca3ed38634882",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-02-earth-is-a-blue-ocean-world": {
+      "clip_sha256": "ee41c88447401baa19df9ffcd235bc3f78ffc45c2da93f350539e227a4210508",
+      "master_sha256": "ff4234378f3a87597cb81963ef8dbd033530dce412656406b26b2db77a168965",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-03-birds-butterflies-and-bees-use-earth": {
+      "clip_sha256": "aed18245dc6654146af77df5cb59e4cbe9e2cf32d8492b952e0b23a6c6e09be7",
+      "master_sha256": "9a0499171494129563161888c9cd62bc9f37e1b4948070c7c76d451dfb30cf04",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-04-airplanes-helicopters-and-hot-air-balloons": {
+      "clip_sha256": "ba4e5b876948d92dfb143615d9196daa81b34644c388b7c5bcc843fca063ae13",
+      "master_sha256": "882b132da2e2aca20e958b043016acac97fb9902e78e92d1480f023157bcd25b",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-05-weather-balloons-research-drones-and-hang": {
+      "clip_sha256": "6df715052c56ba4d56de831bc37d1231871678f4b9cc4d9b75c2a1ab7f8b2511",
+      "master_sha256": "439970b74fd04eab4dfbba00a7ffea513b4f2f0ffd50c1b8c15eaddf7cac4ca8",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-06-ocean-covers-about-71-of-earth": {
+      "clip_sha256": "2823b15354171c2d1f6a167490ec3fa3df3039e25c699b13ebcf625d96e39ea3",
+      "master_sha256": "8d587d9efcd6e1903fefae81007b001c6e258741e88c6dd36057769dc2012dc5",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-07-wind-carries-clouds-water-rises-forms": {
+      "clip_sha256": "7d118f0b0f4da05b161b1ff988414992106a384e987a442b629fa7c84961bea0",
+      "master_sha256": "d73804b9940a5562dc7c4a21c3043a3d63884055c55c8ebff50c5a054dd40bfa",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-08-earth-s-atmosphere-is-mostly-nitrogen": {
+      "clip_sha256": "4bddca6ab55462f27f33a09b3d1a56c24e6956b600d6dafe3668c44a234b8045",
+      "master_sha256": "b311a481a921d92c437f3f46dbe640db93f3620b980d60e2beb231fb67c82bde",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-09-earth-our-home-the-blue-planet": {
+      "clip_sha256": "79c64f309658b17fb410af767872463a5d9ea0d9e16622b11e327e5b075d82e2",
+      "master_sha256": "7276caa04a3a571978bd2901d13fb374a573ecfdd50b1740f755976a10f1ee7a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-10-the-moon-earth-s-nearest-neighbour": {
+      "clip_sha256": "e8c95d4cc504a716f30a414a656ec50b1c6d19eb4eb4e5a213611a757843b87f",
+      "master_sha256": "f11ae83fb1c1f56063f16fb20c5642812dbc21c688b473afd5ee645080fc6ce0",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-11-the-moon": {
+      "clip_sha256": "f4b1b5a5b4d1164fcf17c92f29c2a94a2e3474964550abff5d4b32f68553da23",
+      "master_sha256": "a9d967e26e1ec0ffecdf37f21044f4e88f28b6a68efeabc8a9d34c229d85930e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-15-earth-is-about-twelve-thousand-seven": {
+      "clip_sha256": "2275e308ce68359302fac6eb674248716f2ea3f896c4dfa44930d84a9d438c02",
+      "master_sha256": "06398d23ee3c1e5c4d2dbe66f564869c22324e7a17fb0b6c567638f41d16a786",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-16-earth-s-average-surface-temperature-is": {
+      "clip_sha256": "f324fa5b8e30aa763c58a73823d349148d00ae0de8d222de836645bbb9771ceb",
+      "master_sha256": "614850862c005bc9bf4bdc58c0b3022348550c98e63831a3d58c5e06a56e19f6",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-17-earth-turns-once-in-about-twenty": {
+      "clip_sha256": "1033e37bfbe6f59f5c22dcbcb0096a517decfc6458967ae11916cf3ef599a80b",
+      "master_sha256": "b5e926d26d7b1e71f420d9521adf3b9ddd85ed03831ec8e4ef2dd0836e4e8477",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-18-earth-travels-around-the-sun-in": {
+      "clip_sha256": "505e39d39f97aa21833d2bff466da7f750d1e8c333f3a98ead03e93cb75a1230",
+      "master_sha256": "e107074b3d5d458e8b8825f32db53f2defdec28c1de4df30b5b2668bee1accfd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-19-earth-has-one-natural-moon": {
+      "clip_sha256": "bc0e342f9e301ccf4069168dd0d628a4d747b9ca54c384ab88b4cfd282f0a18a",
+      "master_sha256": "f15f90237cea27977c630f0ccebe0c71685ad9282d6049fb247e38e811ae650d",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p06-narrator-20-ocean-covers-about-seventy-one-percent": {
+      "clip_sha256": "c3b20124b97285511748207b41bf3e1fdbf14e74071025f2f9bcb45e4ddd8ec1",
+      "master_sha256": "74a778b12faf65236e14b3ad3669463f78d12cb61d4584a1150177c76109defc",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-friend-09-hi-i-m-cuddle": {
+      "clip_sha256": "812eba4cfdc7532999c368490f51d660b7df4aea0167eb17ccaaa7fd64c355a6",
+      "master_sha256": "e50a9772115d59b6ac63bd3971a2628c07fa2a2faaee7bfb5d45cba9843018ad",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-friend-10-beep-i-m-beep": {
+      "clip_sha256": "5bf8f7a9a0591f4ce1280838f1948087052034b1941c24f890e1e35330e1f113",
+      "master_sha256": "9ba4f87a4cc3b31c7028f17a5633c75ae5536eaf4c3549d49234876300247dbe",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-friend-11-hello-i-m-pebble": {
+      "clip_sha256": "9a1b90b5fcd49853ecc5a2d336b718526d50b212f8526c78d4b719c7691c0dd0",
+      "master_sha256": "3ae9a52204476c009c193c26a583d2fd5072be97fefddfe5c3d0775b26e7e414",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-01-moon-gravity-is-about-one-sixth": {
+      "clip_sha256": "380ca08056933d0636103a03c2fc6e4239492769fbd2328efc8945db5351d8c4",
+      "master_sha256": "088022d70a192465cb3597b5bb4fce43e04d02d8e7f4e603ed96fbd530b6d513",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-02-this-moon-rock-is-breccia-pieces": {
+      "clip_sha256": "f2aaab052f3f82ce93f38995bf4abf611b766c11dd19a51bc932ab9dcaf9e399",
+      "master_sha256": "3be6f1ecda2f42d8d000d4e641da561b166d781e69f0aee0a4f479ffd2755ea6",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-03-with-no-wind-or-rain-astronaut": {
+      "clip_sha256": "421e2d2bb7e9cb8089856e3026dd209ed44534a20799d12ae4af82d3f333ca86",
+      "master_sha256": "ee181b2598be550b3336d34f4e5a32ee39db9e4bd9eadaed1376e92b9999563d",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-04-a-landing-engine-pushes-lunar-dust": {
+      "clip_sha256": "3913335eb65e4b7a40414c411edbc42827b0982eac1fbc6cce04ded14425edb2",
+      "master_sha256": "3a3b20798f7c1904e5a506650ff9e26f20cc8258f715e9f6fa02ab69db2a1fa7",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-05-the-moon-rotates-once-while-it": {
+      "clip_sha256": "bdfe72c5a95924503dc24b9f4a217831fc3e003c4524470c7ec1b71c33c62e42",
+      "master_sha256": "c98adc860626423c68df09cb6c98f581e7457eb3318d8de8d2c408fdfe32e13f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-06-the-moon-is-earth-s-nearest": {
+      "clip_sha256": "b19e6169b1384f536d131ff253dc32890a1d5ccfd45706a6d91507f42b1b61b4",
+      "master_sha256": "e0bd60ced79c9d641f31a276dce79eaa1477f8fd6b0265df73cc81bb848069ea",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-07-the-moon-travels-with-earth-helps": {
+      "clip_sha256": "38aec14f6d593e7f7360a284514db42af331823a6f3cf051034640c85861b425",
+      "master_sha256": "bb4920c816475fc1c001e4453a1b91b53f03e7aa39da174be5f9c3634cb7feb5",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-08-you-are-standing-on-the-moon": {
+      "clip_sha256": "52d135dfc3bde8eb02689bfc5714e9b116407fa22014e8fd4951fb9d174ef266",
+      "master_sha256": "52d89958927d6b74778c6d82962c1912f899308987c2948e976e02ec20e7ef07",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-12-the-moon-is-about-three-thousand": {
+      "clip_sha256": "9a3e96239c3befa0b453d6418c707c4fbfc1e465b1b2b94ce61676d821557067",
+      "master_sha256": "ca49295843aa8cfe9e0ada3ebbbdf3d5b87cd1eac83a211ec519c708e96d0181",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-13-moon-gravity-is-about-one-sixth": {
+      "clip_sha256": "8ddc92af841f11fdbb140499aae1892c634a13384e962c335ffa07ac35874a67",
+      "master_sha256": "8b5e62b2bc201a2c79be1b6ee204c130705924c18e6c2bcd69c1079a5fd39728",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-14-the-moon-turns-once-per-orbit": {
+      "clip_sha256": "9647c94c7b036ca32b23493ad1c34f1c634e8e8ef4b3ca323a537795f6c91de4",
+      "master_sha256": "6d71b02c239aa1bc4425705f384e20b9afbe1f87dbbab8bf2f8982bd3f78f60a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-15-the-moon-s-gravity-helps-pull": {
+      "clip_sha256": "e4f29a59b6381d266d7e15e98a1ce9ee3abb2b0e6b509dc1dce60315a4ca3697",
+      "master_sha256": "dc1c799b599eb5c53f1d0bf46328af35028d3644d4044c564a3287c6aa4ed2d8",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-16-moon-temperatures-range-from-about-one": {
+      "clip_sha256": "ac6b02b84cf82bef3df02af6d2bac0ccde34ce2d31a148d834aee5cdc31b186b",
+      "master_sha256": "959754111c52108da4ba94ff043df5778317cc2b8b63cecc4c0d35a092021d08",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-17-the-moon-is-the-only-world": {
+      "clip_sha256": "89140403cbe4a9ac422c174109d71b290eb1ccc7e7f961570762cf359c28e531",
+      "master_sha256": "507711b4aed1f1dac5975988880cbfff1b16b4fdb990bbf29f3faa7de27a404c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-18-the-far-side-is-more-cratered": {
+      "clip_sha256": "5c5cc77912505d04fea9f0ce3bbc015597a2273b29e231418bc2480fff9a8330",
+      "master_sha256": "d45abaf1408c9651b305e4fe23aa425540c9c0013975c883522f5769a14ed297",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-19-the-near-side-has-broad-dark": {
+      "clip_sha256": "64a177da30161d5d1847578e6811ee3de85e19fcae8d147ea58815761fecc714",
+      "master_sha256": "912bec61f391bacee171319c91421b5679cd6637a1a5182a7bed51bb9b9e978c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-20-the-biggest-moons-are-round-like": {
+      "clip_sha256": "afa176bf054ab72b1145af323b36d29a11c203518100b57482cdd4b3c6971273",
+      "master_sha256": "e6c912433f41f0f8a5b12c1e5d6fca0de4b1f895fcaba4e33c09d15619edf246",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-21-small-moons-are-not-round-gravity": {
+      "clip_sha256": "98decec472e7592dca2788a98c00d669e847dae0e580157bbc8712f167275e69",
+      "master_sha256": "a9d2b327e5812f8361d4d10e2d46680d3c41d45cb9480e73e52414dcde13fa10",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-22-put-three-moons-together-and-the": {
+      "clip_sha256": "6d8ed6cf3a9b9ee7ca3566d2f1511590d1d369cd098bdadb3b04bc9709f8928d",
+      "master_sha256": "426bdf6b757a62a66659b8cff19f40d230011b5153313bc495ba612063cc54df",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p07-narrator-23-moons-carry-names-from-old-stories": {
+      "clip_sha256": "da0345d2160ff25e1a74818be2f3a9af1fa2a8c90f6043bd5d68067a1a12c54e",
+      "master_sha256": "1a2b43254c945e485862c1ed6a1765c9254dbc549b3e854116a69b372bf79855",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-friend-11-hi-i-m-ember": {
+      "clip_sha256": "be58d3740e539d7a21112cadd268895fa70d48c19bc74b1067bc8b9a667106e0",
+      "master_sha256": "2665dadc8c85f774762d61ca055c0696db24a41eab31dee17682b6ef86b79476",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-friend-12-peekaboo-i-m-peek": {
+      "clip_sha256": "ed2ae30e1b797f3f9bb2ef916cc1efd96ff9193bf5fc35a3d32ce536a5237d1a",
+      "master_sha256": "be4acf5e1443d1cf02eee6d829ce99bd1ee6d90affdb26b9493b4bd76f580d49",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-friend-13-hi-i-m-trundle": {
+      "clip_sha256": "4a69c5993b4fb44446de24ebf250f2772594dcff287312a7f3f4b3dbf1377525",
+      "master_sha256": "443eb801ceefcd1613d61d86c2835c30d11f69b003ff045ecf0053b161472afd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-01-look-long-ago-rivers-may-have": {
+      "clip_sha256": "54ccc20c0eb772ef86c1e7bcf2f4212f79f4c1741816b9ef4ee46b609bd21420",
+      "master_sha256": "8c5309bf47504b0c95af9413e04ef991da9847bdda0e61ff32e132348ea6341a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-02-layers-in-this-rock-built-up": {
+      "clip_sha256": "ea289c1c9a262863453eb4b87ba97d371db857732010eb9e2f70e223e87ed43d",
+      "master_sha256": "ce7a7b5e04c101be2f8046968240867e4cc3a0d206a8000603e29fc3bba5afcc",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-03-mars-rovers-study-rocks-soil-and": {
+      "clip_sha256": "eef1556d088cda8a59ebdab750ac1f6f3790a641cb2716b487c17c4f59c75c7e",
+      "master_sha256": "e8b64ce388b14e54573ae39967dc87c89c4994cefed46f5cd804592d1ceb980f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-04-mars-is-cold-and-dry-today": {
+      "clip_sha256": "852f2449a91e6d2e386f7071e202ce9a951237230c7ebd83452bbf5ebb10d7ff",
+      "master_sha256": "b841acc0ab91b41b777c1ffd9fda375a5b4384f62f4461763818210935ef86a1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-05-mars-is-the-fourth-planet-from": {
+      "clip_sha256": "3cce069226c78f6344d277d9d0b6a228c3ced2c8c0d9fe6f8fe9465921991fca",
+      "master_sha256": "12211b8ea772c25162b8bcc17a0593cb38955dcac75de38747c55ab6f9d2bbed",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-06-you-are-standing-on-mars-with": {
+      "clip_sha256": "8b5d37ec0c0038612ae9b64691509148f02bc0d75d8afde2bea2d739760d8ed8",
+      "master_sha256": "9c2a75076dc9356aa579e29df5295cca92977a57cbe357542e543196f80a362e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-07-olympus-mons-the-tallest-volcano-in": {
+      "clip_sha256": "f5de07842a24c975a31e3ab62c81cbc071256728b6ec2896780aaeb19e795d0b",
+      "master_sha256": "5527fa5a552f1387c0e21eb890b47b76e50385ee084545d1d198c9cd01b553dd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-08-olympus-mons": {
+      "clip_sha256": "898c9eeba8320e21b45d6ca0d4034a55c6f516b6c2c950ec440b17b3ed982dbc",
+      "master_sha256": "aed7b0c27882ebc37509284b0106c0f79a727028ddba7751a2eb8a678d14b855",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-09-deimos-the-smaller-of-mars-s": {
+      "clip_sha256": "34917202b28f345e4745604367893f3efded4955abb10b1a248b0135af8e87d2",
+      "master_sha256": "3d960e90e9cbe8680879b891228e4ebfcb49eed0db00e4f16eecf7cdf7af794a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-10-phobos-the-bigger-of-mars-s": {
+      "clip_sha256": "1bf4427de3a8726203f0008230af67715f14b4d5b81ba20e2ed798788f4afb2a",
+      "master_sha256": "47b406996aad55603919254a1b531b65dc28821707f5e12a3ac98cbb9a62b6bd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-14-mars-is-about-six-thousand-seven": {
+      "clip_sha256": "b8a07fe8bf1c753e958bb4bab268b1ad5f4e3a081a0d6b2ff89ebaa3a1263e75",
+      "master_sha256": "554627ced352818e66efd3935282e988d22c8ad6f4f3a8f29f1e63252ebfeeb4",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-15-the-average-surface-temperature-is-about": {
+      "clip_sha256": "f8f5d8c03245d6cba621f3e0d71a835e4e4591ac6d54924f0edfc1b3a7e7c06f",
+      "master_sha256": "d7e9c5afe619b3af7ea692297ddc2c7e550e031a0247fb9bf6a753ecf5e7e2ac",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-16-one-martian-day-lasts-about-twenty": {
+      "clip_sha256": "475dd4ba8f1f19c47555bfd0d691920f59dbdd849461d9551948edaa28f7797c",
+      "master_sha256": "0b73a084d95b26873054055750758c22e6a0f2f898981da384a5fe8425a7b0da",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-17-one-year-on-mars-lasts-about": {
+      "clip_sha256": "f39882f2f253b2fde8661bf847d6878829037be9f1815ed27ff9edebf1e6b09c",
+      "master_sha256": "f78e54cdad73b6f1226f613a5cb44c7180e48f2bf1bc40d1610a6c71a5f8f807",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-18-mars-has-two-moons-named-phobos": {
+      "clip_sha256": "247236ffa48803caa9ae815f1171ca0bebf7d692850c481d8800278bb44c26f5",
+      "master_sha256": "30e8af933d6bb2275667cad6f5ed272c9fb28d7be1d44ab8f2dfe1265ee40153",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-19-mars-has-a-very-thin-atmosphere": {
+      "clip_sha256": "fc69b4c34c8e81de0f086dc423d3d65ed639fdadf03982f280f721f0828dc6b2",
+      "master_sha256": "bec138e19330c544c751797788f867a8d8864c0eefadd4a4643cb096b38554c1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-20-this-is-deimos-one-of-mars": {
+      "clip_sha256": "1281e16ebebf2083c581d2280525e11d92701e27a4d9c3d0f80d0173891c055b",
+      "master_sha256": "de3e684f45f1db83d41735446baf542409119a10c6918031ca748fc86af90355",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p08-narrator-21-this-is-phobos-one-of-mars": {
+      "clip_sha256": "b897a5dc6eb4f257ada5c30565739836c950734c30979aad48da42d556f563b3",
+      "master_sha256": "091a968af77a495203cadf5b1b27176db6974fb895ef2289d436c9b1d6716efd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-friend-06-hi-i-m-cinder": {
+      "clip_sha256": "b9022cb73a8fe646915ea9ebf7b669e197c73047b5db01e803f052dd0b6602b0",
+      "master_sha256": "02e7cd387c05be9de3c486d58767460fed625537abb224a913b36802edbcc4d9",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-friend-07-hello-i-m-zed": {
+      "clip_sha256": "2543deb69ca43aa81e29d7971bc42f3e2d42497963faaef39d18aeb3565d7a4a",
+      "master_sha256": "1824d49289fdb7ae5bc9f1a65d26b091c0dfb21951cb3eee3523143440326343",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-friend-08-whoosh-i-m-whizz": {
+      "clip_sha256": "932fdb768437850261856792be987bec7941f6a0b061d899cf9c7ddb873e7911",
+      "master_sha256": "4482afeb11f509cf41e19a529675b4e1e1184d0986bc61bb00a9407407564621",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-01-phobos-is-lumpy-and-heavily-cratered": {
+      "clip_sha256": "e5d21a828ac1fb7c58757967841dd2763027d3f949fd4aaa1bc6f45eb9f17e2a",
+      "master_sha256": "6d1534d09576464116db27ae80eb996adb6e25802e629401640c9045b4928192",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-02-deimos-is-smaller-and-smoother-looking": {
+      "clip_sha256": "de7ea8e7df7c71e1f9e84b06bbae4fa787f789e6fcd522b0bdba6a7e587439af",
+      "master_sha256": "9c549602580e7ae09007b10f266e82c1d78a9dd0bb3401a51b792e1394b2d550",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-03-mars-has-two-tiny-moons-phobos": {
+      "clip_sha256": "96a53acc5a92dbef8e97148f8f33a728987ae4385f5f439cd24289fea776d6f7",
+      "master_sha256": "59ef6cd1e454b749e6f2d87f55209e0b6b1eed5a31125f050b8b0e25a0f9fec3",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-04-phobos-and-deimos-are-small-irregular": {
+      "clip_sha256": "37f271d6656e5a3a4fce37c3a26b9723cd9ad4651cb4aca2bee89d4f3afb7b64",
+      "master_sha256": "18853c56610b28a2796e364fec49d2158ed8467ce467ed48162c16639c70d5f5",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-05-mars-the-red-planet-cold-and": {
+      "clip_sha256": "00edac445e1c0cf22b5ce1d45c0839b39c724d4e5de46b6be7767811b3406eaa",
+      "master_sha256": "3c5ff52a95d846cb8d4b4b7200ed0864c72fe48b229866d603c87cb2aa052faa",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-09-phobos-is-about-twenty-seven-by": {
+      "clip_sha256": "3031553bc04d357a4f450ddacc8e61aff1caa7a9f429c278e1565632b0de7d8e",
+      "master_sha256": "4d8f7fc561acaf523e465f28a2a87054772ae117796b05dc16727da69a0e5654",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-10-deimos-is-about-fifteen-by-twelve": {
+      "clip_sha256": "b8de3804d9eeb006373157cfe852e6172ef049bf271b93af7e5eff98d37ec64b",
+      "master_sha256": "cb05ab8c5b622786c0474e23edc51fd98ba8b39e8f4d6c186a45f2804d0a62c9",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-11-phobos-circles-mars-in-about-seven": {
+      "clip_sha256": "b26334e2ffeeaabec8a380eb55d69520b6dbee8433054237c491d050be041f84",
+      "master_sha256": "e866e1ba630558f70d42b5457a14abf8fc6a19f697e4e3e6934fcd20645db891",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-12-deimos-circles-mars-in-about-thirty": {
+      "clip_sha256": "03e136136310d44382244ee4b4f230acb3bd705af76f79814922548b4e124149",
+      "master_sha256": "63650a4d4584fd0acffc589df98cdc2a87011e48f20dfc7c6dd2e799383c87f6",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-13-both-moons-are-too-small-for": {
+      "clip_sha256": "27980576aa1c2e598e371c101fe4f82f1ea04d5158446a13c91f68f54bdf4310",
+      "master_sha256": "6a308f3f40866a0a1521deb2f928331dd667b23dc31eb91af390a50fc43d387e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-14-phobos-is-moving-inward-very-slowly": {
+      "clip_sha256": "d13fad9c21805c7a21ba3f587564d041a3d0445610d66d65e63a89f06bc3832f",
+      "master_sha256": "0f54cd179ada7a128aeff8f6ca76300c677bba730b70ea754c8d9cf02ce458d3",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-15-phobos-circles-close-and-fast-deimos": {
+      "clip_sha256": "1676f8c214a3193b1a9555c62d59ee1bfa1db4cac432e4fdf640f1f308ae8b45",
+      "master_sha256": "d63733ef5dd7938a0a265316ac83101027481a8b04e4d80b24c7a3e7106f13ff",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-16-phobos-is-larger-than-deimos-this": {
+      "clip_sha256": "aa75afa23d62518806980e16ea32730e7f536c3b72728bc33ff2c0f1b4afe536",
+      "master_sha256": "4ef178ddf6e89e6f0fa161dd204302e087ecfa90314d674834923a1aa1c5a57f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-17-phobos-is-moving-inward-very-slowly": {
+      "clip_sha256": "93f39d88a92c3e38f703952c9ec3c4261f0541871f1b63a773695a6087e3364c",
+      "master_sha256": "66f18033c30424b88cfb34964f4727c1601435fcb6dfc4b764711c2c7fdbc166",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p09-narrator-18-they-are-small-with-weak-gravity": {
+      "clip_sha256": "e29dc1f6c6088e0bfce71176a0582f7aaf6d2c3b78f291f696f9604dcf42c5b8",
+      "master_sha256": "caaf7cc6f61d366dc8c2e89c15f666f0908efa25dd40df1327eb6562581ccacf",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-friend-27-hi-i-m-plum": {
+      "clip_sha256": "a5f53c2208089f5e1ac7e79893c2c8a1e8a948cbafadab79f9e77f20afbc8a8b",
+      "master_sha256": "fbd5b31536e17047140e53af0f8e67203a3a1cac39b257a0dfee39041f47fc29",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-friend-28-hello-i-m-hauler": {
+      "clip_sha256": "4e3c007d00ca727925934de5aee2dc34c5a423c7a822ff5a6aec439cd8b205fc",
+      "master_sha256": "60fd8205ef6d7cd9a03fed036142d2ad38e17f03b70bac68a0a9581d8d5d7df5",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-friend-29-hi-i-m-scoop": {
+      "clip_sha256": "fab2f379203099621fcb551a34258f681c14a0504ab67f7cc58c443cdc9faf8e",
+      "master_sha256": "4f0041539a73cc4ab56e4e137e7f437a4fde991197038e84bdec24e51a310e9c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-01-the-bright-patches-in-occator-crater": {
+      "clip_sha256": "88e8af5341c61a319ce0c1cd1ab0be3c8cba903d47e95bd3c15e5d36705d0209",
+      "master_sha256": "687a4c64c8d2fcd1650b3891bdf8f7d06a7e3093e2c10523ef0df1a819f77107",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-02-nasa-s-dawn-spacecraft-explored-both": {
+      "clip_sha256": "a6ae4399b25609755d712f44fad8ac2078cbb613f51e69cb6343a856c922bd38",
+      "master_sha256": "910c80d568438137842fe87746c963474edd7a5303f942d9756589ba655408b5",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-03-between-mars-and-jupiter-countless-rocky": {
+      "clip_sha256": "4ff23e3cb9468b3eec161bea0dccdd3229528978465c32997be690fd6e570773",
+      "master_sha256": "055203a3d3241332beb7b9105c4963b5762d1637ce055f6ba7d1f39cfb2118b4",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-05-ceres-the-largest-world-in-the": {
+      "clip_sha256": "36b355a34ee6346064b387edb5109a8e562bd220555c0b74e0583c823892db31",
+      "master_sha256": "6011971f89053c89baf6d2d79d441a1b31d5671c54a7e67335f888f516333199",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-06-ceres": {
+      "clip_sha256": "c4aa3997f5fbba804868bf6da0c0cb0e39a23051bbcaef9e1dbb7d162d1d32c2",
+      "master_sha256": "27c0d957318f810fe6984e090a9d361b1dfd37a7ee658c248bf396cf11c0cf1c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-07-the-asteroid-belt-millions-of-rocky": {
+      "clip_sha256": "67a656a875debaaf5c0c617aa0395d215f6c66f3fa7ae5c181e42945cb9c0e2b",
+      "master_sha256": "7a6cd8754d8f1be86bd32d1a7c2f634fa112c28528e292dfd25d0a887edaa7b9",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-08-the-asteroid-belt": {
+      "clip_sha256": "22b2613d36e3bf26b171507d0aa4d2351f2762b950d1927b715fd4e9088848ff",
+      "master_sha256": "c30b64675b09c01f91fc485391e88e2d3421488239180fbee28250f591ae57e6",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-09-vesta-one-of-the-biggest-asteroids": {
+      "clip_sha256": "5317ff44a929e99b5382961c861a73a581e256068a101f3ab5df90476826dcb0",
+      "master_sha256": "2065f37b11c02a6a9cad1ccf3d53ee41b7400b6b1c41d1becadb9672cb1188c5",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-11-pallas-almost-as-big-as-vesta": {
+      "clip_sha256": "4a37d2d4f2228bf5ce8ef85dc2a4fca7e24f52c70f16a323f95741fdb049ba9d",
+      "master_sha256": "8b4c2aff08a35fce359ce043dee6c4536fc43bb7193ec87b8b94ddb44fddc34a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-13-hygiea-a-dark-world-and-rounder": {
+      "clip_sha256": "1bc8ec2af2557dd75527d5ade7542ba3029fca884b65e011a67be140d983b068",
+      "master_sha256": "bff039063ca8995752b355fbc23fcffbe9662bb07e8a953ba5e7ef36030687c6",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-15-juno-a-stony-asteroid-with-a": {
+      "clip_sha256": "6ff9b3c2cf851fd2f5b89de7ddb33387b1420a5b3255cd62a9ea84b85d266889",
+      "master_sha256": "77235601f4afa340e6683480d6a1d0510b5139da88cb9b1ad42cf7462b61298d",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-17-psyche-a-metal-rich-world-no": {
+      "clip_sha256": "bfa80875ff8f52957a34ae701d59ae6c0e1d67609ab6fbaf51227c63887c9f77",
+      "master_sha256": "38f3814227f19e811e781804e565f4ab8b77f15f370439852c14ac4d29ca9361",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-19-lutetia-rosetta-flew-past-and-found": {
+      "clip_sha256": "f22463a325faa3431a85128886f1c60d366bea1cc38071393a566e2c13cd9446",
+      "master_sha256": "b9e0fc30af8cc06bd758d8340ce2d3aec0c4ca4e5b3c997bc2a02cd1793a3cdb",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-21-mathilde-so-dark-it-is-like": {
+      "clip_sha256": "7d3da727c4918fb2be018f76ee752714426e28a40af1d69294757ade9fa843c6",
+      "master_sha256": "cf65c17015a13294fb9ce767678cdf12970a05964b80874996d1d1ba284e2639",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-23-ida-this-long-lumpy-asteroid-has": {
+      "clip_sha256": "e60cb74c5c3c8ca2ec270fac6e3438309b9e0d2e4c760a2030b67b7dd09a7feb",
+      "master_sha256": "f13c4a1d09cb662ba97c7a9733054ae7d5527b3664e4101b1041f7d20e5fe7ae",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-25-gaspra-the-first-asteroid-a-spacecraft": {
+      "clip_sha256": "09281ae377e0400333c1e44d96a2b76e8c7cf696fd7f783336fddcca6014dc89",
+      "master_sha256": "78a707f03b8f5eb55a0ffd6c3430399f2d3e518d8806bdf2c0a411a5343c67e4",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-30-ceres-is-about-nine-hundred-and": {
+      "clip_sha256": "b6e0f7eab36333ec12be6567d29d41cc901eda938a6c11882bfce8cbe22ac56c",
+      "master_sha256": "c926f93aed91a28f50e4e156506cf14baf13ccb2788268de6b42b201f6181022",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-31-a-day-on-ceres-lasts-about": {
+      "clip_sha256": "7986ce323d1286495040ea37e0d47e80c1080afe7cb77306ce5716e32a03bb8b",
+      "master_sha256": "4eeebefb8305024d8d3015ebd460eeefd8d920d31e0636151d16e8c233a18e69",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-32-ceres-takes-about-four-point-six": {
+      "clip_sha256": "94b57561c40d8584db5b78967ff23c8be90ce51b319746fa9205847f0606e0a6",
+      "master_sha256": "90cdd82774aeae4ed73bdbf71e2d8969954320f24d0906ccef3d562ec13b7d95",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-33-ceres-is-a-dwarf-planet-it": {
+      "clip_sha256": "ab908b7fe9a6e15c3bcbb3fd8c5924835e333d3e9a89be7815df79ad3747b729",
+      "master_sha256": "80c10be3bbce85637d58a6c5f9329b2c63bb96ace508157446ddb50687e18949",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-34-occator-crater-contains-bright-deposits-rich": {
+      "clip_sha256": "9ee1f08e2093edc9d30a8c77bb85a4726cca11788c7a69ff1bdfcd28ea224247",
+      "master_sha256": "89706aa7770db08a33a771dfd93b4a53af85b792a71a5c09296a5d797670dd78",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-35-the-asteroid-belt-contains-many-objects": {
+      "clip_sha256": "27d1dfa895310e09e26dfe360f7d589b29436e58c9cb20479a57d52834e984ba",
+      "master_sha256": "b893767693118ea1caec9db56f2401c99d9d3645f39cd364f63d2d4dc1e0b308",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-36-the-belt-has-many-objects-but": {
+      "clip_sha256": "811a4db075d431c2b44b779cd0a20fd4129b9d67eb36a717a8adea25bac55be5",
+      "master_sha256": "080cac009b8dbad705af49faf4ed10683e5b5036aee52b8b341a1f17e3385c52",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-37-ceres-is-the-largest-body-in": {
+      "clip_sha256": "64aa0fb0c8f6984006eb7c10fdf0d6ed423a6fdb80faa793f62505b6ddecb72a",
+      "master_sha256": "730a758aa94650a65a453803ed33ad44b44af5be0177b3692a2e5d00b2d083b0",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-38-ceres-completes-one-orbit-in-about": {
+      "clip_sha256": "67ce82d9efadb0a73753ce6fe8b8c35a7cd2e097e6350c639eea4996fcb0c052",
+      "master_sha256": "365e8b5ed1fc987c76e8b5525deb32735c7f52bcf8a06c8a78d467fb644698cd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-39-ceres-is-round-and-orbits-the": {
+      "clip_sha256": "a6fb30fe4f5f61a0cc330b91530dfd60e23613b8d73a524a330c76f88af48a8f",
+      "master_sha256": "af8277466dcc1d99f4f3ed2929ab4487c84d2a6eb23f0228abcc0a5de148dfb1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-40-impacts-helped-shape-asteroid-belt-worlds": {
+      "clip_sha256": "d3c311b90df411185acc6f1a17acec82bb597ee4798774741fcae5c4e542f3d7",
+      "master_sha256": "f55c04513ad2018bc0fa99d7521c6a33e59c77da6f68e16fd6a4565ee777b2f8",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-41-scientists-have-found-evidence-of-water": {
+      "clip_sha256": "86ecbb93f33554ac7d82b16b1aecf2257717b637f4d54de1f48711bb8dcfdac5",
+      "master_sha256": "c544b5cc282f59d8c55654c367b3906cf183d946d2e4359cc68329e95d552330",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-42-vesta-is-the-second-largest-body": {
+      "clip_sha256": "94bcbff46b405c03c8899b400434cb7ccc58598af4c06e1e36412559f4de1f82",
+      "master_sha256": "703f572a2b16944d063d339f28d04381baac10201ab3b6c4ca392358989d03af",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-43-asteroids-are-separated-by-enormous-distance": {
+      "clip_sha256": "907be484c41d78a0318d88f84ec80c5e4b3403a0cbe7ce725223ae953a1d57c1",
+      "master_sha256": "ea03eb51906591cdb56e241d193b0278f7246f46f0df5f08ea13d95701fdaae0",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-friend-08-hi-i-m-grape": {
+      "clip_sha256": "a9417bb16f0c885fcd6d4005961b4a725edf980aa99d69866b547403de4791b1",
+      "master_sha256": "09e2d6de3ac477700240a3249a713a0a79e97eac23b27f007e8578692942e9e1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-friend-09-zoom-i-m-flick": {
+      "clip_sha256": "8780b83bfddc3dfdd72a92cdeeacf90d7cf5ce4f8f8ba99e15c7e78fd5d4d7ef",
+      "master_sha256": "cbecf965ecac1ad2485409d1f99b3fcb8b36719dd5bda495bfcc527a3e6b5072",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-friend-10-hi-i-m-zoom": {
+      "clip_sha256": "c9b7e2a1291f4b26d21c29102ff94aa476b904423004bf473f3f100a84182737",
+      "master_sha256": "5332a879f8d208b7e436badc14a376a6d1ffe77c642fa58e74df0b584d28b805",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-narrator-01-jupiter-is-the-largest-planet-its": {
+      "clip_sha256": "96f325193be27a418d531a319a6a2646036f6428276898172955fa0cacba5072",
+      "master_sha256": "6f0a3c33d8a5953e5a4177af14e2edc8ba2a53cefd0c2551f7cba5b014281fde",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-narrator-02-jupiter-spins-once-in-about-9": {
+      "clip_sha256": "c7eab648c36c641f23a4be05cf40b7e5a0a6c2fb7d03101d0072b73ddfe24e18",
+      "master_sha256": "8ea316a82680770f91194965f70206300744f90184d5f66edb388f2b19bf75b1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-narrator-03-the-great-red-spot-is-a": {
+      "clip_sha256": "c829a22f7691344bbae51ea7692c58c51eed89fa9b383626dbdad62c0daf9a21",
+      "master_sha256": "cc1aa67eb97bdffc1ea7fdfead128b1231890337fcfc143b2637e456a3eb3eb5",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-narrator-04-jupiter-has-powerful-lightning-a-huge": {
+      "clip_sha256": "c5e859f9575d6e56c135e0604c1224175c07d14787ae4a7d4d12d7dc8dc1be4a",
+      "master_sha256": "623d48535dde6be237f3f94995a571d1e517c4a6a034dfab96d34b6a3c03e12f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-narrator-05-jupiter-the-largest-planet-of-them": {
+      "clip_sha256": "56980a9cae8eab7b47c573436c6d7f5a503934e896cc16523888d42fb7159747",
+      "master_sha256": "92121d0791ec7e8eb31cff2f108b3ff0287822e874bc729bf9dba763e8a99bea",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-narrator-06-the-great-red-spot-a-storm": {
+      "clip_sha256": "d67d0882100a57dbba8aed17f4c3ae1d6c9fc0c481d44472c025e51e7517d271",
+      "master_sha256": "2b98e84c6865afde84bf36c174ed01f4dd482a94fa243da25d7a727d3e3b8150",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-narrator-07-the-great-red-spot": {
+      "clip_sha256": "12fb97f4e65dd3d22e356c19eccb1d2f4b8eeb36af78b44213b717b2699d7379",
+      "master_sha256": "b26335c5b42b415cace4932b0f223447cd3b783464cbe7f324a9a76344458494",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-narrator-11-jupiter-is-about-142-984-kilometres": {
+      "clip_sha256": "d693334591eaaca4bbb6c6152e9f15a215a5c4b46be39286ad8f12024bff858d",
+      "master_sha256": "3f497f0e5261c1dc487b7967de3ddc21974b113ccc5adedcde4d9b7834e598c6",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-narrator-12-a-day-on-jupiter-lasts-only": {
+      "clip_sha256": "9df13a53f9ccb8605848fdae54e2e5d6a3c71dbe652f335bce0ab397e3c8394c",
+      "master_sha256": "b3401df773cdc945bc2c5c286691a54eb925f3120029f629747fa7d8dd81eeb9",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-narrator-13-jupiter-takes-about-12-earth-years": {
+      "clip_sha256": "bdfa10f9bdb063942570ef3eaf4bea9b7f0afeebd2a5e5b6ac60dc3568cf7487",
+      "master_sha256": "3a7b07bc7e51b339e0a1d92d07a61c965a720d2d2c0e016a0e921c0467900164",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-narrator-14-jupiter-has-more-than-twice-the": {
+      "clip_sha256": "04a6e23f88a7aefe84a20829b5fc8f2134b9812b8ea3b01b2a105fbcf9b006aa",
+      "master_sha256": "e451a637ba2e0ac844ba6cf6bb1bea013ad7cffe8e150b21e73d32cf03c80f4f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p11-narrator-15-jupiter-s-atmosphere-is-mostly-hydrogen": {
+      "clip_sha256": "2a2846fd734c60244a6be81d5784a756de5d2727a84ebe5949a3e4350327d12c",
+      "master_sha256": "d9b78d93dd79a3db7b5fa1ed9b45db5e0fd9c0a5c99f0e302b1d346438d82cea",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-friend-06-hi-i-m-sparkle": {
+      "clip_sha256": "bbd046e7ac82c31d4b98ec152d001f66851c5867f4997d02cdb14474868a56c8",
+      "master_sha256": "7a771e460f460f34e912879175aa767a454949eb73de1961b80b02f9032fec28",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-friend-07-hello-i-m-dipper": {
+      "clip_sha256": "1e9744074aae9e5bec16cefb59f801000f6d49f4e23d34290625b8b918044895",
+      "master_sha256": "10c9d06cab5897e92e9706c7e04a7c54778bd3115bc445cc8ce08b885c84ef97",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-friend-08-hi-i-m-hoodie": {
+      "clip_sha256": "551d62eb3400c0943d5c48fa7964cd4aa4c11c9f6fe2eb2048eef56efca8511c",
+      "master_sha256": "7bc9b29af031ec54de9cfb8e454c6b6dffbe94fca8974535029afb945fe016fc",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-01-io-europa-ganymede-and-callisto-are": {
+      "clip_sha256": "a56f424c2ca09812d76a78c234e6a3e611562fd5e98350be187d43a7955c0483",
+      "master_sha256": "0d8b50159e9a201e4d0007bc8c7e352f94d602b532f2f4fdb0b40d124805fe3f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-02-io-the-most-volcanic-world-we": {
+      "clip_sha256": "aa7a00ee27ede309bbbfd12d7c15854e13f89c87ae704f75bb30e41891ce6b56",
+      "master_sha256": "c80640d0b8ac36f9aac5f6e054b6354b93e15d4d3bb97b4c58c58eef92216482",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-03-europa-an-icy-shell-hides-a": {
+      "clip_sha256": "0e9ae24f4ee7bd1f53756fc1c379eb0c3a97ec3ba33d18bf892cd51004732bca",
+      "master_sha256": "3d5fd6c1dd5e88bbb2adc2e180ae596f986d606c87ce408fbef2d88c1c0f47b5",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-04-ganymede-the-largest-moon-in-the": {
+      "clip_sha256": "1df7197a0575b4d1fb5b27184875bce5d6e8d2ce47522863236cb57a75168c1a",
+      "master_sha256": "7e25a794c8c51223d87f78148c7a64a5f3635a991ee59e7de938eed73aa3ceea",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-05-callisto-an-old-dark-moon-covered": {
+      "clip_sha256": "7906c20d954e3912cbc5b94c161d677cc696193d5473dd635cf065c6f9e5f7b2",
+      "master_sha256": "dca502f5e437fabcf5840024cf8b3b3bd33e45be64836c8b7bf3a6e45c492f99",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-09-io-is-the-most-volcanically-active": {
+      "clip_sha256": "41b1a2b61b3e8a1b2415df26f774c9b7010d6cccd9afbf154bc7d20b81ecc773",
+      "master_sha256": "2d5bee260433a1abb9903b8a700e1162760f979105011d266e60de0c7dd3dfd6",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-10-strong-evidence-suggests-a-salty-ocean": {
+      "clip_sha256": "fa244d31a4a419de52579ccd609b8cdd5d035770063b2aff7d95fcecf6d5f8b0",
+      "master_sha256": "7be8590b8f884e9a5e8be3cc50a4bf0335af5bdac56c0b7898d54edbac13cd1a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-11-ganymede-is-the-largest-moon-in": {
+      "clip_sha256": "285ec660624160e332b844930a9de70bfce7d84b3e5aca176a15776e421900f8",
+      "master_sha256": "bdec16c11ee7df0daf389911f42cc9a78e243f40a088f28f6889f534e5c04b78",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-12-ganymede-is-the-only-moon-known": {
+      "clip_sha256": "0d21fbbfde2a379dea2104ed877240df83927440649a947d6d731eb2e1943bea",
+      "master_sha256": "ba0ead1975862d2e42cede41290549d14dc8f937114629fbf49b0514b4fbffe9",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-13-callisto-s-ancient-surface-keeps-a": {
+      "clip_sha256": "7d0e4e03300e58cf7ae5dd96bc982fbfe5e95f96708db08014b537c0587c2a5b",
+      "master_sha256": "03909f8227363805a6e9aa4a105122d9b1aa1ceb89418d721f1f25621bef2981",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-14-io-europa-and-ganymede-tug-one": {
+      "clip_sha256": "3869ba7855d21179f7ae4c48665c8c0c25b2957809fa7238c3a4f1cefdd393ec",
+      "master_sha256": "31cf8f96a40a25bd6dbd83d020b0b4984d5b0bb581f8455d2885e738d65d1e0f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-15-io-is-the-most-volcanically-active": {
+      "clip_sha256": "29329b8eced0f0be19ee67caf700021518ddc140366f1e7ab0ef38c87a6f5b8e",
+      "master_sha256": "e44490b08f1ddcba7487929e7e8dfab320f3698aa77a6493e264a15829196565",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-16-strong-evidence-suggests-a-salty-ocean": {
+      "clip_sha256": "293088007ca89b010b555b7a628bfc97ae656a04b1cbab098e8071ad77337721",
+      "master_sha256": "90e4f4660f0ee3665e7df3e6280a6fc5b2a3081e9b9384b87ccb2251101f5f17",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-17-ganymede-is-bigger-than-mercury-and": {
+      "clip_sha256": "3c214d627e994d91e12135c535d1c07a8c8301f5ebfe607fdeb57b11a30e23f4",
+      "master_sha256": "7cb93dcc53dba8fc9e90436f29ef85aade445a9da6e8bba3631e324f1b2643a2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-18-callisto-s-old-surface-is-crowded": {
+      "clip_sha256": "6d35a5447943c0e946040dcb8c799bb7dffeabf1cc2bd24c9d452c81ef9d868c",
+      "master_sha256": "8e1c3531d237d39d6a0e227ac35684f8ad143f59d7592fb7699b83c40902f9b9",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-19-the-volcano-moon-more-volcanoes-than": {
+      "clip_sha256": "725377fdc73b0834b6bb5af754260dcbfeee6cf0e591492127d19d752a75cbb4",
+      "master_sha256": "ba532a55ccc963f93a65bec6b998e6a5417120e65e82d77259be200d8fc8483d",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-20-a-shell-of-ice-with-an": {
+      "clip_sha256": "162ca53cf6ffde8e0710928a51ac92e184526c6f0e71383e6e85fc01329e149d",
+      "master_sha256": "340f9a534bd6ed5d33ed669478921d4e6d4137f990e5e06f653b63ca1af8417b",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-21-the-biggest-moon-in-the-solar": {
+      "clip_sha256": "9cb5637b588fe19e24c22ebc4483c46190fcc25e5a0e3390d32f22311818381c",
+      "master_sha256": "5014440b883f047e582d1fcce6848db3fdecefaa5c92a747462aef60f5ec1160",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-22-the-most-cratered-world-we-know": {
+      "clip_sha256": "185ecffb41389cf80c8555edfd4c3ec373cd5dc43ea22764ec8bc9ba7fbf6aca",
+      "master_sha256": "a6296f72bc54ae27a8637b8c0daf6d0d28bbb74f6185402dc301d84ee72da376",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-23-four-moons-going-round-the-same": {
+      "clip_sha256": "61debe5590c757408ea6052bddc1d63dcf358770de892c0fd7fbcbf8ee1c9736",
+      "master_sha256": "c41e8827adb1f1ace4f3d0124d5260f5d59ccc3591f1328730b3e0fafc4bd574",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p12-narrator-24-the-four-great-moons-are-not": {
+      "clip_sha256": "c6e6b5623702fb7a413c815e4968569f34a86b14faa79eb848cacf38bc852926",
+      "master_sha256": "0b485ef10db4a32effbaccb5d15e1248fb3deef5416ea7b9b5d427187f2a1794",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-friend-08-hi-i-m-glide": {
+      "clip_sha256": "253c7d6bf8e11905de46c9feeea1caadcb5dcb482b5801c3b5266229f5755633",
+      "master_sha256": "2c71875b915b4da037469d99aa8d9d8eee1c896b3f248a054889bcfe0c7ee4d7",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-friend-09-twinkle-i-m-twinkle": {
+      "clip_sha256": "0cba82df544dd64ffe057a28da5d0f14d6cac2d4eb7b7b7c73e0684ce9a757fa",
+      "master_sha256": "002f1fdeafae5dded7b29c11de319cb211d9b07075bfa37b669850cbe296ecc2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-friend-10-hello-i-m-ringo": {
+      "clip_sha256": "e61d171a367f050f33f52cd9a02595b5bcb8382bc0716880e99aee93333bdd5a",
+      "master_sha256": "3288f4bef6c3f9883a77596a055386b46e21d0a773be22cbc95f5f3fd40a5a98",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-01-saturn-is-a-pale-gas-giant": {
+      "clip_sha256": "60d31fd912fffacdf244484bd05b9218fadf0f47ca4677d73e2fbf2e4033ecb5",
+      "master_sha256": "fd1b98a8343389c03c028b53277948796ee91d01a7c6bc64ec6a11fc3d606fb6",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-02-saturn-turns-once-in-about-10": {
+      "clip_sha256": "1c4bc63f9b00e71f161ce15abcdcda702b1a3e2d4904b27e33dc8d324976e336",
+      "master_sha256": "4f62c4467639ab002898bb46ae9fef9c9c602fbcfb1357d57eee4b6cdbb21a78",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-03-saturn-s-rings-are-countless-separate": {
+      "clip_sha256": "e0942d752e1a72cdbc0aef39e1b04947b3cc31945bc1b8e698d4dbb8da32b3f5",
+      "master_sha256": "d23f8b55b616d36e75235351076e87ba2a82349ba5ec98a789abedeed41844cd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-04-saturn-s-north-pole-has-a": {
+      "clip_sha256": "7b13d5c36cd5351b39a7ae69696f1846020f81359957098e7fbe7326e71b26db",
+      "master_sha256": "b27f80d2b8eadd3c733515053abf6db60e923e6230b6c27fa6739c25864c82a7",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-05-saturn-the-ringed-giant": {
+      "clip_sha256": "2903491442a901410b1b623592d624c355571c229573c7b4fcf3ef624163c778",
+      "master_sha256": "609f0a2ffc96890ea269607b19b2c5f1ce5ab5d5e48d76f4fc9234d82424e2d7",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-06-saturn-s-rings-countless-pieces-of": {
+      "clip_sha256": "07975d1bb5db25a3052b704300725d52cb6ab8e814f94176bcefa2096ee96682",
+      "master_sha256": "00278551eb9afaa9394d9af34061d9f7c29aeda7c6f5ab8230183d131ca76383",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-07-saturn-s-rings": {
+      "clip_sha256": "df0cc7521ca110fc11cf5c6ba20376da8acf2cbcd49ecb70a0636bdd62cb2eb6",
+      "master_sha256": "89dfef3b867b7823d48abd0b2afcdf1237c3d6c6da03381d44a4a76be1fdf9de",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-11-a-day-on-saturn-lasts-only": {
+      "clip_sha256": "d0975ad88709b043f56b23f97f75892468208401abcde5b762e3c21957ac26f5",
+      "master_sha256": "fd43352670bd0cc85638e9717ba465f761c35c1d1e730293cc5d4ae1678b2f38",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-12-saturn-takes-about-29-4-earth": {
+      "clip_sha256": "c2a5d9fb97b98da0a13944eef14fccb98f0148e0a6aa752f825abf2b613345b0",
+      "master_sha256": "8757be699ac5febee16e7b1a1a32c515479060318f51c73aab5fea6c0b84f5af",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-13-saturn-is-about-120-500-kilometres": {
+      "clip_sha256": "e5c8b3eced520faa61cc3879b50ad319d59dc3b68eaf82fefa8d09aee151159b",
+      "master_sha256": "4a371bf766d5f27157d3a8db5dd0ea11f8bce0cef4305160df41412a0c740c4c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-14-saturn-s-average-density-is-lower": {
+      "clip_sha256": "78e97ab432b990847a733ef0c8eebc2956151d7e2562f10dd0ca4ce65683144b",
+      "master_sha256": "2eae955190f5a53e37df49f88f74657a436d06cde8715d6ebaad12d0cb308c1e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-15-saturn-is-made-mostly-of-hydrogen": {
+      "clip_sha256": "232189b0287e64da0146ea64426daf196b0588b4fe44b098272ed2f4ee6b4bbc",
+      "master_sha256": "e917e12eb9746e0048f4231cb3d682c09dca3b0fe0517a3ffd52c547b86a2bb8",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p13-narrator-16-saturn-s-rings-are-countless-separate": {
+      "clip_sha256": "39a1fb35c3d2bfda4972ee8eda2288fc5e0864457adf8524a1c5146fbdc163b1",
+      "master_sha256": "8a70e759a5b602f02c94c6f2d98ea0aaa6aa8ef53e6b9421afcba51f18894783",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-friend-08-wobble-i-m-wobble": {
+      "clip_sha256": "8c63fb5050d70025bf5908fcbcd2f9e404e0d711891a6858c420e767b15af57d",
+      "master_sha256": "04de02c13df0765b5c3d8bbc8b3047bcb1bc715c8ea3b85a51ec6df59250e94f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-friend-09-hello-i-m-zen": {
+      "clip_sha256": "618236f15a88d58a5e7c955479712969f2d385986c66719df1e1e43107059449",
+      "master_sha256": "abb19fcc75be0aacb7efeefef2f6b7ec8a16301bade08f85966963bbec4dbd38",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-01-titan-hides-beneath-orange-haze-and": {
+      "clip_sha256": "28918dee85030da252420bef9f319e4e6978cca922cef7f249264f92f48f23a3",
+      "master_sha256": "ec1cbe6319f6b767d56fbf87432898acaeefd20ed75b8f3151ccd9e9ff86cd51",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-05-titan-saturn-s-biggest-moon-hidden": {
+      "clip_sha256": "a160e18a2e0e050e3bab4cc67af077ad1db69ff3849a132d895f0da6aee8b92e",
+      "master_sha256": "0eac50f0342f38250ba13c34d7de93090ef8406339f2ec861a08b81170fecd0b",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-06-enceladus-a-small-icy-moon-that": {
+      "clip_sha256": "8602e68a94deceaca041b6fb59ecbf445830cf11a3aeedf500b653e4008b264f",
+      "master_sha256": "6b6a23a83a27e50301103412ca27bc464c8c3afbcb085e67628f914667b60e8c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-07-enceladus": {
+      "clip_sha256": "847f89445a81a2d52bc57e72a8087fe016d8ac5eccff7461bb63b7f3f70b5be6",
+      "master_sha256": "b8791990d230af3d3ea7e30c4dca9a9647ac67c17bafa4ffb13e622435ed66b9",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-10-titan-has-a-dense-mostly-nitrogen": {
+      "clip_sha256": "73574170f32e451182e7f42c0991b20b4038479a2ea9871fa5a84a7c11ebb26e",
+      "master_sha256": "646e6ba66cf8084b9ec854ad7bc81771c5c2f7dfe795a82cd2a3611bb2e086f7",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-11-on-titan-methane-forms-clouds-rain": {
+      "clip_sha256": "d4f08e9d881c42b2d1f09ec66649b0f9c1477601b6ab899fc0e34b11e147da72",
+      "master_sha256": "ad759e347f800751b846117d443ce9b3b68b0e8ccdbe24d8b0162b04f1941ecd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-12-titan-s-surface-is-extremely-cold": {
+      "clip_sha256": "9729f5ebfcc8fcc114ff60db6acd5ad63c4e82db8c2c32634739244a77bf7e71",
+      "master_sha256": "774bcd131902c3c16b43232a731069b0f68adcdbc5a10d7382d819c56c390957",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-13-enceladus-is-a-small-moon-about": {
+      "clip_sha256": "a77eff3a0a2f94498a4f78fec92e5662f49d5312ea730264dcb04849b1f5180d",
+      "master_sha256": "fa277b48b889edd3f8ef1a3e617efd05ebb6e93741d2a85ff954a9cd76dc1ec4",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-14-plumes-spray-water-vapor-and-ice": {
+      "clip_sha256": "596e26ee5576aa6180c930e09d94bddc8b524884193e0619d1b521b8744af54d",
+      "master_sha256": "02a78e6d5da5518c2971ce0e6afc38f891689fdd372eb2194836cb77b81d4011",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-15-measurements-support-a-global-salty-ocean": {
+      "clip_sha256": "4285c664c8cb47aef771d998d59855d69685886f8c65309600d3f0081b44a80d",
+      "master_sha256": "0354248907c58b1393f54db89a633ae28d1429319abaf6abbad158e2509c75c4",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-22-mimas-one-enormous-crater-takes-up": {
+      "clip_sha256": "b50b69d3a829f562a185e31e671f2aee3c73b09259ff47d54c248f34453ac09e",
+      "master_sha256": "c90e32df31cc37a9d00266c8939e30f51dc75d465e746a54557fe73c75a48a9e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-23-iapetus-one-side-is-dark-as": {
+      "clip_sha256": "71a447b0570b09be82e3809b9080a2af92f942d2de3da7ea5af4ad3f09d5bb6b",
+      "master_sha256": "bc4b510b72ae8f703c620eeae7104968edb82ceb85ccdcff3c77fc4bf5d58336",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-24-thick-orange-air-with-rivers-lakes": {
+      "clip_sha256": "dc729978a87a44b4266d2e21c059d7b5c24f6344e230251c02faec5e35f7461e",
+      "master_sha256": "9a543bdd606957cdbc10c45ada1d8aefc8fd697c4887365af2548707cb67e45c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-25-enceladus-sprays-jets-of-salty-water": {
+      "clip_sha256": "2d70642b5068de5305a068ea8b0cacdcb3114c03016faccca5860bf48c138604",
+      "master_sha256": "9f442e69444dc832aafa1eb4654fbb451013252f003dddd8d472f1a54df5c434",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-26-one-crater-takes-up-nearly-a": {
+      "clip_sha256": "b41b676b2264438c34bad15188f295b2fddd22d552e6162dd8b27d561ede5cde",
+      "master_sha256": "aa78ab3ac8a6e91dfbfac271682a0df6373f97337212844bd40b3a07956b8d48",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-27-one-side-of-iapetus-is-dark": {
+      "clip_sha256": "979f57c2b6d9a38c451e8063bc3718cd92bc8c035f29b31cbe0f7dbd7800b200",
+      "master_sha256": "221a47f76378279db47bd4c84899c990634c2ac6d727a91eb2c85fe6f020df39",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-28-four-moons-circle-the-same-planet": {
+      "clip_sha256": "12325ab43ce5603e90b9918ac8132ef9050ea672d2e47bbcfff6157c229b2a1d",
+      "master_sha256": "4fbdb9ddfc32791a9ef4f0f8d09beb5ac60293dda2b48e7b1e3a5f2ad97e93b2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-29-hyperion-is-full-of-holes-like": {
+      "clip_sha256": "11c299980feb5bb865ca70697a60c952d60a24102677add9ed65db03834f2bd2",
+      "master_sha256": "4e5ee3ab59dcf773a10389831786b26b97ef2a93523d6f31a9051a0a595a52c9",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-30-rhea-dione-and-tethys-are-large": {
+      "clip_sha256": "3018cf06e04a49faf2d556c257b58d6f5811619ae7cb6686019d3dcf92e5e8d0",
+      "master_sha256": "6f0804ff8dbd9f881aeacb9922733f37115a440a8caa5cba0f90608a9614ac43",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-31-tiny-moons-can-push-and-sweep": {
+      "clip_sha256": "e749fc2dfe801f0d70a75167c2f4ae9f027665794b6d7dca3ac2a88378330e23",
+      "master_sha256": "8e43cedf077d5c7599dc0af09c81e55a4e40fb082e990769edb2d2ffb76612cb",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-32-prometheus-and-pandora-travel-on-opposite": {
+      "clip_sha256": "7b88eacbad4341f300a25cb3326aadd50930ad5117d67533919ac628ec388558",
+      "master_sha256": "95f4168c84a4c57de4c93dbc5a7efb26d425b432ce6b9cdc4d6e067bbf8b9d9b",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-33-janus-and-epimetheus-travel-on-almost": {
+      "clip_sha256": "f4aaf6bccb43025381d39643fa40fe306805c05224e72be7c06ce352c870b344",
+      "master_sha256": "a2256a2caf75724ced1fbac7bb62bc56c2d7d1d52474acdca15f4691fa8fcb81",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p14-narrator-34-phoebe-is-dark-far-from-saturn": {
+      "clip_sha256": "9c302cd8555071245c520ac2a3f9ab3b1c296166b89084a7014e4c7126ca3c4d",
+      "master_sha256": "4551039e2745f9d7e128cc43602f7beffbb4757799c877dc406f6a581e4cc360",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-friend-06-hi-i-m-chip": {
+      "clip_sha256": "a4394c7e69946e7fcbd9bc094d81b7a047a9c4ba48bae3652b31aa8fa108629b",
+      "master_sha256": "0d4bb42c09050c084172d32026892aae9cd933677bf8b79c6e2855bf4ca962d2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-friend-07-hello-i-m-drift": {
+      "clip_sha256": "d0741281be7c75339f95a4b73ebbd182cf3c8e477471d17182a10024e18ec916",
+      "master_sha256": "4b9ed9f845b3ac5d9d4460d9f366d4929d62e0df93e7e903e8b558355e574e27",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-friend-08-whoosh-i-m-glider": {
+      "clip_sha256": "5f543b0a5e3e5ba2dc6ad2d1b9bf7f3ca7cfa699688e4e649851b061691fcf3e",
+      "master_sha256": "8401e24f4a8c34f6372c5df38566f1117a3d98d716134c7b79ec569c263c332b",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-01-blue-green-uranus-rolls-around-the": {
+      "clip_sha256": "716fb620f2f7159112ffb9f84ba81233dd164e5e3de2ed192fae15db0b973c49",
+      "master_sha256": "9280fa081427b57535a0a495daa9d3a9998798191762222fefca0f297729b667",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-02-uranus-spins-around-an-axis-tilted": {
+      "clip_sha256": "1d029eb61c6b67e1c568625ef74ace0c6dfad2db23f3f15e4c48b3ee2d757a81",
+      "master_sha256": "d22b8ed627ad3e93684da2b2e0ec7184482dad94475eabbe6fc9e5b6b1b837f7",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-03-because-uranus-is-tipped-sideways-sunlight": {
+      "clip_sha256": "dcc0645875ee1ec66bf1dee251940d8547ab51cde78e81761ba11f7ec3910d88",
+      "master_sha256": "10c69a4953517af5d0826f4ebc198cf264ea8f9745cea242339b39a73c8feb93",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-04-voyager-2-flew-past-uranus-in": {
+      "clip_sha256": "5220fa69e9b3a753d905d606a37b462e2e561ff49eff708c211971aa308449e8",
+      "master_sha256": "73286cdcb7f120d9ef4c6f7e455b423516a85f30f3de12b89b5894b7d7eb684b",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-05-uranus-the-ice-giant-that-rolls": {
+      "clip_sha256": "f84ebfa4b3affa5d600de9af52bf12f50455fec138ad28c210d1f8abb5adae4b",
+      "master_sha256": "4e64a2d83cb38355ccc2e5634f8a3eb05747b5ee6d312966e9a0e334f97f06ef",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-09-uranus-is-about-fifty-one-thousand": {
+      "clip_sha256": "72ace63a305c99d534a19c028db5429fda87b6ba6275f49353e5057cec3e4f72",
+      "master_sha256": "44f026263e98c20518d98aa96c1689269462bb4cb5067206da5787a3a1b2a3fd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-10-one-day-on-uranus-lasts-about": {
+      "clip_sha256": "339586e3aa8dcc09978ad445b26fd338c2d8e3e03dc0e2545c2e8689b8602490",
+      "master_sha256": "89b87881bb80bc417f47592a8cb9ea6716b68ecdd360d8fc3ca61ce5f40de95d",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-11-one-uranus-year-lasts-about-eighty": {
+      "clip_sha256": "01892ba1d7d8071b089310a696315972c2699f27df5719e372887a60fb81c917",
+      "master_sha256": "dc8153da65d028ad4966864f98d66912eca3f48cb725b074710814676ddcaaf5",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-12-uranus-s-atmosphere-can-be-as": {
+      "clip_sha256": "9884339ee7f16d903809e9fee0d232a8cf71e6675b2044d201cb4dde6b0a9b4f",
+      "master_sha256": "6052388b8fcaad766810aacc99dc446f435e62406b9880eb0850f9b2060a8b20",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-13-uranus-has-thirteen-faint-rings-including": {
+      "clip_sha256": "33bb2470af3ad2cf62701a95a44c7982dcba2d21288753a532333e86f6e19dba",
+      "master_sha256": "d53b80874e6f8042790ef0fcd4daf89850bbcca72902432153ba025f6fc2bdcd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-14-uranus-s-rotation-axis-is-tilted": {
+      "clip_sha256": "121feaf710d951b50705831107210bdaa640acfa5a8e648dc09b9623a6a0e139",
+      "master_sha256": "9b3f547dfdb05c7edfb7c846e8de9c05ddc1e57ec83fa1eea524c0797f9995c2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-15-uranus-rotates-around-an-axis-tipped": {
+      "clip_sha256": "22ed64ea51e51a6089596883c10c3f36a8cfedea9c22c26c3c08ec49850d27af",
+      "master_sha256": "0d05e54d14669e45c6ec3afc7893293c6a33ba0600153fe18716e8ad48f4e5cf",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-16-uranus-s-sideways-tilt-creates-seasons": {
+      "clip_sha256": "6d70b1b77f5d9311bcdd8f32e9baaba768032881b7d25d5c2d819c9d888fe52b",
+      "master_sha256": "562e1e2cb9668d32d86ea75508ad5d995ebbf3d6c58737805e5e5252465394fd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-17-uranus-has-narrow-dark-rings-separated": {
+      "clip_sha256": "6c2e47aaab5cfcc073ac0f67856c580492fa89da8e66014b8a0fdd327d9479f8",
+      "master_sha256": "07952fa446bccf197de59fcb69c742679e5e068d157ced7beaf49dc0e4fed033",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-18-uranus-is-an-ice-giant-made": {
+      "clip_sha256": "1251f6c08f0acac4ad4c40fd91b3729335cf71f9e5203b7734f90e2860d0a41c",
+      "master_sha256": "d92304c6923d4fb63071a9759341877f5000b5e2b798578f4557300a2d279f35",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-19-uranus-s-magnetic-field-is-strongly": {
+      "clip_sha256": "816999d122f50b7db0f75a75d433cc0eb62e1977a0504762714230ef4beab85a",
+      "master_sha256": "05ae8a719207cf6b0c9d36a7b5e0c7c2ad02b2f7fa43b10f5b1571b603c2cc79",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p15-narrator-20-voyager-2-flew-past-uranus-in": {
+      "clip_sha256": "f95d26aa5821566fab693265e580d8ffa34234dc6eb80de941d3de6f85ce5232",
+      "master_sha256": "2b512a7ac1750e1eaa649e1a27ebdae2d1cb6adc9311e2c14e044629372b2088",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-friend-05-hi-i-m-pip": {
+      "clip_sha256": "17697bc3edaa08ad324739c41b9c92a2ce60499262c306e13f08ee7db4f7f694",
+      "master_sha256": "d8e0c1da65e5e86f61945acd27f29682eb2a8646a9e9e4192c80e080160da279",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-friend-06-hello-i-m-gem": {
+      "clip_sha256": "79b9e73092e7407b95937eabf0f720f521e0e0f8f2393d2af05d502a99e88549",
+      "master_sha256": "7f3fe1b5be6f06d18e3a2db35b2c220feee5b3a689289279342482b8bb51c3a4",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-friend-07-whoosh-i-m-halo": {
+      "clip_sha256": "69c58c08121e21a89868792ef6167c9868ad26027d46904da3fb410b17a5e45b",
+      "master_sha256": "e45d20a7172adffc0f0e52f093c85bffb76f6f3d7f357284748cf2a09ffa1df9",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-01-miranda-ariel-umbriel-titania-and-oberon": {
+      "clip_sha256": "236903894f5aa0f1afae0cf7d6efe7fc2b00195b2c362c1ea1ae6ec6460697ed",
+      "master_sha256": "ed2af0d66219bd191cfadae6ecdfae553936280e39aa05ad73c755f0b3ca6e88",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-08-miranda-is-the-smallest-major-moon": {
+      "clip_sha256": "8c6c9e90226ac3a27d6ec98c22341cd09ea9ed24676a79e7a1f8fdc6313e4f1d",
+      "master_sha256": "8e355092d5f9e1e865194041c248a99ccc6b2ffdc7fd54c5a88c7b19d6e91735",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-09-miranda": {
+      "clip_sha256": "3ce806bfada35d76594a958333b98e4c89b778a0713f0b671985cc20daa98681",
+      "master_sha256": "eb760c94bc646696c03ed8a133f5f25a42b8056716bdd7d622cb9162db1e0646",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-10-ariel-has-the-brightest-surface-of": {
+      "clip_sha256": "3a01b574b3476f59be505b07f7f05dbfaa5bae70152045b5cbd1c0e960e1f5a7",
+      "master_sha256": "9185760a72395a9c5dc8f2c56948d6fd56e181b4f459fd615ef11719b8b77fc2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-11-ariel": {
+      "clip_sha256": "43c0fbcfabe4cca12a11a8afb382f981d223887bb20c2248b031e3cb2382626a",
+      "master_sha256": "a7768681b100afa583d3d9cd0fdc2c057960d1ec4ecb5734f0d01ab94c96c24c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-12-umbriel-is-dark-and-ancient-with": {
+      "clip_sha256": "1c2304464059ad8db1ac8f00bb207fe0ba4e1917f6fb6c73d443f58d78f55056",
+      "master_sha256": "9884ca9376d7bb3e4665198391cfdfaf7e2ced5b14d7878ca29edc6f6b887bd7",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-13-umbriel": {
+      "clip_sha256": "eba0528969bf9de9ed092e7a01f54143839fcd4e25571f66260a67b67fdf3158",
+      "master_sha256": "7a24967217f8513944bc4d9068f666ee6bc373411be77a2e8d61abcafd2603fa",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-14-titania-is-uranus-s-largest-moon": {
+      "clip_sha256": "095e23b2bbff276d109c616840f9ff679be24afff7128c3d52997e00abf34da2",
+      "master_sha256": "f1ee2764efb015203ecafd74a6d265fb6215d4a1a082dbf1624cf31d234a4e6c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-15-oberon-is-old-and-heavily-cratered": {
+      "clip_sha256": "2e2538c609a61d65c840c5883e1aef3735f9654038504099fd429faf1e185524",
+      "master_sha256": "1c000c18939a208c238c93c7b5d075cdc3c222e1d42c777493008e2506f6d8c8",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-16-oberon": {
+      "clip_sha256": "a983f27d565952c69204a65ccd7c46946a6e07437e75e7c94905ee7f23fb6611",
+      "master_sha256": "cc3d3b8ec0c9414ceca84a5ec5aab5394458072a0174c2bdfb798f931d651728",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-18-miranda-has-patchwork-terrain-and-canyons": {
+      "clip_sha256": "a425c8ae8deae0a57d9c455ea123090b8575b5e6ea8c4895d1ea3820d34dc294",
+      "master_sha256": "429e401b88e786efc0bcd04737b74e18e7a5cffee9106245aca3b808c80d748f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-19-ariel-is-bright-and-crossed-by": {
+      "clip_sha256": "0dc53c1aaaa70f147e89f328d63a274e4088d42c9b62a20f1195ba1dc0906c59",
+      "master_sha256": "ccf8cf7118edf88147a2d46dceb1150a99a00c10803c069e248e6db8e477c9f4",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-20-umbriel-is-the-darkest-major-moon": {
+      "clip_sha256": "3b0f1a8672583e1b4582cce271e5f392419ee3a4325261895a567e8b9c5232e4",
+      "master_sha256": "3a1f975dc88e506fea5ac89a5da99a3e4fc0c3d30f552957308af6a2432929ca",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-21-titania-is-uranus-s-largest-moon": {
+      "clip_sha256": "1c0adccef3dd51c45534d47ade4e16f64ba5db51bada44a1d1ef3fbed03362a8",
+      "master_sha256": "e130b1fb9c7dc4f2c37ce55bab853ab83759c90f62622c46da0002b8e7f37f86",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-22-oberon-is-the-outermost-major-moon": {
+      "clip_sha256": "1eba95f7a36ac7a2d381b46bc3ff6d0c932bd6beefb47ba8802cb3476ec46e7d",
+      "master_sha256": "b8c23d04ad15a880933081add17a298e75470e374be95c68b02d036dbe39ab2d",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-48-miranda-is-a-patchwork-world-with": {
+      "clip_sha256": "9e1d4f5ee4532b6add089da54d0bac6e5414998ba7fef6128563441684841964",
+      "master_sha256": "5b8a9abf9601d0fb8b04d24b4863793a4968010e9eec2e30a91325333812005a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-49-ariel-is-the-brightest-of-uranus": {
+      "clip_sha256": "bbd2f1b36a1e9599c5b8cdae343e08c4b3e4175b3ac3ceda4a3a7704e329cdc3",
+      "master_sha256": "1eb02c33cce1a19a39af1d136a27503fec12d7aff73fd89d88a7234f33821875",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-50-umbriel-is-the-darkest-of-the": {
+      "clip_sha256": "46cd8293aa49095132cf7a6398e1b089b3c839039f0dff2753ff9e2c617bed6b",
+      "master_sha256": "8edfb81295e513493e2177941f5ea5a79a964983e88c1312f8516a0e92b2717a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-51-titania-is-the-biggest-moon-of": {
+      "clip_sha256": "9b6663f81f55f1caf08d7cee166221385c0bccb2c2d4e922ac90c9d357a4ae52",
+      "master_sha256": "0bd63352ab8b41f34274005d9e5d75faa96d207c6c990c0087bb07753c6914f5",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-52-oberon-is-the-outermost-of-uranus": {
+      "clip_sha256": "1a1f5da1c5290cb09382296a5fbf77c1f66406740a5631e8878013ceeac10ea0",
+      "master_sha256": "c0215b60582ce410853e294efadd7ffd4c285ec5033b234781466e3b8cf76ec0",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-53-these-small-inner-moons-also-carry": {
+      "clip_sha256": "44d2df21a525ea627ae2c28469aeead1d0df62a4e9ef50283c6c84485e6545ca",
+      "master_sha256": "afe28c38b0264f4aaada30436b51941409e1b570a0066f49f27b484c83e359a2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-54-these-four-moons-travel-far-from": {
+      "clip_sha256": "a7ca6682f4ea26b4f3eb7402905058e868089d7dacc2167471a52087c94a8cea",
+      "master_sha256": "c0c89d1f598d714659bffad53270d5ca5cc71fad91d84c4e03d766e04b41283e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-55-titania-is-the-largest-oberon-is": {
+      "clip_sha256": "5b6b46fd62def31d75bb64a3c06604307d6ac44a07e3154b38a215360df3ba6b",
+      "master_sha256": "a40cad70deb5b58fcce891eec96ecd9384cb57b345063df58db07172f1049f70",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p16-narrator-56-voyager-2-photographed-all-five-major": {
+      "clip_sha256": "f44ddced910e129d25e460dfbb442b6afdc9e77b911ffc32285b63922408f3b2",
+      "master_sha256": "3364a491866d9dc5da7cff5d9071cd6218f6725ac642f699d2f7445e889e3b7a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-01-deep-blue-neptune-is-the-farthest": {
+      "clip_sha256": "c7d03476f0bd8e03953fe88c7d94f7e0ea87a49800d124e863857163c20ef381",
+      "master_sha256": "44c53fac4bde84e0d34f526eb4ccccd18aad4efae54e19da0fc52630d6be7375",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-02-fierce-winds-race-through-neptune-s": {
+      "clip_sha256": "e4b44a41215e0dffe96bcbf91df734acdc8b98038413b00fb6e43f4eaf05d45c",
+      "master_sha256": "0e4ce95c87a6063f0c154a34c0a24876ec72d7b34b99e08d5a78880064fc82fb",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-03-from-this-far-out-the-sun": {
+      "clip_sha256": "332f60b373ea9371cc0314075c05acf52663740727506eb4b028ff691206d026",
+      "master_sha256": "3c3681d14c7bfc79600f5d5348b585492813441c32b0167cc97f8ffac12fa724",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-04-voyager-2-flew-past-neptune-in": {
+      "clip_sha256": "ecd05bb4b20ddcdc1a0fbfad2ed1a05a237f59f77643104e953db209d944a555",
+      "master_sha256": "71464fa9c1892d26fb2060d618cd747c8d466ff850ac1f8ff2c8a4d55231a96b",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-05-neptune-the-windiest-planet-far-out": {
+      "clip_sha256": "e9f2ee94687e627c8d4ce8b5d623a7ba5e5c52e71749d0b2b7126b77d436495c",
+      "master_sha256": "1995917dcc491ee9b67d67069bb6d0f39b340e3faff0074079d585035394ed7c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-06-neptune-is-the-eighth-planet-and": {
+      "clip_sha256": "faf6ff02a13f9831571604d064e3b04d6d22a2930fcbac367cd4061232eb926f",
+      "master_sha256": "02b5569c4aaf893c47467423438b52cc4261de7462c6cee09cd0a13df9a90c79",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-07-a-day-on-neptune-lasts-about": {
+      "clip_sha256": "6eacbf265fe5f42bcd9c60808de46bda4994412ea09599ba99a346d1fde8c20f",
+      "master_sha256": "096f1255d0c9285da09a40a33327623bac77e2524133704242201bfb9b8e1704",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-08-neptune-has-the-fastest-winds-of": {
+      "clip_sha256": "b68dec33fca69ecd748d705dc7f4b9e391024d2c3243c90930cb5563169e449c",
+      "master_sha256": "98740fb6bb24b55ceb35d63c65b709eb90af6c5eeffa71572ddc9b18700fcecc",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-09-methane-in-the-air-helps-neptune": {
+      "clip_sha256": "548da367fe78908b267e26d8b64e896327205af643b720912190352612f74f45",
+      "master_sha256": "1fb371e4c6170a79ca0166ff241e1e08422043b08fa16432df6704474b48c1a1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-10-neptune-has-at-least-five-main": {
+      "clip_sha256": "433bc2e1751513547fc85657a50b0d295fc2614cf71f7432a4faca547a28e2d6",
+      "master_sha256": "f72b81bf4929d0f6a597e9761306cc81f9c938eb67b2bb0ff6c0852a79d4f7c1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-11-voyager-2-flew-past-neptune-in": {
+      "clip_sha256": "b211bdbb9afd263d5b6fd768c200872d85507e022689317aa2876e45f8ac806b",
+      "master_sha256": "c8a003f2d127ba7239435743e9d8fad574fe11a7d56ed4f24d3d6b808daf1de1",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-12-neptune-is-more-than-thirty-times": {
+      "clip_sha256": "d2add2cdd60e5048862fa4a2336cdde516bffcce728a3b4929503effce71e7c8",
+      "master_sha256": "17808bd963625a4858c4ce036f14fdf5deded63f26e2c7a35e75fc9254d98a9f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-13-neptune-spins-once-in-about-sixteen": {
+      "clip_sha256": "65f66d1fc761895ba5ad7ee428dcd936d22e0a7f7fe85a3abcc095b6e99fb8b2",
+      "master_sha256": "0f171fe564569eca2115af2f300d601373eb5a8907bad4cea6c2de7253b24148",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-14-methane-soaks-up-red-sunlight-and": {
+      "clip_sha256": "37ad6161980b38b3fb60b53d546fea354e8df3e7819e19bffda546133143dd9b",
+      "master_sha256": "3a42deb61c8548afffdca912e1e94d374e594710028cbb3f563f9f68c84f6eaf",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-15-neptune-has-at-least-five-main": {
+      "clip_sha256": "d76cc8e512d35df0f04e8b2f7c252e084cf733e99b1e95c1f2e5c2fe639dcc9a",
+      "master_sha256": "288abc715a46ff41ba2e5ee2a0c111bc737014f7278bfbd5115b24e22edd5c7f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p17-narrator-16-voyager-2-made-the-only-close": {
+      "clip_sha256": "a61264f961a6a787fea79acd66531b8a6ce7809946fa1f881cab92c41e7b7915",
+      "master_sha256": "8572cb6e09ef2dd1d197831b944b2f7b5ab8857fbbc2df274314775b7a1bfe91",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-friend-06-hi-i-m-chill": {
+      "clip_sha256": "1721a653eeb384b8ea8599699d88144793a29d3471fe65baf16b196be19f5e3b",
+      "master_sha256": "8e77e2177fb75686fad652fa366346301f36f69b08375a9c8634cc932290f5bd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-friend-07-hello-i-m-shy": {
+      "clip_sha256": "c31a7979e051207f785a65d5de49f01a3c623a4be9899b1c4a97343e5cf675f0",
+      "master_sha256": "c2e30d008d8690e11d25fae48cc18358169df8d525eeeb2a63ee7a2771d151db",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-friend-08-whoosh-i-m-sled": {
+      "clip_sha256": "6e394901bfdac0d18084f3aeac286cdfc1c6a824b3e7109aed65992d568d8eb8",
+      "master_sha256": "8770ba96b2a640304564fd27af2da4eeab6c158ee0d26e0b818698178d422212",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-narrator-01-far-from-home-a-pale-pink": {
+      "clip_sha256": "93127844b1d6b88e6b7eb97e9e1880a2dbc5c49e694db7b2bea839aa82207d0f",
+      "master_sha256": "530e08ba92cb06459b4726825be3e00c6e298a07dd151eccbf3a06c4d608cb17",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-narrator-02-triton-goes-around-neptune-the-other": {
+      "clip_sha256": "da4602039e8c44719f240735417390a2cdef0cfe9813a0b1c96edac426f2ca56",
+      "master_sha256": "e6dda0b7bd3688cf9232bb6f77f5706de3cfe5770d1c2349e7dab06bf606bf26",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-narrator-03-in-1989-voyager-2-saw-dark": {
+      "clip_sha256": "bff73ad30c0a65263060826545a89893ce5bd2806d47204003346d3f5038f91e",
+      "master_sha256": "6518af9c82fd74bc676cc7cc40e8e00e49950af2e5e144f786b5d4b1a669c0be",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-narrator-04-voyager-2-found-triton-about-minus": {
+      "clip_sha256": "dd4a1b25ca8b379e01ff952cfb12ccc23b9c6b68829a523dfef4375b259fccfd",
+      "master_sha256": "092ebfe6adc4a376a38738c6bf774dd771cdace9a6f9db1a7a404a4ea3f94b3f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-narrator-05-triton-neptune-s-biggest-moon-walking": {
+      "clip_sha256": "eb0c878fce3a93c81322cac05b3e3035eec1efb2787aa36035bfa982454dd2e9",
+      "master_sha256": "b45293f2fe3796c3841bf58fd2a32108d7adaacc30d98d8131088379780e1b47",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-narrator-09-triton-is-neptune-s-largest-moon": {
+      "clip_sha256": "db13c3273463e24a84a75e31b8ec500a45ba8f9b2650129a8710df0f0dca48e3",
+      "master_sha256": "139504550ea607d56291963e207c5d2961076e8efb8d87bcf65dc67c90f9ad6e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-narrator-10-triton-is-the-only-large-moon": {
+      "clip_sha256": "c07214825c16cb47836034d20a09f8142528adfffeceeae3dc7bc3e2236b5329",
+      "master_sha256": "a5e5658d20dffe651d8282357b0e8f4eba7f8c5cfc2eef450ee391e8d67f23be",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-narrator-11-triton-stays-about-355-000-kilometres": {
+      "clip_sha256": "f6ce411756cb726d8f8a0059140cdddeefcd6f558a0cffabbde83324a0b7d6b4",
+      "master_sha256": "f6227b119bfde83d9c3e3b5b5e0f321c3a5e941a3a58ede0a3c30de670ffa9b6",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-narrator-12-a-hidden-ocean-under-triton-s": {
+      "clip_sha256": "aad90661fa7f5aac4198b1b38c37dc8c944cad2a7ecf02477cc293b349bdaea7",
+      "master_sha256": "f1afe762b8dc27aa31d52281bb0ffbff93da0efa8027a238ed5ec8a5f02eefaf",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p18-narrator-13-triton-stays-about-355-000-kilometres": {
+      "clip_sha256": "12236ea95012b74a8a8593f0b6d9656f9ea584517ccd28545604389939fd8e97",
+      "master_sha256": "9b8d33e1f351a23181cb7d84ef31d2283f5df1fc614eb2ef4ff195c30492c20c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-friend-09-whoosh-i-m-wisp": {
+      "clip_sha256": "a63c16f31dbc6e837bfe3f2dd9e5a3d357eaad103e148ebf98aa1a81671a22f8",
+      "master_sha256": "f0cbe34aa808ad16f261711910d7b48d15025698d9253c50a427a6d1eb6ea473",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-friend-10-hello-i-m-dusk": {
+      "clip_sha256": "f46f355bbaa6ac7e64385eff53c3e7ed731e972cfa45082eed902d829ceb2851",
+      "master_sha256": "97a5c486fb9d219e1ccd4f2e7f87e07dbd1bc5ff13ddcb906ac5cfc0605d40bd",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-friend-11-hi-i-m-cruise": {
+      "clip_sha256": "df373daecec2e103f219ad0e1b12f70766d580b07350f344b5587ab4545aed97",
+      "master_sha256": "da29583296e041ea6a1db29ce95ab0d827620ee9474688fe61bee8d338c2cd6c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-01-far-beyond-neptune-icy-pluto-and": {
+      "clip_sha256": "d2994aee86912a1eee9699476ea5e16d96dfe26c6216f67c6bd1c96956c47c35",
+      "master_sha256": "2fd5aff4a85ba330533afc6d1138ac1f4e83982e801aaf499d14a6568ffe4d53",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-02-pluto-and-charon-travel-around-a": {
+      "clip_sha256": "c3029d922565bee855d93723302c1215c3fa86734db55a4f61026e77308eef3e",
+      "master_sha256": "79e7c3d6e85a6079986f469678f4c0ab8d8b2dd2d73a3fa2ef02956ba1ddfc58",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-03-new-horizons-saw-a-bright-heart": {
+      "clip_sha256": "7304e944b844e250f6692c707201814b4351eae46985d6ae401a371918e8b6af",
+      "master_sha256": "8e3a4b9432171b90d9702f1d2c1587c2856b229d11a322007d63c65206fed8a9",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-04-in-2015-new-horizons-flew-past": {
+      "clip_sha256": "e1f7f0735c1356ffe2194c0e667bf787e70909cc8cfd1ce7f2d042b57dfe743d",
+      "master_sha256": "f8c3d3592aeb5a51115ac0c5ed5820b6d646474a8754b2394c27b32afcfd5888",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-05-pluto-a-real-icy-world-far": {
+      "clip_sha256": "7dae8c8bccd542bd47ff945e489d7d0b7dbab27b74245a424aed71a9c5e9494a",
+      "master_sha256": "501c6512ead565567484098544ae621d48edf4eaf8a7ab9de81095929936d2c6",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-06-pluto": {
+      "clip_sha256": "ad3c38f72552a65952a427b2c8f097946b9bfd3fb4500858791a8103c3af3528",
+      "master_sha256": "a2a64229188408f0f3f596e5aa5edf1ee5406673b31dd8752e5da8753a6e321e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-07-charon-pluto-s-giant-companion-about": {
+      "clip_sha256": "f46f3d4e213737b61eeb48e19bd66687fd9d3c436f37c1511cdb85079ba2c53f",
+      "master_sha256": "cb002681c7cc4cf828ade8bee3ec96fbe350caef65922ee1a8ff97dbdbecf315",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-08-charon": {
+      "clip_sha256": "d2e6756b8edfa02434665d45fac8ace6b5e632ebc2a30fdafb00bb20eb1938f3",
+      "master_sha256": "e32f367ec5a250a078d4a9cbcf8139929f32ae6110283601c21578390546db0e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-12-pluto-is-about-2-377-kilometres": {
+      "clip_sha256": "b0b81ab7f41c5e31ae205300ce4d64f690ef3ce2f11a7621a5ca223cd2dbfbb6",
+      "master_sha256": "bd6fa0c0c0f603a1de5adbb2c557dc1e8df1fcaab49ade4b040491d906afc3be",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-13-charon-is-about-half-as-wide": {
+      "clip_sha256": "8f2c1deacec5d92aafffb2afa264eb78cd767f42661d7c618710894da8a1b4a9",
+      "master_sha256": "ef986cdd4ede5056972b8193be81e69cc966f99a3ca8e53084d6c62f24d3ddd4",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-14-pluto-takes-about-248-earth-years": {
+      "clip_sha256": "bb6fd18ddc71e1892ecbd9ef39cf7fdcbc2b1388fa187322a02496136b4240b3",
+      "master_sha256": "ba0803cbbb1bdbd41dc7c82ce7ee4e95b0b154b1a58e95e3948b37694c9a3842",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-15-new-horizons-saw-a-bright-heart": {
+      "clip_sha256": "ae9a281c576955c3726916e9c3c709c969a8e27618dd5636a20e564426b45169",
+      "master_sha256": "ce528f78a84c1a7db1fa3ad7921314c15c3a0c7c61f4acd73990dfc2236c812e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-16-pluto-has-five-known-moons-charon": {
+      "clip_sha256": "cc2543471d4dfc94a4ab9932f23fbc163ce2888701b2b6dd4d118710828a768c",
+      "master_sha256": "4cff9bb933d5abaa082ce3a1064db169daad3f0423366e2b715dc080441da76a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-17-pluto-is-a-dwarf-planet-it": {
+      "clip_sha256": "2cc4062d969f5c5d78de7bb78a4a9ea0c1e9c3fe90e1297d16216fa1815c6d6d",
+      "master_sha256": "9bb642c3fbe6772925230b6e50289fcdf7b35b11860d41b0b72fe5542ffe151f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p19-narrator-18-the-iau-names-five-official-dwarf": {
+      "clip_sha256": "7b578f91073d141fddb85882e1ceab10316307d8d253b49b98a78cae84fa012f",
+      "master_sha256": "dd1469ed3488155f5357e524fe9d1269941e5f889989f57435347cab6133b39e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p20-narrator-01-which-world-is-most-amazing-there": {
+      "clip_sha256": "761703b94aa70a805cec42c609057c4dea2f8f48d10b9b5f82c63b3eb2668b92",
+      "master_sha256": "52abed6a99f073f033fd2c1dc956992c0bc19daad9cdac5cba9326752d505b2a",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p20-narrator-02-the-kuiper-belt-has-been-observed": {
+      "clip_sha256": "c6e0e75099f90cf32ef9b84f4f19839b43948e1f76f0209997104bf1936888d1",
+      "master_sha256": "04d46ed6660b687ca43f8aec0c49a327d7032390b0d8de5d8014fa0e0e272b6e",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p20-narrator-03-scientists-infer-the-distant-oort-cloud": {
+      "clip_sha256": "0ea03600a0dd12bdaf6a8c36ee097cc05f68d5545c7fc690c4ea3494b3defea1",
+      "master_sha256": "0a54a58bd51e3e688c27f2e6db50b156fcfa129a8e2adc2c0fd6df44cbecb967",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p20-narrator-04-there-is-no-single-most-amazing": {
+      "clip_sha256": "14db92240c101758ef607c27c9214553d9fea4d8496f660053e55b363cfc1cd5",
+      "master_sha256": "c7d988d726af4cb4b19344627a77f78010065a5b714d3f05a271a0531152576c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p20-narrator-05-our-solar-system-is-inside-a": {
+      "clip_sha256": "b77812994819fe10c66b2df8fd3f21026ef21dc4d1d9548383318a7dffcdb9e6",
+      "master_sha256": "434762833301b57c3fe3b20844e85258a59a944c72c5b8de9b062dd98a8b4b5c",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p20-narrator-06-the-sun-takes-roughly-230-million": {
+      "clip_sha256": "a43662ae5b7022debe5e3b014cb89f9e0c5ae98c6a5909c90e4e9d9f798c7a0a",
+      "master_sha256": "5f5ce89eaa15b2940b8e93512ae90546f99b0ccc66edb7c6185aaa6dfbbbb40f",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p20-narrator-07-the-next-mission-begins-with-a": {
+      "clip_sha256": "51672dfc6597efbeec2769fff9617007c42b5b3d3f29af996c48999713b7719a",
+      "master_sha256": "021e84a5cc7a4659d9012b48f06cf1c157f54f96509cd8a6f717e95b97267629",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p20-narrator-08-the-kuiper-belt-is-observed-the": {
+      "clip_sha256": "3aabb4ba6e8e8c7a3a6656054b314c805b36fc91717fb8b8054b70b33597435f",
+      "master_sha256": "4be588da4df8022967d3d88d78b7d3c59d7fcd3408229a9bc0c81f89581291d2",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p20-narrator-09-our-solar-system-is-inside-the": {
+      "clip_sha256": "1191cb3f7fc59f71bcb408b560d03be2c5cdb36aadfd9e118ab8ca1e0482e66f",
+      "master_sha256": "3820fef6017201e36f5de15e94fdc6d58248d47f23856ee1fa5c86474604c4d4",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p20-narrator-10-the-sun-takes-roughly-230-million": {
+      "clip_sha256": "b2a2ad40231a23bcbdb0655a2d2473f7c34642c41aa1bad75c096fc888e7b09a",
+      "master_sha256": "fdafb7bcbba1af85502136433b5470bec6c56fbd53cdd3193539aa5193ae7bbe",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p20-narrator-11-there-is-no-single-most-amazing": {
+      "clip_sha256": "9a83378753a9b104f769ba03c7c7a57a7edb6cad884cf368ab23bfcecc6ed184",
+      "master_sha256": "510fc60ca6120119e28f36fcb580343c151ce2c0d914532f2e1119567e7f619d",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p20-narrator-12-scientists-infer-the-oort-cloud-from": {
+      "clip_sha256": "36d94e5dc06455c349361659b03cf74433b2a7c7c3b458c264e68d0923158dc9",
+      "master_sha256": "f83b523f436ebaf4a11932f236a1fa283b75c210f73b56a85141999eb92a10ad",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    }
+  }
+}

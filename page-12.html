@@ -220,9 +220,8 @@ border-radius:50%;background:#ffd76a;color:#07152d;font-weight:1000;font-size:16
 </style>  <style>
   /* Touch hygiene -- owner 2026-09-15: a child's drag became a blue text selection,
      and pinches zoomed the page. user-select and touch-callout stop the first;
-     touch-action: manipulation stops double-tap zoom without killing scroll. Pinch
-     itself needs the gesturestart guard below, because iOS ignores user-scalable=no. */
-  html { -webkit-text-size-adjust: 100%; }
+     touch-action: manipulation stops double-tap zoom without killing scroll. Pinch is never blocked: it is a zoomed-in child's only way back out (INTERACTION-DIRECTION.md). */
+  html { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
   body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; touch-action: manipulation; }
   input, textarea, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
   </style>
@@ -269,7 +268,13 @@ window.__NARRATION = {
  "Io is the most volcanically active world in the solar system. Jupiter and the other moons keep flexing and heating it.": "p12-narrator-15-io-is-the-most-volcanically-active.m4a",
  "Strong evidence suggests a salty ocean lies beneath Europa’s fractured ice, but it has not been seen directly.": "p12-narrator-16-strong-evidence-suggests-a-salty-ocean.m4a",
  "Ganymede is bigger than Mercury and is the only moon known to make its own magnetic field.": "p12-narrator-17-ganymede-is-bigger-than-mercury-and.m4a",
- "Callisto’s old surface is crowded with craters, including the enormous multi-ring Valhalla basin.": "p12-narrator-18-callisto-s-old-surface-is-crowded.m4a"
+ "Callisto’s old surface is crowded with craters, including the enormous multi-ring Valhalla basin.": "p12-narrator-18-callisto-s-old-surface-is-crowded.m4a",
+ "The volcano moon. More volcanoes than anywhere else in the solar system. Jupiter squeezes and stretches Io as it goes round, and all that squeezing makes the inside hot. Some of its volcanoes throw material hundreds of kilometres up.": "p12-narrator-19-the-volcano-moon-more-volcanoes-than.m4a",
+ "A shell of ice with an ocean of water underneath it. The cracks all over Europa are in its ice. Underneath there is thought to be more liquid water than in all the oceans of Earth put together.": "p12-narrator-20-a-shell-of-ice-with-an.m4a",
+ "The biggest moon in the solar system — bigger than the planet Mercury. Ganymede is the only moon known to make its own magnetic field, and it has a salty ocean deep inside as well.": "p12-narrator-21-the-biggest-moon-in-the-solar.m4a",
+ "The most cratered world we know of. Nothing has smoothed it over. Callisto's surface is so old and so battered that it is almost solid craters. Nothing has happened there to rub them out.": "p12-narrator-22-the-most-cratered-world-we-know.m4a",
+ "Four moons going round the same planet, and not one of them is like another.": "p12-narrator-23-four-moons-going-round-the-same.m4a",
+ "The four great moons are not the only ones. Tap a name to meet a smaller moon.": "p12-narrator-24-the-four-great-moons-are-not.m4a"
 };
 window.__NARRATION_BASE = "assets-runtime/narration/";
 (function () {
@@ -521,11 +526,4 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 <!-- /SERVICEWORKER:JS -->
-  <script>
-  /* Pinch-zoom guard. iOS Safari ignores user-scalable=no (since iOS 10), so this is
-     the only thing that stops two small hands zooming the page mid-play. gesturestart
-     fires once per pinch; preventing it cancels the zoom and touches nothing else.
-     Other browsers never fire it, so this is inert there. */
-  document.addEventListener("gesturestart", function (e) { e.preventDefault(); }, { passive: false });
-  </script>
   </body></html>
