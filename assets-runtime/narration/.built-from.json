@@ -1220,6 +1220,66 @@
       "transform": "c72ab34134e655b9",
       "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
     },
+    "p10-narrator-44-this-dwarf-planet-is-called-ceres": {
+      "clip_sha256": "d350ad27adcc64745b09e9fc796f88acfb911e1625bf8e8c1d2851a1cf872cbc",
+      "master_sha256": "6b53d952ffa7d237c11752cc6ac9649acf0d9a380ce089aa51735679fd472349",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-45-this-asteroid-is-called-vesta": {
+      "clip_sha256": "a23ce2b3932426dfcb860ab08c1b9d8e7d92eecc05782ed492587232b5a0841c",
+      "master_sha256": "f003d852e5dd6f390c56dc56605e400a458373221c52f23dc79652edf3422cb8",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-46-this-asteroid-is-called-pallas": {
+      "clip_sha256": "28c987b6df3a03170298624b4dcf35e1217646c51d9b29203a3d715ae2610518",
+      "master_sha256": "2a488551b98eff4119201da0d8964af81d673c9ff26986f563830ea2624c05fe",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-47-this-asteroid-is-called-hygiea": {
+      "clip_sha256": "376b6c486cdc92d56fe56150d42fd6112bad7e491b7c7c92f0d670632dd1e346",
+      "master_sha256": "68209e7d8fe7ed2bc81cdf787ae72cd609f0b0c8409619a19986b4247ece32df",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-48-this-asteroid-is-called-juno": {
+      "clip_sha256": "959d6c6e686fddf2b39f55f684e7423931516532c01dbc0ec104214c089c8d61",
+      "master_sha256": "7becfceb92e9f89a65f9174cb644b6bce9a248e76ecba4509665ab5c2dd3e2f4",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-49-this-asteroid-is-called-psyche": {
+      "clip_sha256": "e009add05e1d44dcd8ce818dccefc2fcde9ea3442daa8e59c957d3688a4124fd",
+      "master_sha256": "86c0fd11d16e68c711c81a134672e0a8405c74b82283c25234ab9e8cd5287d4d",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-50-this-asteroid-is-called-lutetia": {
+      "clip_sha256": "1851f09d9104e6f8203893a065928cc45711bdffdf35c607c70cd0bfd13b1cdf",
+      "master_sha256": "d8e99eb6f2fc5ce44a4bd5c202710c90be503b7b10245f6ffa1362b4ce087a37",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-51-this-asteroid-is-called-mathilde": {
+      "clip_sha256": "b8388364e58b19ea8dd08396b95e523c32000c447c98a9a48876368230d40d54",
+      "master_sha256": "0b6908b43ce7cdc581ede621c0de1b59b8ae203116a4368fda3b91f54a5c8622",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-52-this-asteroid-is-called-ida-and": {
+      "clip_sha256": "6d8c1ce3158197b59090fc507fa238312bf3a16c09285a0885b12e17671b39b0",
+      "master_sha256": "74e269bc2ca3a48bbe5e8913de329d4501edbabc4fd8c0093fec2f38cb587f14",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
+    "p10-narrator-53-this-asteroid-is-called-gaspra": {
+      "clip_sha256": "9f85ef164c83aa8b9d9950fad46a7f1714d3061ffc26a90351e41c165f9f0ce3",
+      "master_sha256": "6aa93b670261e89ac2d3a954eefd33a7d0b83176abc044cbd1fe5b1df5ccc5a4",
+      "transform": "c72ab34134e655b9",
+      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
+    },
     "p11-friend-08-hi-i-m-grape": {
       "clip_sha256": "a9417bb16f0c885fcd6d4005961b4a725edf980aa99d69866b547403de4791b1",
       "master_sha256": "09e2d6de3ac477700240a3249a713a0a79e97eac23b27f007e8578692942e9e1",
