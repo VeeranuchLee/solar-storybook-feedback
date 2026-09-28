@@ -57,7 +57,7 @@
  */
 // v5 2026-09-22: zoom-trap fix -- the global gesturestart pinch blocker is
 //        gone estate-wide (INTERACTION-DIRECTION.md); this bump carries it.
-const CACHE_NAME = "solar-storybook-v8";
+const CACHE_NAME = "solar-storybook-v9";
 
 /* The front door and the first page: enough to open the book with no network.
    `./` and `./index.html` are the same document; both are listed because a child
@@ -72,6 +72,12 @@ const SHELL = [
      network is gone -- an offline page whose art 404s is its own small joke. */
   "./assets-runtime/standard/page-02/dot-neutral.webp",
 ];
+
+/* Page 12's Jupiter-moon deep dive deliberately is not added to SHELL: its
+   five new WebPs are covered by the cache-on-first-use fetch handler below.
+   Keeping that runtime list out of the install-time precache preserves the
+   book's small offline shell and, per the task guardrail, needs no cache-name
+   change. */
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

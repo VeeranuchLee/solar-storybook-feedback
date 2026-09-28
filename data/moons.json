@@ -266,7 +266,7 @@
         "weird-shape"
       ],
       "factShort": "The reddest thing in the solar system.",
-      "say": "Amalthea. A small red moon, close in to Jupiter."
+      "say": "Amalthea. The red potato moon. It is lumpy like a potato, its rock is dark red, and it goes round Jupiter even closer than Io does."
     },
     {
       "id": "thebe",
@@ -280,7 +280,7 @@
         "irregular"
       ],
       "factShort": "Its dust makes one of Jupiter's faint rings.",
-      "say": "Thebe. The dust knocked off it makes one of Jupiter's faint rings."
+      "say": "Thebe. A small, lumpy moon that leaves a trail of dust. When space rocks hit Thebe, dust flies off and spreads into a thin, faint ring around Jupiter."
     },
     {
       "id": "metis",
@@ -294,7 +294,7 @@
         "irregular"
       ],
       "factShort": "The closest moon to Jupiter of them all.",
-      "say": "Metis. The closest moon of all to Jupiter."
+      "say": "Metis. The moon closest to Jupiter. It races all the way round in about seven hours, faster than Jupiter itself spins round once."
     },
     {
       "id": "adrastea",
@@ -308,7 +308,7 @@
         "irregular"
       ],
       "factShort": "Tiny, and inside Jupiter's faint ring.",
-      "say": "Adrastea. A tiny moon inside Jupiter's ring."
+      "say": "Adrastea. One of Jupiter's tiniest moons. You could walk across it in an afternoon, and it travels round inside Jupiter's ring."
     },
     {
       "id": "himalia",
@@ -322,7 +322,7 @@
         "irregular"
       ],
       "factShort": "The biggest of Jupiter's far-out, dark little moons.",
-      "say": "Himalia. The biggest of Jupiter's small outer moons."
+      "say": "Himalia. The biggest of a far-away family of moons. Himalia and its family go round Jupiter a long way out, much farther than Callisto."
     },
     {
       "id": "titan",

@@ -426,14 +426,12 @@ window.BOOK_NAV = {
       ]
     },
 
-    /* ---- Page 12: Jupiter's moons (§7.3, plus J7 from the amendment) ----
-       J0 · J1 Io · J2 Europa · J3 Ganymede · J4 Callisto · J5 compare · J7.
-       J6 (tap-and-hear) is the one page §7.3 marks optional, and the amendment
-       says J7 simply follows J5 when J6 is not built. It is not built here:
-       every one of these four names carries its `pron` on its own page
-       already, and a tenth page of the same four names would be repetition
-       rather than a lesson. The four name clips it would need are recorded and
-       unwired, which is Phase 1D's job either way. */
+    /* ---- Page 12: Jupiter's moons ----
+       The asteroid section is the information-architecture reference: one
+       honest-size roster, then one destination per body. `diameterKm` is the
+       equivalent-volume diameter (twice JPL's mean radius), and is the only
+       number the roster uses for scale. The five small moons are enlarged in
+       their own panel, with a same-scale marker underneath. */
     {
       id: "jupiter-moons",
       title: "Jupiter's moons",
@@ -443,16 +441,19 @@ window.BOOK_NAV = {
       menus: [
         {
           id: "j0",
-          image: { src: "assets-runtime/standard/page-12/galilean-moons-group-v1.webp", alt: "Io, Europa, Ganymede and Callisto together" },
-          title: "Jupiter's four great moons",
-          subtitle: "Galileo saw them first",
-          layoutType: "overview-hotspots",
-          body: "Jupiter has four large moons that Galileo saw through a telescope four hundred years ago, and they are all completely different from each other. Tap one to look closer.",
-          hotspots: [
-            { id: "io",       label: "Io",       targetPage: "j1" },
-            { id: "europa",   label: "Europa",   targetPage: "j2" },
-            { id: "ganymede", label: "Ganymede", targetPage: "j3" },
-            { id: "callisto", label: "Callisto", targetPage: "j4" }
+          title: "Explore Jupiter's moons",
+          subtitle: "Nine moons, drawn in two scales",
+          layoutType: "moon-roster",
+          moons: [
+            { key: "ganymede", name: "Ganymede", diameterKm: 5262.4, family: "big", targetPage: "j3", image: "assets-runtime/standard/page-12/ganymede-hero-v1.webp" },
+            { key: "callisto", name: "Callisto", diameterKm: 4820.6, family: "big", targetPage: "j4", image: "assets-runtime/standard/page-12/callisto-hero-v1.webp" },
+            { key: "io", name: "Io", diameterKm: 3642.98, family: "big", targetPage: "j1", image: "assets-runtime/standard/page-12/io-hero-v1.webp" },
+            { key: "europa", name: "Europa", diameterKm: 3121.6, family: "big", targetPage: "j2", image: "assets-runtime/standard/page-12/europa-hero-v1.webp" },
+            { key: "himalia", name: "Himalia", diameterKm: 170, family: "small", targetPage: "j9", image: "assets-runtime/standard/page-12/jupiter-moons/himalia-v1.webp" },
+            { key: "amalthea", name: "Amalthea", diameterKm: 167, family: "small", targetPage: "j5", image: "assets-runtime/standard/page-12/jupiter-moons/amalthea-v1.webp" },
+            { key: "thebe", name: "Thebe", diameterKm: 98.6, family: "small", targetPage: "j6", image: "assets-runtime/standard/page-12/jupiter-moons/thebe-v1.webp" },
+            { key: "metis", name: "Metis", diameterKm: 43, family: "small", targetPage: "j7", image: "assets-runtime/standard/page-12/jupiter-moons/metis-v1.webp" },
+            { key: "adrastea", name: "Adrastea", diameterKm: 16.4, family: "small", targetPage: "j8", image: "assets-runtime/standard/page-12/jupiter-moons/adrastea-v1.webp" }
           ]
         }
       ],
@@ -462,9 +463,10 @@ window.BOOK_NAV = {
           image: { src: "assets-runtime/standard/page-12/io-hero-v1.webp", alt: "Io, yellow and volcanic" },
           title: "Io",
           subtitle: "say it: EYE-oh",
-          layoutType: "single-focus",
+          layoutType: "moon-focus",
           body: "The volcano moon. More volcanoes than anywhere else in the solar system. Jupiter squeezes and stretches Io as it goes round, and all that squeezing makes the inside hot. Some of its volcanoes throw material hundreds of kilometres up.",
           facts: [
+            { label: "How wide", value: "3,643 km" },
             { label: "Famous for", value: "Volcano moon" },
             { label: "Orbits",     value: "Jupiter" }
           ]
@@ -474,9 +476,10 @@ window.BOOK_NAV = {
           image: { src: "assets-runtime/standard/page-12/europa-hero-v1.webp", alt: "Europa, pale and crossed by reddish cracks" },
           title: "Europa",
           subtitle: "say it: yoo-ROH-puh",
-          layoutType: "single-focus",
+          layoutType: "moon-focus",
           body: "A shell of ice with an ocean of water underneath it. The cracks all over Europa are in its ice. Underneath there is thought to be more liquid water than in all the oceans of Earth put together.",
           facts: [
+            { label: "How wide", value: "3,122 km" },
             { label: "Famous for", value: "Ocean under the ice" },
             { label: "Orbits",     value: "Jupiter" }
           ]
@@ -486,9 +489,10 @@ window.BOOK_NAV = {
           image: { src: "assets-runtime/standard/page-12/ganymede-hero-v1.webp", alt: "Ganymede, large with grooved terrain" },
           title: "Ganymede",
           subtitle: "say it: GAN-ih-meed",
-          layoutType: "single-focus",
+          layoutType: "moon-focus",
           body: "The biggest moon in the solar system — bigger than the planet Mercury. Ganymede is the only moon known to make its own magnetic field, and it has a salty ocean deep inside as well.",
           facts: [
+            { label: "How wide", value: "5,262 km" },
             { label: "Famous for", value: "Biggest moon of all" },
             { label: "Orbits",     value: "Jupiter" }
           ]
@@ -498,40 +502,44 @@ window.BOOK_NAV = {
           image: { src: "assets-runtime/standard/page-12/callisto-hero-v1.webp", alt: "Callisto, dark and densely cratered" },
           title: "Callisto",
           subtitle: "say it: kuh-LIS-toh",
-          layoutType: "single-focus",
+          layoutType: "moon-focus",
           body: "The most cratered world we know of. Nothing has smoothed it over. Callisto's surface is so old and so battered that it is almost solid craters. Nothing has happened there to rub them out.",
           facts: [
+            { label: "How wide", value: "4,821 km" },
             { label: "Famous for", value: "Craters everywhere" },
             { label: "Orbits",     value: "Jupiter" }
           ]
         },
         {
           id: "j5",
-          image: { src: "assets-runtime/standard/page-12/galilean-moons-group-v1.webp", alt: "Io, Europa, Ganymede and Callisto together" },
-          title: "Four moons, four different worlds",
-          subtitle: "Side by side",
-          layoutType: "compare",
-          body: "Four moons going round the same planet, and not one of them is like another.",
-          items: [
-            { name: "Io",       note: "Volcanic" },
-            { name: "Europa",   note: "Icy, with an ocean" },
-            { name: "Ganymede", note: "The largest" },
-            { name: "Callisto", note: "Ancient and cratered" }
-          ]
+          image: { src: "assets-runtime/standard/page-12/jupiter-moons/amalthea-v1.webp", alt: "Amalthea, an elongated red moon" },
+          title: "Amalthea", subtitle: "say it: am-al-THEE-uh", layoutType: "moon-focus",
+          body: "Amalthea. The red potato moon. It is lumpy like a potato, its rock is dark red, and it goes round Jupiter even closer than Io does.",
+          facts: [{ label: "How wide", value: "167 km" }, { label: "Shape", value: "irregular" }, { label: "Orbits", value: "Jupiter" }]
         },
         {
-          id: "j7",
-          title: "Jupiter's other little moons",
-          subtitle: "Five more, close in and far out",
-          layoutType: "chips",
-          body: "The four great moons are not the only ones. Tap a name to meet a smaller moon.",
-          chips: [
-            { label: "Amalthea", pron: "am-al-THEE-uh", note: "The reddest thing in the solar system." },
-            { label: "Thebe",    pron: "THEE-bee",      note: "Its dust makes one of Jupiter's faint rings." },
-            { label: "Metis",    pron: "MEE-tiss",      note: "The closest moon to Jupiter of them all." },
-            { label: "Adrastea", pron: "ad-ruh-STEE-uh", note: "Tiny, and inside Jupiter's faint ring." },
-            { label: "Himalia",  pron: "hih-MAY-lee-uh", note: "The biggest of Jupiter's far-out, dark little moons." }
-          ]
+          id: "j6", image: { src: "assets-runtime/standard/page-12/jupiter-moons/thebe-v1.webp", alt: "Thebe, an irregular brown moon" },
+          title: "Thebe", subtitle: "say it: THEE-bee", layoutType: "moon-focus",
+          body: "Thebe. A small, lumpy moon that leaves a trail of dust. When space rocks hit Thebe, dust flies off and spreads into a thin, faint ring around Jupiter.",
+          facts: [{ label: "How wide", value: "99 km" }, { label: "Helps make", value: "a faint ring" }, { label: "Orbits", value: "Jupiter" }]
+        },
+        {
+          id: "j7", image: { src: "assets-runtime/standard/page-12/jupiter-moons/metis-v1.webp", alt: "Metis, a small irregular dark moon" },
+          title: "Metis", subtitle: "say it: MEE-tiss", layoutType: "moon-focus",
+          body: "Metis. The moon closest to Jupiter. It races all the way round in about seven hours, faster than Jupiter itself spins round once.",
+          facts: [{ label: "How wide", value: "43 km" }, { label: "Closest moon", value: "to Jupiter" }, { label: "Orbits", value: "Jupiter" }]
+        },
+        {
+          id: "j8", image: { src: "assets-runtime/standard/page-12/jupiter-moons/adrastea-v1.webp", alt: "Adrastea, a tiny elongated dark moon" },
+          title: "Adrastea", subtitle: "say it: ad-ruh-STEE-uh", layoutType: "moon-focus",
+          body: "Adrastea. One of Jupiter's tiniest moons. You could walk across it in an afternoon, and it travels round inside Jupiter's ring.",
+          facts: [{ label: "How wide", value: "16 km" }, { label: "Travels", value: "inside the main ring" }, { label: "Orbits", value: "Jupiter" }]
+        },
+        {
+          id: "j9", image: { src: "assets-runtime/standard/page-12/jupiter-moons/himalia-v1.webp", alt: "Himalia, an irregular grey moon" },
+          title: "Himalia", subtitle: "say it: hih-MAY-lee-uh", layoutType: "moon-focus",
+          body: "Himalia. The biggest of a far-away family of moons. Himalia and its family go round Jupiter a long way out, much farther than Callisto.",
+          facts: [{ label: "How wide", value: "170 km" }, { label: "Largest in", value: "the Himalia group" }, { label: "Orbits", value: "Jupiter" }]
         }
       ]
     },

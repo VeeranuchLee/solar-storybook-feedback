@@ -12690,6 +12690,7 @@
   "source_of_truth": "assets/ (masters, never written)",
   "notes": {
     "page-07": "standard tier registered 2026-08-11. The high tier is external (assets-runtime/high/ is sidecar-only) and still needs regenerating against the new page-07 display sizes, so no high-tier page-07 entries are recorded here yet.",
-    "page-20": "The owner-approved Grok JPEG and ten code-native SVGs are tracked runtime-only assets, recorded with hashes in assets-manifest.json. They do not derive from protected assets/ masters and therefore have no generated entry in this master-to-runtime manifest."
+    "page-20": "The owner-approved Grok JPEG and ten code-native SVGs are tracked runtime-only assets, recorded with hashes in assets-manifest.json. They do not derive from protected assets/ masters and therefore have no generated entry in this master-to-runtime manifest.",
+    "page-12-jupiter-moons": "Five tracked runtime-only WebPs were generated for the Jupiter-moon deep dive on 2026-09-28. Their external masters, prompts, hashes, and provenance are recorded in assets-manifest.json; build-runtime-assets.py must not overwrite them."
   }
 }

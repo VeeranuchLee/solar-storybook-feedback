@@ -654,7 +654,7 @@
        label says, and a child who chose Vesta from the menu did not choose the
        page before it. Close already returns to the menu in this state; Back
        must do the same. Other deep dives keep their in-book paging. */
-    if (p && p.layoutType === "asteroid-focus" && state.launchMenuId) {
+    if (p && (p.layoutType === "asteroid-focus" || p.layoutType === "moon-focus") && state.launchMenuId) {
       openMenu(state.launchMenuId, state.menuParentId);
       persist();
       return;
@@ -724,7 +724,8 @@
 
     /* A body destination is one tap away from the belt roster. Say where Back
        goes: a six-year-old should not have to infer navigation history. */
-    elBack.lastChild.textContent = p.layoutType === "asteroid-focus" ? "Back to belt" : "Back";
+    elBack.lastChild.textContent = p.layoutType === "asteroid-focus" ? "Back to belt" :
+      (p.layoutType === "moon-focus" ? "Back to moons" : "Back");
 
     var canBack = canGoBack();
     /* With nothing to unwind and no page to step back to, Back's next move is
@@ -733,12 +734,14 @@
        belt menu explicitly because that is where the visible label says Back
        goes. */
     var asteroidBack = p.layoutType === "asteroid-focus" && state.launchMenuId;
+    var moonBack = p.layoutType === "moon-focus" && state.launchMenuId;
     var backToMenu = canBack && state.launchMenuId &&
-                     (asteroidBack ||
+                     (asteroidBack || moonBack ||
                       (state.deepDiveHistory.length <= 1 && state.deepDivePageIndex === 0));
     var backLabel = "Back. This is the first page";
     if (canBack) {
       if (asteroidBack) backLabel = "Back to the belt";
+      else if (moonBack) backLabel = "Back to the moons";
       else if (backToMenu) backLabel = "Back to the choices";
       else backLabel = "Back one page";
     }
@@ -837,7 +840,8 @@
       renderFocus(p);
     } else if (p.image && p.image.src &&
                p.layoutType !== "overview-hotspots" &&
-               p.layoutType !== "asteroid-roster") {
+               p.layoutType !== "asteroid-roster" &&
+               p.layoutType !== "moon-roster") {
       var fig = el("div", "dd-hero");
       var img = document.createElement("img");
       img.src = p.image.src;
@@ -878,7 +882,9 @@
       case "compare":           renderCompare(p);  break;
       case "chips":             renderChips(p);    break;
       case "asteroid-roster":   renderRoster(p);   break;
+      case "moon-roster":       renderMoonRoster(p); break;
       case "single-focus":
+      case "moon-focus":
       case "asteroid-focus":
       case "diagram":
       default:                  break;
@@ -1036,6 +1042,61 @@
 
     elBody.appendChild(wrap);
     if (note) elBody.appendChild(note);
+  }
+
+  /* Jupiter's page-12 roster follows the asteroid menu's two-register lesson:
+     four large moons share one measured scale; five small moons are enlarged
+     enough to inspect and repeat their honest same-scale size as a marker.
+     The scale comes only from `diameterKm`, never from a hand-authored size
+     class, so changing a diameter cannot leave the drawing behind. */
+  function renderMoonRoster(p) {
+    var list = p.moons || [];
+    if (!list.length) return;
+    var scene = el("div", "dd-moon-roster");
+    var head = el("div", "dd-roster-head");
+    head.appendChild(el("span", "dd-roster-label", "Real size comparison"));
+    head.appendChild(el("span", "dd-tap-hint", "Tap a moon"));
+    scene.appendChild(head);
+
+    var big = el("div", "dd-moon-big-row");
+    var zoom = el("div", "dd-moon-zoom");
+    var zHead = el("div", "dd-roster-zoom-head");
+    var zPill = el("span", "dd-zoom-pill", "Zoomed in");
+    zHead.appendChild(zPill);
+    zoom.appendChild(zHead);
+    var small = el("div", "dd-moon-small-row");
+    zoom.appendChild(small);
+
+    var max = list.reduce(function (n, m) {
+      return m.family === "big" ? Math.max(n, m.diameterKm) : n;
+    }, 1);
+    list.forEach(function (m) {
+      var isSmall = m.family === "small";
+      var cell = el("button", "dd-moon-cell" + (isSmall ? " dd-moon-cell-small" : ""));
+      cell.type = "button";
+      cell.dataset.moon = m.key;
+      cell.setAttribute("aria-label", "Open " + m.name);
+      var art = document.createElement("img");
+      art.src = m.image; art.alt = ""; art.decoding = "async";
+      if (!isSmall) {
+        art.style.setProperty("--moon-size", (m.diameterKm / max * 116).toFixed(2) + "px");
+      }
+      cell.appendChild(art);
+      cell.appendChild(el("span", "dd-moon-name", m.name));
+      if (isSmall) {
+        var actual = el("span", "dd-moon-actual");
+        var dot = el("span", "dd-moon-dot");
+        dot.style.setProperty("--actual-size", Math.max(1, m.diameterKm / max * 116).toFixed(2) + "px");
+        actual.appendChild(dot);
+        actual.appendChild(el("span", null, "Actual size · same scale"));
+        cell.appendChild(actual);
+      }
+      cell.addEventListener("click", function () { openTarget(m.targetPage); });
+      (isSmall ? small : big).appendChild(cell);
+    });
+    scene.appendChild(big);
+    scene.appendChild(zoom);
+    elBody.appendChild(scene);
   }
 
   /* ============================================================
