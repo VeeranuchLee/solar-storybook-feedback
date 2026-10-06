@@ -1515,18 +1515,6 @@
       "transform": "c72ab34134e655b9",
       "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
     },
-    "p12-narrator-23-four-moons-going-round-the-same": {
-      "clip_sha256": "71d0fc30234f5e0b4510d016d27cfff4efa7f76b9741ee410a906e7d0680cb3c",
-      "master_sha256": "c41e8827adb1f1ace4f3d0124d5260f5d59ccc3591f1328730b3e0fafc4bd574",
-      "transform": "c72ab34134e655b9",
-      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
-    },
-    "p12-narrator-24-the-four-great-moons-are-not": {
-      "clip_sha256": "bcb2eeed7360932d94085e72425d469a0959c85e2e9c64261a4990b79b3f6d6e",
-      "master_sha256": "0b485ef10db4a32effbaccb5d15e1248fb3deef5416ea7b9b5d427187f2a1794",
-      "transform": "c72ab34134e655b9",
-      "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
-    },
     "p12-narrator-30-amalthea-the-red-potato-moon-it": {
       "clip_sha256": "b8d18bd07a4c845dfedca405605a2822c32ebbc970e90a43b822f53c2903d3c6",
       "master_sha256": "76384b74ca595712f119373eb7c7d0323ddcc784476fd3b78d9f52fb2f8f563c",
@@ -2278,14 +2266,14 @@
       "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
     },
     "p19-narrator-01-far-beyond-neptune-icy-pluto-and": {
-      "clip_sha256": "6da9ab628d8693ec66076e6c85904bd6ae799ae0ee770185152f78e6148a6427",
-      "master_sha256": "2fd5aff4a85ba330533afc6d1138ac1f4e83982e801aaf499d14a6568ffe4d53",
+      "clip_sha256": "03647015f8c14fa9da390b923cdbd89828bea3dd483f9a408b1ec841b520e476",
+      "master_sha256": "18103e482905615fc1cfe7a72ee0768eb75b3fa1f285da5e033522f9d8c1c242",
       "transform": "c72ab34134e655b9",
       "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
     },
     "p19-narrator-02-pluto-and-charon-travel-around-a": {
-      "clip_sha256": "24d754d37252d12448ea810ce4832f6e71100a0ba76e3eb8735c5174dd847273",
-      "master_sha256": "79e7c3d6e85a6079986f469678f4c0ab8d8b2dd2d73a3fa2ef02956ba1ddfc58",
+      "clip_sha256": "1f13cbd44c64c1c1342b5b26d337a5dda778d2661c1cba789f7ff463dc95d06c",
+      "master_sha256": "28a5b25551a76eeb303f08a55922f68d773d295a2ef735cd9ad25dc2b3ad3761",
       "transform": "c72ab34134e655b9",
       "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
     },
@@ -2314,14 +2302,14 @@
       "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
     },
     "p19-narrator-07-charon-pluto-s-giant-companion-about": {
-      "clip_sha256": "5de32d21d7412b138dd9e184354ed3dd6a1a32490232580810c6d1c2ed14628b",
-      "master_sha256": "cb002681c7cc4cf828ade8bee3ec96fbe350caef65922ee1a8ff97dbdbecf315",
+      "clip_sha256": "d1d81cc94efdafb30654ced28cf25332f472cbfb3d80d51be0aa4d3e44b8af50",
+      "master_sha256": "2b4b19c708c587e2035a538b29abcad5bdd3e3962fd4281710a94702fadc1fb1",
       "transform": "c72ab34134e655b9",
       "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
     },
     "p19-narrator-08-charon": {
-      "clip_sha256": "cd3d51ed52650c0b85a18124d86f56fc9a56c19a54b2b7a4f627281c7b73dcf7",
-      "master_sha256": "e32f367ec5a250a078d4a9cbcf8139929f32ae6110283601c21578390546db0e",
+      "clip_sha256": "23afbe13ba95f92623f826c118572c7d4c256e647c8dbdd620f431167ca5270e",
+      "master_sha256": "002e618100a6dc6f66f5074b7cfa920d0499f970ea55b17aa22d1076d89a9209",
       "transform": "c72ab34134e655b9",
       "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
     },
@@ -2332,8 +2320,8 @@
       "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
     },
     "p19-narrator-13-charon-is-about-half-as-wide": {
-      "clip_sha256": "4528066672d9beb6b42ac5c8e5ecfbfea4f2da1c87a84dfd975f3d0790b51587",
-      "master_sha256": "ef986cdd4ede5056972b8193be81e69cc966f99a3ca8e53084d6c62f24d3ddd4",
+      "clip_sha256": "e64e2153deee8c7803dd16237d56f46f1f6422b0091b21ff682fa81b83515760",
+      "master_sha256": "b5f9bf4e4288814972dfc1ca3e01a1ac4670d2a7f2b014b9e4a8775f034dd000",
       "transform": "c72ab34134e655b9",
       "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
     },
@@ -2350,8 +2338,8 @@
       "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
     },
     "p19-narrator-16-pluto-has-five-known-moons-charon": {
-      "clip_sha256": "f5b7353b470db0bceeaf05bf5fe0e05c9bec5215c089d9e33bbaf61647bc47e2",
-      "master_sha256": "4cff9bb933d5abaa082ce3a1064db169daad3f0423366e2b715dc080441da76a",
+      "clip_sha256": "20161048553f0cc52580c6032067003535094ce2f05acb9e70bcbd94e87ab20c",
+      "master_sha256": "ce1316e6cd1997b0f67af1d0ccb230cfacb96042b56b89a502eece4f0090bd9c",
       "transform": "c72ab34134e655b9",
       "transform_spec": "v1|aac@24000|mono|peak=-3.0|maxboost=24.0|minout=800"
     },

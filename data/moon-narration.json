@@ -5,7 +5,7 @@
     "exactly that text. Reused from the twenty story pages; nothing here was",
     "rendered for the Solar System Explorer and nothing was paid for.",
     "34 of 74 body names are covered.",
-    "The rest are silent by design and show their written pronunciation. To",
+    "The rest expose no audio control and show their written pronunciation. To",
     "record them, price the list in `missingNames` -- see AUDIO-DIRECTION.md."
   ],
   "names": {
@@ -43,16 +43,6 @@
     "hygiea": "p10-narrator-14-hygiea.m4a",
     "juno": "p10-narrator-16-juno.m4a",
     "lutetia": "p10-narrator-20-lutetia.m4a"
-  },
-  "says": {
-    "psyche": "p10-narrator-17-psyche-a-metal-rich-world-no.m4a",
-    "ida": "p10-narrator-23-ida-this-long-lumpy-asteroid-has.m4a",
-    "gaspra": "p10-narrator-25-gaspra-the-first-asteroid-a-spacecraft.m4a",
-    "mathilde": "p10-narrator-21-mathilde-so-dark-it-is-like.m4a",
-    "pallas": "p10-narrator-11-pallas-almost-as-big-as-vesta.m4a",
-    "hygiea": "p10-narrator-13-hygiea-a-dark-world-and-rounder.m4a",
-    "juno": "p10-narrator-15-juno-a-stony-asteroid-with-a.m4a",
-    "lutetia": "p10-narrator-19-lutetia-rosetta-flew-past-and-found.m4a"
   },
   "missingNames": [
     "Adrastea",

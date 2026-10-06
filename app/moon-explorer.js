@@ -29,9 +29,10 @@
    Asteroids orbit "the Sun" and are never presented as moons. The quiz is
    scoped to one group for that reason: "Whose Moon?" must not offer the Sun.
 
-   Sound: a body whose name the book has already recorded plays that clip. The
-   rest are silent and show a written pronunciation instead. There is
-   deliberately NO speechSynthesis fallback -- see data/moon-narration.json.
+   Sound: a body whose name the book has already recorded gets a Hear button
+   and plays that clip. Every other body shows only its written pronunciation:
+   no audio affordance, no silent audio target, and deliberately NO
+   speechSynthesis fallback -- see data/moon-narration.json.
    ========================================================================== */
 (function () {
   "use strict";
@@ -39,7 +40,7 @@
   var MODE = document.body.dataset.mx;
   var FAMILY = document.body.dataset.family || "";
   var GROUP = document.body.dataset.group || "";
-  var DATA = null, NARR = { names: {}, says: {} };
+  var DATA = null, NARR = { names: {} };
   var uid = 0;
 
   /* ---------- settings, shared with the story pages ------------------------ */
@@ -77,7 +78,7 @@
   function speak(moon) {
     if (!store.sound) return;
     var clip = NARR.names[moon.id];
-    if (!clip) return;                     // silent, and the card says why
+    if (!clip) return;                     // defensive: unrecorded names have no audio control
     try {
       if (playing) { playing.pause(); }
       playing = new Audio("assets-runtime/narration/" + clip);
@@ -222,7 +223,7 @@
                   "All of " + famOf(moon.family).title.replace(/^The /, "")) + " ›</a>" : "") +
         "</div>" +
         (recorded ? "" : '<p class="mx-note">This name has not been recorded yet — the ' +
-          "spelling above shows how to say it.</p>") +
+          "spelling above shows how to say it. There is no audio button for this name.</p>") +
         '<div id="mxLabHost"></div>' +
       "</div></div>";
     sheet.querySelector(".mx-close").addEventListener("click", close);
@@ -241,7 +242,7 @@
     sheet.classList.add("open");
     sheet.scrollTop = 0;
     sfx.tap();
-    speak(moon);
+    if (recorded) speak(moon);
   }
 
   /* ---------- cards -------------------------------------------------------- */
