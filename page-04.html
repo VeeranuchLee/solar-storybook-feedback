@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script src="audio-wake.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Ari &amp; Dot · Page 4 — Mercury</title>
@@ -347,6 +348,7 @@ function voiceFor(role){refreshVoices();const english=voices.filter(v=>!v.lang||
 function speak(text,role="narrator"){if(!soundOn)return;const synth=()=>{if(!("speechSynthesis" in window))return;try{const u=new SpeechSynthesisUtterance(text),v=voiceFor(role);if(v)u.voice=v;u.rate=role==="visitor"?1.02:.96;u.pitch=role==="visitor"?1.15:1.08;u.volume=.96;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}};if(narrate(text,null,synth))return;synth()}
 refreshVoices();try{speechSynthesis.addEventListener?.("voiceschanged",refreshVoices)}catch(e){}
 function cue(notes=[440],shape="sine"){if(!soundOn)return;const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;const ctx=cue.ctx||(cue.ctx=new Audio);ctx.resume?.();notes.forEach((f,i)=>{const t=ctx.currentTime+i*.11,o=ctx.createOscillator(),g=ctx.createGain();o.type=shape;o.frequency.value=f;g.gain.setValueAtTime(.001,t);g.gain.exponentialRampToValueAtTime(.05,t+.025);g.gain.exponentialRampToValueAtTime(.001,t+.2);o.connect(g).connect(ctx.destination);o.start(t);o.stop(t+.23)})}
+if (typeof AudioWake !== "undefined") AudioWake.attach(()=>cue.ctx,()=>{cue.ctx=null});
 function mercuryStep(){clearTimeout(mercuryTimer);if(reduced)return;mercuryIndex=(mercuryIndex+1)%4;mercuryImage.src=mercuryFrames[mercuryIndex];mercuryTimer=setTimeout(mercuryStep,620)}
 function sunStep(){clearTimeout(sunTimer);if(reduced)return;sunIndex=(sunIndex+1)%4;sunImage.src=sunFrames[sunIndex];sunTimer=setTimeout(sunStep,480)}
 function setPose(name,ms=2400){clearTimeout(poseTimer);document.querySelectorAll(".bubble").forEach(x=>x.classList.toggle("active",x.dataset.pose===name));if(name!=="rest")poseTimer=setTimeout(()=>setPose("rest",0),ms)}

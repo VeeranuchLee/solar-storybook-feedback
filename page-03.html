@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script src="audio-wake.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Ari &amp; Dot · Page 3 — The Sun</title>
@@ -364,6 +365,7 @@ function preferredVoice(role){refreshSpeechVoices();const english=speechVoices.f
 function speak(text,role="narrator"){if(!soundOn)return;const synth=()=>{if(!("speechSynthesis" in window)||!("SpeechSynthesisUtterance" in window))return;try{const u=new SpeechSynthesisUtterance(text),voice=preferredVoice(role);if(voice)u.voice=voice;u.rate=role==="visitor"?1.02:.96;u.pitch=role==="visitor"?1.15:1.08;u.volume=.96;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}};if(narrate(text,null,synth))return;synth()}
 refreshSpeechVoices();try{speechSynthesis.addEventListener?.("voiceschanged",refreshSpeechVoices)}catch(e){}
 function cue(notes=[440],shape="sine"){if(!soundOn)return;const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;const ctx=cue.ctx||(cue.ctx=new Audio);ctx.resume?.();notes.forEach((freq,i)=>{const start=ctx.currentTime+i*.12,o=ctx.createOscillator(),g=ctx.createGain();o.type=shape;o.frequency.value=freq;g.gain.setValueAtTime(.001,start);g.gain.exponentialRampToValueAtTime(.055,start+.025);g.gain.exponentialRampToValueAtTime(.001,start+.2);o.connect(g).connect(ctx.destination);o.start(start);o.stop(start+.23)})}
+if (typeof AudioWake !== "undefined") AudioWake.attach(()=>cue.ctx,()=>{cue.ctx=null});
 function idleStep(){clearTimeout(idleTimer);if(!sunActive||eventActive||reduced)return;idleIndex=(idleIndex+1)%idleFrames.length;sunImage.src=idleFrames[idleIndex];idleTimer=setTimeout(idleStep,460)}
 function describeSun(){sun.classList.remove("active");void sun.offsetWidth;sun.classList.add("active");cue([330,440,550]);speak("The Sun is a giant sphere of hot, moving plasma.");showStatus("The Sun is a giant sphere of hot, moving plasma.")}
 sun.onclick=describeSun;document.getElementById("start-sun").onclick=describeSun;

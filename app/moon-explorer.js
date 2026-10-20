@@ -70,6 +70,7 @@
       o.connect(gn).connect(actx.destination); o.start(t); o.stop(t + d + 0.03);
     } catch (e) {}
   }
+  if (typeof AudioWake !== "undefined") AudioWake.attach(function () { return actx; }, function () { actx = null; });
   var sfx = {
     tap: function () { tone(880, 0.08, "triangle", 0.08); },
     good: function () { [523, 659, 784, 1047].forEach(function (f, i) { tone(f, 0.32, "sine", 0.08, i * 0.07); }); },
