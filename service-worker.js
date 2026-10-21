@@ -59,7 +59,7 @@
 //        gone estate-wide (INTERACTION-DIRECTION.md); this bump carries it.
 // v10 2026-10-06: Explorer bodies without recorded names expose no audio
 //        affordance or silent playback path; the written pronunciation stays.
-const CACHE_NAME = "solar-storybook-v11";
+const CACHE_NAME = "solar-storybook-v12";
 
 /* The front door and the first page: enough to open the book with no network.
    `./` and `./index.html` are the same document; both are listed because a child
