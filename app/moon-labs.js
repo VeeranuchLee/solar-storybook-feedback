@@ -4,16 +4,25 @@
    The owner's rule: only hero moons get an interaction, and it has to show the
    thing the moon is famous FOR. A card that merely wiggles is not one of these.
 
-   Each entry is { button, cap, svg }. The runtime drops the svg into the detail
-   sheet when the child asks for it, so nothing here animates until it is wanted.
-   Motion is SMIL, which the story pages already use for their fact icons, and
-   the runtime calls pauseAnimations() when Calm mode is on.
+   Each entry is { button, icon, cap, svg }. The runtime drops the svg into the
+   detail sheet when the child asks for it, so nothing here animates until it is
+   wanted. `icon` is the button's drawn glyph (owner rule, 2026-10-20: the old
+   emoji became small line SVGs in currentColor, the label untouched) and
+   `button` is the words a child reads. Motion is SMIL, which the story pages
+   already use for their fact icons, and the runtime calls pauseAnimations()
+   when Calm mode is on.
    ========================================================================== */
 window.MX_LAB = {
 
   /* Io — the volcanoes, and why it has them ------------------------------- */
   volcano: {
-    button: "🌋 Watch a volcano go",
+    button: "Watch a volcano go",
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path ' +
+      'd="M9 6q1.5 1.4 3 0t3 0" fill="none" stroke="currentColor" stroke-width="1.8" ' +
+      'stroke-linecap="round"/><path d="M4 20l4.2-9.5h7.6L20 20z" fill="none" ' +
+      'stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path ' +
+      'd="M9.2 10.5q2.8 2.2 5.6 0" fill="none" stroke="currentColor" stroke-width="1.8" ' +
+      'stroke-linecap="round"/></svg>',
     cap: "Jupiter squeezes Io as it goes round, and the squeezing keeps the inside hot.",
     svg: '<svg viewBox="0 0 300 150" role="img" aria-label="A volcano erupting on Io">' +
       '<circle cx="150" cy="180" r="112" fill="#f2d24e"/>' +
@@ -41,7 +50,11 @@ window.MX_LAB = {
 
   /* Europa — the ocean under the ice --------------------------------------- */
   ocean: {
-    button: "🧊 Look under the ice",
+    button: "Look under the ice",
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path ' +
+      'd="M12 2.7 21 7.3v9.4L12 21.3 3 16.7V7.3z" fill="none" stroke="currentColor" ' +
+      'stroke-width="2" stroke-linejoin="round"/><path d="M3 7.3l9 4.6 9-4.6M12 11.9v9.4" ' +
+      'fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>',
     cap: "The cracks are in the ice. The water is underneath, and there is more of it than in every ocean on Earth.",
     svg: '<svg viewBox="0 0 300 150" role="img" aria-label="A slice through Europa">' +
       '<defs><clipPath id="mxEuC"><rect x="10" y="8" width="280" height="134" rx="14"/></clipPath></defs>' +
@@ -70,7 +83,12 @@ window.MX_LAB = {
 
   /* Ganymede — bigger than a planet ---------------------------------------- */
   size: {
-    button: "📏 Put it beside Mercury",
+    button: "Put it beside Mercury",
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path ' +
+      'd="M2.9 16.7 16.7 2.9l4.4 4.4L7.3 21.1z" fill="none" stroke="currentColor" ' +
+      'stroke-width="2" stroke-linejoin="round"/><path d="M6.6 13l1.9 1.9M9.9 9.7l1.9 1.9' +
+      'M13.2 6.4l1.9 1.9" fill="none" stroke="currentColor" stroke-width="1.8" ' +
+      'stroke-linecap="round"/></svg>',
     cap: "Ganymede is 5,268 km across. Mercury is 4,879. Our Moon is 3,475.",
     svg: '<svg viewBox="0 0 300 150" role="img" aria-label="Ganymede compared with Mercury and the Moon">' +
       '<g><circle cx="60" cy="96" r="0" fill="#9b8f80"><animate attributeName="r" values="0;46" ' +
@@ -88,7 +106,12 @@ window.MX_LAB = {
 
   /* Titan — it rains there --------------------------------------------------*/
   titan: {
-    button: "🌧 Watch it rain",
+    button: "Watch it rain",
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path ' +
+      'd="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25" fill="none" ' +
+      'stroke="currentColor" stroke-width="2" stroke-linecap="round" ' +
+      'stroke-linejoin="round"/><path d="M8 13.5v4.5M12 15.5v5M16 13.5v4.5" fill="none" ' +
+      'stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
     cap: "Titan is the only other place we know of with rivers, lakes and rain — but the rain is methane, not water.",
     svg: '<svg viewBox="0 0 300 150" role="img" aria-label="Methane rain falling into a lake on Titan">' +
       '<rect x="0" y="0" width="300" height="150" fill="#e0a53f" rx="12"/>' +
@@ -110,7 +133,11 @@ window.MX_LAB = {
 
   /* Enceladus — the jets ----------------------------------------------------*/
   plume: {
-    button: "💦 Turn on the jets",
+    button: "Turn on the jets",
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path ' +
+      'd="M12 21.5v-6M12 15.5 5 10M12 15.5V4.5M12 15.5l7-5" fill="none" ' +
+      'stroke="currentColor" stroke-width="2" stroke-linecap="round" ' +
+      'stroke-linejoin="round"/></svg>',
     cap: "The spray comes from an ocean under the ice — and some of it becomes one of Saturn's rings.",
     svg: '<svg viewBox="0 0 300 150" role="img" aria-label="Enceladus spraying jets of ice into space">' +
       '<circle cx="150" cy="128" r="58" fill="#f2f7fa"/>' +
@@ -132,7 +159,10 @@ window.MX_LAB = {
 
   /* Daphnis — the waves it raises -------------------------------------------*/
   waves: {
-    button: "🌊 Make the waves",
+    button: "Make the waves",
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path ' +
+      'd="M3 8.5q3-4.5 6 0t6 0 6 0M3 15.5q3-4.5 6 0t6 0 6 0" fill="none" ' +
+      'stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg>',
     cap: "Eight kilometres of rock, and its gravity is still enough to pull the ring edge into waves.",
     svg: '<svg viewBox="0 0 300 150" role="img" aria-label="Daphnis raising waves in a ring edge">' +
       '<rect x="0" y="0" width="300" height="150" fill="#0d1f3d" rx="12"/>' +
@@ -157,7 +187,12 @@ window.MX_LAB = {
   // (really the inner one is faster and that is WHY it catches up), so the
   // caption says the timing is squashed.
   swap: {
-    button: "🔄 Watch them swap",
+    button: "Watch them swap",
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path ' +
+      'd="M23 4v6h-6M1 20v-6h6" fill="none" stroke="currentColor" stroke-width="2" ' +
+      'stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4' +
+      'L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15" fill="none" stroke="currentColor" ' +
+      'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     cap: "They never touch. The inner one is faster, so it catches the outer one up — then they tug on each other and trade orbits. Squashed here: each trade takes four real years, and they trade back again.",
     svg: '<svg viewBox="0 0 300 150" role="img" aria-label="Janus and Epimetheus trading orbits">' +
       '<ellipse cx="150" cy="75" rx="118" ry="46" fill="none" stroke="#2c4d78" stroke-width="1.3" stroke-dasharray="4 5"/>' +
@@ -181,7 +216,12 @@ window.MX_LAB = {
 
   /* Triton — going the wrong way --------------------------------------------*/
   retrograde: {
-    button: "↩️ See it go backwards",
+    button: "See it go backwards",
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path ' +
+      'd="M9 14 4 9l5-5" fill="none" stroke="currentColor" stroke-width="2" ' +
+      'stroke-linecap="round" stroke-linejoin="round"/><path d="M20 20v-7a4 4 0 0 0-4-4H4" ' +
+      'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" ' +
+      'stroke-linejoin="round"/></svg>',
     cap: "Every other big moon travels the way its planet spins. Triton does not — which is how we know Neptune caught it.",
     svg: '<svg viewBox="0 0 300 150" role="img" aria-label="Triton orbiting Neptune backwards">' +
       '<circle cx="150" cy="75" r="34" fill="#3f6fd8"/>' +
@@ -190,17 +230,22 @@ window.MX_LAB = {
         '<animateTransform attributeName="transform" type="rotate" from="0 150 75" to="360 150 75" ' +
         'dur="5s" repeatCount="indefinite"/></g>' +
       '<text x="150" y="20" text-anchor="middle" fill="#2c5878" font-weight="900" font-size="11">' +
-        "Neptune spins this way →</text>" +
+        'Neptune spins this way</text><path d="M201 39h18m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
       '<ellipse cx="150" cy="75" rx="104" ry="46" fill="none" stroke="#2c4d78" stroke-width="1.4" stroke-dasharray="5 5"/>' +
       '<g><circle r="10" fill="#e0a893"><animateMotion dur="7s" repeatCount="indefinite" ' +
         'path="M254 75a104 46 0 1 0 -208 0a104 46 0 1 0 208 0"/></circle></g>' +
       '<text x="150" y="142" text-anchor="middle" fill="#a44e32" font-weight="900" font-size="11">' +
-        "← and Triton goes the other way</text></svg>"
+        'and Triton goes the other way</text><path d="M24 160H6m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
   },
 
   /* Charon — the dance ------------------------------------------------------*/
   barycentre: {
-    button: "💫 Watch them dance",
+    button: "Watch them dance",
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle ' +
+      'cx="12" cy="12" r="2.1" fill="currentColor"/><ellipse cx="12" cy="12" rx="9.5" ' +
+      'ry="4" fill="none" stroke="currentColor" stroke-width="1.7" ' +
+      'transform="rotate(-18 12 12)"/><circle cx="18.1" cy="7.3" r="1.8" ' +
+      'fill="currentColor"/><circle cx="5.9" cy="16.7" r="1.3" fill="currentColor"/></svg>',
     cap: "Charon is so big that the point they both go round is outside Pluto — so Pluto swings too. The gap between them is squashed here to fit; the yellow dot really is outside Pluto.",
     svg: '<svg viewBox="0 0 300 150" role="img" aria-label="Pluto and Charon circling a point between them">' +
       '<circle cx="150" cy="75" r="3" fill="#ffd457"/>' +

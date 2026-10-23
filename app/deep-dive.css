@@ -205,6 +205,9 @@
 }
 .dd-speak:hover { background: #24659a; }
 .dd-speak:focus-visible { outline: 3px solid var(--dd-blue); outline-offset: 3px; }
+/* The speaker is drawn, not the 🔊 emoji (owner rule, 2026-10-20) — same size
+   the glyph occupied, and it inherits the button's cream colour. */
+.dd-speak svg { width: 1.15em; height: 1.15em; flex: none; }
 
 @media (max-width: 560px) {
   .dd-copy-row { grid-template-columns: 1fr; }

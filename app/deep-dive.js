@@ -199,7 +199,7 @@
     var bar = el("header", "dd-bar");
     elBack = el("button", "dd-btn dd-btn-back");
     elBack.type = "button";
-    elBack.innerHTML = '<span aria-hidden="true">‹</span><span>Back</span>';
+    elBack.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em"><path d="M19 12H5m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back</span>';
 
     var head = el("div", "dd-head");
     elTitle = el("h2"); elTitle.id = "dd-title";
@@ -211,7 +211,7 @@
     /* Says what it does, not what it is. "Close" alone leaves a child's helper
        guessing whether it closes the page, the book or the app. */
     elClose.setAttribute("aria-label", "Close. Go back to the story");
-    elClose.innerHTML = '<span>Close</span><span aria-hidden="true">×</span>';
+    elClose.innerHTML = '<span>Close</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
 
     bar.appendChild(elBack); bar.appendChild(head); bar.appendChild(elClose);
 
@@ -223,7 +223,7 @@
     elPos = el("div", "dd-pos");
     elNext = el("button", "dd-btn dd-next");
     elNext.type = "button";
-    elNext.innerHTML = '<span>Next</span><span aria-hidden="true">›</span>';
+    elNext.innerHTML = '<span>Next</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     foot.appendChild(elDots); foot.appendChild(elPos); foot.appendChild(elNext);
 
     panel.appendChild(bar); panel.appendChild(elBody); panel.appendChild(foot);
@@ -924,7 +924,9 @@
     b.type = "button";
     b.dataset.narration = text;
     b.setAttribute("aria-label", "Read about " + (p.title || "this page"));
-    b.innerHTML = '<span aria-hidden="true">🔊</span><span>Read this page</span>';
+    /* Drawn speaker, not the 🔊 emoji (owner rule, 2026-10-20) — same size the
+       glyph occupied, currentColor so it rides the button's cream. */
+    b.innerHTML = '<span aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M11 5 6 9H3v6h3l5 4V5z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a9 9 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span><span>Read this page</span>';
     b.addEventListener("click", function () {
       if (!window.speechSynthesis || !window.SpeechSynthesisUtterance) return;
       window.speechSynthesis.cancel();

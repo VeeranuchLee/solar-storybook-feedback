@@ -76,6 +76,19 @@
     good: function () { [523, 659, 784, 1047].forEach(function (f, i) { tone(f, 0.32, "sine", 0.08, i * 0.07); }); },
     nope: function () { tone(300, 0.16, "sine", 0.07); tone(220, 0.22, "sine", 0.06, 0.12); }
   };
+  /* Drawn speakers, not 🔊/🔇 emoji (owner rule, 2026-10-20). Rounded
+     currentColor strokes at the size the glyphs rendered; the muted one keeps
+     the body and swaps the waves for a slash. */
+  var ICON_SND_ON =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+    '<path d="M11 5 6 9H3v6h3l5 4V5z" fill="currentColor"/>' +
+    '<path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a9 9 0 0 1 0 12" fill="none" ' +
+    'stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
+  var ICON_SND_OFF =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+    '<path d="M11 5 6 9H3v6h3l5 4V5z" fill="currentColor"/>' +
+    '<path d="M16 9l6 6M22 9l-6 6" fill="none" ' +
+    'stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
   function speak(moon) {
     if (!store.sound) return;
     var clip = NARR.names[moon.id];
@@ -154,14 +167,15 @@
     el.className = "mx-bar";
     el.setAttribute("aria-label", "Solar System Explorer navigation");
     var left = MODE === "hub"
-      ? '<a class="mx-btn" href="page-20.html">‹ Back to the story</a>'
-      : '<a class="mx-btn" href="page-m1.html">‹ Solar System Explorer</a>';
+      ? '<a class="mx-btn" href="page-20.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em"><path d="M19 12H5m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to the story</a>'
+      : '<a class="mx-btn" href="page-m1.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em"><path d="M19 12H5m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Solar System Explorer</a>';
     el.innerHTML =
       '<a class="mx-btn home" href="https://veeranuchlee.github.io/children-apps/" ' +
-        'aria-label="Back to Children Games" title="Back to Children Games">←</a>' +
+        'aria-label="Back to Children Games" title="Back to Children Games"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.3em"><path d="M19 12H5m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>' +
       left + '<span class="grow"></span>' +
       '<button class="mx-btn" id="mxSound" type="button" aria-pressed="' + store.sound + '">' +
-        (store.sound ? "🔊 Sound on" : "🔇 Sound off") + '</button>' +
+        (store.sound ? ICON_SND_ON + "<span>Sound on</span>"
+                     : ICON_SND_OFF + "<span>Sound off</span>") + '</button>' +
       '<button class="mx-btn" id="mxCalm" type="button" title="Reduced motion" aria-pressed="' +
         calm + '">' + (calm ? "Full motion" : "Calm mode") + '</button>';
     document.body.insertBefore(el, document.body.firstChild);
@@ -170,7 +184,8 @@
     s.addEventListener("click", function () {
       store.sound = !store.sound;
       s.setAttribute("aria-pressed", String(store.sound));
-      s.textContent = store.sound ? "🔊 Sound on" : "🔇 Sound off";
+      s.innerHTML = store.sound ? ICON_SND_ON + "<span>Sound on</span>"
+                                : ICON_SND_OFF + "<span>Sound off</span>";
       if (!store.sound && playing) playing.pause();
       if (store.sound) sfx.tap();
     });
@@ -208,7 +223,7 @@
     var recorded = !!NARR.names[moon.id];
     var lab = MX_LAB[moon.interaction];
     sheet.innerHTML =
-      '<button class="mx-close" type="button" aria-label="Close">×</button>' +
+      '<button class="mx-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>' +
       '<div class="in"><div>' + art(moon.avatar) + '</div><div>' +
         '<h2>' + esc(moon.name) + '</h2>' +
         (moon.pron ? '<p class="pron">say it: ' + esc(moon.pron) + "</p>" : "") +
@@ -216,8 +231,9 @@
         "<p>" + esc(moon.factShort) + "</p>" +
         (moon.factExtra ? '<p class="extra">' + esc(moon.factExtra) + "</p>" : "") +
         '<div class="mx-acts">' +
-          (recorded ? '<button class="mx-pill primary" id="mxSay">▶ Hear the name</button>' : "") +
-          (lab ? '<button class="mx-pill" id="mxLab">' + esc(lab.button) + "</button>" : "") +
+          (recorded ? '<button class="mx-pill primary" id="mxSay"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-right:.3em"><path d="M8 5.5 19 12 8 18.5z" fill="currentColor"/></svg>Hear the name</button>' : "") +
+          (lab ? '<button class="mx-pill" id="mxLab">' + (lab.icon || "") +
+            esc(lab.button) + "</button>" : "") +
           (opts.family !== false && MODE !== "family"
             ? '<a class="mx-pill" href="page-' + famOf(moon.family).page + '.html">' +
               esc(famOf(moon.family).allLabel ||
@@ -403,7 +419,7 @@
       '<div class="mx-ask" id="mxAsk"></div>' +
       '<div class="mx-answers" id="mxAnswers"></div>' +
       '<p class="mx-verdict" id="mxVerdict"></p>' +
-      '<button class="mx-pill" id="mxSkip" type="button">Another moon →</button>';
+      '<button class="mx-pill" id="mxSkip" type="button">Another moon <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:1em;height:1em;vertical-align:-.15em;margin-left:.3em"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
     document.body.appendChild(wrap);
 
     var levelsEl = wrap.querySelector("#mxLevels");

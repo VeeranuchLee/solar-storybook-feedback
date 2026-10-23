@@ -49,6 +49,9 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .mx-btn:hover{background:#285b87}
 .mx-btn[aria-pressed=true]{background:#2b6f96}
 .mx-btn.home{background:#16345c;border-color:#ffffff33}
+/* Drawn button icons (owner rule, 2026-10-20): the old 🔊/🔇 and the moon-lab
+   emoji became small currentColor SVGs at the size the emoji rendered. */
+.mx-btn svg{width:1.15em;height:1.15em;flex:none}
 
 /* ---------- page head ----------------------------------------------------- */
 .mx-head{max-width:1180px;margin:0 auto;padding:clamp(12px,2.2vw,26px) clamp(12px,2vw,24px) 0;
@@ -115,7 +118,8 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .mx-acts{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.55rem}
 .mx-pill{min-height:44px;padding:.4rem .85rem;border:2px solid #365a84;border-radius:999px;
   background:#fffaf0;color:#243d62;font-weight:900;cursor:pointer;box-shadow:0 4px 0 #193b5d;
-  font-size:clamp(.68rem,.9vw,.95rem)}
+  font-size:clamp(.68rem,.9vw,.95rem);display:inline-flex;align-items:center;gap:.4em;text-align:left}
+.mx-pill svg{width:1.2em;height:1.2em;flex:none}
 .mx-pill:active{transform:translateY(3px);box-shadow:0 1px 0 #193b5d}
 .mx-pill.primary{background:var(--gold)}
 .mx-close{position:absolute;right:12px;top:10px;width:40px;height:40px;border:0;
