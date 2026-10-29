@@ -307,6 +307,7 @@ html,body{margin:0;height:100%;background:#05060d;color:var(--ink);
 .page-nav a:focus-visible,.page-jump:focus-visible,.page-goto input:focus-visible,.page-goto button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .page-goto{position:absolute;right:calc(100% + 7px);top:0;display:flex;gap:5px;padding:8px;border:1px solid rgba(255,255,255,.22);
   border-radius:12px;background:#0b1730;box-shadow:0 10px 30px rgba(0,0,0,.5);white-space:nowrap}
+#btn-quality[hidden]{display:none}
 .page-goto[hidden]{display:none}.page-goto label{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:800}
 .page-goto input{width:48px;padding:5px;border:1px solid #8fe7ff88;border-radius:7px;background:#061126;color:#fff}
 .page-goto button{padding:5px 8px;border:0;border-radius:7px;background:#ffd66d;color:#17203a;font-weight:900;cursor:pointer}
@@ -354,9 +355,19 @@ body.reduce-motion .celestial,
 body.reduce-motion .moon,
 body.reduce-motion .jupiter,
 body.reduce-motion .night-light{transition:none !important}
+.stage.replay-feedback{animation:replay-flash 320ms ease-out}
+@keyframes replay-flash{
+  0%{box-shadow:inset 0 0 0 999px rgba(198,224,255,.38)}
+  100%{box-shadow:inset 0 0 0 999px rgba(198,224,255,0)}
+}
+body.reduce-motion .stage.replay-feedback{animation:replay-flash-calm 120ms linear}
+@keyframes replay-flash-calm{
+  0%,100%{outline:4px solid rgba(198,224,255,.72);outline-offset:-4px}
+}
 @media (prefers-reduced-motion: reduce){
   .layer.gleam img{animation:none}
   .curtain,.celestial,.moon,.jupiter,.night-light{transition:none}
+  .stage.replay-feedback{animation:replay-flash-calm 120ms linear}
 }
 </style>
   <style>
@@ -558,7 +569,7 @@ body.reduce-motion .night-light{transition:none !important}
       <button id="btn-fullscreen" type="button" aria-label="Full screen" title="Full screen">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
       </button>
-      <button id="btn-quality" type="button" aria-label="Standard art. Press for sharper art" aria-pressed="false" title="Standard art">
+      <button id="btn-quality" type="button" hidden aria-label="Standard art. Press for sharper art" aria-pressed="false" title="Standard art">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.1L20 9.3l-4 3.7.9 5.5L12 16l-4.9 2.5.9-5.5-4-3.7 5.8-1.2z"/></svg>
       </button>
     </div>
@@ -692,7 +703,28 @@ window.__NARRATION_BASE = "assets-runtime/narration/";
       const n = s(o); if (n !== o) e.textContent = n;
     });
   };
-  if (rtTier === "high") retier();
+  /* The high tier is not always there. assets-runtime/high/ is sidecar-only and
+     never published, so trusting the stored choice (or the button) would point
+     every path at a tier with no files behind it and blank the page -- which is
+     exactly what page 1 did live until 2026-10-25. So: probe one real asset
+     before committing to the tier, and treat a STORED "high" the same way --
+     start on standard, switch only once the probe answers, and forget the
+     choice otherwise. Same pattern as pages 2-8. */
+  const probeHigh = () => new Promise(res => {
+    const el = document.querySelector('img[src*="assets-runtime/"]');
+    if (!el) return res(false);
+    const im = new Image();
+    im.onload = () => res(true);
+    im.onerror = () => res(false);
+    im.src = el.getAttribute("src").replace(/assets-runtime\/(standard|high)\//, "assets-runtime/high/");
+  });
+  let highTier = null;
+  const highReady = async () => { if (highTier === null) highTier = await probeHigh(); return highTier; };
+  const forgetTier = () => { try { localStorage.removeItem("sb-quality"); } catch (e) {} };
+  if (rtTier === "high") {
+    rtTier = "standard";
+    highReady().then(ok => { if (ok) { rtTier = "high"; retier(); } else forgetTier(); syncQuality(); });
+  }
   /* Narration. The map and base now come from the shared block that
      tools/wire-narration.py writes above -- one AAC .m4a per line under
      assets-runtime/narration/, keyed by the exact line text, which is why no
@@ -1837,6 +1869,12 @@ window.__NARRATION_BASE = "assets-runtime/narration/";
      Page-wide replay
      ============================================================ */
   function replayPage() {
+    stage.classList.remove("replay-feedback");
+    void stage.offsetWidth;
+    stage.classList.add("replay-feedback");
+    later(() => stage.classList.remove("replay-feedback"), reduceMotion ? 140 : 340);
+    tone(360, .1, "sine", .035);
+    tone(270, .12, "sine", .025, .065);
     closeStory(false);
     ++curtainRun;
     hideJupiter();
@@ -1915,7 +1953,15 @@ window.__NARRATION_BASE = "assets-runtime/narration/";
     b.title = high ? "Sharper art" : "Standard art";
     b.setAttribute("aria-label", high ? "Sharper art. Press for standard art" : "Standard art. Press for sharper art");
   }
-  $("btn-quality").addEventListener("click", () => {
+  $("btn-quality").addEventListener("click", async () => {
+    const qb = $("btn-quality");
+    if (rtTier !== "high") {
+      /* Never switch to a tier that is not there (see probeHigh above). */
+      qb.disabled = true;
+      const ok = await highReady();
+      qb.disabled = false;
+      if (!ok) { forgetTier(); qb.hidden = true; say("Standard pictures only."); return; }
+    }
     rtTier = rtTier === "high" ? "standard" : "high";
     try { localStorage.setItem("sb-quality", rtTier); } catch (e) {}
     retier();
@@ -1923,6 +1969,11 @@ window.__NARRATION_BASE = "assets-runtime/narration/";
     say(rtTier === "high" ? "Sharper pictures on." : "Standard pictures on.");
   });
   syncQuality();
+  /* Hide the picture-quality control unless the sharper tier is really there:
+     it is unpublished, so on the live site the star would otherwise be a button
+     that can do nothing. Shown only once the probe succeeds. */
+  $("btn-quality").hidden = true;
+  highReady().then(ok => { if (ok) $("btn-quality").hidden = false; });
 
   mediaRM.addEventListener?.("change", e => {
     setMotion(!e.matches);
